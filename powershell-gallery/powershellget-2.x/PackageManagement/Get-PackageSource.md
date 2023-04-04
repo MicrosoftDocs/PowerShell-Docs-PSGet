@@ -303,7 +303,7 @@ criteria set by the parameters. By default, it returns every registered package 
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Find-Package](Find-Package.md)
 

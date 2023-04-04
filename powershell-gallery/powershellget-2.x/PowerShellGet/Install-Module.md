@@ -586,7 +586,7 @@ The publisher lists the required modules and their versions in the module manife
 
 [Get-PSRepository](Get-PSRepository.md)
 
-[Import-Module](../Microsoft.PowerShell.Core/Import-Module.md)
+[Import-Module](xref:Microsoft.PowerShell.Core.Import-Module)
 
 [Publish-Module](Publish-Module.md)
 
@@ -596,4 +596,4 @@ The publisher lists the required modules and their versions in the module manife
 
 [Update-Module](Update-Module.md)
 
-[about_Module](../Microsoft.PowerShell.Core/About/about_Modules.md)
+[about_Module](/powershell/module/Microsoft.PowerShell.Core/About/about_Modules)

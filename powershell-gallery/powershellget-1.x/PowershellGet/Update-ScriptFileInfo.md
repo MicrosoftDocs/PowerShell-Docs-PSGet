@@ -49,7 +49,7 @@ version, author, or description.
 In this example, an existing script file is updated with new property values.
 
 Splatting is used to pass parameters to the `Update-ScriptFileInfo` cmdlet. For more information,
-see [about_Splatting](../Microsoft.Powershell.Core/About/about_splatting.md).
+see [about_Splatting](/powershell/module/Microsoft.PowerShell.Core/About/about_splatting).
 
 ```powershell
 $Parms = @{

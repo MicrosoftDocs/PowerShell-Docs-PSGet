@@ -190,7 +190,7 @@ You can pipe a **PackageProvider** object returned by `Get-PackageProvider` into
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Unregister-PackageSource](Unregister-PackageSource.md)
 

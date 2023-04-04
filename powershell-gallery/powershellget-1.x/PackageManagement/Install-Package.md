@@ -942,11 +942,11 @@ parameter set that includes `-NoPathUpdate`, `AllowClobber`, and `SkipPublisherC
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Find-DscResource](../PowershellGet/Find-DscResource.md)
 
-[Get-Help](../Microsoft.PowerShell.Core/Get-Help.md)
+[Get-Help](xref:Microsoft.PowerShell.Core.Get-Help)
 
 [Get-Package](Get-Package.md)
 

@@ -1,22 +1,26 @@
 {
   "build": {
     "content": [
+      {
+        "dest": "",
+        "exclude": [ "**/includes/**", "**/obj/**", "**/_themes/**", "README.md", "**/README.md" ],
+        "files": [ "index.yml" ]
+      },
+
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
+      { "dest": "gallery", "files": [ "**/*.md", "**/**.yml" ], "group": "conceptual", "src": "docs-conceptual" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module/powershellget-1.x", "files": [ "toc.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-1.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module/powershellget-2.x", "files": [ "toc.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-2.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module/powershellget-3.x", "files": [ "toc.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-3.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder" },
       { "dest": "module", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder-module" }
@@ -47,15 +51,19 @@
         "**/**": "windows, macos, linux"
       },
       "ms.topic": {
+        "docs-conceptual/**/**.md": "conceptual",
         "powershellget-1.x/**.md": "managed-reference",
         "powershellget-1.x/**.yml": "managed-reference",
         "powershellget-2.x/**.md": "managed-reference",
         "powershellget-2.x/**.yml": "managed-reference",
         "powershellget-3.x/**.md": "managed-reference",
-        "powershellget-3.x/**.yml": "managed-reference",
-        "docs-conceptual/**/**.md": "conceptual"
+        "powershellget-3.x/**.yml": "managed-reference"
       },
       "products": {
+        "docs-conceptual/**/**.md": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
         "powershellget-1.x/**.md": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
@@ -79,10 +87,6 @@
         "powershellget-3.x/**.yml": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ],
-        "docs-conceptual/**/**.md": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ]
       },
       "social_image_url": {
@@ -97,19 +101,37 @@
       "ms.author": "sewhee",
       "ms.devlang": "powershell",
       "ms.prod": "powershell",
-      "ms.topic": "reference"
+      "searchScope": [
+        "PowerShell"
+      ]
+    },
+    "groups": {
+      "conceptual": { "moniker_range": ">=powershellget-1.x" },
+      "powershellget-1.x": { "moniker_range": "powershellget-1.x" },
+      "powershellget-2.x": { "moniker_range": "powershellget-2.x" },
+      "powershellget-3.x": { "moniker_range": "powershellget-3.x" }
     },
     "markdownEngineName": "markdig",
     "overwrite": [],
     "resource": [
       {
-        "exclude": [ "**/obj/**", "**/includes/**" ],
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ],
         "files": [
-          "**/media/**/*.png", "**/media/**/*.gif", "**/media/**/*.jpeg", "**/media/**/*.jpg", "**/media/**/*.svg"
+          "**/media/**/*.png",
+          "**/media/**/*.gif",
+          "**/media/**/*.jpeg",
+          "**/media/**/*.jpg",
+          "**/media/**/*.svg"
         ]
       }
     ],
     "template": [],
+    "titleSuffix": "PowerShell",
+    "toc_preview": true,
+    "uhfHeaderId": "MSDocsHeader-Powershell",
     "versions": {
       "powershellget-1.x": { "dest": "powershellget-1.x" },
       "powershellget-2.x": { "dest": "powershellget-2.x" },

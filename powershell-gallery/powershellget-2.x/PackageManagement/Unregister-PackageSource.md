@@ -374,9 +374,9 @@ and includes the provider's parameter set.
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
-[Get-Credential](../Microsoft.PowerShell.Security/Get-Credential.md)
+[Get-Credential](xref:Microsoft.PowerShell.Security.Get-Credential)
 
 [Get-PackageSource](Get-PackageSource.md)
 

@@ -363,12 +363,12 @@ The `Find-RoleCapability` cmdlet returns a **PSGetRoleCapabilityInfo** object.
 
 ## RELATED LINKS
 
-[Get-ChildItem](../Microsoft.PowerShell.Management/Get-ChildItem.md)
+[Get-ChildItem](xref:Microsoft.PowerShell.Management.Get-ChildItem)
 
 [Get-InstalledModule](Get-InstalledModule.md)
 
 [Install-Module](Install-Module.md)
 
-[New-PSRoleCapabilityFile](../Microsoft.PowerShell.Core/New-PSRoleCapabilityFile.md)
+[New-PSRoleCapabilityFile](xref:Microsoft.PowerShell.Core.New-PSRoleCapabilityFile)
 
 [Save-Module](Save-Module.md)
