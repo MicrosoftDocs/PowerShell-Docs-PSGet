@@ -862,7 +862,7 @@ parameter set that includes `-NoPathUpdate`, `AllowClobber`, and `SkipPublisherC
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Find-DscResource](../PowershellGet/Find-DscResource.md)
 

@@ -505,7 +505,7 @@ and includes the provider's parameter set. For example, `Uninstall-Package` has 
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Find-Package](Find-Package.md)
 

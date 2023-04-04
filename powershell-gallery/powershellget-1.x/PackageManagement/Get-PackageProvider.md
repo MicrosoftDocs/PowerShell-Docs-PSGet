@@ -162,7 +162,7 @@ parameters. By default, it returns every installed package provider.
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Get-PackageSource](Get-PackageSource.md)
 

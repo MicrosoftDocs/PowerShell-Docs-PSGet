@@ -228,23 +228,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TemporaryPath
-
-Specifies the path to temporarily install the resource before actual installation. If no temporary
-path is provided, the resource is temporarily installed in the current user's temporary folder.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Prerelease
 
 When specified, includes prerelease versions in search results returned.
@@ -510,60 +493,11 @@ cmdlet outputs a **PSResourceInfo** object for the saved resource.
 
 ## NOTES
 
-The **RequiredResource** and **RequiredResourceFile** parameters are used to match **PSResources**
-matching specific criteria. You can specify the criteria using a hashtable or a JSON object. For the
-**RequiredResourceFile** parameter, the hashtable is stored in a `.psd1` file and the JSON object is
-stored in a `.json` file.
-
-The hashtable can contain attributes for multiple modules. The following example show the structure
-of the module specification:
-
-```Syntax
-@{
-    <modulename> = @{
-        version = '<version-spcification>'
-        repository = '<reponame>'
-        prerelease = '<boolean>'
-    }
-}
-```
-
-This example contains specifications for three modules. As you can, the module attributes are
-optional.
-
-```powershell
- @{
-    TestModule = @{
-        version = '[0.0.1,1.3.0]'
-        repository = 'PSGallery'
-      }
-
-      TestModulePrerelease = @{
-        version = '[0.0.0,0.0.5]'
-        repository = 'PSGallery'
-        prerelease = $true
-      }
-
-    TestModule99 = @{}
-}
-```
-
-The next example shows the same specification in JSON format.
-
-```json
-{
-  "TestModule": {
-    "version": "[0.0.1,1.3.0)",
-    "repository": "PSGallery"
-  },
-  "TestModulePrerelease": {
-    "version": "[0.0.0,0.0.5]",
-    "repository": "PSGallery",
-    "prerelease": "true"
-  },
-  "TestModule99": {}
-}
-```
+The **RequiredResource** and **RequiredResourceFile** parameters are used to find **PSResource**
+objects matching specific criteria. You can specify the search criteria using a hashtable or a JSON
+object. For the **RequiredResourceFile** parameter, the hashtable is stored in a `.psd1` file and
+the JSON object is stored in a `.json` file. For more information, see
+[about_PowerShellGetv3](./about/about_PowerShellGetv3.md).
 
 ## RELATED LINKS
 

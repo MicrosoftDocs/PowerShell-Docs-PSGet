@@ -293,7 +293,7 @@ This cmdlet returns a **SoftwareIdentity** object. A **SoftwareIdentity** object
 
 ## RELATED LINKS
 
-[about_PackageManagement](../Microsoft.PowerShell.Core/About/about_PackageManagement.md)
+[about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
 [Unregister-PackageSource](Unregister-PackageSource.md)
 
