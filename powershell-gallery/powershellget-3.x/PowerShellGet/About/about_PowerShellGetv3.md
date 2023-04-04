@@ -136,7 +136,7 @@ The next example shows the same specification in JSON format.
 ## See also
 
 - [Install-PSResource](../Install-PSResource)
-- [Find-PSResource](../Find-PSResource
+- [Find-PSResource](../Find-PSResource)
 - [Get-PSResource](../Get-PSResource)
 - [Install-PSResource](../Install-PSResource)
 - [Save-PSResource](../Save-PSResource)
