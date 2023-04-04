@@ -1,7 +1,7 @@
 {
   "build": {
     "content": [
-      { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ]},
+      { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-1.x", "version": "powershellget-1.x" },
       { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
@@ -21,40 +21,99 @@
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder" },
       { "dest": "module", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder-module" }
     ],
-    "versions": {
-      "powershellget-1.x": { "dest": "powershellget-1.x" },
-      "powershellget-2.x": { "dest": "powershellget-2.x" },
-      "powershellget-3.x": { "dest": "powershellget-3.x" }
-    },
-    "overwrite": [],
+    "exportRawModel": true,
+    "exportViewModel": true,
     "externalReference": [],
+    "fileMetadata": {
+      "author": {
+        "**/**.md": "sdwheeler",
+        "**/**.yml": "sdwheeler"
+      },
+      "feedback_product_url": {
+        "docs-conceptual/gallery/**/**.md": "https://github.com/powershell/powershellgallery/issues/new"
+      },
+      "manager": {
+        "**/**": "jasongroce"
+      },
+      "ms.author": {
+        "**/**.md": "sewhee",
+        "**/**.yml": "sewhee"
+      },
+      "ms.prod": {
+        "**/**.md": "powershell",
+        "**/**.yml": "powershell"
+      },
+      "ms.tgt_pltfr": {
+        "**/**": "windows, macos, linux"
+      },
+      "ms.topic": {
+        "powershellget-1.x/**.md": "managed-reference",
+        "powershellget-1.x/**.yml": "managed-reference",
+        "powershellget-2.x/**.md": "managed-reference",
+        "powershellget-2.x/**.yml": "managed-reference",
+        "powershellget-3.x/**.md": "managed-reference",
+        "powershellget-3.x/**.yml": "managed-reference",
+        "docs-conceptual/**/**.md": "conceptual"
+      },
+      "products": {
+        "powershellget-1.x/**.md": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "powershellget-1.x/**.yml": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "powershellget-2.x/**.md": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "powershellget-2.x/**.yml": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "powershellget-3.x/**.md": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "powershellget-3.x/**.yml": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ],
+        "docs-conceptual/**/**.md": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ]
+      },
+      "social_image_url": {
+        "**/**.md": "https://learn.microsoft.com/media/logos/logo-powershell-social.png",
+        "**/**.yml": "https://learn.microsoft.com/media/logos/logo-powershell-social.png"
+      }
+    },
     "globalMetadata": {
       "breadcrumb_path": "/powershell/samples/breadcrumb/toc.json",
       "extendBreadcrumb": true,
+      "feedback_system": "None",
       "ms.author": "sewhee",
       "ms.devlang": "powershell",
       "ms.prod": "powershell",
-      "ms.topic": "reference",
-      "feedback_system": "None"
-    },    
-	"resource": [
+      "ms.topic": "reference"
+    },
+    "markdownEngineName": "markdig",
+    "overwrite": [],
+    "resource": [
       {
-        "exclude": [
-          "**/obj/**",
-          "**/includes/**"
-        ],
+        "exclude": [ "**/obj/**", "**/includes/**" ],
         "files": [
-          "**/media/**/*.png",
-          "**/media/**/*.gif",
-          "**/media/**/*.jpeg",
-          "**/media/**/*.jpg",
-          "**/media/**/*.svg"
+          "**/media/**/*.png", "**/media/**/*.gif", "**/media/**/*.jpeg", "**/media/**/*.jpg", "**/media/**/*.svg"
         ]
       }
     ],
     "template": [],
-    "markdownEngineName": "markdig",
-    "exportRawModel": true,
-    "exportViewModel": true
+    "versions": {
+      "powershellget-1.x": { "dest": "powershellget-1.x" },
+      "powershellget-2.x": { "dest": "powershellget-2.x" },
+      "powershellget-3.x": { "dest": "powershellget-3.x" }
+    }
   }
 }
