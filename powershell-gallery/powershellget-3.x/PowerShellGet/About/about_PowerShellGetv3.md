@@ -135,10 +135,10 @@ The next example shows the same specification in JSON format.
 
 ## See also
 
-- [Install-PSResource](../Install-PSResource.md)
-- [Find-PSResource](../Find-PSResource.md)
-- [Get-PSResource](../Get-PSResource.md)
-- [Install-PSResource](../Install-PSResource.md)
-- [Save-PSResource](../Save-PSResource.md)
-- [Uninstall-PSResource](../Uninstall-PSResource.md)
-- [Update-PSResource](../Update-PSResource.md)
+- [Install-PSResource](../Install-PSResource)
+- [Find-PSResource](../Find-PSResource
+- [Get-PSResource](../Get-PSResource)
+- [Install-PSResource](../Install-PSResource)
+- [Save-PSResource](../Save-PSResource)
+- [Uninstall-PSResource](../Uninstall-PSResource)
+- [Update-PSResource](../Update-PSResource)
