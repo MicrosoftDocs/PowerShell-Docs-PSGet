@@ -395,6 +395,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 [Register-PSRepository](Register-PSRepository.md)
 
-[Select-Object](../Microsoft.PowerShell.Utility/Select-Object.md)
+[Select-Object](xref:Microsoft.PowerShell.Utility.Select-Object)
 
 [Uninstall-Module](Uninstall-Module.md)
