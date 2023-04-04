@@ -1,0 +1,19 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Looking to give feedback on PowerShell?
+    url: https://github.com/PowerShell/PowerShell/issues/new/choose
+    about: Please open feature requests for current PowerShell here.
+  - name: Looking to give feedback on PowerShellGet?
+    url: https://github.com/PowerShell/PowerShellGet/issues/new/choose
+    about: Please open feature requests for PowerShellGet here.
+  - name: Looking to give feedback on the PowerShell Gallery?
+    url: https://github.com/PowerShell/PowerShellGallery/issues/new/choose
+    about: Please open feature requests for PowerShellGet here.
+  - name: Looking for support?
+    url: https://learn.microsoft.com/powershell/scripting/community/community-support
+    about: PowerShell Support Questions/Help
+  - name: What's the Quality Contributions Project?
+    url: https://learn.microsoft.com/powershell/scripting/community/contributing/quality-improvements
+    about: >-
+      If you'd like to commit to improving quality for the documentation, before filing an issue,
+      check the info and instructions.
