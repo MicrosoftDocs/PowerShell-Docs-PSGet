@@ -1,41 +1,57 @@
 {
   "build": {
     "content": [
-      {
-        "files": [ "**/*.md", "**/*.yml" ],
-        "src": "docs-conceptual",
-        "dest": "docs-conceptual",
-        "version": "samples-v1.0"
-      },
-      {
-        "files": [ "**/*.yml", "**/About/*.md" ],
-        "src": "samples-v2.0",
-        "dest": "module",
-        "version": "samples-v1.0"
-      },
-      {
-        "files": [ "**/*.yml", "**/About/*.md" ],
-        "src": "samples-v3.0",
-        "dest": "module",
-        "version": "testmoniker-1.0"
-      },
-      {
-        "files": [ "toc.yml" ],
-        "src": "breadcrumb",
-        "dest": "samples/breadcrumb"
-      }
+      { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ]},
+
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "module/powershellget-1.x", "files": [ "toc.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "module/powershellget-2.x", "files": [ "toc.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "module/powershellget-3.x", "files": [ "toc.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder" },
+      { "dest": "module", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder-module" }
     ],
     "versions": {
-      "samples-v1.0": { "dest": "samples-v2.0" },
-      "testmoniker-1.0": { "dest": "samples-v3.0" }
+      "powershellget-1.x": { "dest": "powershellget-1.x" },
+      "powershellget-2.x": { "dest": "powershellget-2.x" },
+      "powershellget-3.x": { "dest": "powershellget-3.x" }
     },
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
       "breadcrumb_path": "/powershell/samples/breadcrumb/toc.json",
       "extendBreadcrumb": true,
+      "ms.author": "sewhee",
+      "ms.devlang": "powershell",
+      "ms.prod": "powershell",
+      "ms.topic": "reference",
       "feedback_system": "None"
-    },
+    },    
+	"resource": [
+      {
+        "exclude": [
+          "**/obj/**",
+          "**/includes/**"
+        ],
+        "files": [
+          "**/media/**/*.png",
+          "**/media/**/*.gif",
+          "**/media/**/*.jpeg",
+          "**/media/**/*.jpg",
+          "**/media/**/*.svg"
+        ]
+      }
+    ],
     "template": [],
     "markdownEngineName": "markdig",
     "exportRawModel": true,
