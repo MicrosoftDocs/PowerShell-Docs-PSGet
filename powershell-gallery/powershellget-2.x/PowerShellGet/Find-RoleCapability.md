@@ -369,6 +369,6 @@ The `Find-RoleCapability` cmdlet returns a **PSGetRoleCapabilityInfo** object.
 
 [Install-Module](Install-Module.md)
 
-[New-PSRoleCapabilityFile](../Microsoft.PowerShell.Core/New-PSRoleCapabilityFile.md)
+[New-PSRoleCapabilityFile](xref:Microsoft.PowerShell.Core.New-PSRoleCapabilityFile)
 
 [Save-Module](Save-Module.md)

@@ -4,19 +4,16 @@
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
-      { "dest": "module/powershellget-1.x", "files": [ "toc.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "src": "powershellget-1.x", "version": "powershellget-1.x" },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
-      { "dest": "module/powershellget-2.x", "files": [ "toc.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "src": "powershellget-2.x", "version": "powershellget-2.x" },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "docs-conceptual/powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module", "files": [ "**/About/*.md" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
-      { "dest": "module/powershellget-3.x", "files": [ "toc.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
+      { "dest": "module/powershellget", "files": [ "toc.yml" ], "src": "powershellget-3.x", "version": "powershellget-3.x" },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder" },
       { "dest": "module", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder-module" }

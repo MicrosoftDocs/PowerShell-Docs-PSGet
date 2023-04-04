@@ -135,7 +135,7 @@ The next example shows the same specification in JSON format.
 
 ## See also
 
-- [Install-Module](../Install-Module.md)
+- [Install-PSResource](../Install-PSResource.md)
 - [Find-PSResource](../Find-PSResource.md)
 - [Get-PSResource](../Get-PSResource.md)
 - [Install-PSResource](../Install-PSResource.md)

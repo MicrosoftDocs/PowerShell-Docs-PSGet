@@ -542,11 +542,11 @@ parameter set that includes `-NoPathUpdate`, `AllowClobber`, and `SkipPublisherC
 
 [about_PackageManagement](/powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement)
 
-[Enter-PSSession](../Microsoft.PowerShell.Core/Enter-PSSession.md)
+[Enter-PSSession](xref:Microsoft.PowerShell.Core.Enter-PSSession)
 
 [Find-Package](Find-Package.md)
 
-[Get-Help](../Microsoft.PowerShell.Core/Get-Help.md)
+[Get-Help](xref:Microsoft.PowerShell.Core.Get-Help)
 
 [Get-PackageProvider](Get-PackageProvider.md)
 
@@ -554,7 +554,7 @@ parameter set that includes `-NoPathUpdate`, `AllowClobber`, and `SkipPublisherC
 
 [Install-Package](Install-Package.md)
 
-[Invoke-Command](../Microsoft.PowerShell.Core/Invoke-Command.md)
+[Invoke-Command](xref:Microsoft.PowerShell.Core.Invoke-Command)
 
 [Save-Package](Save-Package.md)
 
