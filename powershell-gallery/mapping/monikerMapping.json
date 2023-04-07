@@ -1,19 +1,19 @@
 {
     "powershellget-1.x": {
         "packageRoot": "powershellget-1.x",
-        "conceptualToc": "docs-conceptual/powershellget-1.x/toc.yml",
+        "conceptualToc": "docs-conceptual/powershellget/toc.yml",
         "conceptualTocUrl": "/powershell/gallery/toc.json",
         "referenceTocUrl": "/powershell/module/powershellget-1.x/toc.json"
     },
     "powershellget-2.x": {
         "packageRoot": "powershellget-2.x",
-        "conceptualToc": "docs-conceptual/powershellget-2.x/toc.yml",
+        "conceptualToc": "docs-conceptual/powershellget/toc.yml",
         "conceptualTocUrl": "/powershell/gallery/toc.json",
         "referenceTocUrl": "/powershell/module/powershellget-2.x/toc.json"
     },
     "powershellget-3.x": {
         "packageRoot": "powershellget-3.x",
-        "conceptualToc": "docs-conceptual/powershellget-3.x/toc.yml",
+        "conceptualToc": "docs-conceptual/powershellget/toc.yml",
         "conceptualTocUrl": "/powershell/gallery/toc.json",
         "referenceTocUrl": "/powershell/module/powershellget-3.x/toc.json"
     }

@@ -1,6 +1,6 @@
 ---
 description: This article explains how to install the PowerShellGet module in older versions of PowerShell.
-ms.date: 11/16/2022
+ms.date: 04/10/2023
 title: Installing PowerShellGet on older Windows systems
 ---
 # Installing PowerShellGet on older Windows systems
@@ -36,16 +36,14 @@ For more information, see [Save-Module](/powershell/module/PowershellGet/Save-Mo
 
 The instructions in the sections below install the modules in directory
 `$env:ProgramFiles\WindowsPowerShell\Modules`. In PowerShell 3.0, this directory isn't listed in
-`$env:PSModulePath` by default, so you'll need to add it in order for the modules to be auto-loaded.
+`$env:PSModulePath` by default, so you'll need to add it in order for the modules to be autoloaded.
 
 Open an elevated PowerShell session and run the following command:
 
 ```powershell
-[Environment]::SetEnvironmentVariable(
-  'PSModulePath',
-  ((([Environment]::GetEnvironmentVariable('PSModulePath', 'Machine') -split ';') + "$env:ProgramFiles\WindowsPowerShell\Modules") -join ';'),
-  'Machine'
-)
+$NewPSModulePath = [Environment]::GetEnvironmentVariable('PSModulePath', 'Machine') +
+     ";$env:ProgramFiles\WindowsPowerShell\Modules"
+[Environment]::SetEnvironmentVariable('PSModulePath', $NewPSModulePath, 'Machine')
 ```
 
 The updated value of `$env:PSModulePath` is not available in the current session. You must open a

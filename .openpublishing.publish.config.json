@@ -1,43 +1,6 @@
 {
-  "docsets_to_publish": [
-    {
-      "docset_name": "powershell-gallery",
-      "build_source_folder": "powershell-gallery",
-      "build_output_subfolder": "powershell-gallery",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": false,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "PowershellModule": "Content",
-        "PowershellCmdlet": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "base_path": "powershell",
-      "site_name": "Docs",
-      "customized_tasks": {
-        "docset_prebuild": [
-          "_dependentPackages/MAML2Yaml/tools/Run.ps1"
-        ]
-      }
-    }
-  ],
-  "notification_subscribers": [],
-  "sync_notification_subscribers": [],
-  "branches_to_filter": [],
-  "need_preview_pull_request": true,
-  "dependent_repositories": [
-    {
-      "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "main",
-      "branch_mapping": {}
-    }
-  ],
   "branch_target_mapping": {},
-  "skip_source_output_uploading": false,
+  "branches_to_filter": [],
   "contribution_branch_mappings": {},
   "dependent_packages": [
     {
@@ -48,8 +11,45 @@
       "version": "latest"
     }
   ],
+  "dependent_repositories": [
+    {
+      "branch": "main",
+      "branch_mapping": {},
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft"
+    }
+  ],
+  "docsets_to_publish": [
+    {
+      "base_path": "powershell",
+      "build_entry_point": "docs",
+      "build_output_subfolder": "powershell-gallery",
+      "build_source_folder": "powershell-gallery",
+      "customized_tasks": {
+        "docset_prebuild": [
+          "_dependentPackages/MAML2Yaml/tools/Run.ps1"
+        ]
+      },
+      "docset_name": "powershell-gallery",
+      "locale": "en-us",
+      "moniker_ranges": [],
+      "monikers": [],
+      "open_to_public_contributors": false,
+      "site_name": "Docs",
+      "template_folder": "_themes",
+      "type_mapping": {
+        "Conceptual": "Content",
+        "PowershellCmdlet": "Content",
+        "PowershellModule": "Content"
+      }
+    }
+  ],
   "monikerPath": [
     "mapping/monikerMapping.json"
   ],
-  "need_generate_pdf_url_template": false
+  "need_generate_pdf_url_template": false,
+  "need_preview_pull_request": true,
+  "notification_subscribers": [],
+  "skip_source_output_uploading": false,
+  "sync_notification_subscribers": []
 }

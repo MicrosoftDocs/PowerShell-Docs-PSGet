@@ -80,7 +80,7 @@ use `[1.0.0.0, ]` as the version range.
 
 ## Searching by required resources
 
-The `Install-PSResource` cmdlet has **RequiredResource** and
+The [`Install-PSResource`][04] cmdlet has **RequiredResource** and
 **RequiredResourceFile** parameters that are used to find **PSResource**
 objects matching specific criteria. You can specify the search criteria using a
 hashtable or a JSON object. For the **RequiredResourceFile** parameter, the

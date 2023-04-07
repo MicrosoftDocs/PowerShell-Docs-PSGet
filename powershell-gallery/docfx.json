@@ -10,15 +10,12 @@
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
       { "dest": "gallery", "files": [ "**/*.md", "**/**.yml" ], "group": "conceptual", "src": "docs-conceptual" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-1.x" },
       { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-2.x" },
       { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-3.x" },
       { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
 
