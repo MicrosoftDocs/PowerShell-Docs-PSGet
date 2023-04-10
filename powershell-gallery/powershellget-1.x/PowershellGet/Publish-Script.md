@@ -200,7 +200,7 @@ Aliases:
 
 Required: True
 Position: Named
-Default value: <Current location>
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: True
 ```

@@ -16,9 +16,10 @@ Returns a list of Package Management package providers available for installatio
 ## SYNTAX
 
 ```
-Find-PackageProvider [[-Name] <String[]>] [-AllVersions] [-Source <String[]>] [-IncludeDependencies]
- [-Credential <PSCredential>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-RequiredVersion <String>]
- [-MinimumVersion <String>] [-MaximumVersion <String>] [-Force] [-ForceBootstrap] [<CommonParameters>]
+Find-PackageProvider [[-Name] <String[]>] [-AllVersions] [-Source <String[]>]
+ [-IncludeDependencies] [-Credential <PSCredential>] [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-RequiredVersion <String>] [-MinimumVersion <String>]
+ [-MaximumVersion <String>] [-Force] [-ForceBootstrap] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -73,7 +74,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -106,7 +107,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -122,7 +123,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -138,7 +139,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

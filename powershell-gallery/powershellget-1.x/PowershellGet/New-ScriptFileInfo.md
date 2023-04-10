@@ -18,12 +18,12 @@ Creates a script file with metadata.
 ### All
 
 ```
-New-ScriptFileInfo [[-Path] <String>] [-Version <String>] [-Author <String>] -Description <String>
+New-ScriptFileInfo [[-Path] <String>] [-Version <Version>] [-Author <String>] -Description <String>
  [-Guid <Guid>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Object[]>]
  [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
  [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <Uri>] [-LicenseUri <Uri>]
- [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PrivateData <String>] [-PassThru] [-Force]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -411,22 +411,6 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -PrivateData
-
-Specifies private data for the script.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -ProjectUri
 
 Specifies the URL of a web page about this project.
@@ -565,7 +549,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

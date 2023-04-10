@@ -18,35 +18,35 @@ Saves a script.
 ### NameAndPathParameterSet (Default)
 
 ```
-Save-Script [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] [-Path] <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease]
- [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-Script [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] -Path <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### NameAndLiteralPathParameterSet
 
 ```
-Save-Script [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] -LiteralPath <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease]
- [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-Script [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] -LiteralPath <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
-### InputObjectAndLiteralPathParameterSet
+### InputOjectAndLiteralPathParameterSet
 
 ```
 Save-Script [-InputObject] <PSObject[]> -LiteralPath <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AcceptLicense] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
-### InputObjectAndPathParameterSet
+### InputOjectAndPathParameterSet
 
 ```
-Save-Script [-InputObject] <PSObject[]> [-Path] <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AcceptLicense] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Save-Script [-InputObject] <PSObject[]> -Path <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -76,38 +76,6 @@ specifies where to find the script. The script is saved in the location specifie
 parameter. `Test-ScriptFileInfo` specifies the **Path** and validates the script's metadata.
 
 ## PARAMETERS
-
-### -AcceptLicense
-
-Automatically accept the license agreement if the script requires it.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to save a script marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -Credential
 
@@ -148,7 +116,7 @@ that variable as the **InputObject** argument.
 
 ```yaml
 Type: System.Management.Automation.PSObject[]
-Parameter Sets: InputObjectAndLiteralPathParameterSet, InputObjectAndPathParameterSet
+Parameter Sets: InputOjectAndLiteralPathParameterSet, InputOjectAndPathParameterSet
 Aliases:
 
 Required: True
@@ -167,8 +135,8 @@ characters enclosed in single quotation marks as escape sequences.
 
 ```yaml
 Type: System.String
-Parameter Sets: NameAndLiteralPathParameterSet, InputObjectAndLiteralPathParameterSet
-Aliases: PSPath
+Parameter Sets: NameAndLiteralPathParameterSet, InputOjectAndLiteralPathParameterSet
+Aliases:
 
 Required: True
 Position: Named
@@ -183,7 +151,7 @@ Specifies the maximum, or newest version of the script to save. The **MaximumVer
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
 Aliases:
 
@@ -200,7 +168,7 @@ Specifies the minimum version of a script to save. The **MinimumVersion** and **
 parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
 Aliases:
 
@@ -233,11 +201,11 @@ Specifies the location on the local computer to store a saved module. Accepts wi
 
 ```yaml
 Type: System.String
-Parameter Sets: NameAndPathParameterSet, InputObjectAndPathParameterSet
+Parameter Sets: NameAndPathParameterSet, InputOjectAndPathParameterSet
 Aliases:
 
 Required: True
-Position: 1
+Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: True
@@ -298,7 +266,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the script to save.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
 Aliases:
 
@@ -349,7 +317,21 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.Management.Automation.PSObject[]
+
+### System.Version
+
+### System.String
+
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

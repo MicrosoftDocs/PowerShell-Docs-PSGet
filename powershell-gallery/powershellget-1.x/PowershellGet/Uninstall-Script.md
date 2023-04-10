@@ -18,8 +18,8 @@ Uninstalls a script.
 ### NameParameterSet (Default)
 
 ```
-Uninstall-Script [-Name] <String[]> [-MinimumVersion <String>] [-RequiredVersion <String>]
- [-MaximumVersion <String>] [-Force] [-AllowPrerelease] [-WhatIf] [-Confirm] [<CommonParameters>]
+Uninstall-Script [-Name] <String[]> [-MinimumVersion <Version>] [-RequiredVersion <Version>]
+ [-MaximumVersion <Version>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObject
@@ -57,22 +57,6 @@ Get-InstalledScript -Name UpdateManagement-Template | Uninstall-Script
 pipeline to `Uninstall-Script` and the script is uninstalled.
 
 ## PARAMETERS
-
-### -AllowPrerelease
-
-Allows you to uninstall a script marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -Force
 
@@ -113,7 +97,7 @@ Specifies the maximum, or newest, version of the script to uninstall. The **Maxi
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -130,7 +114,7 @@ Specifies the minimum version of the script to uninstall. The **MinimumVersion**
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -162,7 +146,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the script to uninstall.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -219,7 +203,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 `Uninstall-Script` accepts **PSRepositoryItemInfo** objects from the pipeline.
 
-### System.String
+### System.Version
 
 ## OUTPUTS
 

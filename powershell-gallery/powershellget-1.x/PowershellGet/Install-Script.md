@@ -18,19 +18,18 @@ Installs a script.
 ### NameParameterSet (Default)
 
 ```
-Install-Script [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] [-Scope <String>] [-NoPathUpdate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease]
- [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
-
+Install-Script [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] [-Scope <String>] [-NoPathUpdate]
+ [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObject
 
 ```
 Install-Script [-InputObject] <PSObject[]> [-Scope <String>] [-NoPathUpdate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AcceptLicense] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -210,38 +209,6 @@ The final command gets installed scripts and displays the results.
 
 ## PARAMETERS
 
-### -AcceptLicense
-
-Automatically accept the license agreement during installation if the module requires it.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to install a script marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Specifies a user account that has rights to install a script for a specified package provider or
@@ -299,7 +266,7 @@ are attempting to install multiple scripts. The **MaximumVersion** and the **Req
 parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -317,7 +284,7 @@ are attempting to install multiple scripts. The **MinimumVersion** and the **Req
 parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -354,20 +321,6 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -PassThru
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -427,7 +380,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the script to install.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -516,7 +469,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Management.Automation.PSObject[]
 
-### System.String
+### System.Version
 
 ### System.Uri
 

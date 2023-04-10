@@ -15,10 +15,11 @@ Finds a script.
 ## SYNTAX
 
 ```
-Find-Script [[-Name] <String[]>] [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-AllVersions] [-IncludeDependencies] [-Filter <String>] [-Tag <String[]>]
- [-Includes <String[]>] [-Command <String[]>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Repository <String[]>] [-Credential <PSCredential>] [-AllowPrerelease] [<CommonParameters>]
+Find-Script [[-Name] <String[]>] [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-AllVersions] [-IncludeDependencies] [-Filter <String>]
+ [-Tag <String[]>] [-Includes <String[]>] [-Command <String[]>] [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Repository <String[]>] [-Credential <PSCredential>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -164,22 +165,6 @@ This command uses the wildcard character (`*`) to find scripts that begin with R
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes in the results scripts marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -AllVersions
 
 Indicates that this operation finds all script versions.
@@ -285,7 +270,7 @@ Specifies the maximum, or newest, version of the script to find. The **MaximumVe
 command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -302,7 +287,7 @@ Specifies the minimum version of the script to find. The **MinimumVersion** and 
 parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -384,7 +369,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the script to find.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -421,7 +406,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String[]
 
-### System.String
+### System.Version
 
 ### System.Uri
 
@@ -429,7 +414,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### PSRepositoryItemInfo
+### PSCustomObject[]
 
 ## NOTES
 

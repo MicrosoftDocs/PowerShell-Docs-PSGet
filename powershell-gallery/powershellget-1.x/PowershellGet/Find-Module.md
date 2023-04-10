@@ -17,11 +17,11 @@ Finds modules in a repository that match specified criteria.
 ### All
 
 ```
-Find-Module [[-Name] <string[]>] [-MinimumVersion <string>] [-MaximumVersion <string>]
- [-RequiredVersion <string>] [-AllVersions] [-IncludeDependencies] [-Filter <string>]
- [-Tag <string[]>] [-Includes <string[]>] [-DscResource <string[]>] [-RoleCapability <string[]>]
- [-Command <string[]>] [-Proxy <uri>] [-ProxyCredential <pscredential>] [-Repository <string[]>]
- [-Credential <pscredential>] [-AllowPrerelease] [<CommonParameters>]
+Find-Module [[-Name] <String[]>] [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-AllVersions] [-IncludeDependencies] [-Filter <String>]
+ [-Tag <String[]>] [-Includes <String[]>] [-DscResource <String[]>] [-RoleCapability <String[]>]
+ [-Command <String[]>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Repository <String[]>]
+ [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -118,17 +118,16 @@ The `Find-Module` cmdlet uses the **Name** parameter to specify the **PowerShell
 
 ### Example 4: Find a module by specific version
 
-This example shows how to install a specific prerelease version of a module. Prerelease versions
-have a format of `<version_number>-<prerelease_label>`.
+This example shows how to install a specific prerelease version of a module.
 
 ```powershell
-Find-Module PSReadLine -AllowPrerelease -RequiredVersion 2.2.4-beta1
+Find-Module PSReadLine -RequiredVersion 2.2.6
 ```
 
 ```Output
 Version        Name             Repository       Description
 -------        ----             ----------       -----------
-2.2.4-beta1    PSReadLine       PSGallery        Great command line editing in the PowerS…
+2.2.6 	       PSReadLine       PSGallery        Great command line editing in the PowerS…
 ```
 
 ### Example 5: Find a module in a specific repository
@@ -244,22 +243,6 @@ Version Name            Repository Description
 ```
 
 ## PARAMETERS
-
-### -AllowPrerelease
-
-Includes in the results modules marked as a pre-release.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -AllVersions
 
@@ -393,7 +376,7 @@ Specifies the maximum, or latest, version of the module to include in the search
 **MaximumVersion** and **RequiredVersion** cannot be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -410,7 +393,7 @@ Specifies the minimum version of the module to include in results. **MinimumVers
 **RequiredVersion** cannot be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -495,7 +478,7 @@ Specifies the exact version number of the module to include in the results. **Re
 cannot be used in the same command as **MinimumVersion** or **MaximumVersion**.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -547,11 +530,19 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.Version
+
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
 
-### PSRepositoryItemInfo
+### PSCustomObject[]
 
-`Find-Module` creates **PSRepositoryItemInfo** objects that can be sent down the pipeline to cmdlets
+`Find-Module` creates **PSCustomObject** objects that can be sent down the pipeline to cmdlets
 such as `Install-Module`.
 
 ## NOTES

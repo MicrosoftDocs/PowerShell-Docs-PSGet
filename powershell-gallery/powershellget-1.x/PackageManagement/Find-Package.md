@@ -17,24 +17,25 @@ Finds software packages in available package sources.
 ### NuGet
 
 ```
-Find-Package [-IncludeDependencies] [-AllVersions] [-Source <String[]>] [-Credential <PSCredential>]
- [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String[]>] [-RequiredVersion <String>]
- [-MinimumVersion <String>] [-MaximumVersion <String>] [-Force] [-ForceBootstrap]
- [-ProviderName <String[]>] [-ConfigFile <String>] [-SkipValidate] [-Headers <String[]>]
- [-FilterOnTag <String[]>] [-Contains <String>] [-AllowPrereleaseVersions] [<CommonParameters>]
+Find-Package [-IncludeDependencies] [-AllVersions] [-Source <String[]>]
+ [-Credential <PSCredential>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String[]>]
+ [-RequiredVersion <String>] [-MinimumVersion <String>] [-MaximumVersion <String>] [-Force]
+ [-ForceBootstrap] [-ProviderName <String[]>] [-ConfigFile <String>] [-SkipValidate]
+ [-Headers <String[]>] [-FilterOnTag <String[]>] [-Contains <String>] [-AllowPrereleaseVersions]
+ [<CommonParameters>]
 ```
 
 ### PowerShellGet
 
 ```
-Find-Package [-IncludeDependencies] [-AllVersions] [-Source <String[]>] [-Credential <PSCredential>]
- [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String[]>] [-RequiredVersion <String>]
- [-MinimumVersion <String>] [-MaximumVersion <String>] [-Force] [-ForceBootstrap]
- [-ProviderName <String[]>] [-AllowPrereleaseVersions] [-PackageManagementProvider <String>]
- [-PublishLocation <String>] [-ScriptSourceLocation <String>] [-ScriptPublishLocation <String>]
- [-Type <String>] [-Filter <String>] [-Tag <String[]>] [-Includes <String[]>]
- [-DscResource <String[]>] [-RoleCapability <String[]>] [-Command <String[]>] [-AcceptLicense]
- [<CommonParameters>]
+Find-Package [-IncludeDependencies] [-AllVersions] [-Source <String[]>]
+ [-Credential <PSCredential>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String[]>]
+ [-RequiredVersion <String>] [-MinimumVersion <String>] [-MaximumVersion <String>] [-Force]
+ [-ForceBootstrap] [-ProviderName <String[]>] [-AllowPrereleaseVersions]
+ [-PackageManagementProvider <String>] [-PublishLocation <String>] [-ScriptSourceLocation <String>]
+ [-ScriptPublishLocation <String>] [-Type <String>] [-Filter <String>] [-Tag <String[]>]
+ [-Includes <String[]>] [-DscResource <String[]>] [-RoleCapability <String[]>]
+ [-Command <String[]>] [-AcceptLicense] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -179,7 +180,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -195,7 +196,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -212,7 +213,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -342,7 +343,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -359,7 +360,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -391,7 +392,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -629,7 +630,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

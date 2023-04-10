@@ -15,17 +15,12 @@ title: PackageManagement
 This topic displays help topics for the Package Management Cmdlets. The cmdlet reference
 documentation on this site documents the latest version of the module.
 
+This documentation cover version 1.0.0.1 of the **PackageManagement** module.
+
 > [!IMPORTANT]
-> As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
-> versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
-> trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
-> 1.2:
->
-> `[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12`
->
-> For more information, see the
-> [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
-> PowerShell blog.
+> Windows PowerShell 5.1 comes with version 1.0.0.1 of **PackageManagement** preinstalled. This
+> version of PowerShellGet has a limited features and doesn't support the updated capabilities of
+> the PowerShell Gallery. To be supported, you must update to the latest version.
 
 [!INCLUDE [nuget-module](../../includes/nuget-module.md)]
 

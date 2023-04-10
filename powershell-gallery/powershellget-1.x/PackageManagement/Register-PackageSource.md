@@ -27,16 +27,16 @@ Register-PackageSource [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name]
 
 ```
 Register-PackageSource [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String>]
- [[-Location] <String>] [-Credential <PSCredential>] [-Trusted] [-Force] [-ForceBootstrap] [-WhatIf]
- [-Confirm] [-ConfigFile <String>] [-SkipValidate] [<CommonParameters>]
+ [[-Location] <String>] [-Credential <PSCredential>] [-Trusted] [-Force] [-ForceBootstrap]
+ [-WhatIf] [-Confirm] [-ConfigFile <String>] [-SkipValidate] [<CommonParameters>]
 ```
 
 ### PowerShellGet
 
 ```
 Register-PackageSource [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [[-Name] <String>]
- [[-Location] <String>] [-Credential <PSCredential>] [-Trusted] [-Force] [-ForceBootstrap] [-WhatIf]
- [-Confirm] [-PackageManagementProvider <String>] [-PublishLocation <String>]
+ [[-Location] <String>] [-Credential <PSCredential>] [-Trusted] [-Force] [-ForceBootstrap]
+ [-WhatIf] [-Confirm] [-PackageManagementProvider <String>] [-PublishLocation <String>]
  [-ScriptSourceLocation <String>] [-ScriptPublishLocation <String>] [<CommonParameters>]
 ```
 
@@ -109,7 +109,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -125,7 +125,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -287,7 +287,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -303,7 +303,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

@@ -18,10 +18,10 @@ Finds role capabilities in modules.
 ### All
 
 ```
-Find-RoleCapability [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <String>]
- [-MaximumVersion <String>] [-RequiredVersion <String>] [-AllVersions] [-AllowPrerelease]
- [-Tag <String[]>] [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Repository <String[]>] [<CommonParameters>]
+Find-RoleCapability [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <Version>]
+ [-MaximumVersion <Version>] [-RequiredVersion <Version>] [-AllVersions] [-Tag <String[]>]
+ [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Repository <String[]>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -128,22 +128,6 @@ output confirms that the **JeaExamples** module was installed.
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes resources marked as a prerelease in the results.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -AllVersions
 
 Indicates that this cmdlet gets all versions of a module. The **AllVersions** parameter displays
@@ -184,7 +168,7 @@ Specifies the maximum version of the module to include in results. The **Maximum
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -201,7 +185,7 @@ Specifies the minimum version of the module to include in results. The **Minimum
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -302,7 +286,7 @@ Specifies the module's exact version number to include in the results. The **Req
 the **MinimumVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -337,11 +321,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
 
-### PSGetRoleCapabilityInfo
+### PSCustomObject[]
 
-The `Find-RoleCapability` cmdlet returns a **PSGetRoleCapabilityInfo** object.
+The `Find-RoleCapability` cmdlet returns a **PSCustomObject** object.
 
 ## NOTES
 

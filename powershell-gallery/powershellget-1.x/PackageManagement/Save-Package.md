@@ -67,9 +67,9 @@ Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential
 Save-Package [-Path <String>] [-LiteralPath <String>] [-Credential <PSCredential>] [-Proxy <Uri>]
  [-ProxyCredential <PSCredential>] [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
  [-AllowPrereleaseVersions] [-PackageManagementProvider <String>] [-PublishLocation <String>]
- [-ScriptSourceLocation <String>] [-ScriptPublishLocation <String>] [-Type <String>]
- [-Filter <String>] [-Tag <String[]>] [-Includes <String[]>] [-DscResource <String[]>]
- [-RoleCapability <String[]>] [-Command <String[]>] [-AcceptLicense] [<CommonParameters>]
+ [-ScriptSourceLocation <String>] [-ScriptPublishLocation <String>] [-Type <String>] [-Filter <String>]
+ [-Tag <String[]>] [-Includes <String[]>] [-DscResource <String[]>] [-RoleCapability <String[]>]
+ [-Command <String[]>] [-AcceptLicense] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -159,7 +159,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -175,7 +175,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -191,7 +191,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -321,7 +321,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -338,7 +338,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -631,7 +631,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

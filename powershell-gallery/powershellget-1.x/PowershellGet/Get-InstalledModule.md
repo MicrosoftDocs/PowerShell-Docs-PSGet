@@ -15,8 +15,8 @@ Gets a list of modules on the computer that were installed by PowerShellGet.
 ## SYNTAX
 
 ```
-Get-InstalledModule [[-Name] <String[]>] [-MinimumVersion <String>] [-RequiredVersion <String>]
- [-MaximumVersion <String>] [-AllVersions] [-AllowPrerelease] [<CommonParameters>]
+Get-InstalledModule [[-Name] <String[]>] [-MinimumVersion <Version>] [-RequiredVersion <Version>]
+ [-MaximumVersion <Version>] [-AllVersions] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -59,22 +59,6 @@ This command gets versions of the AzureRM.Automation module from version 1.0 thr
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes in the results modules marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -AllVersions
 
 Indicates that you want to get all available versions of a module.
@@ -100,7 +84,7 @@ Specifies the maximum, or newest, version of a module to get. The **MaximumVersi
 command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -118,7 +102,7 @@ Specifies the minimum version of a single module to get. The **MinimumVersion** 
 command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -150,7 +134,7 @@ Accept wildcard characters: False
 Specifies the exact version of a module to get.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -169,9 +153,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.Version
+
 ## OUTPUTS
 
-### System.Management.Automation.PSCustomObject
+### System.Object
 
 ## NOTES
 

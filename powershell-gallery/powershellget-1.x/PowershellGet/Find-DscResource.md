@@ -18,10 +18,10 @@ Finds Desired State Configuration (DSC) resources.
 ### All
 
 ```
-Find-DscResource [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <String>]
- [-MaximumVersion <String>] [-RequiredVersion <String>] [-AllVersions] [-AllowPrerelease]
- [-Tag <String[]>] [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Repository <String[]>] [<CommonParameters>]
+Find-DscResource [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <Version>]
+ [-MaximumVersion <Version>] [-RequiredVersion <Version>] [-AllVersions] [-Tag <String[]>]
+ [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Repository <String[]>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -159,22 +159,6 @@ dmAwsTagInstance        1.0.1      domainAwsDSCResources      PSGallery
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes resources marked as a prerelease in the results.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -AllVersions
 
 The **AllVersions** parameter displays each of a DSC resource's available versions. You can't use
@@ -216,7 +200,7 @@ Specifies the maximum version of the resource to include in results. The **Maxim
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -233,7 +217,7 @@ Specifies the minimum version of the resource to include in results. The **Minim
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -332,7 +316,7 @@ Specifies the module's exact version number to include in the results. The **Req
 the **MinimumVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -367,11 +351,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
 
-### PSGetDscResourceInfo
+### PSCustomObject[]
 
-`Find-DscResource` returns a **PSGetDscResourceInfo** object.
+`Find-DscResource` returns a **PSCustomObject** object.
 
 ## NOTES
 

@@ -18,9 +18,9 @@ Updates a script.
 ### All
 
 ```
-Update-Script [[-Name] <String[]>] [-RequiredVersion <String>] [-MaximumVersion <String>]
- [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force]
- [-AllowPrerelease] [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-Script [[-Name] <String[]>] [-RequiredVersion <Version>] [-MaximumVersion <Version>]
+ [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -50,38 +50,6 @@ parameter specifies the script version. `Get-InstalledScript` displays the updat
 script.
 
 ## PARAMETERS
-
-### -AcceptLicense
-
-Automatically accept the license agreement during installation if the package requires it.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to update a script with the newer script marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -Credential
 
@@ -121,7 +89,7 @@ Specifies the maximum, or newest, version of the script to update. The **Maximum
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -145,20 +113,6 @@ Required: False
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PassThru
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -201,7 +155,7 @@ Specifies the exact version number of the script to update. The **MinimumVersion
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -252,7 +206,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.Version
+
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 
