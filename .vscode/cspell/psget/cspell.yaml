@@ -1,0 +1,26 @@
+name: psget
+description: >
+  This cSpell configuration is for PowerShellGet terminology. Only add to the dictionary defined
+  here if the terms specifically apply to PowerShellGet or the PowerShell Gallery. If they apply to
+  PowerShell more broadly, contribute those changes back to the psdocs configuration and
+  dictionaries in the MicrosoftDocs/PowerShell-Docs repository, not here.
+
+dictionaryDefinitions:
+  - name: psget-terms
+    description: >
+      Dictionary of common terms for PowerShellGet. Add entries to this dictionary for words used
+      in PowerShellGet but not broader PowerShell or other documentation.
+    path: ./dictionaries/psget-terms.txt
+
+# These settings are applied to combinations of language (file type) and locale. For any given file
+# and locale, all matching dictionaries are applied.
+languageSettings:
+  # Any Markdown file
+  - languageId: markdown
+    locale: '*'
+    dictionaries:
+      - psget-terms
+  - languageId: yaml
+    locale: '*'
+    dictionaries:
+      - psget-terms

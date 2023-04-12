@@ -1,43 +1,6 @@
 {
-  "docsets_to_publish": [
-    {
-      "docset_name": "powershell-gallery",
-      "build_source_folder": "powershell-gallery",
-      "build_output_subfolder": "powershell-gallery",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": false,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "PowershellModule": "Content",
-        "PowershellCmdlet": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "base_path": "powershell",
-      "site_name": "Docs",
-      "customized_tasks": {
-        "docset_prebuild": [
-          "_dependentPackages/MAML2Yaml/tools/Run.ps1"
-        ]
-      }
-    }
-  ],
-  "notification_subscribers": [],
-  "sync_notification_subscribers": [],
-  "branches_to_filter": [],
-  "need_preview_pull_request": true,
-  "dependent_repositories": [
-    {
-      "path_to_root": "_themes",
-      "url": "https://github.com/Microsoft/templates.docs.msft",
-      "branch": "main",
-      "branch_mapping": {}
-    }
-  ],
   "branch_target_mapping": {},
-  "skip_source_output_uploading": false,
+  "branches_to_filter": [],
   "contribution_branch_mappings": {},
   "dependent_packages": [
     {
@@ -48,8 +11,54 @@
       "version": "latest"
     }
   ],
-  "monikerPath": [
-    "mapping/monikerMapping.json"
+  "dependent_repositories": [
+    {
+      "branch": "master",
+      "branch_mapping": {},
+      "path_to_root": "_themes",
+      "url": "https://github.com/Microsoft/templates.docs.msft"
+    }
   ],
-  "need_generate_pdf_url_template": false
+  "docsets_to_publish": [
+    {
+      "base_path": "powershell",
+      "build_entry_point": "docs",
+      "build_output_subfolder": "powershell-gallery",
+      "build_source_folder": "powershell-gallery",
+      "customized_tasks": {
+        "docset_prebuild": [
+          "_dependentPackages/MAML2Yaml/tools/Run.ps1"
+        ]
+      },
+      "docset_name": "powershell-gallery",
+      "locale": "en-us",
+      "monikerPath": [
+        "mapping/monikerMapping.json"
+      ],
+      "moniker_ranges": [
+        ">=powershellget-1.x"
+      ],
+      "monikers": [],
+      "open_to_public_contributors": true,
+      "site_name": "Docs",
+      "template_folder": "_themes",
+      "type_mapping": {
+        "Conceptual": "Content",
+        "PowershellCmdlet": "Content",
+        "PowershellModule": "Content"
+      },
+      "version": 0,
+      "xref_query_tags": [
+        "/dotnet",
+        "/uwp/api"
+      ]
+    }
+  ],
+  "git_repository_branch_open_to_public_contributors": "main",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/PowerShell-Docs-PSGet",
+  "need_generate_pdf_url_template": false,
+  "need_preview_pull_request": true,
+  "notification_subscribers": [],
+  "skip_source_output_uploading": false,
+  "sync_notification_subscribers": []
 }

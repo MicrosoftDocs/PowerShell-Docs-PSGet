@@ -1,0 +1,11 @@
+items:
+  - name: Overview
+    href: overview.md
+  - name: Install PowerShellGet
+    items:
+      - name: Install PowerShellGet
+        href: install-powershellget.md
+      - name: Update PowerShellGet for Windows PowerShell 5.1
+        href: update-powershell-51.md
+      - name: Installing PowerShellGet on older Windows systems
+        href: install-on-older-systems.md

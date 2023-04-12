@@ -1,4 +1,7 @@
-- name: Overview
-  items:
-  - name: Welcome
-    href: index.md
+items:
+  - name: Overview
+    href: overview.md
+  - name: PowerShellGet
+    href: powershellget/toc.yml
+  - name: PowerShell Gallery
+    href: gallery/toc.yml
