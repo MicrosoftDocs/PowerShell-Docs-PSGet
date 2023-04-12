@@ -15,8 +15,8 @@ Gets an installed script.
 ## SYNTAX
 
 ```
-Get-InstalledScript [[-Name] <String[]>] [-MinimumVersion <String>] [-RequiredVersion <String>]
- [-MaximumVersion <String>] [-AllowPrerelease] [<CommonParameters>]
+Get-InstalledScript [[-Name] <String[]>] [-MinimumVersion <Version>] [-RequiredVersion <Version>]
+ [-MaximumVersion <Version>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -51,22 +51,6 @@ This command gets scripts where the name begins with **Required-Scri**.
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes in the results scripts marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -MaximumVersion
 
 Specifies the maximum, or latest, version of a script to get. The **MaximumVersion** and
@@ -74,7 +58,7 @@ Specifies the maximum, or latest, version of a script to get. The **MaximumVersi
 command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -91,7 +75,7 @@ Specifies the minimum version of a script to get. The **MinimumVersion** and **R
 parameters are mutually exclusive; you cannot use both parameters in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -123,7 +107,7 @@ Accept wildcard characters: True
 Specifies the exact version of a script to get.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -144,7 +128,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String[]
 
-### System.String
+### System.Version
 
 ## OUTPUTS
 

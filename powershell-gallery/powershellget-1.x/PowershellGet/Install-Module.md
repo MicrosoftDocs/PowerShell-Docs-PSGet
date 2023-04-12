@@ -17,10 +17,10 @@ Downloads one or more modules from a repository, and installs them on the local 
 ### NameParameterSet (Default)
 
 ```
-Install-Module [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] [-Credential <PSCredential>] [-Scope <String>]
- [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-AllowClobber] [-SkipPublisherCheck] [-Force]
- [-AllowPrerelease] [-AcceptLicense] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+Install-Module [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] [-Credential <PSCredential>]
+ [-Scope <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-AllowClobber]
+ [-SkipPublisherCheck] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObject
@@ -28,7 +28,7 @@ Install-Module [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <S
 ```
 Install-Module [-InputObject] <PSObject[]> [-Credential <PSCredential>] [-Scope <String>]
  [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-AllowClobber] [-SkipPublisherCheck] [-Force]
- [-AcceptLicense] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -119,64 +119,7 @@ The `Install-Module` uses the **Name** parameter to specify the **PowerShellGet*
 `Install-Module` downloads and installs the newest version of **PowerShellGet** into the current
 user's directory, `$HOME\Documents\WindowsPowerShell\Modules`.
 
-### Example 6: Install the latest prerelease version of a module
-
-This example shows how to install the latest version of a module when that version is a prerelease
-version. Installing a prerelease version requires the **AllowPrerelease** parameter.
-
-```powershell
-Install-Module -Name Microsoft.PowerShell.Crescendo -AllowPrerelease
-```
-
-Using this method you get the latest version available. If the latest version isn't a prerelease,
-you get the latest stable version of the module.
-
-### Example 7: Install a specific prerelease version of a module
-
-This example shows how to install a specific prerelease version of a module. You can use the `Find-Module`
-cmdlet to find prerelease versions of modules in the PowerShell Gallery.
-
-Prerelease versions have a format of `<version_number>-<prerelease_label>`.
-
-```powershell
-Find-Module PSReadLine -AllVersions -AllowPrerelease | Select-Object -First 5
-```
-
-```Output
-Version        Name             Repository       Description
--------        ----             ----------       -----------
-2.2.6          PSReadLine       PSGallery        Great command line editing in the PowerS…
-2.2.5          PSReadLine       PSGallery        Great command line editing in the PowerS…
-2.2.4-beta1    PSReadLine       PSGallery        Great command line editing in the PowerS…
-2.2.3          PSReadLine       PSGallery        Great command line editing in the PowerS…
-2.2.2          PSReadLine       PSGallery        Great command line editing in the PowerS…
-```
-
-```powershell
-Install-Module -Name PSReadLine -RequiredVersion 2.2.4-beta1 -AllowPrerelease
-```
-
-Use the version shown in the PowerShell Gallery for the value of the **RequiredVersion** parameter.
-
 ## PARAMETERS
-
-### -AcceptLicense
-
-For modules that require a license, **AcceptLicense** automatically accepts the license agreement
-during installation. For more information, see
-[Modules Requiring License Acceptance](/powershell/scripting/gallery/concepts/module-license-acceptance).
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -AllowClobber
 
@@ -187,22 +130,6 @@ Overwrites existing commands that have the same name as commands being installed
 ```yaml
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to install a module marked as a pre-release.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameParameterSet
 Aliases:
 
 Required: False
@@ -273,7 +200,7 @@ or equal to **MaximumVersion**. If you want to install multiple modules, you can
 `Install-Module` command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -292,7 +219,7 @@ version is installed. If you want to install multiple modules, you can't use **M
 **MinimumVersion** and **RequiredVersion** can't be used in the same `Install-Module` command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -318,20 +245,6 @@ Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -PassThru
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -395,7 +308,7 @@ can't use **RequiredVersion**. **RequiredVersion** can't be used in the same `In
 command as **MinimumVersion** or **MaximumVersion**.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -499,16 +412,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### PSRepositoryItemInfo
-
-`Find-Module` creates **PSRepositoryItemInfo** objects that can be sent down the pipeline to
-`Install-Module`.
-
 ### System.String[]
 
 ### System.Management.Automation.PSObject[]
 
-### System.String
+### System.Version
 
 ### System.Management.Automation.PSCredential
 
@@ -516,10 +424,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.PowerShell.Commands.PSRepositoryItemInfo
-
-When using the **PassThru** parameter, `Install-Module` outputs a **PSRepositoryItemInfo** object
-for the module. This is the same information that you get from the `Find-Module` cmdlet.
+### System.Object
 
 ## NOTES
 

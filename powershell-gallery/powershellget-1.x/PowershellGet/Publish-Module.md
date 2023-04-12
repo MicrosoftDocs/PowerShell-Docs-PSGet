@@ -18,11 +18,10 @@ Publishes a specified module from the local computer to an online gallery.
 ### ModuleNameParameterSet (Default)
 
 ```
-Publish-Module -Name <String> [-RequiredVersion <String>] [-NuGetApiKey <String>]
+Publish-Module -Name <String> [-RequiredVersion <Version>] [-NuGetApiKey <String>]
  [-Repository <String>] [-Credential <PSCredential>] [-FormatVersion <Version>]
  [-ReleaseNotes <String[]>] [-Tags <String[]>] [-LicenseUri <Uri>] [-IconUri <Uri>]
- [-ProjectUri <Uri>] [-Exclude <String[]>] [-Force] [-AllowPrerelease] [-SkipAutomaticTags]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-ProjectUri <Uri>] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### ModulePathParameterSet
@@ -30,8 +29,8 @@ Publish-Module -Name <String> [-RequiredVersion <String>] [-NuGetApiKey <String>
 ```
 Publish-Module -Path <String> [-NuGetApiKey <String>] [-Repository <String>]
  [-Credential <PSCredential>] [-FormatVersion <Version>] [-ReleaseNotes <String[]>]
- [-Tags <String[]>] [-LicenseUri <Uri>] [-IconUri <Uri>] [-ProjectUri <Uri>] [-Force]
- [-SkipAutomaticTags] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-Tags <String[]>] [-LicenseUri <Uri>] [-IconUri <Uri>] [-ProjectUri <Uri>] [-Force] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -90,22 +89,6 @@ Publish-Module @parameters
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Allows modules marked as prerelease to be published.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: ModuleNameParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Specifies a user account that has rights to publish a module for a specified package provider or
@@ -120,23 +103,6 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Exclude
-
-Defines files to exclude from the published module. **Exclude** parameter support is add in
-**PowershellGet** version 2.0.0.
-
-```yaml
-Type: System.String[]
-Parameter Sets: ModuleNameParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -167,7 +133,7 @@ and [ValidateSetAttribute](/dotnet/api/system.management.automation.validateseta
 Type: System.Version
 Parameter Sets: (All)
 Aliases:
-Accepted values: 2.0
+Accepted values: 1.0
 
 Required: False
 Position: Named
@@ -317,7 +283,7 @@ Accept wildcard characters: False
 Specifies the exact version of a single module to publish.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: ModuleNameParameterSet
 Aliases:
 

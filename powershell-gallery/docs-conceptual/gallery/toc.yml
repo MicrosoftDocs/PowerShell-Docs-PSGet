@@ -1,12 +1,8 @@
 items:
-  - name: Overview
-    href: overview.md
-  - name: Installing PowerShellGet
-    href: installing-psget.md
-  - name: Installing PowerShellGet on older systems
-    href: install-on-older-systems.md
   - name: Getting Started
     href: getting-started.md
+  - name: Gallery FAQs
+    href: faqs.yml
   - name: How-To
     items:
       - name: Finding Packages in the Gallery
@@ -89,5 +85,3 @@ items:
         href: how-to/getting-support/bootstrapping-nuget.md
       - name: GDPR Compliance
         href: how-to/getting-support/gdpr-dsr-policy.md
-  - name: Gallery FAQs
-    href: faqs.yml

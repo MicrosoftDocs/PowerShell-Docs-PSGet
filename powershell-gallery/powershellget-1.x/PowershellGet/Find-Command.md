@@ -18,10 +18,10 @@ Finds PowerShell commands in modules.
 ### All
 
 ```
-Find-Command [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <String>]
- [-MaximumVersion <String>] [-RequiredVersion <String>] [-AllVersions] [-AllowPrerelease]
- [-Tag <String[]>] [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Repository <String[]>] [<CommonParameters>]
+Find-Command [[-Name] <String[]>] [-ModuleName <String>] [-MinimumVersion <Version>]
+ [-MaximumVersion <Version>] [-RequiredVersion <Version>] [-AllVersions] [-Tag <String[]>]
+ [-Filter <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Repository <String[]>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -124,22 +124,6 @@ beneficial for troubleshooting.
 
 ## PARAMETERS
 
-### -AllowPrerelease
-
-Includes modules marked as a prerelease in the results.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -AllVersions
 
 Indicates that this cmdlet gets all versions of a module.
@@ -179,7 +163,7 @@ Specifies the maximum version of the module to include in results. The **Maximum
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -196,7 +180,7 @@ Specifies the minimum version of the module to include in results. The **Minimum
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -295,7 +279,7 @@ Accept wildcard characters: False
 Specifies the version of the module to include in the results.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -330,11 +314,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
 
-### PSGetCommandInfo
+### PSCustomObject[]
 
-`Find-Command` outputs a **PSGetCommandInfo** object.
+`Find-Command` outputs a **PSCustomObject** object.
 
 ## NOTES
 

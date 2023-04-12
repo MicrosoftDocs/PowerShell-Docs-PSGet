@@ -18,9 +18,9 @@ computer.
 ### All
 
 ```
-Update-Module [[-Name] <String[]>] [-RequiredVersion <String>] [-MaximumVersion <String>]
- [-Credential <PSCredential>] [-Scope <String>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-Force] [-AllowPrerelease] [-AcceptLicense] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+Update-Module [[-Name] <String[]>] [-RequiredVersion <Version>] [-MaximumVersion <Version>]
+ [-Credential <PSCredential>] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-Force] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -109,38 +109,6 @@ Update-Module -Name SpeculationControl -Force
 
 ## PARAMETERS
 
-### -AcceptLicense
-
-Automatically accept the license agreement during installation if the package requires it.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to update a module with the newer module marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Specifies a user account that has permission to update a module.
@@ -181,7 +149,7 @@ attempting to update multiple modules. The **MaximumVersion** and the **Required
 can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -270,7 +238,7 @@ specified by **RequiredVersion** must exist in the online gallery or an error is
 than one module is updated in a single command, you can't use **RequiredVersion**.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -278,41 +246,6 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
-### -Scope
-
-Specifies the installation scope of the module. The acceptable values for this parameter are
-**AllUsers** and **CurrentUser**. If **Scope** isn't specified, the update is installed in the
-**CurrentUser** scope.
-
-The **AllUsers** scope requires elevated permissions and installs modules in a location that is
-accessible to all users of the computer:
-
-`$env:ProgramFiles\PowerShell\Modules`
-
-The **CurrentUser** doesn't require elevated permissions and installs modules in a location that is
-accessible only to the current user of the computer:
-
-`$HOME\Documents\PowerShell\Modules`
-
-When no **Scope** is defined, the default is set based on the PowerShellGet version.
-
-- In PowerShellGet versions 2.0.0 and above, the default is **AllUsers** when running an elevated
-  session and **CurrentUser** for all others.
-- In PowerShellGet 1.x versions, the default is **AllUsers**, which requires elevation for install.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-Accepted values: CurrentUser, AllUsers
-
-Required: False
-Position: Named
-Default value: CurrentUser
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -358,7 +291,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String[]
 
-### System.String
+### System.Version
 
 ### System.Management.Automation.PSCredential
 

@@ -18,23 +18,23 @@ Updates information for a script.
 ### PathParameterSet (Default)
 
 ```
-Update-ScriptFileInfo [-Path] <String> [-Version <String>] [-Author <String>] [-Guid <Guid>]
+Update-ScriptFileInfo [-Path] <String> [-Version <Version>] [-Author <String>] [-Guid <Guid>]
  [-Description <String>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Object[]>]
  [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
  [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <Uri>] [-LicenseUri <Uri>]
- [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PrivateData <String>] [-PassThru] [-Force] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### LiteralPathParameterSet
 
 ```
-Update-ScriptFileInfo [-LiteralPath] <String> [-Version <String>] [-Author <String>] [-Guid <Guid>]
- [-Description <String>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Object[]>]
- [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
- [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <Uri>] [-LicenseUri <Uri>]
- [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PrivateData <String>] [-PassThru] [-Force] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Update-ScriptFileInfo [-LiteralPath] <String> [-Version <Version>] [-Author <String>]
+ [-Guid <Guid>] [-Description <String>] [-CompanyName <String>] [-Copyright <String>]
+ [-RequiredModules <Object[]>] [-ExternalModuleDependencies <String[]>]
+ [-RequiredScripts <String[]>] [-ExternalScriptDependencies <String[]>] [-Tags <String[]>]
+ [-ProjectUri <Uri>] [-LicenseUri <Uri>] [-IconUri <Uri>] [-ReleaseNotes <String[]>] [-PassThru]
+ [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -281,7 +281,7 @@ characters as escape sequences.
 ```yaml
 Type: System.String
 Parameter Sets: LiteralPathParameterSet
-Aliases: PSPath
+Aliases:
 
 Required: True
 Position: 0
@@ -320,22 +320,6 @@ Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: True
-```
-
-### -PrivateData
-
-Specifies the private data for the script.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -426,7 +410,7 @@ Accept wildcard characters: False
 Specifies the script's version.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: (All)
 Aliases:
 
@@ -477,7 +461,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

@@ -18,9 +18,8 @@ Uninstalls a module.
 ### NameParameterSet (Default)
 
 ```
-Uninstall-Module [-Name] <String[]> [-MinimumVersion <String>] [-RequiredVersion <String>]
- [-MaximumVersion <String>] [-AllVersions] [-Force] [-AllowPrerelease] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Uninstall-Module [-Name] <String[]> [-MinimumVersion <Version>] [-RequiredVersion <Version>]
+ [-MaximumVersion <Version>] [-AllVersions] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObject
@@ -69,22 +68,6 @@ Get-InstalledModule -Name SpeculationControl | Uninstall-Module
 pipeline to `Uninstall-Module` and is uninstalled.
 
 ## PARAMETERS
-
-### -AllowPrerelease
-
-Allows you to uninstall a module marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -AllVersions
 
@@ -143,7 +126,7 @@ Specifies the maximum, or newest, version of the module to uninstall. The **Maxi
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -160,7 +143,7 @@ Specifies the minimum version of the module to uninstall. The **MinimumVersion**
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -192,7 +175,7 @@ Accept wildcard characters: False
 Specifies the exact version number of the module to uninstall.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -243,11 +226,15 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### PSRepositoryItemInfo
+### System.String[]
 
-`Uninstall-Module` accepts **PSRepositoryItemInfo** objects from the pipeline.
+### System.Management.Automation.PSObject[]
+
+### System.Version
 
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

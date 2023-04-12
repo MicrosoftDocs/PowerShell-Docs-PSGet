@@ -18,35 +18,33 @@ Saves a module and its dependencies on the local computer but doesn't install th
 ### NameAndPathParameterSet (Default)
 
 ```
-Save-Module [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] [-Path] <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease]
- [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-Module [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] -Path <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### NameAndLiteralPathParameterSet
 
 ```
-Save-Module [-Name] <String[]> [-MinimumVersion <String>] [-MaximumVersion <String>]
- [-RequiredVersion <String>] [-Repository <String[]>] -LiteralPath <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AllowPrerelease]
- [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-Module [-Name] <String[]> [-MinimumVersion <Version>] [-MaximumVersion <Version>]
+ [-RequiredVersion <Version>] [-Repository <String[]>] -LiteralPath <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
-### InputObjectAndLiteralPathParameterSet
-
+### InputOjectAndLiteralPathParameterSet
 ```
 Save-Module [-InputObject] <PSObject[]> -LiteralPath <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AcceptLicense] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
-### InputObjectAndPathParameterSet
-
+### InputOjectAndPathParameterSet
 ```
-Save-Module [-InputObject] <PSObject[]> [-Path] <String> [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-AcceptLicense] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Save-Module [-InputObject] <PSObject[]> -Path <String> [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] [-Credential <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -144,38 +142,6 @@ of **Path** where the files are stored.
 
 ## PARAMETERS
 
-### -AcceptLicense
-
-Automatically accept the license agreement if the package requires it.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AllowPrerelease
-
-Allows you to save a module marked as a prerelease.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Credential
 
 Specifies a user account that has rights to save a module.
@@ -216,7 +182,7 @@ that variable as the **InputObject** argument.
 
 ```yaml
 Type: System.Management.Automation.PSObject[]
-Parameter Sets: InputObjectAndLiteralPathParameterSet, InputObjectAndPathParameterSet
+Parameter Sets: InputOjectAndLiteralPathParameterSet, InputOjectAndPathParameterSet
 Aliases:
 
 Required: True
@@ -235,13 +201,13 @@ enclosed in single quotation marks as escape sequences.
 
 ```yaml
 Type: System.String
-Parameter Sets: NameAndLiteralPathParameterSet, InputObjectAndLiteralPathParameterSet
-Aliases: PSPath
+Parameter Sets: NameAndLiteralPathParameterSet, InputOjectAndLiteralPathParameterSet
+Aliases:
 
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -251,7 +217,7 @@ Specifies the maximum, or newest, version of the module to save. The **MaximumVe
 **RequiredVersion** parameters can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
 Aliases:
 
@@ -269,7 +235,7 @@ attempting to install multiple modules. The **MinimumVersion** and **RequiredVer
 can't be used in the same command.
 
 ```yaml
-Type: System.String
+Type: System.Version
 Parameter Sets: NameAndPathParameterSet, NameAndLiteralPathParameterSet
 Aliases:
 
@@ -302,13 +268,13 @@ Specifies the location on the local computer to store a saved module. Accepts wi
 
 ```yaml
 Type: System.String
-Parameter Sets: NameAndPathParameterSet, InputObjectAndPathParameterSet
+Parameter Sets: NameAndPathParameterSet, InputOjectAndPathParameterSet
 Aliases:
 
 Required: True
-Position: 1
+Position: Named
 Default value: None
-Accept pipeline input: True (ByPropertyName)
+Accept pipeline input: False
 Accept wildcard characters: True
 ```
 
@@ -417,7 +383,19 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.Management.Automation.PSObject[]
+
+### System.Version
+
+### System.Uri
+
+### System.Management.Automation.PSCredential
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

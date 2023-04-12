@@ -10,17 +10,14 @@
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
       { "dest": "gallery", "files": [ "**/*.md", "**/**.yml" ], "group": "conceptual", "src": "docs-conceptual" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-1.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
+      { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-2.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
+      { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
 
-      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual/powershellget-3.x" },
-      { "dest": "module", "exclude": [ "toc.yml" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
+      { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-3.x", "src": "powershellget-3.x" },
 
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder" },
       { "dest": "module", "files": [ "**/*.md", "**/*.yml" ], "src": "virtual-folder-module" }
@@ -47,17 +44,26 @@
         "**/**.md": "powershell",
         "**/**.yml": "powershell"
       },
+      "ms.technology": {
+        "powershellget-1.x/**.md": "powershell-conceptual",
+        "powershellget-1.x/**.yml": "powershell-cmdlets",
+        "powershellget-2.x/**.md": "powershell-conceptual",
+        "powershellget-2.x/**.yml": "powershell-cmdlets",
+        "powershellget-3.x/**.md": "powershell-conceptual",
+        "powershellget-3.x/**.yml": "powershell-cmdlets",
+        "docs-conceptual/**/**.md": "powershell-conceptual"
+      },
       "ms.tgt_pltfr": {
         "**/**": "windows, macos, linux"
       },
       "ms.topic": {
-        "docs-conceptual/**/**.md": "conceptual",
         "powershellget-1.x/**.md": "managed-reference",
         "powershellget-1.x/**.yml": "managed-reference",
         "powershellget-2.x/**.md": "managed-reference",
         "powershellget-2.x/**.yml": "managed-reference",
         "powershellget-3.x/**.md": "managed-reference",
-        "powershellget-3.x/**.yml": "managed-reference"
+        "powershellget-3.x/**.yml": "managed-reference",
+        "docs-conceptual/**/**.md": "conceptual",
       },
       "products": {
         "docs-conceptual/**/**.md": [
@@ -97,13 +103,18 @@
     "globalMetadata": {
       "breadcrumb_path": "/powershell/samples/breadcrumb/toc.json",
       "extendBreadcrumb": true,
-      "feedback_system": "None",
+      "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
+      "feedback_product_url": "https://github.com/PowerShell/PowerShellGet/issues/new/choose",
+      "feedback_system": "GitHub",
       "ms.author": "sewhee",
       "ms.devlang": "powershell",
       "ms.prod": "powershell",
       "searchScope": [
         "PowerShell"
-      ]
+      ],
+      "titleSuffix": "PowerShell",
+      "toc_preview": true,
+      "uhfHeaderId": "MSDocsHeader-Powershell"
     },
     "groups": {
       "conceptual": { "moniker_range": ">=powershellget-1.x" },
@@ -129,9 +140,6 @@
       }
     ],
     "template": [],
-    "titleSuffix": "PowerShell",
-    "toc_preview": true,
-    "uhfHeaderId": "MSDocsHeader-Powershell",
     "versions": {
       "powershellget-1.x": { "dest": "powershellget-1.x" },
       "powershellget-2.x": { "dest": "powershellget-2.x" },

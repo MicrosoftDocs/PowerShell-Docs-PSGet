@@ -20,20 +20,18 @@ Updates a module manifest file.
 ```
 Update-ModuleManifest [-Path] <String> [-NestedModules <Object[]>] [-Guid <Guid>]
  [-Author <String>] [-CompanyName <String>] [-Copyright <String>] [-RootModule <String>]
- [-ModuleVersion <Version>] [-Description <String>]
- [-ProcessorArchitecture <ProcessorArchitecture>] [-CompatiblePSEditions <String[]>]
- [-PowerShellVersion <Version>] [-ClrVersion <Version>]
+ [-ModuleVersion <Version>] [-Description <String>] [-ProcessorArchitecture <ProcessorArchitecture>]
+ [-CompatiblePSEditions <String[]>] [-PowerShellVersion <Version>] [-ClrVersion <Version>]
  [-DotNetFrameworkVersion <Version>] [-PowerShellHostName <String>]
- [-PowerShellHostVersion <Version>] [-RequiredModules <Object[]>]
- [-TypesToProcess <String[]>] [-FormatsToProcess <String[]>]
- [-ScriptsToProcess <String[]>] [-RequiredAssemblies <String[]>] [-FileList <String[]>]
- [-ModuleList <Object[]>] [-FunctionsToExport <String[]>] [-AliasesToExport <String[]>]
- [-VariablesToExport <String[]>] [-CmdletsToExport <String[]>]
+ [-PowerShellHostVersion <Version>] [-RequiredModules <Object[]>] [-TypesToProcess <String[]>]
+ [-FormatsToProcess <String[]>] [-ScriptsToProcess <String[]>] [-RequiredAssemblies <String[]>]
+ [-FileList <String[]>] [-ModuleList <Object[]>] [-FunctionsToExport <String[]>]
+ [-AliasesToExport <String[]>] [-VariablesToExport <String[]>] [-CmdletsToExport <String[]>]
  [-DscResourcesToExport <String[]>] [-PrivateData <Hashtable>] [-Tags <String[]>]
  [-ProjectUri <Uri>] [-LicenseUri <Uri>] [-IconUri <Uri>] [-ReleaseNotes <String[]>]
- [-Prerelease <String>] [-HelpInfoUri <Uri>] [-PassThru] [-DefaultCommandPrefix <String>]
- [-ExternalModuleDependencies <String[]>] [-PackageManagementProviders <String[]>]
- [-RequireLicenseAcceptance] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-HelpInfoUri <Uri>] [-PassThru] [-DefaultCommandPrefix <String>]
+ [-ExternalModuleDependencies <String[]>] [-PackageManagementProviders <String[]>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -580,22 +578,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Prerelease
-
-Indicates the module is prerelease.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -PrivateData
 
 Specifies data that is passed to the module when it's imported.
@@ -702,22 +684,6 @@ global session state, PowerShell imports them. If the required modules aren't av
 
 ```yaml
 Type: System.Object[]
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -RequireLicenseAcceptance
-
-Specifies that a license acceptance is required for the module.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases:
 

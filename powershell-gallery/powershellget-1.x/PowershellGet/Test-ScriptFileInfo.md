@@ -106,7 +106,7 @@ quotation marks tell PowerShell not to interpret any characters as escape sequen
 ```yaml
 Type: System.String
 Parameter Sets: LiteralPathParameterSet
-Aliases: PSPath
+Aliases:
 
 Required: True
 Position: Named
