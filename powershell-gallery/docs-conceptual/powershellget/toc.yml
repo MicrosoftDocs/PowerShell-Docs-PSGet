@@ -9,5 +9,3 @@ items:
         href: update-powershell-51.md
       - name: Installing PowerShellGet on older Windows systems
         href: install-on-older-systems.md
-  - name: PowerShell Gallery
-    href: gallery/toc.yml
