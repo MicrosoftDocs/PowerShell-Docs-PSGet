@@ -13,7 +13,7 @@
   ],
   "dependent_repositories": [
     {
-      "branch": "main",
+      "branch": "master",
       "branch_mapping": {},
       "path_to_root": "_themes",
       "url": "https://github.com/Microsoft/templates.docs.msft"
@@ -32,21 +32,30 @@
       },
       "docset_name": "powershell-gallery",
       "locale": "en-us",
-      "moniker_ranges": [],
+      "monikerPath": [
+        "mapping/monikerMapping.json"
+      ],
+      "moniker_ranges": [
+        ">=powershellget-1.x"
+      ],
       "monikers": [],
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "site_name": "Docs",
       "template_folder": "_themes",
       "type_mapping": {
         "Conceptual": "Content",
         "PowershellCmdlet": "Content",
         "PowershellModule": "Content"
-      }
+      },
+      "version": 0,
+      "xref_query_tags": [
+        "/dotnet",
+        "/uwp/api"
+      ]
     }
   ],
-  "monikerPath": [
-    "mapping/monikerMapping.json"
-  ],
+  "git_repository_branch_open_to_public_contributors": "main",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/PowerShell-Docs-PSGet",
   "need_generate_pdf_url_template": false,
   "need_preview_pull_request": true,
   "notification_subscribers": [],
