@@ -15,7 +15,7 @@ title: PowerShellGet
 PowerShellGet is a module with commands for discovering, installing, updating and publishing
 PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
 
-This documentation cover version 1.0.0.1 of the **PowerShellGet** module.
+This documentation covers version 1.0.0.1 of the **PowerShellGet** module.
 
 > [!IMPORTANT]
 > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
