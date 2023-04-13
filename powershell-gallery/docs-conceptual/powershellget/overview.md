@@ -36,10 +36,15 @@ Supported versions:
   > Beginning with **PowerShellGet** v3, **PowerShellGet** is a standalone module and no longer
   > depends on the **PackageManagement** module.
 
-For best results, use the latest version of the **PowerShellGet** module. For more information, see
-[Install PowerShellGet][02].
+For best results, use the latest version of the **PowerShellGet** module.
+
+## See also
+
+- [Install PowerShellGet][02]
+- [PowerShellGet][04] cmdlet reference
 
 <!-- link references -->
 [01]: https://www.powershellgallery.com
 [02]: install-powershellget.md
 [03]: update-powershell-51.md
+[04]: /powershell/module/powershellget
