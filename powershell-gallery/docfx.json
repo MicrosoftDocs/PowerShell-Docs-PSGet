@@ -139,11 +139,6 @@
         ]
       }
     ],
-    "template": [],
-    "versions": {
-      "powershellget-1.x": { "dest": "powershellget-1.x" },
-      "powershellget-2.x": { "dest": "powershellget-2.x" },
-      "powershellget-3.x": { "dest": "powershellget-3.x" }
-    }
+    "template": []
   }
 }
