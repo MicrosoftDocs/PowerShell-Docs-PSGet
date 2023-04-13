@@ -101,7 +101,7 @@
       }
     },
     "globalMetadata": {
-      "breadcrumb_path": "/powershell/samples/breadcrumb/toc.json",
+      "breadcrumb_path": "/powershell/gallery/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
       "feedback_product_url": "https://github.com/PowerShell/PowerShellGet/issues/new/choose",

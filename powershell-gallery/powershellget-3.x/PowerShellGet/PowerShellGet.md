@@ -5,16 +5,23 @@ Locale: en-US
 Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
 Module Name: PowerShellGet
 ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.date: 04/10/2023
+schema: 2.0.0
+title: PowerShellGet
 ---
-
 # PowerShellGet Module
 
 ## Description
 
 PowerShellGet is a module with commands for discovering, installing, updating and publishing
-PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts. This documentation
-covers the latest preview version PowerShellGet v3.
+PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
+
+This documentation covers the latest preview version **PowerShellGet** v3.
+
+> [!IMPORTANT]
+> Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
+> of PowerShellGet has a limited features and doesn't support the updated capabilities of the
+> PowerShell Gallery. To be supported, you must update to the latest version.
 
 ## PowerShellGet Cmdlets
 
