@@ -35,7 +35,7 @@ PowerShell Gallery services, see the [PowerShell Gallery Status][05] page on Git
 <!-- link references -->
 [01]: powershellget/install-powershellget.md
 [02]: powershellget/update-powershell-51.md
-[03]: gallery/getting-started.md
+[03]: getting-started.md
 [04]: https://aka.ms/psgallery-issues
 [05]: https://aka.ms/psgallery-status
 [06]: https://www.powershellgallery.com
