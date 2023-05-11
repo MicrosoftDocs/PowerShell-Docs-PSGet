@@ -19,20 +19,19 @@ Sets information for a registered repository.
 
 ```
 Set-PSResourceRepository [-Name] <String> [-Uri <String>] [-Trusted] [-Priority <Int32>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
 
 ```
-Set-PSResourceRepository -Repository <Hashtable[]> [-PassThru]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-The Set-PSResourceRepository cmdlet sets information for a registered repository.
+The `Set-PSResourceRepository` cmdlet sets information for a registered repository.
 
 ## EXAMPLES
 
@@ -64,7 +63,7 @@ PoshTestGallery  file:///c:/code/testdir                        False         50
 
 ### Example 2
 
-This example changes the **Priority** and **Trusted** values of the repository. were changed.
+This example changes the **Priority** and **Trusted** values of the repository.
 
 > [!NOTE]
 > The **Uri** value of the default **PSGallery** repository can't be changed.
@@ -128,9 +127,10 @@ stored secret. The format of the secret must match the requirements of the repos
 
 ```powershell
 $parameters = @{
-    Name = "PoshTestGallery"
-    Uri = "c:/code/testdir"
-    CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new('SecretStore', 'TestSecret')
+  Name = "PoshTestGallery"
+  Uri = "c:/code/testdir"
+  CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
+      'SecretStore', 'TestSecret')
 }
 Set-PSResourceRepository @parameters -PassThru |
     Select-Object * -ExpandProperty CredentialInfo

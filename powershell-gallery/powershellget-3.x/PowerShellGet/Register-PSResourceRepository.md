@@ -121,11 +121,12 @@ match the requirements of the repository.
 
 ```powershell
 $parameters = @{
-    Name = 'PSGv3'
-    Uri = 'https://www.powershellgallery.com/api/v3'
-    Trusted = $true
-    Priority = 50
-    CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new('SecretStore', 'TestSecret')
+  Name = 'PSGv3'
+  Uri = 'https://www.powershellgallery.com/api/v3'
+  Trusted = $true
+  Priority = 50
+  CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
+      'SecretStore', 'TestSecret')
 }
 Register-PSResourceRepository @parameters
 Get-PSResourceRepository | Select-Object * -ExpandProperty CredentialInfo
