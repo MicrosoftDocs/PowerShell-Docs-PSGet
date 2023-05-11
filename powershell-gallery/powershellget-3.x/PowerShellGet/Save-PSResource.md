@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -17,27 +18,28 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 ### IncludeXmlParameterSet (Default)
 
 ```
-Save-PSResource [-Name] <string[]> -Path <string> [-Version <string>] [-Prerelease]
- [-Repository <string[]>] [-Credential <pscredential>] [-IncludeXml] [-TemporaryPath <string>]
- [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
+ [-Credential <PSCredential>] [-IncludeXml] -Path <String> [-TemporaryPath <String>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### AsNupkgParameterSet
 
 ```
-Save-PSResource [-Name] <string[]> -Path <string> [-Version <string>] [-Prerelease]
- [-Repository <string[]>] [-Credential <pscredential>] [-AsNupkg] [-TemporaryPath <string>]
- [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
+ [-Credential <PSCredential>] [-AsNupkg] -Path <String> [-TemporaryPath <String>] [-TrustRepository]
+ [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
 
 ```
-Save-PSResource [-InputObject] <PSResourceInfo> -Path <string> [-Credential <pscredential>]
- [-TemporaryPath <string>] [-TrustRepository] [-PassThru] [-SkipDependencyCheck]
- [-AuthenticodeCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+Save-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-AsNupkg] [-IncludeXml]
+ -Path <String> [-TemporaryPath <String>] [-TrustRepository] [-PassThru] -InputObject
+ <PSResourceInfo> [-SkipDependencyCheck] [-AuthenticodeCheck]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -93,7 +95,7 @@ Saves the resource as a `.nupkg` file.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-Parameter Sets: AsNupkgParameterSet
+Parameter Sets: AsNupkgParameterSet, InputObjectParameterSet
 Aliases:
 
 Required: False
@@ -135,6 +137,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -IncludeXml
+
+Includes the PowerShellGet metadata XML used to verify that PowerShellGet has installed a module.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: IncludeXmlParameterSet, InputObjectParameterSet
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -InputObject
 
 Used for pipeline input.
@@ -142,12 +160,12 @@ Used for pipeline input.
 ```yaml
 Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
 Parameter Sets: InputObjectParameterSet
-Aliases:
+Aliases: ParentResource
 
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
 ```
 
@@ -157,13 +175,13 @@ The name of one or more resources to install.
 
 ```yaml
 Type: System.String[]
-Parameter Sets: AsNupkgParameterSet, IncludeXmlParameterSet
+Parameter Sets: IncludeXmlParameterSet, AsNupkgParameterSet
 Aliases:
 
 Required: True
 Position: 0
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -199,36 +217,19 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TemporaryPath
-
-Specifies the path to temporarily install the resource before saving. If no temporary path is
-provided, the resource is temporarily installed in the current user's temporary folder.
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -Prerelease
 
 When specified, includes prerelease versions in search results returned.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-Parameter Sets: AsNupkgParameterSet, IncludeXmlParameterSet
-Aliases:
+Parameter Sets: IncludeXmlParameterSet, AsNupkgParameterSet
+Aliases: IsPrerelease
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -243,13 +244,13 @@ Lower **Priority** values have a higher precedence.
 
 ```yaml
 Type: System.String[]
-Parameter Sets: AsNupkgParameterSet, IncludeXmlParameterSet
+Parameter Sets: (All)
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: True
 ```
 
@@ -266,6 +267,23 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TemporaryPath
+
+Specifies the path to temporarily install the resource before saving. If no temporary path is
+provided, the resource is temporarily installed in the current user's temporary folder.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -302,13 +320,13 @@ minimum inclusive range, use `[1.0.0.0, ]` as the version range.
 
 ```yaml
 Type: System.String
-Parameter Sets: AsNupkgParameterSet, IncludeXmlParameterSet
+Parameter Sets: IncludeXmlParameterSet, AsNupkgParameterSet
 Aliases:
 
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: True
 ```
 
@@ -336,22 +354,6 @@ Shows what would happen if the cmdlet runs. The cmdlet isn't run.
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -IncludeXml
-
-Includes the PowerShellGet metadata XML used to verify that PowerShellGet has installed a module.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: IncludeXmlParameterSet
-Aliases:
 
 Required: False
 Position: Named

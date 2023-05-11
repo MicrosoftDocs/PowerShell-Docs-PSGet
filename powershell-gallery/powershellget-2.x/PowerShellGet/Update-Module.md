@@ -3,7 +3,7 @@ external help file: PSModule-help.xml
 Locale: en-US
 Module Name: PowerShellGet
 ms.date: 01/17/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/update-module?view=powershell-7.4&WT.mc_id=ps-gethelp
+online version: https://learn.microsoft.com/powershell/module/powershellget/update-module?view=powershellget-2.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Update-Module
 ---

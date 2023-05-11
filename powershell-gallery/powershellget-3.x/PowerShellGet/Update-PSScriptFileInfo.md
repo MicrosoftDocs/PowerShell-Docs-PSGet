@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/update-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -15,12 +16,12 @@ This cmdlet updates the comment-based metadata in an existing script `.ps1` file
 ## SYNTAX
 
 ```
-Update-PSScriptFileInfo [-Path] <string> [-Author <string>] [-CompanyName <string>]
- [-Copyright <string>] [-Description <string>] [-ExternalModuleDependencies <string[]>]
- [-ExternalScriptDependencies <string[]>] [-Guid <guid>] [-IconUri <string>]
- [-LicenseUri <string>] [-PrivateData <string>] [-ProjectUri <string>] [-ReleaseNotes <string>]
- [-RemoveSignature] [-RequiredModules <hashtable[]>] [-RequiredScripts <string[]>]
- [-Tags <string[]>] [-Version <string>] [<CommonParameters>]
+Update-PSScriptFileInfo [-Author <String>] [-CompanyName <String>] [-Copyright <String>]
+ [-Description <String>] [-ExternalModuleDependencies <String[]>]
+ [-ExternalScriptDependencies <String[]>] [-Guid <Guid>] [-IconUri <String>] [-LicenseUri <String>]
+ [-Path] <String> [-PrivateData <String>] [-ProjectUri <String>] [-ReleaseNotes <String>]
+ [-RemoveSignature] [-RequiredModules <Hashtable[]>] [-RequiredScripts <String[]>]
+ [-Tags <String[]>] [-Version <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -76,7 +77,6 @@ Get-Content $parameters.FilePath
 .EXTERNALSCRIPTDEPENDENCIES
 
 .RELEASENOTES
-
 
 .PRIVATEDATA
 
