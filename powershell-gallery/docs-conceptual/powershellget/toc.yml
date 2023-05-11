@@ -11,5 +11,5 @@ items:
         href: install-on-older-systems.md
   - name: How to
     items:
-      - name: How to persist credentials for repositories in PowerShellGet v3
+      - name: How to add credentials to repositories in PowerShellGet v3
         href: how-to/credential-persistence.md

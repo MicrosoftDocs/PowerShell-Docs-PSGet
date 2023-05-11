@@ -1,10 +1,9 @@
 ---
-description: This article demonstrates how to use SecretStore credentials with an Artifactory
-repository.
+description: This article demonstrates how to use SecretStore credentials with an Artifactory repository.
 ms.date: 05/11/2023
-title: How to persist credentials for repositories in PowerShellGet v3
+title: How to add credentials to repositories in PowerShellGet v3
 ---
-# How to persist credentials for repositories in PowerShellGet v3
+# How to add credentials to repositories in PowerShellGet v3
 
 PowerShellGet v3 allows you to register private repositories that contain installable PSResource
 packages. Typically, private repositories require you to have credentials to access them.
