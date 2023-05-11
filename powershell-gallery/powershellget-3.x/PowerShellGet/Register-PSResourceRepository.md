@@ -19,8 +19,8 @@ Registers a repository for PowerShell resources.
 
 ```
 Register-PSResourceRepository [-Name] <String> [-Uri] <String> [-Trusted] [-Priority <Int32>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet
@@ -126,7 +126,7 @@ $parameters = @{
   Trusted = $true
   Priority = 50
   CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
-      'SecretStore', 'TestSecret')
+    'SecretStore', 'TestSecret')
 }
 Register-PSResourceRepository @parameters
 Get-PSResourceRepository | Select-Object * -ExpandProperty CredentialInfo

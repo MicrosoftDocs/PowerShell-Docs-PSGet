@@ -38,8 +38,8 @@ For more information about **SecretManagement**, see
 
 Once you have a store credential, you need to add it to the registered repository. Create a
 **PSCredentialInfo** object that references the store credential. You can register a new
-**PSResourceRepository** add this to an existing one using the `Set-PSResourceRepository` cmdlet.
-registration. This example shows how to register a new repository.
+**PSResourceRepository** or add the credential to an existing one using the
+`Set-PSResourceRepository` cmdlet. This example shows how to register a new repository.
 
 ```powershell
 $registerPSResourceRepositorySplat = @{
@@ -47,7 +47,7 @@ $registerPSResourceRepositorySplat = @{
   Uri = 'https://myaccount.jfrog.io/artifactory/api/nuget/v3/myrepository'
   Trusted = $true
   CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
-      'SecretStore', 'jfrogCred')
+    'SecretStore', 'jfrogCred')
 }
 Register-PSResourceRepository @registerPSResourceRepositorySplat
 ```

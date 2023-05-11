@@ -130,7 +130,7 @@ $parameters = @{
   Name = "PoshTestGallery"
   Uri = "c:/code/testdir"
   CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
-      'SecretStore', 'TestSecret')
+    'SecretStore', 'TestSecret')
 }
 Set-PSResourceRepository @parameters -PassThru |
     Select-Object * -ExpandProperty CredentialInfo
