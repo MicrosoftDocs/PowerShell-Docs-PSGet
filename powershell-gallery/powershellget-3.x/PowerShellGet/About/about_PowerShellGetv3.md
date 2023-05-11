@@ -141,7 +141,7 @@ The next example shows the same specification in JSON format.
 
 - [Install-PSResource][04]
 - [Find-PSResource][02]
-- [Get-PSResource][03]
+- [Get-InstalledPSResource][03]
 - [Install-PSResource][04]
 - [Save-PSResource][05]
 - [Uninstall-PSResource][06]
@@ -150,7 +150,7 @@ The next example shows the same specification in JSON format.
 <!-- link references -->
 [01]: /nuget/concepts/package-versioning#version-ranges
 [02]: xref:PowerShellGet.Find-PSResource
-[03]: xref:PowerShellGet.Get-PSResource
+[03]: xref:PowerShellGet.Get-InstalledPSResource
 [04]: xref:PowerShellGet.Install-PSResource
 [05]: xref:PowerShellGet.Save-PSResource
 [06]: xref:PowerShellGet.Uninstall-PSResource
