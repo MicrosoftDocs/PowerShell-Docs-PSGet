@@ -1,8 +1,8 @@
 ---
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
-ms.date: 04/04/2023
-online version:
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/about_powershellgetv3?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PowerShellGet v3
 ---
@@ -43,20 +43,20 @@ v3 and their v2 equivalents.
 | `Find-PSResource`                 | `Find-Module`             |
 | `Find-PSResource`                 | `Find-Script`             |
 | n/a                               | `Find-RoleCapability`     |
-| `Get-PSResource`                  | `Get-InstalledModule`     |
-| `Get-PSResource`                  | `Get-InstalledScript`     |
+| `Get-InstalledPSResource`         | `Get-InstalledModule`     |
+| `Get-InstalledPSResource`         | `Get-InstalledScript`     |
 | `Get-PSResourceRepository`        | `Get-PSRepository`        |
 | `Get-PSScriptFileInfo`            | n/a                       |
 | `Install-PSResource`              | `Install-Module`          |
 | `Install-PSResource`              | `Install-Script`          |
-| `New-PSScriptFileInfo`            | `New-ScriptFileInfo`      |
+| `New-PSScriptFile`                | `New-ScriptFileInfo`      |
 | `Publish-PSResource`              | `Publish-Module`          |
 | `Publish-PSResource`              | `Publish-Script`          |
 | `Register-PSResourceRepository`   | `Register-PSRepository`   |
 | `Save-PSResource`                 | `Save-Module`             |
 | `Save-PSResource`                 | `Save-Script`             |
 | `Set-PSResourceRepository`        | `Set-PSRepository`        |
-| `Test-PSScriptFileInfo`           | `Test-ScriptFileInfo`     |
+| `Test-PSScriptFile`               | `Test-ScriptFileInfo`     |
 | `Uninstall-PSResource`            | `Uninstall-Module`        |
 | `Uninstall-PSResource`            | `Uninstall-Script`        |
 | `Unregister-PSResourceRepository` | `Unregister-PSRepository` |
@@ -141,7 +141,7 @@ The next example shows the same specification in JSON format.
 
 - [Install-PSResource][04]
 - [Find-PSResource][02]
-- [Get-PSResource][03]
+- [Get-InstalledPSResource][03]
 - [Install-PSResource][04]
 - [Save-PSResource][05]
 - [Uninstall-PSResource][06]
@@ -150,7 +150,7 @@ The next example shows the same specification in JSON format.
 <!-- link references -->
 [01]: /nuget/concepts/package-versioning#version-ranges
 [02]: xref:PowerShellGet.Find-PSResource
-[03]: xref:PowerShellGet.Get-PSResource
+[03]: xref:PowerShellGet.Get-InstalledPSResource
 [04]: xref:PowerShellGet.Install-PSResource
 [05]: xref:PowerShellGet.Save-PSResource
 [06]: xref:PowerShellGet.Uninstall-PSResource

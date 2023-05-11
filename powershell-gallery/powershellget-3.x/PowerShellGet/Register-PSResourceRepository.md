@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -17,23 +18,23 @@ Registers a repository for PowerShell resources.
 ### NameParameterSet (Default)
 
 ```
-Register-PSResourceRepository [-Name] <string> [-Uri] <string> [-Trusted] [-Priority <int>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Register-PSResourceRepository [-Name] <String> [-Uri] <String> [-Trusted] [-Priority <Int32>]
+ [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet
 
 ```
-Register-PSResourceRepository -PSGallery [-Trusted] [-Priority <int>] [-PassThru] [-Force]
+Register-PSResourceRepository [-PSGallery] [-Trusted] [-Priority <Int32>] [-PassThru] [-Force]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
 
 ```
-Register-PSResourceRepository -Repository <hashtable[]> [-PassThru] [-Force] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Register-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-Force]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -156,6 +157,22 @@ Aliases:
 Required: False
 Position: Named
 Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Force
+
+Overwrites a repository if it already exists.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -307,22 +324,6 @@ Shows what would happen if the cmdlet runs. The cmdlet isn't run.
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Force
-
-Overwrites a repository if it already exists.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
 
 Required: False
 Position: Named

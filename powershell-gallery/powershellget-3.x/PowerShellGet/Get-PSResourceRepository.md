@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/get-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -15,7 +16,7 @@ Finds and returns registered repository information.
 ## SYNTAX
 
 ```
-Get-PSResourceRepository [[-Name] <string[]>] [<CommonParameters>]
+Get-PSResourceRepository [[-Name] <String[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

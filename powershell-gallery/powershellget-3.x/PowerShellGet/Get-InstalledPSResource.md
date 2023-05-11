@@ -1,12 +1,13 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/get-installedpsresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
-# Get-PSResource
+# Get-InstalledPSResource
 
 ## SYNOPSIS
 
@@ -15,8 +16,8 @@ Returns modules and scripts installed on the machine via **PowerShellGet**.
 ## SYNTAX
 
 ```
-Get-PSResource [[-Name] <string[]>] [-Version <string>] [-Path <string>] [-Scope <ScopeType>]
- [<CommonParameters>]
+Get-InstalledPSResource [[-Name] <String[]>] [-Version <String>] [-Path <String>]
+ [-Scope <ScopeType>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -32,7 +33,7 @@ that describes each resource item found. This is equivalent to the combined outp
 This example return all versions of modules and scripts installed on the machine.
 
 ```powershell
-Get-PSResource
+Get-InstalledPSResource
 ```
 
 ### Example 2
@@ -40,7 +41,7 @@ Get-PSResource
 This example returns all versions of the **Az** module installed using **PowerShellGet**.
 
 ```powershell
-Get-PSResource Az
+Get-InstalledPSResource Az
 ```
 
 ### Example 3
@@ -48,7 +49,7 @@ Get-PSResource Az
 This example return all versions of the **Az** module installed in the current directory.
 
 ```powershell
-Get-PSResource Az -Path .
+Get-InstalledPSResource Az -Path .
 ```
 
 ### Example 4
@@ -56,7 +57,7 @@ Get-PSResource Az -Path .
 This example returns a specific version of the Az module if it's installed on the system.
 
 ```powershell
-Get-PSResource Az -Version 9.4.0
+Get-InstalledPSResource Az -Version 9.4.0
 ```
 
 ### Example 5
@@ -64,7 +65,7 @@ Get-PSResource Az -Version 9.4.0
 This example return all installed versions of the Az module within the specified version range.
 
 ```powershell
-Get-PSResource Az -Version "(1.0.0, 3.0.0)"
+Get-InstalledPSResource Az -Version "(1.0.0, 3.0.0)"
 ```
 
 ### Example 6
@@ -73,7 +74,7 @@ This example returns a specific preview version of the **PowerShellGet** module 
 on the system.
 
 ```powershell
-Get-PSResource PowerShellGet -Version 3.0.19-beta19
+Get-InstalledPSResource PowerShellGet -Version 3.0.19-beta19
 ```
 
 ```Output
@@ -89,7 +90,7 @@ system. This example shows that you must provide the full version, including the
 label to identify the installed module by **Version**.
 
 ```powershell
-Get-PSResource PowerShellGet -Version 3.0.19
+Get-InstalledPSResource PowerShellGet -Version 3.0.19
 ```
 
 There is no output from this command.
@@ -100,7 +101,7 @@ In this example you see that there are four version of **PSReadLine** installed 
 second command searches for a range of version between `2.2.0` and `2.3.0`.
 
 ```powershell
-Get-PSResource PSReadLine
+Get-InstalledPSResource PSReadLine
 ```
 
 ```Output
@@ -114,7 +115,7 @@ PSReadLine 2.2.0   beta4      PSGallery  Great command line editing in the Power
 ```
 
 ```powershell
-Get-PSResource PSReadLine -Version '[2.2.0, 2.3.0]'
+Get-InstalledPSResource PSReadLine -Version '[2.2.0, 2.3.0]'
 ```
 
 ```Output

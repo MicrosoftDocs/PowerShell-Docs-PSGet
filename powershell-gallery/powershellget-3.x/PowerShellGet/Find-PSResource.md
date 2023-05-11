@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/find-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -18,23 +19,23 @@ properties.
 ### NameParameterSet (Default)
 
 ```
-Find-PSResource [[-Name] <string[]>] [-Type <ResourceType>] [-Version <string>] [-Prerelease]
- [-Tag <string[]>] [-Repository <string[]>] [-Credential <pscredential>] [-IncludeDependencies]
+Find-PSResource [[-Name] <String[]>] [-Type <ResourceType>] [-Version <String>] [-Prerelease]
+ [-Tag <String[]>] [-Repository <String[]>] [-Credential <PSCredential>] [-IncludeDependencies]
  [<CommonParameters>]
 ```
 
 ### CommandNameParameterSet
 
 ```
-Find-PSResource -CommandName <string[]> [-Prerelease] [-Repository <string[]>]
- [-Credential <pscredential>] [<CommonParameters>]
+Find-PSResource [-Prerelease] -CommandName <String[]> [-Repository <String[]>]
+ [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ### DscResourceNameParameterSet
 
 ```
-Find-PSResource -DscResourceName <string[]> [-Prerelease] [-Repository <string[]>]
- [-Credential <pscredential>] [<CommonParameters>]
+Find-PSResource [-Prerelease] -DscResourceName <String[]> [-Repository <String[]>]
+ [-Credential <PSCredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,8 +58,6 @@ Find-PSResource -Name PowerShellGet -Repository PSGallery
 Name          Version Prerelease Repository Description
 ----          ------- ---------- ---------- -----------
 PowerShellGet 2.2.5              PSGallery  PowerShell module with commands for discovering, installing, updating and p…
-
-
 ```
 
 ### Example 2
@@ -73,7 +72,7 @@ Find-PSResource -Name PowerShellGet -Repository PSGallery -Prerelease
 ```Output
 Name          Version Prerelease Repository Description
 ----          ------- ---------- ---------- -----------
-PowerShellGet 3.0.20  beta20     PSGallery  PowerShell module with commands for discovering, installing, updating and p…
+PowerShellGet 3.0.21  beta21     PSGallery  PowerShell module with commands for discovering, installing, updating and p…
 ```
 
 ### Example 3
@@ -254,7 +253,7 @@ deduplicated.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
+Parameter Sets: NameParameterSet
 Aliases:
 
 Required: False
@@ -274,7 +273,7 @@ Type: System.String[]
 Parameter Sets: NameParameterSet
 Aliases:
 
-Required: True
+Required: False
 Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)

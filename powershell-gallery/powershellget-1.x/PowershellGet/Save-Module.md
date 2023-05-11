@@ -3,7 +3,7 @@ external help file: PSModule-help.xml
 Locale: en-US
 Module Name: PowerShellGet
 ms.date: 12/09/2022
-online version: https://learn.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1&WT.mc_id=ps-gethelp
+online version: https://learn.microsoft.com/powershell/module/powershellget/save-module?view=powershellget-1.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Save-Module
 ---
