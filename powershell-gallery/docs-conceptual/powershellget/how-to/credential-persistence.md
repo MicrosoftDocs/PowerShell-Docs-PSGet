@@ -1,5 +1,5 @@
 ---
-description: This article demonstrates how to use **SecretStore** credentials with an Artifactory
+description: This article demonstrates how to use SecretStore credentials with an Artifactory
 repository.
 ms.date: 05/11/2023
 title: How to persist credentials for repositories in PowerShellGet v3
@@ -19,6 +19,8 @@ demonstrates how to use **SecretStore** credentials with an Artifactory reposito
 > [!NOTE]
 > This example uses **SecretStore**, but you can use any **SecretManagement** extension vault and
 > with any repository.
+
+Use `Get-SecretInfo` to verify that the vault contains the credential you need.
 
 ```powershell
 Get-SecretInfo
