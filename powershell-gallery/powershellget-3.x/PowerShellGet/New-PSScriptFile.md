@@ -1,12 +1,13 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/new-psscriptfile?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
-# New-PSScriptFileInfo
+# New-PSScriptFile
 
 ## SYNOPSIS
 
@@ -15,11 +16,11 @@ The cmdlet creates a new script file, including metadata about the script.
 ## SYNTAX
 
 ```
-New-PSScriptFileInfo [-Path] <string> -Description <string> [-Version <string>] [-Author <string>]
- [-Guid <guid>] [-CompanyName <string>] [-Copyright <string>] [-RequiredModules <hashtable[]>]
- [-ExternalModuleDependencies <string[]>] [-RequiredScripts <string[]>]
- [-ExternalScriptDependencies <string[]>] [-Tags <string[]>] [-ProjectUri <string>]
- [-LicenseUri <string>] [-IconUri <string>] [-ReleaseNotes <string>] [-PrivateData <string>]
+New-PSScriptFile [-Path] <String> [-Version <String>] [-Author <String>] -Description <String>
+ [-Guid <Guid>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Hashtable[]>]
+ [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
+ [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <String>]
+ [-LicenseUri <String>] [-IconUri <String>] [-ReleaseNotes <String>] [-PrivateData <String>]
  [-Force] [<CommonParameters>]
 ```
 
@@ -37,7 +38,7 @@ nane and location of the script. The **Description** parameter provide the descr
 comment-based help for the script.
 
 ```powershell
-New-PSScriptFileInfo -Path ./test_script.ps1 -Description 'This is a test script.'
+New-PSScriptFile -Path ./test_script.ps1 -Description 'This is a test script.'
 Get-Content ./test_script.ps1
 ```
 
@@ -70,9 +71,7 @@ Get-Content ./test_script.ps1
 
 .RELEASENOTES
 
-
 .PRIVATEDATA
-
 
 #>
 
@@ -80,7 +79,6 @@ Get-Content ./test_script.ps1
 
 .DESCRIPTION
 This is a test script.
-
 
 #>
 ```
@@ -101,7 +99,7 @@ $parameters = @{
         @{ModuleName = 'PSReadLine'}
     )
 }
-New-PSScriptFileInfo @parameters
+New-PSScriptFile @parameters
 Get-Content ./test_script2.ps1
 ```
 
@@ -134,9 +132,7 @@ Get-Content ./test_script2.ps1
 
 .RELEASENOTES
 
-
 .PRIVATEDATA
-
 
 #>
 
@@ -147,7 +143,6 @@ Get-Content ./test_script2.ps1
 
 .DESCRIPTION
 This is a test script.
-
 
 #>
 ```

@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -15,10 +16,10 @@ Publishes a specified module from the local computer to PSResource repository.
 ## SYNTAX
 
 ```
-Publish-PSResource -Path <string> [-ApiKey <string>] [-Repository <string>]
- [-DestinationPath <string>] [-Credential <pscredential>] [-SkipDependenciesCheck]
- [-SkipModuleManifestValidate] [-Proxy <uri>] [-ProxyCredential <pscredential>] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
+ [-DestinationPath <String>] [-Credential <PSCredential>] [-SkipDependenciesCheck]
+ [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -109,40 +110,8 @@ Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: True (All) False (None)
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -Proxy
-
-The URL to a proxy server used to access repositories outside of your network.
-
-```yaml
-Type: System.Uri
-Parameter Sets: (All)
-Aliases:
-
-Required: True (None) False (All)
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -ProxyCredential
-
-The credentials required to use the proxy server.
-
-```yaml
-Type: System.Management.Automation.PSCredential
-Parameter Sets: (All)
-Aliases:
-
-Required: True (None) False (All)
-Position: Named
+Required: True
+Position: 0
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -212,6 +181,22 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -SkipModuleManifestValidate
+
+Skips validating the module manifest before publishing.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Confirm
 
 Prompts you for confirmation before running the cmdlet.
@@ -236,22 +221,6 @@ Shows what would happen if the cmdlet runs. The cmdlet isn't run.
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
 Aliases: wi
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -SkipModuleManifestValidate
-
-Skips validating the module manifest before publishing.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
 
 Required: False
 Position: Named

@@ -4,8 +4,9 @@ Help Version: 3.0.16
 Locale: en-US
 Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/10/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/powershellget?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: PowerShellGet
 ---
@@ -16,7 +17,7 @@ title: PowerShellGet
 PowerShellGet is a module with commands for discovering, installing, updating and publishing
 PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
 
-This documentation covers the latest preview version **PowerShellGet** v3.
+This documentation covers the latest preview version **PowerShellGet** v3.0-beta21.
 
 > [!IMPORTANT]
 > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
@@ -29,7 +30,7 @@ This documentation covers the latest preview version **PowerShellGet** v3.
 Searches for packages from a repository (local or remote), based on a name or other package
 properties.
 
-### [Get-PSResource](Get-PSResource.md)
+### [Get-InstalledPSResource](Get-InstalledPSResource.md)
 Returns modules and scripts installed on the machine via **PowerShellGet**.
 
 ### [Get-PSResourceRepository](Get-PSResourceRepository.md)
@@ -41,7 +42,7 @@ The cmdlet creates a new script file, including metadata about the script.
 ### [Install-PSResource](Install-PSResource.md)
 Installs resources from a registered repository.
 
-### [New-PSScriptFileInfo](New-PSScriptFileInfo.md)
+### [New-PSScriptFile](New-PSScriptFile.md)
 The cmdlet creates a new script file, including metadata about the script.
 
 ### [Publish-PSResource](Publish-PSResource.md)
@@ -56,7 +57,7 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 ### [Set-PSResourceRepository](Set-PSResourceRepository.md)
 Sets information for a registered repository.
 
-### [Test-PSScriptFileInfo](Test-PSScriptFileInfo.md)
+### [Test-PSScriptFile](Test-PSScriptFile.md)
 Tests the comment-based metadata in a `.ps1` file to ensure it's valid for publication.
 
 ### [Uninstall-PSResource](Uninstall-PSResource.md)

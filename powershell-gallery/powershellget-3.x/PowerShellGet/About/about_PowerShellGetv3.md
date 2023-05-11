@@ -2,7 +2,7 @@
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
 ms.date: 04/04/2023
-online version:
+online version: https://learn.microsoft.com/powershell/module/powershellget/about_powershellgetv3?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PowerShellGet v3
 ---

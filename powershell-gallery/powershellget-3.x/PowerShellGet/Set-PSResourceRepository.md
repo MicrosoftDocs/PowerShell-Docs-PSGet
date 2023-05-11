@@ -1,8 +1,9 @@
 ---
 external help file: PowerShellGet.dll-Help.xml
 Module Name: PowerShellGet
-ms.custom: v3-beta20
-ms.date: 04/03/2023
+ms.custom: v3-beta21
+ms.date: 05/11/2023
+online version: https://learn.microsoft.com/powershell/module/powershellget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -17,15 +18,16 @@ Sets information for a registered repository.
 ### NameParameterSet (Default)
 
 ```
-Set-PSResourceRepository [-Name] <string> [-Uri <string>] [-Trusted] [-Priority <int>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+Set-PSResourceRepository [-Name] <String> [-Uri <String>] [-Trusted] [-Priority <Int32>]
+ [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
 
 ```
-Set-PSResourceRepository -Repository <hashtable[]> [-PassThru] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Set-PSResourceRepository -Repository <Hashtable[]> [-PassThru]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
