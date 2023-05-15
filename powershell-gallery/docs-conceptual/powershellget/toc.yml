@@ -9,3 +9,7 @@ items:
         href: update-powershell-51.md
       - name: Installing PowerShellGet on older Windows systems
         href: install-on-older-systems.md
+  - name: How to
+    items:
+      - name: How to add credentials to repositories in PowerShellGet v3
+        href: how-to/credential-persistence.md
