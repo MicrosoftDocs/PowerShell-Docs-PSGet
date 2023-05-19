@@ -1,20 +1,20 @@
 ---
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/about_powershellgetv3?view=powershellget-3.x&WT.mc_id=ps-gethelp
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_powershellgetv3?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
-title: about PowerShellGet v3
+title: about PSResourceGet
 ---
-# about_PowerShellGetv3
+# about_PSResourceGet
 
 ## Short description
 Describes how to use version 3.x of the PowerShellGet module.
 
 ## Long description
 
-**PowerShellGet** v3 is an updated version of the **PowerShellGet** module
-completely written in C#.
+**Microsoft.PowerShell.PSResourceGet** is an updated version of the
+**PowerShellGet** module completely written in C#.
 
 This version of PowerShellGet focuses on a few key areas:
 
@@ -29,48 +29,48 @@ This version of PowerShellGet focuses on a few key areas:
 ## Design changes
 
 Previous versions of **PowerShellGet** had separate commands to work with
-modules and scripts. In **PowerShellGet** v3, all packages in the PowerShell
-Gallery are defined as **PSResource** objects. This reduces the number of
-cmdlets from 26 in version 2.x to 16 in version 3.x.
+modules and scripts. In **Microsoft.PowerShell.PSResourceGet**, all packages in
+the PowerShell Gallery are defined as **PSResource** objects. This reduces the
+number of cmdlets from 26 in version 2.x to 16 in version 3.x.
 
 The following table shows the cmdlets that are available in **PowerShellGet**
 v3 and their v2 equivalents.
 
-|         PowerShellGet v3          |     PowerShellGet v2      |
-| --------------------------------- | ------------------------- |
-| `Find-PSResource`                 | `Find-Command`            |
-| `Find-PSResource`                 | `Find-DscResource`        |
-| `Find-PSResource`                 | `Find-Module`             |
-| `Find-PSResource`                 | `Find-Script`             |
-| n/a                               | `Find-RoleCapability`     |
-| `Get-InstalledPSResource`         | `Get-InstalledModule`     |
-| `Get-InstalledPSResource`         | `Get-InstalledScript`     |
-| `Get-PSResourceRepository`        | `Get-PSRepository`        |
-| `Get-PSScriptFileInfo`            | n/a                       |
-| `Install-PSResource`              | `Install-Module`          |
-| `Install-PSResource`              | `Install-Script`          |
-| `New-PSScriptFile`                | `New-ScriptFileInfo`      |
-| `Publish-PSResource`              | `Publish-Module`          |
-| `Publish-PSResource`              | `Publish-Script`          |
-| `Register-PSResourceRepository`   | `Register-PSRepository`   |
-| `Save-PSResource`                 | `Save-Module`             |
-| `Save-PSResource`                 | `Save-Script`             |
-| `Set-PSResourceRepository`        | `Set-PSRepository`        |
-| `Test-PSScriptFile`               | `Test-ScriptFileInfo`     |
-| `Uninstall-PSResource`            | `Uninstall-Module`        |
-| `Uninstall-PSResource`            | `Uninstall-Script`        |
-| `Unregister-PSResourceRepository` | `Unregister-PSRepository` |
-| `Update-ModuleManifest`           | `Update-ModuleManifest`   |
-| `Update-PSResource`               | `Update-Module`           |
-| `Update-PSResource`               | `Update-Script`           |
-| `Update-PSScriptFileInfo`         | `Update-ScriptFileInfo`   |
+| Microsoft.PowerShell.PSResourceGet |     PowerShellGet v2      |
+| ---------------------------------- | ------------------------- |
+| `Find-PSResource`                  | `Find-Command`            |
+| `Find-PSResource`                  | `Find-DscResource`        |
+| `Find-PSResource`                  | `Find-Module`             |
+| `Find-PSResource`                  | `Find-Script`             |
+| n/a                                | `Find-RoleCapability`     |
+| `Get-InstalledPSResource`          | `Get-InstalledModule`     |
+| `Get-InstalledPSResource`          | `Get-InstalledScript`     |
+| `Get-PSResourceRepository`         | `Get-PSRepository`        |
+| `Get-PSScriptFileInfo`             | n/a                       |
+| `Install-PSResource`               | `Install-Module`          |
+| `Install-PSResource`               | `Install-Script`          |
+| `New-PSScriptFileInfo`             | `New-ScriptFileInfo`      |
+| `Publish-PSResource`               | `Publish-Module`          |
+| `Publish-PSResource`               | `Publish-Script`          |
+| `Register-PSResourceRepository`    | `Register-PSRepository`   |
+| `Save-PSResource`                  | `Save-Module`             |
+| `Save-PSResource`                  | `Save-Script`             |
+| `Set-PSResourceRepository`         | `Set-PSRepository`        |
+| `Test-PSScriptFileInfo`            | `Test-ScriptFileInfo`     |
+| `Uninstall-PSResource`             | `Uninstall-Module`        |
+| `Uninstall-PSResource`             | `Uninstall-Script`        |
+| `Unregister-PSResourceRepository`  | `Unregister-PSRepository` |
+| `Update-PSModuleManifest`          | `Update-ModuleManifest`   |
+| `Update-PSResource`                | `Update-Module`           |
+| `Update-PSResource`                | `Update-Script`           |
+| `Update-PSScriptFileInfo`          | `Update-ScriptFileInfo`   |
 
 ## Searching by NuGet version ranges
 
-Several **PowerShellGet** v3 cmdlets provide a **Version** parameter that
-allows you to specify a range of versions to search for. The **Version**
-parameter uses the NuGet versioning syntax. For more information about NuGet
-version ranges, see [Package versioning][01].
+Several **Microsoft.PowerShell.PSResourceGet** cmdlets provide a **Version**
+parameter that allows you to specify a range of versions to search for. The
+**Version** parameter uses the NuGet versioning syntax. For more information
+about NuGet version ranges, see [Package versioning][01].
 
 PowerShellGet supports all but the _minimum inclusive version_ listed in the
 NuGet version range documentation. Using `1.0.0.0` as the version doesn't yield

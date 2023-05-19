@@ -1,6 +1,6 @@
 ---
 description: This article explains how to install the PowerShellGet module in older versions of PowerShell.
-ms.date: 04/10/2023
+ms.date: 06/09/2023
 title: Installing PowerShellGet on older Windows systems
 ---
 # Installing PowerShellGet on older Windows systems
@@ -27,10 +27,10 @@ For more information, see [Save-Module](/powershell/module/PowershellGet/Save-Mo
 
 > [!NOTE]
 > PowerShell 3.0 and PowerShell 4.0 only supported one version of a module. Starting in PowerShell
-> 5.0, modules are installed in `<modulename>\<version>`. This allows you to install
+> 5.0, modules are installed in `<modulename>\<version>` folders. This allows you to install
 > multiple versions side-by-side. After downloading the module using `Save-Module` you must copy the
-> files from the `<modulename>\<version>` to the `<modulename>` folder on the destination machine,
-> as shown in the instructions below.
+> files from the `<modulename>\<version>` folder to the `<modulename>` folder on the destination
+> machine, as shown in the instructions below.
 
 ### Preparatory Step on computers running PowerShell 3.0
 
@@ -46,14 +46,14 @@ $NewPSModulePath = [Environment]::GetEnvironmentVariable('PSModulePath', 'Machin
 [Environment]::SetEnvironmentVariable('PSModulePath', $NewPSModulePath, 'Machine')
 ```
 
-The updated value of `$env:PSModulePath` is not available in the current session. You must open a
+The updated value of `$env:PSModulePath` isn't available in the current session. You must open a
 new PowerShell session.
 
 ### For computers with the PackageManagement Preview installed
 
 > [!NOTE]
 > PackageManagement Preview was a downloadable component that made PowerShellGet available to
-> PowerShell versions 3 and 4, but it is no longer available. To test if it was installed on a given
+> PowerShell versions 3 and 4, but it's no longer available. To test if it was installed on a given
 > computer, run `Get-Module -ListAvailable PowerShellGet`.
 
 1. From a PowerShell session, use `Save-Module` to download the current version of

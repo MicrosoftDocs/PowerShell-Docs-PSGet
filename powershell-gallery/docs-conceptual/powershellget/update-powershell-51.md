@@ -1,6 +1,6 @@
 ---
 description: This article explains how to update PowerShellGet for Windows PowerShell.
-ms.date: 04/07/2023
+ms.date: 06/09/2023
 title: Update PowerShellGet for Windows PowerShell 5.1
 ---
 # Update PowerShellGet for Windows PowerShell 5.1
@@ -14,17 +14,17 @@ with the PowerShell Gallery. To be supported, you must update to the latest vers
 - **PowerShellGet** requires .NET Framework 4.5 or above. For more information, see
   [Install the .NET Framework for developers][01].
 
-- To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. By
-  default, PowerShell isn't configured to use TLS 1.2. Use the following command to enable TLS 1.2
-  in your PowerShell session.
+- To access the PowerShell Gallery, you must use Transport Layer Security (TLS) 1.2 or higher. Use
+  the following command to enable TLS 1.2 in your PowerShell session.
 
   ```powershell
-  [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor
-                                                [Net.SecurityProtocolType]::Tls12
+  [Net.ServicePointManager]::SecurityProtocol =
+      [Net.ServicePointManager]::SecurityProtocol -bor
+      [Net.SecurityProtocolType]::Tls12
   ```
 
-  We recommend adding this command to your PowerShell profile script. For more information about
-  profiles, see [about_Profiles][02].
+  Add this command to your PowerShell profile script to ensure TLS 1.2 is configured for every
+  PowerShell session. For more information about profiles, see [about_Profiles][02].
 
 ### Installing the latest version of PowerShellGet
 

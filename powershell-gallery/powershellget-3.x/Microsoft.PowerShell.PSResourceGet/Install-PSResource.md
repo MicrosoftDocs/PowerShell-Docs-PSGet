@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -29,8 +29,8 @@ Install-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Reposi
 ```
 Install-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-Scope <ScopeType>]
  [-TemporaryPath <String>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
- [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] -InputObject <PSResourceInfo>
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-InputObject] <PSResourceInfo[]> [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### RequiredResourceFileParameterSet
@@ -38,8 +38,8 @@ Install-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-Scope
 ```
 Install-PSResource [-Credential <PSCredential>] [-Scope <ScopeType>] [-TemporaryPath <String>]
  [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck]
- [-AuthenticodeCheck] [-PassThru] [-RequiredResourceFile] <String>
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-AuthenticodeCheck] [-PassThru] -RequiredResourceFile <String> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### RequiredResourceParameterSet
@@ -47,8 +47,8 @@ Install-PSResource [-Credential <PSCredential>] [-Scope <ScopeType>] [-Temporary
 ```
 Install-PSResource [-Credential <PSCredential>] [-Scope <ScopeType>] [-TemporaryPath <String>]
  [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck]
- [-AuthenticodeCheck] [-PassThru] [-RequiredResource] <Object>
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-AuthenticodeCheck] [-PassThru] -RequiredResource <Object> [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -170,12 +170,12 @@ Accept wildcard characters: False
 Used for pipeline input.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
 Parameter Sets: InputObjectParameterSet
 Aliases: ParentResource
 
 Required: True
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
@@ -313,7 +313,7 @@ Parameter Sets: RequiredResourceParameterSet
 Aliases:
 
 Required: True
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -330,7 +330,7 @@ Parameter Sets: RequiredResourceFileParameterSet
 Aliases:
 
 Required: True
-Position: 0
+Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
@@ -356,7 +356,7 @@ computer. For example:
 - `$home\Documents\PowerShell\Modules`
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.ScopeType
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.ScopeType
 Parameter Sets: (All)
 Aliases:
 Accepted values: CurrentUser, AllUsers
@@ -485,9 +485,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.String
+
+### System.Management.Automation.SwitchParameter
+
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
+
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo
 
 By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
 cmdlet outputs a **PSResourceInfo** object for the saved resource.

@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/unregister-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/unregister-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -16,8 +16,8 @@ Removes a registered repository from the local machine.
 ## SYNTAX
 
 ```
-Unregister-PSResourceRepository [-Name] <String[]> [-PassThru]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Unregister-PSResourceRepository [-Name] <String[]> [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -161,7 +161,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSRepositoryInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo
 
 By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
 cmdlet outputs a **PSRepositoryInfo** object for each repository that's removed.

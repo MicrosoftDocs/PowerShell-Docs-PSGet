@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/get-installedpsresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/get-installedpsresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -170,7 +170,7 @@ Accept wildcard characters: False
 Specifies the scope of the resource.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.ScopeType
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.ScopeType
 Parameter Sets: (All)
 Aliases:
 Accepted values: CurrentUser, AllUsers
@@ -220,7 +220,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo
 
 ## NOTES
 
