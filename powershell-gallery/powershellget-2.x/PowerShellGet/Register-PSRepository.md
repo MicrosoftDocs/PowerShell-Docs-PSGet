@@ -52,8 +52,8 @@ attempts to find a OneGet provider that can handle the specified source location
 ```powershell
 $parameters = @{
   Name = "myNuGetSource"
-  SourceLocation = "https://www.myget.org/F/powershellgetdemo/api/v2"
-  PublishLocation = "https://www.myget.org/F/powershellgetdemo/api/v2/Packages"
+  SourceLocation = "https://www.myget.org/F/powershellget/api/v2"
+  PublishLocation = "https://www.myget.org/F/powershellget/api/v2/Packages"
   InstallationPolicy = 'Trusted'
 }
 Register-PSRepository @parameters
@@ -67,7 +67,7 @@ PSGallery           http://go.micro...      NuGet                Untrusted
 myNuGetSource       https://myget.c...      NuGet                Trusted
 ```
 
-The first command registers `https://www.myget.org/F/powershellgetdemo/` as a repository for the
+The first command registers `https://www.myget.org/F/powershellget/` as a repository for the
 current user. After myNuGetSource is registered, you can explicitly reference it when searching for,
 installing, and publishing modules. Because the **PackageManagementProvider** parameter isn't
 specified, the repository is not explicitly associated with a OneGet package provider, so
