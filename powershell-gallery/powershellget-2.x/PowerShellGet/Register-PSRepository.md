@@ -52,8 +52,8 @@ attempts to find a OneGet provider that can handle the specified source location
 ```powershell
 $parameters = @{
   Name = "myNuGetSource"
-  SourceLocation = "https://www.myget.org/F/powershellget/api/v2"
-  PublishLocation = "https://www.myget.org/F/powershellget/api/v2/Packages"
+  SourceLocation = "https://www.myget.org/F/mypsrepository/api/v2"
+  PublishLocation = "https://www.myget.org/F/mypsrepository/api/v2/Packages"
   InstallationPolicy = 'Trusted'
 }
 Register-PSRepository @parameters
