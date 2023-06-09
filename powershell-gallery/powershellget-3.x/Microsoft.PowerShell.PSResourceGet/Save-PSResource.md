@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -20,8 +20,8 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
  [-Credential <PSCredential>] [-IncludeXml] -Path <String> [-TemporaryPath <String>]
- [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### AsNupkgParameterSet
@@ -29,17 +29,16 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
  [-Credential <PSCredential>] [-AsNupkg] -Path <String> [-TemporaryPath <String>] [-TrustRepository]
- [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
 
 ```
 Save-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-AsNupkg] [-IncludeXml]
- -Path <String> [-TemporaryPath <String>] [-TrustRepository] [-PassThru] -InputObject
- <PSResourceInfo> [-SkipDependencyCheck] [-AuthenticodeCheck]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ -Path <String> [-TemporaryPath <String>] [-TrustRepository] [-PassThru]
+ [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -158,12 +157,12 @@ Accept wildcard characters: False
 Used for pipeline input.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
 Parameter Sets: InputObjectParameterSet
 Aliases: ParentResource
 
 Required: True
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName, ByValue)
 Accept wildcard characters: False
@@ -371,9 +370,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### System.String
+
+### System.Management.Automation.SwitchParameter
+
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
+
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo
 
 By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
 cmdlet outputs a **PSResourceInfo** object for the saved resource.

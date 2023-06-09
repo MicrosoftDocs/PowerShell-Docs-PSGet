@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -19,8 +19,7 @@ Registers a repository for PowerShell resources.
 
 ```
 Register-PSResourceRepository [-Name] <String> [-Uri] <String> [-Trusted] [-Priority <Int32>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+ [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet
@@ -33,8 +32,8 @@ Register-PSResourceRepository [-PSGallery] [-Trusted] [-Priority <Int32>] [-Pass
 ### RepositoriesParameterSet
 
 ```
-Register-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-Force]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Register-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -151,7 +150,7 @@ A **PSCredentialInfo** object that includes the name of a vault and a secret tha
 **Microsoft.PowerShell.SecretManagement** store.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -342,11 +341,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### System.String
+### None
 
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSRepositoryInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo
 
 By default, the cmdlet produces no output. When you use the **PassThru** parameter, the cmdlet
 returns a **PSRepositoryInfo** object.

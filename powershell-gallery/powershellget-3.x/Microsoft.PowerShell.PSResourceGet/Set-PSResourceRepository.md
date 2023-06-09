@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -155,7 +155,7 @@ A **PSCredentialInfo** object that includes the name of a vault and a secret tha
 **Microsoft.PowerShell.SecretManagement** store.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo
 Parameter Sets: NameParameterSet
 Aliases:
 
@@ -321,7 +321,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### Microsoft.PowerShell.PowerShellGet.UtilClasses.PSRepositoryInfo
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo
 
 By default, the cmdlet produces no output. When you use the **PassThru** parameter, the cmdlet
 returns a **PSRepositoryInfo** object.

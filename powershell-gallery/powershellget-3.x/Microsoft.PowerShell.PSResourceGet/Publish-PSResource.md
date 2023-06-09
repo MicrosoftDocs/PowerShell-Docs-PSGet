@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -18,8 +18,8 @@ Publishes a specified module from the local computer to PSResource repository.
 ```
 Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
  [-DestinationPath <String>] [-Credential <PSCredential>] [-SkipDependenciesCheck]
- [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -238,7 +238,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### None
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 

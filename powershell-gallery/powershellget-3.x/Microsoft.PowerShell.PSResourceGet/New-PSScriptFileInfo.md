@@ -1,58 +1,51 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/update-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/new-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
-# Update-PSScriptFileInfo
+# New-PSScriptFileInfo
 
 ## SYNOPSIS
 
-This cmdlet updates the comment-based metadata in an existing script `.ps1` file.
+The cmdlet creates a new script file, including metadata about the script.
 
 ## SYNTAX
 
 ```
-Update-PSScriptFileInfo [-Author <String>] [-CompanyName <String>] [-Copyright <String>]
- [-Description <String>] [-ExternalModuleDependencies <String[]>]
- [-ExternalScriptDependencies <String[]>] [-Guid <Guid>] [-IconUri <String>] [-LicenseUri <String>]
- [-Path] <String> [-PrivateData <String>] [-ProjectUri <String>] [-ReleaseNotes <String>]
- [-RemoveSignature] [-RequiredModules <Hashtable[]>] [-RequiredScripts <String[]>]
- [-Tags <String[]>] [-Version <String>] [<CommonParameters>]
+New-PSScriptFileInfo [-Path] <String> [-Version <String>] [-Author <String>] -Description <String>
+ [-Guid <Guid>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Hashtable[]>]
+ [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
+ [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <String>]
+ [-LicenseUri <String>] [-IconUri <String>] [-ReleaseNotes <String>] [-PrivateData <String>]
+ [-Force] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
-This cmdlet updates the comment-based metadata in an existing script `.ps1` file. This is similar to
-`Update-ModuleManifest`.
+The cmdlet creates a new script file containing the required metadata needed to publish a script
+package.
 
 ## EXAMPLES
 
-### Example 1: Update the version of a script
+### Example 1: Creating an empty script with minimal information
 
-In this example, a script is created with **Version** set to `1.0.0.0`. `Update-PSScriptFileInfo`
-changes the **Version**' to `2.0.0.0`. The `Get-Content` cmdlet shows the updated contents of the
-script.
+This example runs the cmdlet using only required parameters. The **Path** parameter specifies the
+nane and location of the script. The **Description** parameter provide the description used in the
+comment-based help for the script.
 
 ```powershell
-$parameters = @{
-    FilePath = "C:\Users\johndoe\MyScripts\test_script.ps1"
-    Version = "1.0.0.0"
-    Description = "this is a test script"
-}
-New-PSScriptFileInfo @parameters
-$parameters.Version = "2.0.0.0"
-Update-PSScriptFileInfo @parameters
-Get-Content $parameters.FilePath
+New-PSScriptFileInfo -Path ./test_script.ps1 -Description 'This is a test script.'
+Get-Content ./test_script.ps1
 ```
 
 ```Output
 <#PSScriptInfo
 
-.VERSION 2.0.0.0
+.VERSION 1.0.0.0
 
 .GUID 6ec3934e-a2e0-495b-9a9c-480e555ad1d1
 
@@ -85,7 +78,71 @@ Get-Content $parameters.FilePath
 <#
 
 .DESCRIPTION
-this is a test script
+This is a test script.
+
+#>
+```
+
+### Example 2: Creating a script with required modules
+
+This example runs the cmdlet with additional parameters, including **RequiredModules**.
+**RequiredModules** is an array of module specifications.
+
+```powershell
+$parameters = @{
+    Path = './test_script2.ps1'
+    Description = 'This is a test script.'
+    Version = '2.0.0.0'
+    Author = 'janedoe'
+    RequiredModules =  @(
+        @{ModuleName = 'PackageManagement'; ModuleVersion = '1.0.0.0' },
+        @{ModuleName = 'PSReadLine'}
+    )
+}
+New-PSScriptFileInfo @parameters
+Get-Content ./test_script2.ps1
+```
+
+```Output
+<#PSScriptInfo
+
+.VERSION 2.0.0.0
+
+.GUID 7ec4832e-a4e1-562b-8a8c-241e535ad7d7
+
+.AUTHOR janedoe
+
+.COMPANYNAME
+
+.COPYRIGHT
+
+.TAGS
+
+.LICENSEURI
+
+.PROJECTURI
+
+.ICONURI
+
+.EXTERNALMODULEDEPENDENCIES
+
+.REQUIREDSCRIPTS
+
+.EXTERNALSCRIPTDEPENDENCIES
+
+.RELEASENOTES
+
+.PRIVATEDATA
+
+#>
+
+#Requires -Module PSReadLine
+#Requires -Module @{ ModuleName = 'PackageManagement'; ModuleVersion = '1.0.0.0' }
+
+<#
+
+.DESCRIPTION
+This is a test script.
 
 #>
 ```
@@ -149,7 +206,7 @@ Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -188,9 +245,26 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Force
+
+Forces the cmdlet to overwrite any existing file.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Guid
 
-The unique identifier for the script in GUID format.
+The unique identifier for the script in GUID format. If you don't provide a GUID, the cmdlet creates
+a new one automatically.
 
 ```yaml
 Type: System.Guid
@@ -199,7 +273,7 @@ Aliases:
 
 Required: False
 Position: Named
-Default value: None
+Default value: Randomly generated
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -238,7 +312,7 @@ Accept wildcard characters: False
 
 ### -Path
 
-The filename and location of the script.
+The filename and location where the script is created.
 
 ```yaml
 Type: System.String
@@ -300,23 +374,6 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -RemoveSignature
-
-Removes the signature from a signed `.ps1` file, allowing you to update the script. You should
-re-sign the after updating the file.
-
-```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -RequiredModules
 
 The parameter takes an array of module specification hashtables. A module specification is a
@@ -367,7 +424,7 @@ information, see
 ```yaml
 Type: System.String[]
 Parameter Sets: (All)
-Aliases:
+Aliases: Tag
 
 Required: False
 Position: Named
@@ -378,7 +435,7 @@ Accept wildcard characters: False
 
 ### -Version
 
-The version of the script.
+The version of the script. If no value is provided **Version** defaults to `1.0.0.0`.
 
 ```yaml
 Type: System.String
