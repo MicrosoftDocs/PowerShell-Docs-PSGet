@@ -1,14 +1,14 @@
 ---
 description: This article demonstrates how to use SecretStore credentials with an Artifactory repository.
-ms.date: 05/11/2023
-title: How to add credentials to repositories in PowerShellGet v3
+ms.date: 06/09/2023
+title: How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 ---
-# How to add credentials to repositories in PowerShellGet v3
+# How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 
-PowerShellGet v3 allows you to register private repositories that contain installable PSResource
-packages. Typically, private repositories require you to have credentials to access them.
-[Artifactory][02] is a service that allows you to create private NuGet repositories. This article
-demonstrates how to use **SecretStore** credentials with an Artifactory repository.
+Microsoft.PowerShell.PSResourceGet allows you to register private repositories that contain
+installable PSResource packages. Typically, private repositories require you to have credentials to
+access them. [Artifactory][02] is a service that allows you to create private NuGet repositories.
+This article demonstrates how to use **SecretStore** credentials with an Artifactory repository.
 
 ## Prerequisites
 

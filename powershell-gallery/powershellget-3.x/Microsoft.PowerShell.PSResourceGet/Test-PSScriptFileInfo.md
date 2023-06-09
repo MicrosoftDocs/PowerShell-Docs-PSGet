@@ -1,13 +1,13 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/test-psscriptfile?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/test-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
-# Test-PSScriptFile
+# Test-PSScriptFileInfo
 
 ## SYNOPSIS
 
@@ -16,7 +16,7 @@ Tests the comment-based metadata in a `.ps1` file to ensure it's valid for publi
 ## SYNTAX
 
 ```
-Test-PSScriptFile [-Path] <String> [<CommonParameters>]
+Test-PSScriptFileInfo [-Path] <String> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -33,7 +33,7 @@ in the script.
 
 ```powershell
 New-PSScriptFileInfo -Path "C:\MyScripts\test_script.ps1" -Description "this is a test script"
-Test-PSScriptFile -Path "C:\MyScripts\test_script.ps1"
+Test-PSScriptFileInfo -Path "C:\MyScripts\test_script.ps1"
 True
 ```
 
@@ -44,7 +44,7 @@ the required **Author** metadata. The cmdlet writes a warning message and return
 `Get-Content` is used to view the contents of the script file.
 
 ```powershell
-Test-PSScriptFile -Path "C:\MyScripts\invalid_test_script.ps1"
+Test-PSScriptFileInfo -Path "C:\MyScripts\invalid_test_script.ps1"
 Get-Content "C:\MyScripts\invalid_test_script.ps1"
 ```
 
@@ -129,4 +129,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[New-PSScriptFile](New-PSScriptFile.md)
+[New-PSScriptFile](New-PSScriptFileInfo.md)

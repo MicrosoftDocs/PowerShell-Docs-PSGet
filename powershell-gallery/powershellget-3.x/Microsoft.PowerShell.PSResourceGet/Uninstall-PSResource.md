@@ -1,9 +1,9 @@
 ---
-external help file: PowerShellGet.dll-Help.xml
-Module Name: PowerShellGet
-ms.custom: v3-beta21
-ms.date: 05/11/2023
-online version: https://learn.microsoft.com/powershell/module/powershellget/uninstall-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+Module Name: Microsoft.PowerShell.PSResourceGet
+ms.custom: v3-beta22
+ms.date: 06/09/2023
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/uninstall-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
 
@@ -25,7 +25,7 @@ Uninstall-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Skip
 ### InputObjectParameterSet
 
 ```
-Uninstall-PSResource [-Prerelease] -InputObject <PSResourceInfo> [-SkipDependencyCheck]
+Uninstall-PSResource [-Prerelease] [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck]
  [-Scope <ScopeType>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -105,12 +105,12 @@ Uninstall-PSResource -name Az -version "[4.0.1, 4.1.0]" -Prerelease
 Used for pipeline input.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.PSResourceInfo
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
 Parameter Sets: InputObjectParameterSet
 Aliases:
 
 Required: True
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
@@ -154,7 +154,7 @@ Accept wildcard characters: False
 Specifies the scope of the resource to uninstall.
 
 ```yaml
-Type: Microsoft.PowerShell.PowerShellGet.UtilClasses.ScopeType
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.ScopeType
 Parameter Sets: (All)
 Aliases:
 Accepted values: CurrentUser, AllUsers
@@ -249,7 +249,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
+### System.String[]
+
+### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo[]
+
 ## OUTPUTS
+
+### System.Object
 
 ## NOTES
 
