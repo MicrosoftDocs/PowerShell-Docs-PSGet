@@ -2,7 +2,7 @@
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
 ms.date: 06/09/2023
-online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_powershellgetv3?view=powershellget-3.x&WT.mc_id=ps-gethelp
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_PSResourceGet?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PSResourceGet
 ---
@@ -149,9 +149,9 @@ The next example shows the same specification in JSON format.
 
 <!-- link references -->
 [01]: /nuget/concepts/package-versioning#version-ranges
-[02]: xref:PowerShellGet.Find-PSResource
-[03]: xref:PowerShellGet.Get-InstalledPSResource
-[04]: xref:PowerShellGet.Install-PSResource
-[05]: xref:PowerShellGet.Save-PSResource
-[06]: xref:PowerShellGet.Uninstall-PSResource
-[07]: xref:PowerShellGet.Update-PSResource
+[02]: xref:Microsoft.PowerShell.PSResourceGet.Find-PSResource
+[03]: xref:Microsoft.PowerShell.PSResourceGet.Get-InstalledPSResource
+[04]: xref:Microsoft.PowerShell.PSResourceGet.Install-PSResource
+[05]: xref:Microsoft.PowerShell.PSResourceGet.Save-PSResource
+[06]: xref:Microsoft.PowerShell.PSResourceGet.Uninstall-PSResource
+[07]: xref:Microsoft.PowerShell.PSResourceGet.Update-PSResource

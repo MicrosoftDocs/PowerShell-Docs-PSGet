@@ -506,7 +506,7 @@ The **RequiredResource** and **RequiredResourceFile** parameters are used to fin
 objects matching specific criteria. You can specify the search criteria using a hashtable or a JSON
 object. For the **RequiredResourceFile** parameter, the hashtable is stored in a `.psd1` file and
 the JSON object is stored in a `.json` file. For more information, see
-[about_PowerShellGetv3](./about/about_PowerShellGetv3.md).
+[about_PSResourceGet](./about/about_PSResourceGet.md).
 
 ## RELATED LINKS
 

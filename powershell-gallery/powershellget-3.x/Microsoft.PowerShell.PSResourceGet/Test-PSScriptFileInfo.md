@@ -129,4 +129,4 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## RELATED LINKS
 
-[New-PSScriptFile](New-PSScriptFile.md)
+[New-PSScriptFile](New-PSScriptFileInfo.md)

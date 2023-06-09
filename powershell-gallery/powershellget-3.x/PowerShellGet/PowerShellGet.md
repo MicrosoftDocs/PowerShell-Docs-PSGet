@@ -26,7 +26,7 @@ unsupported parameters, transform some parameters, and pass other parameters thr
 equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet** module.
 
 For more information about the **Microsoft.PowerShell.PSResourceGet** module, see
-[about_Microsoft.PowerShell.PSResourceGet](../microsoft.powershell.psresourceget/about/about_microsoft.powershell.psresourceget.md).
+[about_PSResourceGet](../microsoft.powershell.psresourceget/about/about_psresourceget.md).
 
 > [!IMPORTANT]
 > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
