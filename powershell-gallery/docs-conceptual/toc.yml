@@ -57,11 +57,11 @@ items:
             href: concepts/publishing-guidelines.md
           - name: Package manifests and Gallery UI
             href: concepts/package-manifest-affecting-ui.md
-          - name: Requiring Specific PSEditions
+          - name: Requiring specific PSEditions
             items:
-              - name: Writing Scripts with PSEditions Support
+              - name: Writing scripts with PSEdition support
                 href: concepts/script-psedition-support.md
-              - name: Writing Modules with PSEdition support
+              - name: Writing modules with PSEdition support
                 href: concepts/module-psedition-support.md
           - name: Requiring License Acceptance
             items:
