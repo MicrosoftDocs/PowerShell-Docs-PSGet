@@ -59,7 +59,7 @@ items:
             href: concepts/package-manifest-affecting-ui.md
           - name: Requiring Specific PSEditions
             items:
-              - name: Writing Scripts with PSEditions Support
+              - name: Writing Scripts with PSEdition support
                 href: concepts/script-psedition-support.md
               - name: Writing Modules with PSEdition support
                 href: concepts/module-psedition-support.md
