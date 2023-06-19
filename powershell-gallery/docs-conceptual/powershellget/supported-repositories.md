@@ -6,22 +6,22 @@ title: Supported repository configurations
 # Supported repository configurations
 
 The **Microsoft.PowerShell.PSResourceGet** module, also known as **PowerShellGet v3**, works with
-NuGet package repositories andlocal file stores. In general, the cmdlets should work with any NuGet
+NuGet package repositories and local file stores. In general, the cmdlets should work with any NuGet
 repository that supports the NuGet protocol. However, not all NuGet repositories support all the
-features of PowerShellGet v3.
+features of PSResourceGet.
 
-The following repositories have been tested with PowerShellGet v3.
+The following repositories have been tested with PSResourceGet.
 
 ## The PowerShell Gallery
 
-The PowerShell Gallery is the default repository for PowerShellGet v3. The Gallery is a NuGet
+The PowerShell Gallery is the default repository for PSResourceGet. The Gallery is a NuGet
 repository that uses the NuGet v2 protocol.
 
 You don't need credentials to search, download, or install packages from the PowerShell Gallery. You
 must create an account and API key to publish packages to the PowerShell Gallery. For more
 information, see [Creating and publishing an item][01].
 
-The PowerShell Gallery supports all the features of PowerShellGet v3.
+The PowerShell Gallery supports all the features of PSResourceGet.
 
 ## NuGet.org
 
