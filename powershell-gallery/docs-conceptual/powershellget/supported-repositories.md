@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 06/16/2023
+ms.date: 06/19/2023
 title: Supported repository configurations
 ---
 # Supported repository configurations
@@ -96,6 +96,8 @@ Azure Artifacts repositories:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
+- Publish packages to a feed
+  - Returns a `400 (Bad Request)` error
 
 ## GitHub Packages
 
@@ -135,6 +137,9 @@ GitHub Packages repositories:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
+- Publish packages to a feed
+  - The package is published as a private package. After publishing, you can use the GitHub
+    interface to link it to the desired repository and change the visibility.
 
 ## JFrog Artifactory
 
@@ -206,6 +211,8 @@ repositories:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
+- Publish packages to a feed
+  - Returns a `403 (Forbidden)` error
 
 ## File-share-based repositories
 
