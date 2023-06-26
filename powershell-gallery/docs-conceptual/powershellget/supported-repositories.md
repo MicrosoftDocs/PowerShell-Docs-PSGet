@@ -230,13 +230,13 @@ repositories.
 ## Self-hosted NuGet repositories
 
 You can create your own package repository by hosting your own NuGet server. **NuGet.Server** is a
-package provided by the .NET Foundation that creates an ASP.NET application that hosts a package
-feed on any Windows server running IIS. This server uses the NuGet v2 protocol. For more
-information, see [Working with local PSRepositories][02].
+package provided by the .NET Foundation. You can use this package to create an ASP.NET application
+that hosts a package feed on any Windows server running IIS. This server uses the NuGet v2 protocol.
+For more information, see [Working with local PSRepositories][02].
 
 The feed URI has the following format:
 
-`http://<domain>/nuget`
+`http://<server-host-name>/nuget`
 
 Use the following command to register your self-hosted server as a PSResource repository:
 
