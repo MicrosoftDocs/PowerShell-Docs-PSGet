@@ -3,12 +3,13 @@ description: This article lists the repositories that have been tested with Powe
 ms.date: 06/28/2023
 title: Supported repository configurations
 ---
+
 # Supported repository configurations
 
 The **Microsoft.PowerShell.PSResourceGet** module, also known as **PowerShellGet v3**, works with
-NuGet package repositories and local file stores. In general, the cmdlets should work with any NuGet
-repository that supports the NuGet protocol. However, not all NuGet repositories support all the
-features of PSResourceGet.
+NuGet package repositories and local file stores. In general, the cmdlets should work with any
+artifact repository that supports the NuGet protocol. However, not all NuGet repositories support
+all the features of PSResourceGet.
 
 The following repositories have been tested with PSResourceGet.
 
@@ -26,7 +27,7 @@ The PowerShell Gallery supports all the features of PSResourceGet.
 ## NuGet.org
 
 NuGet.org is a public host of NuGet packages used by millions of .NET and .NET Core developers every
-day. The NuGet.org provides Gallery a NuGet repository that uses the NuGet v3 protocol.
+day. NuGet.org provides a NuGet repository that uses the NuGet v3 protocol.
 
 Use the following command to register NuGet.org as a PSResource repository:
 
@@ -80,7 +81,7 @@ Register-PSResourceRepository @params
 Azure DevOps allows you to create public or private feeds for your Azure Artifacts. You don't need
 credentials to search, download, or install packages from an Azure Artifacts public feed. To publish
 artifacts or access private feeds, you must have an account and an API key. For more information
-about, see [Connect to feed as a PowerShell repository][03].
+about getting an API key, see [Connect to feed as a PowerShell repository][03].
 
 ### Azure Artifacts limitations
 
@@ -108,7 +109,7 @@ privately or publicly and use packages as dependencies in your projects. For mor
 The GitHub Packages feed is a NuGet repository that uses the NuGet v3 protocol. The feed URI has the
 following format: `https://nuget.pkg.github.com/<namespace>/index.json`. Replace `<namespace>` with
 the name of the personal account or organization to which your packages are scoped. For example, use
-the following command to register an Azure Artifacts feed as a PSResource repository:
+the following command to register an GitHub Packages feed as a PSResource repository:
 
 ```powershell
 $params = @{
