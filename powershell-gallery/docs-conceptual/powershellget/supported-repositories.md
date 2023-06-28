@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 06/19/2023
+ms.date: 06/28/2023
 title: Supported repository configurations
 ---
 # Supported repository configurations
@@ -234,7 +234,9 @@ package provided by the .NET Foundation. You can use this package to create an A
 that hosts a package feed on any Windows server running IIS. This server uses the NuGet v2 protocol.
 For more information, see [Working with local PSRepositories][02].
 
-The feed URI has the following format:
+The **Microsoft.PowerShell.PSResourceGet** cmdlets don't currently support this type of repository.
+
+<!-- The feed URI has the following format:
 
 `http://<server-host-name>/nuget`
 
@@ -265,6 +267,7 @@ self-hosted NuGet servers:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
+-->
 
 <!-- link references -->
 [01]: ../how-to/publishing-packages/publishing-a-package.md

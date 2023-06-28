@@ -1,6 +1,6 @@
 ---
 description: This article demonstrates how to use SecretStore credentials with an Artifactory repository.
-ms.date: 06/16/2023
+ms.date: 06/28/2023
 title: How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 ---
 # How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
