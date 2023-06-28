@@ -13,3 +13,5 @@ items:
     items:
       - name: How to add credentials to repositories in PowerShellGet v3
         href: how-to/credential-persistence.md
+  - name: Supported repository configurations
+    href: supported-repositories.md
