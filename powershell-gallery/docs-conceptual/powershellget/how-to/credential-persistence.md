@@ -1,14 +1,15 @@
 ---
 description: This article demonstrates how to use SecretStore credentials with an Artifactory repository.
-ms.date: 06/09/2023
+ms.date: 06/28/2023
 title: How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 ---
 # How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 
 Microsoft.PowerShell.PSResourceGet allows you to register private repositories that contain
 installable PSResource packages. Typically, private repositories require you to have credentials to
-access them. [Artifactory][02] is a service that allows you to create private NuGet repositories.
-This article demonstrates how to use **SecretStore** credentials with an Artifactory repository.
+access them. [JFrog Artifactory][02] is a service that allows you to create private NuGet
+repositories. This article demonstrates how to use **SecretStore** credentials with an Artifactory
+repository.
 
 ## Prerequisites
 
@@ -28,7 +29,7 @@ Get-SecretInfo
 ```Output
 Name          Type         VaultName
 ----          ----         ---------
-jFrogCred     PSCredential SecretStore
+JFrogCred     PSCredential SecretStore
 ```
 
 For more information about **SecretManagement**, see
@@ -47,7 +48,7 @@ $registerPSResourceRepositorySplat = @{
   Uri = 'https://myaccount.jfrog.io/artifactory/api/nuget/v3/myrepository'
   Trusted = $true
   CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
-    'SecretStore', 'jfrogCred')
+    'SecretStore', 'JFrogCred')
 }
 Register-PSResourceRepository @registerPSResourceRepositorySplat
 ```
@@ -71,7 +72,7 @@ To publish resources to a secured repository, you must provide the credential yo
 example show how to publish a resource to the `artifactory` repository using your stored credential.
 
 ```powershell
-Publish-PSResource -Path .\Get-Hello\ -Repository artifactory -ApiKey (Get-Secret jfrogPublish)
+Publish-PSResource -Path .\Get-Hello\ -Repository artifactory -ApiKey (Get-Secret JFrogPublish)
 ```
 
 Once you have provided the credential, **PowerShellGet** reuses the credential for subsequent
