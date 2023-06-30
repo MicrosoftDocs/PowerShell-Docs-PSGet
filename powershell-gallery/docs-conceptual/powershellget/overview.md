@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 06/09/2023
+ms.date: 06/30/2023
 title: The PowerShellGet module
 ---
 # The PowerShellGet module
@@ -12,7 +12,8 @@ Modules, DSC Resources, and Scripts.
 Supported versions:
 
 - Current release - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
-- Preview release - **Microsoft.PowerShell.PSResourceGet** 0.5.0-beta22
+- Preview release - **Microsoft.PowerShell.PSResourceGet** 0.5.22-beta22
+  - The preview release is now included in PowerShell 7.4.0-preview.4 and newer releases
 
 ## Version history
 
