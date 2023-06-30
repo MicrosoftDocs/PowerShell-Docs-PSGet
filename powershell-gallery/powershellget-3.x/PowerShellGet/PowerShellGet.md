@@ -5,7 +5,7 @@ Locale: en-US
 Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
 Module Name: PowerShellGet
 ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.date: 06/30/2023
 schema: 2.0.0
 title: PowerShellGet
 ---
@@ -13,7 +13,7 @@ title: PowerShellGet
 
 ## Description
 
-This documentation covers version 3.0.0-beta22 of the **PowerShellGet** module. This module is
+This documentation covers version 3.0.0-beta22 of the **CompatPowerShellGet** module. This module is
 provided for compatibility with **PowerShellGet** v2.x. The cmdlets in this version of the module
 are proxy cmdlets that call the equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet**
 module.
