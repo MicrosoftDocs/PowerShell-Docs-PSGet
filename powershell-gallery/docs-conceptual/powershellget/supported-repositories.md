@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 06/28/2023
+ms.date: 07/11/2023
 title: Supported repository configurations
 ---
 
@@ -235,11 +235,14 @@ package provided by the .NET Foundation. You can use this package to create an A
 that hosts a package feed on any Windows server running IIS. This server uses the NuGet v2 protocol.
 For more information, see [Working with local PSRepositories][02].
 
-The **Microsoft.PowerShell.PSResourceGet** cmdlets don't currently support this type of repository.
-
-<!-- The feed URI has the following format:
+The **Microsoft.PowerShell.PSResourceGet** module supports NuGet.Server feeds. The feed URI has the
+following format:
 
 `http://<server-host-name>/nuget`
+
+> [!NOTE]
+> The **Microsoft.PowerShell.PSResourceGet** module expects the URI to end with `/nuget`. Any URI
+> that ends with `/nuget` is treated as a NuGet.Server feed.
 
 Use the following command to register your self-hosted server as a PSResource repository:
 
@@ -261,14 +264,12 @@ NuGet API key, see the _Adding packages to the feed externally_ section of
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 self-hosted NuGet servers:
 
-- Wildcard search by name, for example:
-  - `Find-PSResource -Name '*'`
-  - `Find-PSResource -Name 'Az*'`
-  - `Find-PSResource -Name 'Az*' -Tag compute`
+- General search that uses the **Type** parameter
+  - `Find-PSResource` finds resources that match by name, but the value of the **Type** parameter is
+    ignored. The cmdlet returns all modules and scripts that match the name.
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
--->
 
 <!-- link references -->
 [01]: ../how-to/publishing-packages/publishing-a-package.md
