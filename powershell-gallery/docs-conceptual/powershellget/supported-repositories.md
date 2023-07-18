@@ -407,6 +407,11 @@ $publishPSResourceSplat = @{
 Publish-PSResource @publishPSResourceSplat
 ```
 
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
+
 <!-- link references -->
 [01]: ../how-to/publishing-packages/publishing-a-package.md
 [02]: ../how-to/working-with-local-psrepositories.md
