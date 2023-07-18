@@ -319,7 +319,7 @@ repositories:
 
 You must use the **ApiKey** parameter of the `Publish-PSResource` cmdlet with personal access token
 (PAT) to publish packages to a MyGet feed. The value of the **ApiKey** parameter must be a plaintext
-PAT from your MyGet account that has read and write permission. For more information about creating
+PAT from your MyGet account that has read and write permissions. For more information about creating
 access tokens, see [MyGet Security][12].
 
 For example:
