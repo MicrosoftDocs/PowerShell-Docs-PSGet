@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.date: 07/19/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/new-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -466,7 +466,19 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
+The `New-PSScriptFileInfo` and `Update-PSScriptFileInfo` cmdlets place the `#requires` statements
+for required modules between the `<#PSScriptInfo` and comment-based help blocks of the help file.
+The `Get-PSScriptFileInfo` expects `#requires` statements to be placed somewhere before the
+comment-based help block. Any `#requires` statements placed after the comment-based help block are
+ignored by `Get-PSScriptFileInfo`.
+
 ## RELATED LINKS
+
+[Get-PSScriptFileInfo](Get-PSScriptFileInfo.md)
+
+[Update-PSScriptFileInfo](Update-PSScriptFileInfo.md)
+
+[Test-PSScriptFileInfo](Test-PSScriptFileInfo.md)
 
 [PowerShellGallery Publishing Guidelines and Best Practices](/powershell/scripting/gallery/concepts/publishing-guidelines)
 
