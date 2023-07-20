@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 07/11/2023
+ms.date: 07/18/2023
 title: Supported repository configurations
 ---
 
@@ -41,7 +41,7 @@ Register-PSResourceRepository @params
 
 You don't need credentials to search, download, or install packages from NuGet.org. You must create
 an account and API key to publish packages to NuGet.org. For more information about getting a NuGet
-API key, see [Quickstart: Create and publish a NuGet package][05].
+API key, see [Quickstart: Create and publish a NuGet package][07].
 
 ### NuGet.org limitations
 
@@ -50,11 +50,29 @@ NuGet.org repositories:
 
 - Wildcard search by name, for example:
   - `Find-PSResource -Name '*'`
-  - `Find-PSResource -Name 'Az*'`
-  - `Find-PSResource -Name 'Az*' -Tag compute`
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
+
+### Publishing to NuGet.org
+
+You don't need to use the **Credential** parameter of the `Publish-PSResource` cmdlet, but you must
+use the **ApiKey** parameter. You can provide credentials, but NuGet.org doesn't use them. To create
+an API key, see [How to publish NuGet packages][06]. For example:
+
+```powershell
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'AzArtifactFeed'
+    ApiKey = '<nuget-api-key>'
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
 
 ## Azure Artifacts
 
@@ -65,7 +83,7 @@ publicly.
 
 Azure Artifacts supports the NuGet v3 protocol. Azure Artifacts feed URIs use the following format:
 
-`https://dev.azure.com/<organization-name>/<project-name>/_artifacts/feed/<feed-name>`
+`https://dev.azure.com/<organization-name>/<project-name>/_packaging/<feed-name>/v3/index.json`
 
 Substitute the placeholder values with your organization, project, and feed names. For example, use
 the following command to register an Azure Artifacts feed as a PSResource repository:
@@ -81,7 +99,7 @@ Register-PSResourceRepository @params
 Azure DevOps allows you to create public or private feeds for your Azure Artifacts. You don't need
 credentials to search, download, or install packages from an Azure Artifacts public feed. To publish
 artifacts or access private feeds, you must have an account and an API key. For more information
-about getting an API key, see [Connect to feed as a PowerShell repository][03].
+about getting an API key, see [Connect to feed as a PowerShell repository][04].
 
 ### Azure Artifacts limitations
 
@@ -97,14 +115,41 @@ Azure Artifacts repositories:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
-- Publish packages to a feed
-  - Returns a `400 (Bad Request)` error
+
+### Publishing to Azure Artifacts
+
+You must use the **Credential** and **ApiKey** parameters of the `Publish-PSResource` cmdlet to
+publish packages to an Azure Artifacts feed. The credential must be a personal access token (PAT)
+that has the **Packaging (read, write, and manage)** scope. For more information, see
+[Use Azure Artifacts feeds as a private PowerShell repository - Azure Artifacts][03]. The value of
+the **ApiKey** parameter is not important. It can be any arbitrary string, but it must be included.
+For example:
+
+```powershell
+$patToken = ConvertTo-SecureString -String '<personal-access-token>' -AsPlainText -Force
+$Credential = [System.Management.Automation.PSCredential]::new('<username>', $patToken)
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'AzArtifactFeed'
+    ApiKey = 'AzureDevOps'
+    Credential = $Credential
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+For this example `<personal-access-token>` is the token you created for publishing. `<username>` is
+your Azure DevOps user name.
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
 
 ## GitHub Packages
 
 GitHub Packages is a software package hosting service that allows you to host your software packages
 privately or publicly and use packages as dependencies in your projects. For more information, see
-[Introduction to GitHub Packages][06].
+[Introduction to GitHub Packages][10].
 
 The GitHub Packages feed is a NuGet repository that uses the NuGet v3 protocol. The feed URI has the
 following format: `https://nuget.pkg.github.com/<namespace>/index.json`. Replace `<namespace>` with
@@ -120,11 +165,10 @@ Register-PSResourceRepository @params
 ```
 
 The Github Packages service doesn't support NuGet feeds that are scoped to a repository. The feed
-must be associated with a user account or organization. Packages published to the feed can be
-associated with a repository.
+must be associated with a user account or organization.
 
 You must use credentials for all operations with a GitHub Packages feed. For more information, see
-the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][07].
+the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][11].
 
 ### GitHub Packages limitations
 
@@ -142,10 +186,48 @@ GitHub Packages repositories:
   - The package is published as a private package. After publishing, you can use the GitHub
     interface to link it to the desired repository and change the visibility.
 
+### Publishing to GitHub Packages
+
+You can use either the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to
+publish packages to a GitHub Package feed. You must create a personal access token (PAT) with the
+necessary scopes enabled. For more information on scopes and permissions, see
+[About permissions for GitHub Packages][09].
+
+If you use the **Credential** parameter, the value must be a **PSCredential** object that contains
+your username and the PAT. For this example `<personal-access-token>` is the token you created for
+publishing. `<username>` is your GitHub username.
+
+```powershell
+$patToken = ConvertTo-SecureString -String '<personal-access-token>' -AsPlainText -Force
+$Credential = [System.Management.Automation.PSCredential]::new('<username>', $patToken)
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'MyGitHubFeed'
+    Credential = $Credential
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+If you use the **ApiKey** parameter, the value must be the plaintext PAT. For example:
+
+```powershell
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'MyGitHubFeed'
+    ApiKey = '<personal-access-token>'
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
+
 ## JFrog Artifactory
 
-[JFrog Artifactory][09] is a is a hosting service for NuGet repositories. Artifactory feeds use the
-NuGet v3 protocol. The feed URI has the following format:
+[JFrog Artifactory][13] is a hosting service for NuGet repositories. Artifactory feeds use the NuGet
+v3 protocol. The feed URI has the following format:
 
 `https://<jfrog-account>.jfrog.io/artifactory/api/nuget/v3/nuget/index.json`.
 
@@ -161,7 +243,7 @@ Register-PSResourceRepository @params
 ```
 
 You must use credentials for all operations with a JFrog Artifactory feed. For more information, see
-[Creating Access Tokens in Artifactory][10].
+[Creating Access Tokens in Artifactory][14].
 
 ### JFrog Artifactory limitations
 
@@ -174,9 +256,35 @@ Artifactory repositories:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
+### Publishing to JFrog Artifactory
+
+You must use the **Credential** parameter of the `Publish-PSResource` cmdlet to publish packages to
+a JFrog Artifactory feed. The value of the **Credential** parameter must be a **PSCredential**
+object constructed from your email address and the access token that was created when you configured
+the NuGet repository in your JFrog account. For example:
+
+```powershell
+$patToken = ConvertTo-SecureString -String '<jfrog-access-token>' -AsPlainText -Force
+$Credential = [System.Management.Automation.PSCredential]::new('<email-address>', $patToken)
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'MyJFrogFeed'
+    Credential = $Credential
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+For this example `<jfrog-access-token>` is the token you created for publishing. `<email-address>`
+is your email address associated with your JFrog account.
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
+
 ## MyGet.org
 
-[MyGet.org][11] is a hosting service for NuGet repositories.
+[MyGet.org][15] is a hosting service for NuGet repositories.
 
 The **Microsoft.PowerShell.PSResourceGet** module supports MyGet feeds that use the NuGet v3
 protocol. The feed URI has the following format:
@@ -196,7 +304,7 @@ Register-PSResourceRepository @params
 
 MyGet allows you to create public or private feeds. You don't need credentials to search, download,
 or install packages from a public MyGet feed. To publish artifacts or access private feeds, you must
-have an account and an API key. For more information about, see [MyGet Security][08].
+have an account and an API key. For more information about, see [MyGet Security][12].
 
 ### MyGet limitations
 
@@ -205,15 +313,34 @@ repositories:
 
 - Wildcard search by name, for example:
   - `Find-PSResource -Name '*'`
-  - `Find-PSResource -Name 'Az*'`
-  - `Find-PSResource -Name 'Az*' -Tag compute`
 - Search by tag, for example:
   - `Find-PSResource -Tag compute`
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
-- Publish packages to a feed
-  - Returns a `403 (Forbidden)` error
+
+### Publishing to a MyGet feed
+
+You must use the **ApiKey** parameter of the `Publish-PSResource` cmdlet with personal access token
+(PAT) to publish packages to a MyGet feed. The value of the **ApiKey** parameter must be a plaintext
+PAT from your MyGet account that has read and write permissions. For more information about creating
+access tokens, see [MyGet Security][12].
+
+For example:
+
+```powershell
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'MyGitHubFeed'
+    ApiKey = '<personal-access-token>'
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
 
 ## File-share-based repositories
 
@@ -255,9 +382,6 @@ Register-PSResourceRepository @params
 ```
 
 You don't need credentials to search, download, or install packages from your self-hosted server.
-You can require an API key to publish packages to your server. For more information about getting a
-NuGet API key, see the _Adding packages to the feed externally_ section of
-[Using NuGet.Server to Host NuGet Feeds][04].
 
 ### Self-hosted NuGet server limitations
 
@@ -271,15 +395,40 @@ self-hosted NuGet servers:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
+### Publishing to a NuGet.Server instance
+
+When you first setup a NuGet.Server instance, there is no API key defined and pushing packages to
+the feed is disabled. To configure an API key, see the _Adding packages to the feed_ section of
+[Using NuGet.Server to Host NuGet Feeds][05]. The following example shows how to publish a package
+using the configured API key.
+
+```powershell
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'MyGitHubFeed'
+    ApiKey = '<apikey>'
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
+
 <!-- link references -->
 [01]: ../how-to/publishing-packages/publishing-a-package.md
 [02]: ../how-to/working-with-local-psrepositories.md
-[03]: /azure/devops/artifacts/tutorials/private-powershell-library#connect-to-feed-as-a-powershell-repository
-[04]: /nuget/hosting-packages/nuget-server#adding-packages-to-the-feed-externally
-[05]: /nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli#get-your-api-key
-[06]: https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages
-[07]: https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages
-[08]: https://docs.myget.org/docs/reference/security
-[09]: https://jfrog.com/artifactory/
-[10]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
-[11]: https://www.myget.org/
+[03]: /azure/devops/artifacts/tutorials/private-powershell-library?view=azure-devops&preserve-view=true#create-a-personal-access-token
+[04]: /azure/devops/artifacts/tutorials/private-powershell-library#connect-to-feed-as-a-powershell-repository
+[05]: /nuget/hosting-packages/nuget-server#adding-packages-to-the-feed-externally
+[06]: /nuget/nuget-org/publish-a-package#create-an-api-key
+[07]: /nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli#get-your-api-key
+[08]: /powershell/utility-modules/secretmanagement/overview
+[09]: https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries
+[10]: https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages
+[11]: https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages
+[12]: https://docs.myget.org/docs/reference/security
+[13]: https://jfrog.com/artifactory/
+[14]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
+[15]: https://www.myget.org/
