@@ -50,8 +50,6 @@ NuGet.org repositories:
 
 - Wildcard search by name, for example:
   - `Find-PSResource -Name '*'`
-  - `Find-PSResource -Name 'Az*'`
-  - `Find-PSResource -Name 'Az*' -Tag compute`
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
@@ -60,8 +58,21 @@ NuGet.org repositories:
 
 You don't need to use the **Credential** parameter of the `Publish-PSResource` cmdlet, but you must
 use the **ApiKey** parameter. You can provide credentials, but NuGet.org doesn't use them. To create
-an API key, see
-[How to publish NuGet packages][06].
+an API key, see [How to publish NuGet packages][06]. For example:
+
+```powershell
+$publishPSResourceSplat = @{
+    Path = 'D:\MyModule'
+    Repository = 'AzArtifactFeed'
+    ApiKey = '<nuget-api-key>'
+}
+Publish-PSResource @publishPSResourceSplat
+```
+
+> [!CAUTION]
+> You should never use plaintext credentials in a script. Use the **SecretManagement** module or
+> other methods to store and retrieve your credentials securely. For more information, see
+> [Overview of the SecretManagement and SecretStore modules][08].
 
 ## Azure Artifacts
 
@@ -72,7 +83,7 @@ publicly.
 
 Azure Artifacts supports the NuGet v3 protocol. Azure Artifacts feed URIs use the following format:
 
-`https://dev.azure.com/<organization-name>/<project-name>/_artifacts/feed/<feed-name>`
+`https://dev.azure.com/<organization-name>/<project-name>/_packaging/<feed-name>/v3/index.json`
 
 Substitute the placeholder values with your organization, project, and feed names. For example, use
 the following command to register an Azure Artifacts feed as a PSResource repository:
@@ -104,8 +115,6 @@ Azure Artifacts repositories:
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
-- Publish packages to a feed
-  - Returns a `400 (Bad Request)` error
 
 ### Publishing to Azure Artifacts
 
@@ -156,8 +165,7 @@ Register-PSResourceRepository @params
 ```
 
 The Github Packages service doesn't support NuGet feeds that are scoped to a repository. The feed
-must be associated with a user account or organization. Packages published to the feed can be
-associated with a repository.
+must be associated with a user account or organization.
 
 You must use credentials for all operations with a GitHub Packages feed. For more information, see
 the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][11].
@@ -180,9 +188,9 @@ GitHub Packages repositories:
 
 ### Publishing to GitHub Packages
 
-You can use the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to publish
-packages to a GitHub Package feed. You must create a personal access token (PAT) with the necessary
-scopes enabled. For more information on scopes and permissions, see
+You can use either the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to
+publish packages to a GitHub Package feed. You must create a personal access token (PAT) with the
+necessary scopes enabled. For more information on scopes and permissions, see
 [About permissions for GitHub Packages][09].
 
 If you use the **Credential** parameter, the value must be a **PSCredential** object that contains
@@ -200,7 +208,7 @@ $publishPSResourceSplat = @{
 Publish-PSResource @publishPSResourceSplat
 ```
 
-If you use the **ApiKey** parameter, the value must the plaintext PAT. For example:
+If you use the **ApiKey** parameter, the value must be the plaintext PAT. For example:
 
 ```powershell
 $publishPSResourceSplat = @{
@@ -218,8 +226,8 @@ Publish-PSResource @publishPSResourceSplat
 
 ## JFrog Artifactory
 
-[JFrog Artifactory][13] is a is a hosting service for NuGet repositories. Artifactory feeds use the
-NuGet v3 protocol. The feed URI has the following format:
+[JFrog Artifactory][13] is a hosting service for NuGet repositories. Artifactory feeds use the NuGet
+v3 protocol. The feed URI has the following format:
 
 `https://<jfrog-account>.jfrog.io/artifactory/api/nuget/v3/nuget/index.json`.
 
@@ -305,15 +313,11 @@ repositories:
 
 - Wildcard search by name, for example:
   - `Find-PSResource -Name '*'`
-  - `Find-PSResource -Name 'Az*'`
-  - `Find-PSResource -Name 'Az*' -Tag compute`
 - Search by tag, for example:
   - `Find-PSResource -Tag compute`
 - Search by command or DSC resource name, for example:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
-- Publish packages to a feed
-  - Returns a `403 (Forbidden)` error
 
 ### Publishing to a MyGet feed
 
