@@ -413,7 +413,7 @@ The `New-PSScriptFileInfo` and `Update-PSScriptFileInfo` cmdlets place the `#req
 for required modules between the `<#PSScriptInfo` and comment-based help blocks of the help file.
 The `Get-PSScriptFileInfo` expects `#requires` statements to be placed somewhere before the
 comment-based help block. Any `#requires` statements placed after the comment-based help block are
-ignored by `Get-PSScriptFileInfo`.
+ignored by `Get-PSScriptFileInfo` and `Publish-PSResource`.
 
 ## RELATED LINKS
 
