@@ -1,6 +1,6 @@
 ---
 description: This article explains how install PowerShellGet.
-ms.date: 06/09/2023
+ms.date: 07/26/2023
 title: How to Install PowerShellGet
 ---
 # How to Install PowerShellGet
@@ -33,7 +33,7 @@ preview release. You should always install the latest stable release.
 Use the following command to see what version is installed.
 
 ```powershell
-Get-Module PowerShellGet, PackageManagement
+Get-Module PowerShellGet, PackageManagement -ListAvailable
 ```
 
 The following output shows that the latest stable version needs to be installed.
