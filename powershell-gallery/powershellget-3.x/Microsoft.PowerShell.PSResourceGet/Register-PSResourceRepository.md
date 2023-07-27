@@ -124,7 +124,7 @@ $parameters = @{
   Uri = 'https://www.powershellgallery.com/api/v3'
   Trusted = $true
   Priority = 50
-  CredentialInfo = [Microsoft.PowerShell.PSResourceGetGet.UtilClasses.PSCredentialInfo]::new(
+  CredentialInfo = [Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo]::new(
     'SecretStore', 'TestSecret')
 }
 Register-PSResourceRepository @parameters
