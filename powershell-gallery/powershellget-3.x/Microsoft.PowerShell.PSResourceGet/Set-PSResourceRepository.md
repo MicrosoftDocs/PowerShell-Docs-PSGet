@@ -207,8 +207,8 @@ Specifies the priority ranking of the repository. Valid priority values range fr
 values have a higher priority ranking. The default value is `50`.
 
 Repositories are sorted by priority then by name. When searching for resources across multiple
-repositories, the PSResourceGet cmdlets search the repositories using this sort order and return the
-first match found.
+repositories, the **PSResourceGet** cmdlets search the repositories using this sort order and
+return the first match found.
 
 ```yaml
 Type: System.Int32
