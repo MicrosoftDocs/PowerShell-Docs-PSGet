@@ -212,9 +212,11 @@ Accept wildcard characters: False
 ### -Priority
 
 Specifies the priority ranking of the repository. Valid priority values range from 0 to 100. Lower
-values have a higher priority ranking. The default value is `100`.
+values have a higher priority ranking. The default value is `50`.
 
-Repositories are searched in priority order (highest first).
+Repositories are sorted by priority then by name. When searching for resources across multiple
+repositories, the PSResourceGet cmdlets search the repositories using this sort order and return the
+first match found.
 
 ```yaml
 Type: System.Int32
