@@ -1,7 +1,7 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta22
+ms.custom: v3-beta24
 ms.date: 08/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -507,6 +507,8 @@ By default, the cmdlet doesn't return any objects. When the **PassThru** paramet
 cmdlet outputs a **PSResourceInfo** object for the saved resource.
 
 ## NOTES
+
+The module defines `isres` as an alias for `Install-PSResource`.
 
 The **RequiredResource** and **RequiredResourceFile** parameters are used to find **PSResource**
 objects matching specific criteria. You can specify the search criteria using a hashtable or a JSON

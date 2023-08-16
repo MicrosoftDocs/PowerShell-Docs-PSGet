@@ -1,7 +1,7 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta22
+ms.custom: v3-beta24
 ms.date: 08/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -369,6 +369,8 @@ By default, the cmdlet doesn't return any objects. When the **PassThru** paramet
 cmdlet outputs a **PSResourceInfo** object for the saved resource.
 
 ## NOTES
+
+The module defines `udres` as an alias for `Update-PSResource`.
 
 ## RELATED LINKS
 
