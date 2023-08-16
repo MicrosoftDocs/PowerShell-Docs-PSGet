@@ -8,7 +8,7 @@ title: Creating a PowerShell Gallery account
 
 You must create a PowerShell Gallery account before publishing anything to the PowerShell Gallery.
 PowerShell Gallery accounts must be linked to an email-enabled login account. This account can be an
-Microsoft Entra ID account or a Microsoft ID, like an email account from `outlook.com` or
+Microsoft Entra account or a Microsoft ID, like an email account from `outlook.com` or
 `hotmail.com`.
 
 To create a PowerShell Gallery account, go to [https://PowerShellGallery.com][01] and click on
