@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.custom: v3-beta24
+ms.date: 08/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -245,6 +245,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ### System.Object
 
 ## NOTES
+
+The module defines `pbres` as an alias for `Publish-PSResource`.
 
 Fileshare-based repository have no metadata about the resources. Therefore, there is no way to check
 for dependencies.
