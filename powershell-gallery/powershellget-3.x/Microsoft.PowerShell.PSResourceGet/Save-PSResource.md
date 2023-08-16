@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.custom: v3-beta24
+ms.date: 08/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -19,7 +19,7 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Credential <PSCredential>] [-IncludeXml] -Path <String> [-TemporaryPath <String>]
+ [-Credential <PSCredential>] [-IncludeXml] [-Path <String>] [-TemporaryPath <String>]
  [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
@@ -28,16 +28,17 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Credential <PSCredential>] [-AsNupkg] -Path <String> [-TemporaryPath <String>] [-TrustRepository]
- [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-Credential <PSCredential>] [-AsNupkg] [-Path <String>] [-TemporaryPath <String>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
 
 ```
 Save-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-AsNupkg] [-IncludeXml]
- -Path <String> [-TemporaryPath <String>] [-TrustRepository] [-PassThru]
- [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
+ [-Path <String>] [-TemporaryPath <String>] [-TrustRepository] [-PassThru] [-InputObject]
+ <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -202,16 +203,17 @@ Accept wildcard characters: False
 
 ### -Path
 
-Specifies the path to save the resource to.
+Specifies the path to save the resource to. If no path is provided, the resource is saved in the
+current directory.
 
 ```yaml
 Type: System.String
 Parameter Sets: (All)
 Aliases:
 
-Required: True
+Required: False
 Position: Named
-Default value: None
+Default value: current directory
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -234,12 +236,18 @@ Accept wildcard characters: False
 
 ### -Repository
 
-Specifies one or more repository names to search. Wildcards are supported.
+Specifies one or more repository names to search. If not specified, search includes all registered
+repositories, in priority order (highest first), until a repository is found that contains the
+package. Repositories are sorted by priority then by name. Lower **Priority** values have a higher
+precedence.
 
-If not specified, search includes all registered repositories, in priority order (highest first),
-until a repository is found that contains the package.
+When searching for resources across multiple repositories, the **PSResourceGet** cmdlets search the
+repositories using this sort order. `Save-PSResource` saves the first matching package from the
+sorted list of repositories.
 
-Lower **Priority** values have a higher precedence.
+The parameter supports the `*` wildcard character. If you specify multiple repositories, all names
+must include or omit the wildcard character. You can't specify a mix of names with and without
+wildcards.
 
 ```yaml
 Type: System.String[]

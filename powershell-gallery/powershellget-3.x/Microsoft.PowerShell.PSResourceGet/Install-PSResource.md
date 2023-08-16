@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.custom: v3-beta24
+ms.date: 08/16/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -283,12 +283,18 @@ Accept wildcard characters: False
 
 ### -Repository
 
-Specifies one or more repository names to search. Wildcards are supported.
+Specifies one or more repository names to search. If not specified, search includes all registered
+repositories, in priority order (highest first), until a repository is found that contains the
+package. Repositories are sorted by priority then by name. Lower **Priority** values have a higher
+precedence.
 
-If not specified, search includes all registered repositories, in priority order (highest first),
-until a repository is found that contains the package.
+When searching for resources across multiple repositories, the **PSResourceGet** cmdlets search the
+repositories using this sort order. `Install-PSResource` installs the first matching package from
+the sorted list of repositories.
 
-Lower **Priority** values have a higher precedence.
+The parameter supports the `*` wildcard character. If you specify multiple repositories, all names
+must include or omit the wildcard character. You can't specify a mix of names with and without
+wildcards.
 
 ```yaml
 Type: System.String[]
@@ -299,7 +305,7 @@ Required: False
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
+Accept wildcard characters: True
 ```
 
 ### -RequiredResource
@@ -501,6 +507,8 @@ By default, the cmdlet doesn't return any objects. When the **PassThru** paramet
 cmdlet outputs a **PSResourceInfo** object for the saved resource.
 
 ## NOTES
+
+The module defines `isres` as an alias for `Install-PSResource`.
 
 The **RequiredResource** and **RequiredResourceFile** parameters are used to find **PSResource**
 objects matching specific criteria. You can specify the search criteria using a hashtable or a JSON
