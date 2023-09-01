@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 07/18/2023
+ms.date: 09/01/2023
 title: Supported repository configurations
 ---
 
@@ -149,7 +149,7 @@ your Azure DevOps user name.
 
 GitHub Packages is a software package hosting service that allows you to host your software packages
 privately or publicly and use packages as dependencies in your projects. For more information, see
-[Introduction to GitHub Packages][10].
+[Introduction to GitHub Packages][11].
 
 The GitHub Packages feed is a NuGet repository that uses the NuGet v3 protocol. The feed URI has the
 following format: `https://nuget.pkg.github.com/<namespace>/index.json`. Replace `<namespace>` with
@@ -168,7 +168,7 @@ The Github Packages service doesn't support NuGet feeds that are scoped to a rep
 must be associated with a user account or organization.
 
 You must use credentials for all operations with a GitHub Packages feed. For more information, see
-the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][11].
+the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][12].
 
 ### GitHub Packages limitations
 
@@ -191,7 +191,7 @@ GitHub Packages repositories:
 You can use either the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to
 publish packages to a GitHub Package feed. You must create a personal access token (PAT) with the
 necessary scopes enabled. For more information on scopes and permissions, see
-[About permissions for GitHub Packages][09].
+[About permissions for GitHub Packages][10].
 
 If you use the **Credential** parameter, the value must be a **PSCredential** object that contains
 your username and the PAT. For this example `<personal-access-token>` is the token you created for
@@ -226,7 +226,7 @@ Publish-PSResource @publishPSResourceSplat
 
 ## JFrog Artifactory
 
-[JFrog Artifactory][13] is a hosting service for NuGet repositories. Artifactory feeds use the NuGet
+[JFrog Artifactory][14] is a hosting service for NuGet repositories. Artifactory feeds use the NuGet
 v3 protocol. The feed URI has the following format:
 
 `https://<jfrog-account>.jfrog.io/artifactory/api/nuget/v3/nuget/index.json`.
@@ -243,7 +243,7 @@ Register-PSResourceRepository @params
 ```
 
 You must use credentials for all operations with a JFrog Artifactory feed. For more information, see
-[Creating Access Tokens in Artifactory][14].
+[Creating Access Tokens in Artifactory][15].
 
 ### JFrog Artifactory limitations
 
@@ -284,7 +284,7 @@ is your email address associated with your JFrog account.
 
 ## MyGet.org
 
-[MyGet.org][15] is a hosting service for NuGet repositories.
+[MyGet.org][16] is a hosting service for NuGet repositories.
 
 The **Microsoft.PowerShell.PSResourceGet** module supports MyGet feeds that use the NuGet v3
 protocol. The feed URI has the following format:
@@ -304,7 +304,7 @@ Register-PSResourceRepository @params
 
 MyGet allows you to create public or private feeds. You don't need credentials to search, download,
 or install packages from a public MyGet feed. To publish artifacts or access private feeds, you must
-have an account and an API key. For more information about, see [MyGet Security][12].
+have an account and an API key. For more information about, see [MyGet Security][13].
 
 ### MyGet limitations
 
@@ -324,7 +324,7 @@ repositories:
 You must use the **ApiKey** parameter of the `Publish-PSResource` cmdlet with personal access token
 (PAT) to publish packages to a MyGet feed. The value of the **ApiKey** parameter must be a plaintext
 PAT from your MyGet account that has read and write permissions. For more information about creating
-access tokens, see [MyGet Security][12].
+access tokens, see [MyGet Security][13].
 
 For example:
 
@@ -350,7 +350,9 @@ filesystem APIs or remote filesystem protocols, such as SMB or NFS.
 
 The permissions set by the filesystem and the file sharing protocol control access to the files. You
 can't use the **Credential** parameter of the **Microsoft.PowerShell.PSResourceGet** cmdlets to
-access to the files using alternate user credentials.
+access to the files using alternate user credentials. When using a file sharing protocol, like NFS
+or SMB, be sure to follow the recommended guidance for securing the protocol. For more information
+about securing SMB on Windows, see [SMB security enhancements][09].
 
 The **Microsoft.PowerShell.PSResourceGet** module supports all search scenarios for file share
 repositories.
@@ -425,10 +427,11 @@ Publish-PSResource @publishPSResourceSplat
 [06]: /nuget/nuget-org/publish-a-package#create-an-api-key
 [07]: /nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli#get-your-api-key
 [08]: /powershell/utility-modules/secretmanagement/overview
-[09]: https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries
-[10]: https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages
-[11]: https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages
-[12]: https://docs.myget.org/docs/reference/security
-[13]: https://jfrog.com/artifactory/
-[14]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
-[15]: https://www.myget.org/
+[09]: /windows-server/storage/file-server/smb-security
+[10]: https://docs.github.com/packages/learn-github-packages/about-permissions-for-github-packages#about-scopes-and-permissions-for-package-registries
+[11]: https://docs.github.com/packages/learn-github-packages/introduction-to-github-packages
+[12]: https://docs.github.com/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#authenticating-to-github-packages
+[13]: https://docs.myget.org/docs/reference/security
+[14]: https://jfrog.com/artifactory/
+[15]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
+[16]: https://www.myget.org/
