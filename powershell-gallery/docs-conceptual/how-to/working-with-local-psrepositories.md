@@ -1,6 +1,6 @@
 ---
 description: The PowerShellGet module support repositories other than the PowerShell Gallery. This article describes how to set up a local PowerShell repository.
-ms.date: 08/04/2023
+ms.date: 09/01/2023
 title: Working with local PSRepositories
 ---
 
@@ -87,6 +87,10 @@ Take note of the difference between how the two commands handle **ScriptSourceLo
 share-based repositories, the **SourceLocation** and **ScriptSourceLocation** must match. For a
 web-based repository, they must be different, so in this example a trailing "/" is added to the
 **SourceLocation**.
+
+When using a file sharing protocol, like NFS or SMB, be sure to follow the recommended guidance for
+securing the protocol. For more information about securing SMB on Windows, see
+[SMB security enhancements][09].
 
 If you want the newly created PSRepository to be the default repository, you must unregister all
 other PSRepositories. For example:
