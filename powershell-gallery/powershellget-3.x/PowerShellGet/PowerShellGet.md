@@ -4,8 +4,8 @@ Help Version: 7.3.0.0
 Locale: en-US
 Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
 Module Name: PowerShellGet
-ms.custom: v3-beta22
-ms.date: 06/30/2023
+ms.custom: 2.9.0-preview
+ms.date: 09/19/2023
 schema: 2.0.0
 title: PowerShellGet
 ---
@@ -13,15 +13,15 @@ title: PowerShellGet
 
 ## Description
 
-This documentation covers version 3.0.0-beta22 of the **CompatPowerShellGet** module. This module is
-provided for compatibility with **PowerShellGet** v2.x. The cmdlets in this version of the module
+This documentation covers version 2.9.0-preview of the **PowerShellGet** module. This module is
+provided for compatibility with **PowerShellGet** v2.2.x. The cmdlets in this version of the module
 are proxy cmdlets that call the equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet**
 module.
 
 The proxy cmdlets provide a compatibility layer for scripts that use the version 2.x cmdlets. In
 most cases, the scripts continue to work without modification. However, there are some differences
-in behavior between the version 2.x cmdlets and the version 3.x cmdlets. Some parameters for the
-version 2.x cmdlets are not supported by the version 3.x cmdlets. The proxy cmdlets silently discard
+in behavior between the modules. Some parameters for the **PowerShellGet** cmdlets aren't supported
+by the **Microsoft.PowerShell.PSResourceGet** cmdlets. The proxy cmdlets silently discard
 unsupported parameters, transform some parameters, and pass other parameters through to the
 equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet** module.
 

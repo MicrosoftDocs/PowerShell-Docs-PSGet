@@ -1,6 +1,7 @@
 ---
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
+ms.custom: 0.9.0-rc1
 ms.date: 06/09/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_PSResourceGet?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -9,7 +10,8 @@ title: about PSResourceGet
 # about_PSResourceGet
 
 ## Short description
-Describes how to use version 3.x of the PowerShellGet module.
+Describes how to use version 0.9.0-rc1 of the
+**Microsoft.PowerShell.PSResourceGet** module.
 
 ## Long description
 
@@ -31,7 +33,7 @@ This version of PowerShellGet focuses on a few key areas:
 Previous versions of **PowerShellGet** had separate commands to work with
 modules and scripts. In **Microsoft.PowerShell.PSResourceGet**, all packages in
 the PowerShell Gallery are defined as **PSResource** objects. This reduces the
-number of cmdlets from 26 in version 2.x to 16 in version 3.x.
+number of cmdlets from 26 in version 2.x to 18 in version 0.9.
 
 The following table shows the cmdlets that are available in **PowerShellGet**
 v3 and their v2 equivalents.
@@ -47,6 +49,7 @@ v3 and their v2 equivalents.
 | `Get-InstalledPSResource`          | `Get-InstalledScript`     |
 | `Get-PSResourceRepository`         | `Get-PSRepository`        |
 | `Get-PSScriptFileInfo`             | n/a                       |
+| `Import-PSGetRepository`           | n/a                       |
 | `Install-PSResource`               | `Install-Module`          |
 | `Install-PSResource`               | `Install-Script`          |
 | `New-PSScriptFileInfo`             | `New-ScriptFileInfo`      |

@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: v3-beta24
-ms.date: 08/16/2023
+ms.custom: 0.9.0-rc1
+ms.date: 09/19/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -19,7 +19,8 @@ Sets information for a registered repository.
 
 ```
 Set-PSResourceRepository [-Name] <String> [-Uri <String>] [-Trusted] [-Priority <Int32>]
- [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
@@ -148,6 +149,31 @@ Credential     :
 ```
 
 ## PARAMETERS
+
+### -ApiVersion
+
+Specifies the API version used by the repository. Valid values are:
+
+- `v2` - uses the NuGet V2 API
+- `v3` - uses the NuGet V3 API
+- `local` - use this for file system based repositories
+- `nugetServer` - use this for NuGet.Server based repositories
+
+The `Register-PSResourceRepository` cmdlet should automatically detect the API version. This
+parameter allows you to change the API version after you have registered a repository.
+
+```yaml
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion
+Parameter Sets: NameParameterSet
+Aliases:
+Accepted values: unknown, v2, v3, local, nugetServer
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
 
 ### -CredentialInfo
 
