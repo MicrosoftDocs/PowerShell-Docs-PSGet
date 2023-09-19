@@ -2,8 +2,8 @@
 external help file: PSModule-help.xml
 Locale: en-US
 Module Name: PowerShellGet
-ms.custom: v3-beta22
-ms.date: 06/09/2023
+ms.custom: 2.9.0-preview
+ms.date: 09/19/2023
 online version: https://learn.microsoft.com/powershell/module/powershellget/register-psrepository?view=powershellget-2.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Register-PSRepository

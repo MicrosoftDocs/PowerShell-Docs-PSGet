@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 06/30/2023
+ms.date: 09/19/2023
 title: The PowerShellGet module
 ---
 # The PowerShellGet module
@@ -12,10 +12,19 @@ Modules, DSC Resources, and Scripts.
 Supported versions:
 
 - Current release - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
-- Preview release - **Microsoft.PowerShell.PSResourceGet** 0.5.22-beta22
-  - The preview release is now included in PowerShell 7.4.0-preview.4 and newer releases
+- Preview releases
+  - **Microsoft.PowerShell.PSResourceGet** 0.9.0-rc1
+  - **PowerShellGet** 2.9.0-preview
+
+> [!IMPORTANT]
+> The **PowerShellGet** module is being replaced by **Microsoft.PowerShell.PSResourceGet**.
+> **PowerShellGet** 2.9.0-preview is a compatibility module that contains proxy cmdlets that call
+> the new cmdlets in **Microsoft.PowerShell.PSResourceGet**. The proxy cmdlets allow you to continue
+> to use the old cmdlet names in your scripts while you transition to the new cmdlets.
 
 ## Version history
+
+For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
 - **Windows PowerShell 5.1** comes with version 1.0.0.1 of **PowerShellGet** and
   **PackageManagement** preinstalled.
@@ -31,13 +40,11 @@ Supported versions:
   **PackageManagement** 1.4.7.
 - **PowerShell 7.4.0-preview.2** shipped with **PowerShellGet** 2.2.5 and **PackageManagement**
   1.4.8.1.
-- Future versions of **PowerShell 7.4.0** will ship with **Microsoft.PowerShell.PSResourceGet**.
+- **PowerShell 7.4.0-preview.4** shipped with **Microsoft.PowerShell.PSResourceGet** 0.5.24-beta24.
 
   > [!NOTE]
   > **Microsoft.PowerShell.PSResourceGet** is a standalone module and no longer depends on the
   > **PackageManagement** module.
-
-For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
 ## See also
 

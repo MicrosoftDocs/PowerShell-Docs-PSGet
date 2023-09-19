@@ -6,10 +6,9 @@ title: Supported repository configurations
 
 # Supported repository configurations
 
-The **Microsoft.PowerShell.PSResourceGet** module, also known as **PowerShellGet v3**, works with
-NuGet package repositories and local file stores. In general, the cmdlets should work with any
-artifact repository that supports the NuGet protocol. However, not all NuGet repositories support
-all the features of PSResourceGet.
+The **Microsoft.PowerShell.PSResourceGet** module works with NuGet package repositories and local
+file stores. In general, the cmdlets should work with any artifact repository that supports the
+NuGet protocol. However, not all NuGet repositories support all the features of PSResourceGet.
 
 The following repositories have been tested with PSResourceGet.
 
