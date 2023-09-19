@@ -40,8 +40,7 @@ For best results, use the latest version of the **Microsoft.PowerShell.PSResourc
   **PackageManagement** 1.4.7.
 - **PowerShell 7.4.0-preview.2** shipped with **PowerShellGet** 2.2.5 and **PackageManagement**
   1.4.8.1.
-- Future versions of **PowerShell 7.4.0-preview.4** shipped with
-  **Microsoft.PowerShell.PSResourceGet** 0.5.24-beta24.
+- **PowerShell 7.4.0-preview.4** shipped with **Microsoft.PowerShell.PSResourceGet** 0.5.24-beta24.
 
   > [!NOTE]
   > **Microsoft.PowerShell.PSResourceGet** is a standalone module and no longer depends on the
