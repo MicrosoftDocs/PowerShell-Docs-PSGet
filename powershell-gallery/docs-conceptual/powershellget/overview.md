@@ -14,11 +14,11 @@ Supported versions:
 - Current release - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
 - Preview releases
   - **Microsoft.PowerShell.PSResourceGet** 0.9.0-rc1
-  - **PowerShellGet** 2.9.0-preview
+  - **PowerShellGet** 3.0.22-beta22
 
 > [!IMPORTANT]
 > The **PowerShellGet** module is being replaced by **Microsoft.PowerShell.PSResourceGet**.
-> **PowerShellGet** 2.9.0-preview is a compatibility module that contains proxy cmdlets that call
+> **PowerShellGet** 3.0.22-beta22 is a compatibility module that contains proxy cmdlets that call
 > the new cmdlets in **Microsoft.PowerShell.PSResourceGet**. The proxy cmdlets allow you to continue
 > to use the old cmdlet names in your scripts while you transition to the new cmdlets.
 
