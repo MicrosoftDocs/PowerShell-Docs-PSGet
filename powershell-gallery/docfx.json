@@ -27,9 +27,13 @@
     "externalReference": [],
     "fileMetadata": {
       "feedback_product_url": {
+        "docs-conceptual/*": "https://github.com/powershell/psresourceget/issues/new",
         "docs-conceptual/concepts/**/*": "https://github.com/powershell/powershellgallery/issues/new",
         "docs-conceptual/how-to/**/*": "https://github.com/powershell/powershellgallery/issues/new",
-        "docs-conceptual/powershellget/**/*": "https://github.com/powershell/psresourceget/issues/new"
+        "docs-conceptual/powershellget/**/*": "https://github.com/powershell/psresourceget/issues/new",
+        "powershellget-1.x/**/*": "https://github.com/powershell/powershellget/issues/new",
+        "powershellget-2.x/**/*": "https://github.com/powershell/powershellget/issues/new",
+        "powershellget-3.x/**/*": "https://github.com/powershell/psresourceget/issues/new"
       },
       "feedback_system": {
         "**/*": "OpenSource"
@@ -44,10 +48,16 @@
         "**/*": "needs-triage"
       },
       "open_source_feedback_issueUrl": {
-        "**/*": "https://github.com/MicrosoftDocs/PowerShell-Docs-Modules/issues/new?template=04-customer-feedback.yml"
+        "**/*": "https://github.com/MicrosoftDocs/PowerShell-Docs-PSGet/issues/new?template=04-customer-feedback.yml"
       },
       "open_source_feedback_productDescription": {
-        "**/powershellget*/**/*": "PowerShellGet is an open source project. Select a link to provide feedback:"
+        "docs-conceptual/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
+        "docs-conceptual/concepts/**/*": "PowerShell Gallery documentation is open source. Select a link to provide feedback:",
+        "docs-conceptual/how-to/**/*": "PowerShell Gallery documentation is open source. Select a link to provide feedback:",
+        "docs-conceptual/powershellget/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
+        "powershellget-1.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
+        "powershellget-2.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
+        "powershellget-3.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:"
       },
       "open_source_feedback_productLogoLightUrl": {
         "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg"
@@ -56,16 +66,20 @@
         "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg"
       },
       "open_source_feedback_productName": {
-        "powershellget-*/**/*": "PowerShellGet feedback",
+        "docs-conceptual/*": "PowerShellGet & Gallery feedback",
         "docs-conceptual/concepts/**/*": "PowerShell Gallery feedback",
-        "docs-conceptual/how-to/**/*": "PowerShell Gallery feedback"
+        "docs-conceptual/how-to/**/*": "PowerShell Gallery feedback",
+        "docs-conceptual/powershellget/**/*": "PowerShellGet feedback",
+        "powershellget-1.x/**/*": "PowerShellGet feedback",
+        "powershellget-2.x/**/*": "PowerShellGet feedback",
+        "powershellget-3.x/**/*": "PSResourceGet feedback"
       },
       "ms.prod": {
         "**/*": "powershell"
       },
       "ms.technology": {
-        "powershellget-*/**.md": "powershell-conceptual",
-        "powershellget-*/**.yml": "powershell-cmdlets"
+        "powershellget-*/*.md": "powershell-conceptual",
+        "powershellget-*/*.yml": "powershell-cmdlets"
       },
       "ms.tgt_pltfr": {
         "**/*": "windows, macos, linux"
@@ -95,7 +109,6 @@
       "breadcrumb_path": "/powershell/gallery/breadcrumb/toc.json",
       "extendBreadcrumb": true,
       "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
-      "feedback_product_url": "https://github.com/PowerShell/PowerShellGet/issues/new/choose",
       "manager": "jasongroce",
       "ms.author": "sewhee",
       "author": "sdwheeler",
