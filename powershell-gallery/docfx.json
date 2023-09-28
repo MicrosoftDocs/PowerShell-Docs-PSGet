@@ -26,78 +26,69 @@
     "exportViewModel": true,
     "externalReference": [],
     "fileMetadata": {
-      "author": {
-        "**/**.md": "sdwheeler",
-        "**/**.yml": "sdwheeler"
-      },
       "feedback_product_url": {
-        "docs-conceptual/gallery/**/**.md": "https://github.com/powershell/powershellgallery/issues/new"
+        "docs-conceptual/concepts/**/*": "https://github.com/powershell/powershellgallery/issues/new",
+        "docs-conceptual/how-to/**/*": "https://github.com/powershell/powershellgallery/issues/new",
+        "docs-conceptual/powershellget/**/*": "https://github.com/powershell/psresourceget/issues/new"
       },
-      "manager": {
-        "**/**": "jasongroce"
+      "feedback_system": {
+        "**/*": "OpenSource"
       },
-      "ms.author": {
-        "**/**.md": "sewhee",
-        "**/**.yml": "sewhee"
+      "open_source_feedback_contributorGuideUrl": {
+        "**/*": "https://learn.microsoft.com/powershell/scripting/community/contributing/powershell-style-guide"
+      },
+      "open_source_feedback_issueTitle": {
+        "**/*": "Customer feedback - "
+      },
+      "open_source_feedback_issueLabels": {
+        "**/*": "needs-triage"
+      },
+      "open_source_feedback_issueUrl": {
+        "**/*": "https://github.com/MicrosoftDocs/PowerShell-Docs-Modules/issues/new?template=04-customer-feedback.yml"
+      },
+      "open_source_feedback_productDescription": {
+        "**/powershellget*/**/*": "PowerShellGet is an open source project. Select a link to provide feedback:"
+      },
+      "open_source_feedback_productLogoLightUrl": {
+        "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg"
+      },
+      "open_source_feedback_productLogoDarkUrl": {
+        "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-core.svg"
+      },
+      "open_source_feedback_productName": {
+        "powershellget-*/**/*": "PowerShellGet feedback",
+        "docs-conceptual/concepts/**/*": "PowerShell Gallery feedback",
+        "docs-conceptual/how-to/**/*": "PowerShell Gallery feedback"
       },
       "ms.prod": {
-        "**/**.md": "powershell",
-        "**/**.yml": "powershell"
+        "**/*": "powershell"
       },
       "ms.technology": {
-        "powershellget-1.x/**.md": "powershell-conceptual",
-        "powershellget-1.x/**.yml": "powershell-cmdlets",
-        "powershellget-2.x/**.md": "powershell-conceptual",
-        "powershellget-2.x/**.yml": "powershell-cmdlets",
-        "powershellget-3.x/**.md": "powershell-conceptual",
-        "powershellget-3.x/**.yml": "powershell-cmdlets",
-        "docs-conceptual/**/**.md": "powershell-conceptual"
+        "powershellget-*/**.md": "powershell-conceptual",
+        "powershellget-*/**.yml": "powershell-cmdlets"
       },
       "ms.tgt_pltfr": {
-        "**/**": "windows, macos, linux"
+        "**/*": "windows, macos, linux"
       },
       "ms.topic": {
-        "powershellget-1.x/**.md": "managed-reference",
-        "powershellget-1.x/**.yml": "managed-reference",
-        "powershellget-2.x/**.md": "managed-reference",
-        "powershellget-2.x/**.yml": "managed-reference",
-        "powershellget-3.x/**.md": "managed-reference",
-        "powershellget-3.x/**.yml": "managed-reference",
-        "docs-conceptual/**/**.md": "conceptual",
+        "powershellget-*/*": "managed-reference"
       },
       "products": {
-        "docs-conceptual/**/**.md": [
+        "docs-conceptual/**/*": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
-        "powershellget-1.x/**.md": [
+        "powershellget-*/*.md": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
-        "powershellget-1.x/**.yml": [
+        "powershellget-*/*.yml": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
-        "powershellget-2.x/**.md": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ],
-        "powershellget-2.x/**.yml": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ],
-        "powershellget-3.x/**.md": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ],
-        "powershellget-3.x/**.yml": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ]
       },
       "social_image_url": {
-        "**/**.md": "https://learn.microsoft.com/media/logos/logo-powershell-social.png",
-        "**/**.yml": "https://learn.microsoft.com/media/logos/logo-powershell-social.png"
+        "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-social.png"
       }
     },
     "globalMetadata": {
@@ -105,7 +96,7 @@
       "extendBreadcrumb": true,
       "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
       "feedback_product_url": "https://github.com/PowerShell/PowerShellGet/issues/new/choose",
-      "feedback_system": "GitHub",
+      "manager": "jasongroce",
       "ms.author": "sewhee",
       "ms.devlang": "powershell",
       "ms.prod": "powershell",
