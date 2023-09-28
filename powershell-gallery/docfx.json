@@ -98,6 +98,7 @@
       "feedback_product_url": "https://github.com/PowerShell/PowerShellGet/issues/new/choose",
       "manager": "jasongroce",
       "ms.author": "sewhee",
+      "author": "sdwheeler",
       "ms.devlang": "powershell",
       "ms.prod": "powershell",
       "searchScope": [
