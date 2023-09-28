@@ -78,28 +78,38 @@
         "**/*": "powershell"
       },
       "ms.technology": {
-        "powershellget-*/*.md": "powershell-conceptual",
-        "powershellget-*/*.yml": "powershell-cmdlets"
+        "powershellget-1.x/**/*.md": "powershell-conceptual",
+        "powershellget-1.x/**/*.yml": "powershell-cmdlets",
+        "powershellget-2.x/**/*.md": "powershell-conceptual",
+        "powershellget-2.x/**/*.yml": "powershell-cmdlets",
+        "powershellget-3.x/**/*.md": "powershell-conceptual",
+        "powershellget-3.x/**/*.yml": "powershell-cmdlets"
       },
       "ms.tgt_pltfr": {
         "**/*": "windows, macos, linux"
       },
       "ms.topic": {
-        "powershellget-*/*": "managed-reference"
+        "powershellget-1.x/**/*": "managed-reference",
+        "powershellget-2.x/**/*": "managed-reference",
+        "powershellget-3.x/**/*": "managed-reference"
       },
       "products": {
         "docs-conceptual/**/*": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
-        "powershellget-*/*.md": [
+        "powershellget-1.x/**/*": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
-        "powershellget-*/*.yml": [
+        "powershellget-2.x/**/*": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
+        "powershellget-3.x/**/*": [
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
+          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
+        ]
       },
       "social_image_url": {
         "**/*": "https://learn.microsoft.com/media/logos/logo-powershell-social.png"
