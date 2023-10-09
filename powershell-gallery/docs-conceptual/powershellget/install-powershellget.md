@@ -1,6 +1,6 @@
 ---
 description: This article explains how install PowerShellGet.
-ms.date: 07/26/2023
+ms.date: 10/09/2023
 title: How to Install PowerShellGet
 ---
 # How to Install PowerShellGet
@@ -56,14 +56,19 @@ To install the latest versions of these modules run the following:
 Install-Module PowerShellGet -Force -AllowClobber
 ```
 
-## Install the Preview release
+## Install Microsoft.PowerShell.PSResourceGet
 
-To install this preview release side-by-side with your existing PowerShellGet version, open any
-PowerShell console and run:
+**Microsoft.PowerShell.PSResourceGet** is the new package management solution for PowerShell. With
+this module, you no longer need to use **PowerShellGet** and **PackageManagement**. However, it can
+be installed side-by-side with the existing **PowerShellGet** module. To install
+**Microsoft.PowerShell.PSResourceGet** side-by-side with your existing **PowerShellGet** version,
+open any PowerShell console and run:
 
 ```powershell
-Install-Module Microsoft.PowerShell.PSResourceGet -AllowClobber -AllowPrerelease
+Install-Module Microsoft.PowerShell.PSResourceGet -Repository PSGallery
 ```
+
+**Microsoft.PowerShell.PSResourceGet** is preinstalled with PowerShell 7.4 and later.
 
 <!-- link references -->
 [01]: /powershell/module/microsoft.powershell.core/about/about_profiles
