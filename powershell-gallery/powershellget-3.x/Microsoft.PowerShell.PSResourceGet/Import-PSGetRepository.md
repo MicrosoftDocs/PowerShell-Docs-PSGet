@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: v3-beta23
-ms.date: 09/19/2023
+ms.date: 10/09/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/import-psgetrepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
