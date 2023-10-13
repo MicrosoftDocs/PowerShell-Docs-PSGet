@@ -8,7 +8,7 @@
       },
 
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
-      { "dest": "gallery", "files": [ "**/*.md", "**/**.yml" ], "group": "conceptual", "src": "docs-conceptual" },
+      { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual" },
 
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
       { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
@@ -90,6 +90,8 @@
       "extendBreadcrumb": true,
       "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
       "feedback_system": "OpenSource",
+      "feedback_help_link_url": "https://learn.microsoft.com/powershell/scripting/community/community-support",
+      "feedback_help_link_type": "ask-the-community",
       "open_source_feedback_contributorGuideUrl": "https://learn.microsoft.com/powershell/scripting/community/contributing/powershell-style-guide",
       "open_source_feedback_issueTitle": "",
       "open_source_feedback_issueLabels": "needs-triage",
