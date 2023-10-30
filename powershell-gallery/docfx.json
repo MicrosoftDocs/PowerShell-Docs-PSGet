@@ -87,7 +87,6 @@
     },
     "globalMetadata": {
       "breadcrumb_path": "/powershell/gallery/breadcrumb/toc.json",
-      "extendBreadcrumb": true,
       "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
       "feedback_system": "OpenSource",
       "feedback_help_link_url": "https://learn.microsoft.com/powershell/scripting/community/community-support",
