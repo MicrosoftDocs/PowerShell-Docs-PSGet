@@ -1,6 +1,6 @@
 ---
 description: This article explains how install PowerShellGet.
-ms.date: 10/09/2023
+ms.date: 11/10/2023
 title: How to Install PowerShellGet
 ---
 # How to Install PowerShellGet
