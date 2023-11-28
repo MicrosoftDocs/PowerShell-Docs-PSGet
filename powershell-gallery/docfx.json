@@ -45,13 +45,13 @@
         "powershellget-3.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:"
       },
       "open_source_feedback_productName": {
-        "docs-conceptual/*": "PowerShellGet & Gallery feedback",
-        "docs-conceptual/concepts/**/*": "PowerShell Gallery feedback",
-        "docs-conceptual/how-to/**/*": "PowerShell Gallery feedback",
-        "docs-conceptual/powershellget/**/*": "PowerShellGet feedback",
-        "powershellget-1.x/**/*": "PowerShellGet feedback",
-        "powershellget-2.x/**/*": "PowerShellGet feedback",
-        "powershellget-3.x/**/*": "PSResourceGet feedback"
+        "docs-conceptual/*": "PowerShellGet & Gallery",
+        "docs-conceptual/concepts/**/*": "PowerShell Gallery",
+        "docs-conceptual/how-to/**/*": "PowerShell Gallery",
+        "docs-conceptual/powershellget/**/*": "PowerShellGet",
+        "powershellget-1.x/**/*": "PowerShellGet",
+        "powershellget-2.x/**/*": "PowerShellGet",
+        "powershellget-3.x/**/*": "PSResourceGet"
       },
       "ms.technology": {
         "powershellget-1.x/**/*.md": "powershell-conceptual",
