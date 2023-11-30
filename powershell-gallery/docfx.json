@@ -35,15 +35,6 @@
         "powershellget-2.x/**/*": "https://github.com/powershell/powershellget/issues/new",
         "powershellget-3.x/**/*": "https://github.com/powershell/psresourceget/issues/new"
       },
-      "open_source_feedback_productDescription": {
-        "docs-conceptual/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
-        "docs-conceptual/concepts/**/*": "PowerShell Gallery documentation is open source. Select a link to provide feedback:",
-        "docs-conceptual/how-to/**/*": "PowerShell Gallery documentation is open source. Select a link to provide feedback:",
-        "docs-conceptual/powershellget/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
-        "powershellget-1.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
-        "powershellget-2.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:",
-        "powershellget-3.x/**/*": "The PowerShellGet and PSResourceGet modules are open source projects. Select a link to provide feedback:"
-      },
       "open_source_feedback_productName": {
         "docs-conceptual/*": "PowerShellGet & Gallery",
         "docs-conceptual/concepts/**/*": "PowerShell Gallery",
@@ -87,7 +78,6 @@
     },
     "globalMetadata": {
       "breadcrumb_path": "/powershell/gallery/breadcrumb/toc.json",
-      "feedback_github_repo": "MicrosoftDocs/PowerShell-Docs-PSGet",
       "feedback_system": "OpenSource",
       "feedback_help_link_url": "https://learn.microsoft.com/powershell/scripting/community/community-support",
       "feedback_help_link_type": "ask-the-community",
