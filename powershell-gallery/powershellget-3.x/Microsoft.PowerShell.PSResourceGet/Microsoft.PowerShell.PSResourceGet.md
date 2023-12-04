@@ -5,7 +5,7 @@ Locale: en-US
 Module Guid: e4e0bda1-0703-44a5-b70d-8fe704cd0643
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.0.1
-ms.date: 11/10/2023
+ms.date: 12/04/2023
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/powershellget?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Microsoft.PowerShell.PSResourceGet
@@ -14,7 +14,7 @@ title: Microsoft.PowerShell.PSResourceGet
 
 ## Description
 
-PowerShellGet is a module with commands for discovering, installing, updating and publishing
+PSResourceGet is a module with commands for discovering, installing, updating and publishing
 PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
 
 This documentation covers the latest version **Microsoft.PowerShell.PSResourceGet** v1.0.1.
@@ -22,7 +22,9 @@ This documentation covers the latest version **Microsoft.PowerShell.PSResourceGe
 > [!IMPORTANT]
 > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
 > of PowerShellGet has a limited features and doesn't support the updated capabilities of the
-> PowerShell Gallery. To be supported, you must update to the latest version.
+> PowerShell Gallery. To install PSResourceGet, you must first update to the latest version of
+> PowerShellGet. For more information, see
+> [Update PowerShellGet for Windows PowerShell 5.1](/powershell/gallery/powershellget/update-powershell-51).
 
 ## Microsoft.PowerShell.PSResourceGet Cmdlets
 
