@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "redirect_document_id": true,
+            "redirect_url": "/powershell/gallery/powershellget/update-powershell-51",
+            "source_path": "powershell-gallery/docs-conceptual/powershellget/install-on-older-systems.md"
+        }
+    ]
+}
