@@ -325,7 +325,8 @@ Accept wildcard characters: True
 
 ### -Tag
 
-Filters search results for resources that include one or more of the specified tags.
+Filters search results for resources that include the specified tags. If multiple tags are
+specified, the cmdlet only returns resources that include all the tags provided.
 
 ```yaml
 Type: System.String[]
