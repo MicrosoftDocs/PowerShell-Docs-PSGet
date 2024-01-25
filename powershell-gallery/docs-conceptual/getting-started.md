@@ -1,6 +1,6 @@
 ---
 description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
-ms.date: 01/18/2023
+ms.date: 01/25/2024
 title: Get Started with the PowerShell Gallery
 ---
 # Getting Started with the PowerShell Gallery
@@ -132,15 +132,6 @@ These hostnames should be added to the allow lists that control access from your
 Hosts required for package discovery and download:
 
 - `onegetcdn.azureedge.net` - CDN hostname
-- `psg-prod-centralus.azureedge.net` - CDN hostname
-- `psg-prod-eastus.azureedge.net` - CDN hostname
-- `az818661.vo.msecnd.net` - CDN hostname
-
-> [!NOTE]
-> The CDN for the PowerShell gallery is active for one name, `psg-prod-eastus.azureedge.net` or
-> `psg-prod-centralus.azureedge.net`, at any given time. The inactive name becomes the valid, active
-> name if there is a need to failover the service. Therefore, both names should be included in your
-> allow lists.
 
 Hosts required when using the PowerShell Gallery website:
 
