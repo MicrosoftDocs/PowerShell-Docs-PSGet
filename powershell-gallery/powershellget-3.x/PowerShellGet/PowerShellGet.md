@@ -7,9 +7,9 @@ Module Name: PowerShellGet
 ms.custom: 3.0.22-beta22
 ms.date: 09/19/2023
 schema: 2.0.0
-title: PowerShellGet
+title: PowerShellGet v3 (preview)
 ---
-# PowerShellGet Module
+# PowerShellGet v3 Module
 
 ## Description
 

@@ -3,7 +3,7 @@ description: This article demonstrates how to use SecretStore credentials with a
 ms.date: 06/28/2023
 title: How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
 ---
-# How to add credentials to repositories in Microsoft.PowerShell.PSResourceGet
+# How to add credentials to repositories with Microsoft.PowerShell.PSResourceGet
 
 Microsoft.PowerShell.PSResourceGet allows you to register private repositories that contain
 installable PSResource packages. Typically, private repositories require you to have credentials to
