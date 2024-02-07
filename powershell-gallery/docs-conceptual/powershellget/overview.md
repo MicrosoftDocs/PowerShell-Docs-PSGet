@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 01/17/2024
+ms.date: 02/07/2024
 title: Package management for PowerShell
 ---
 # Package management for PowerShell
@@ -26,7 +26,7 @@ packages can contain artifacts such as Modules, DSC Resources, and Scripts. The
 Supported versions:
 
 - Current release
-  - **Microsoft.PowerShell.PSResourceGet** 1.0.1 - a standalone module that doesn't depend on the
+  - **Microsoft.PowerShell.PSResourceGet** 1.0.2 - a standalone module that doesn't depend on the
     **PowerShellGet** or **PackageManagement** modules
   - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
 - Preview release
@@ -38,6 +38,7 @@ Supported versions:
 
 For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
+- **Microsoft.PowerShell.PSResourceGet** 1.0.2 - released to the PowerShell Gallery on 06-Feb-2024
 - **PowerShell 7.4.0** ships with **Microsoft.PowerShell.PSResourceGet** 1.0.1, **PowerShellGet**
   2.2.5, and **PackageManagement** 1.4.8.1
 - **PowerShell 7.0.4**, **PowerShell 7.1.1**, and higher shipped with **PowerShellGet** 2.2.5 and
