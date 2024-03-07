@@ -1,6 +1,7 @@
 ---
 description: This article explains how install PowerShellGet.
 ms.date: 01/31/2024
+ms.topic: install-set-up-deploy
 title: How to Install PowerShellGet
 ---
 # How to Install PowerShellGet and PSResourceGet

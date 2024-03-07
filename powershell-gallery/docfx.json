@@ -54,7 +54,7 @@
       },
       "ms.topic": {
         "docs-conceptual/**/*": "conceptual",
-        "docs-conceptual/how-to/**/*": "how-to",
+        "docs-conceptual/**/how-to/**": "how-to",
         "powershellget-1.x/**/*": "managed-reference",
         "powershellget-2.x/**/*": "managed-reference",
         "powershellget-3.x/**/*": "managed-reference"
