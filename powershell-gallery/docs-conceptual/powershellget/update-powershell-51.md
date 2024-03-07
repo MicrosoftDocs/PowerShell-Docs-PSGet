@@ -1,6 +1,7 @@
 ---
 description: This article explains how to update PowerShellGet for Windows PowerShell.
 ms.date: 06/09/2023
+ms.topic: install-set-up-deploy
 title: Update PowerShellGet for Windows PowerShell 5.1
 ---
 # Update PowerShellGet for Windows PowerShell 5.1

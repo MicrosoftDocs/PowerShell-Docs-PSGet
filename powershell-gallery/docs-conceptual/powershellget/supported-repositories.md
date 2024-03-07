@@ -1,6 +1,7 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
 ms.date: 09/01/2023
+ms.topic: reference
 title: Supported repository configurations
 ---
 

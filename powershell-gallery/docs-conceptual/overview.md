@@ -1,6 +1,7 @@
 ---
 description: The PowerShellGet module provides commands to interact with the PowerShell Gallery, the central repository for PowerShell modules, scripts, and DSC resources.
 ms.date: 11/16/2022
+ms.topic: overview
 title: PowerShellGet and the PowerShell Gallery
 ---
 # PowerShellGet and the PowerShell Gallery

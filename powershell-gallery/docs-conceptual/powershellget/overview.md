@@ -1,6 +1,7 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
 ms.date: 02/07/2024
+ms.topic: overview
 title: Package management for PowerShell
 ---
 # Package management for PowerShell
