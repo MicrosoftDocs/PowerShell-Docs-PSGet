@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 09/01/2023
+ms.date: 03/23/2024
 ms.topic: reference
 title: Supported repository configurations
 ---
@@ -54,7 +54,7 @@ NuGet.org repositories:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
-### Publishing to NuGet.org
+### Publish to NuGet.org
 
 You don't need to use the **Credential** parameter of the `Publish-PSResource` cmdlet, but you must
 use the **ApiKey** parameter. You can provide credentials, but NuGet.org doesn't use them. To create
@@ -116,7 +116,7 @@ Azure Artifacts repositories:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
-### Publishing to Azure Artifacts
+### Publish to Azure Artifacts
 
 You must use the **Credential** and **ApiKey** parameters of the `Publish-PSResource` cmdlet to
 publish packages to an Azure Artifacts feed. The credential must be a personal access token (PAT)
@@ -144,6 +144,44 @@ your Azure DevOps user name.
 > You should never use plaintext credentials in a script. Use the **SecretManagement** module or
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][08].
+
+## Azure Container Resgistry
+
+Azure Container Registry (ACR) allows you to build, store, and manage container images and artifacts
+in a private registry for all types of container deployments. Use Azure container registries to
+provide a private store for trusted PowerShell resources.
+
+Version 1.1.0-preview.1 of the **Microsoft.PowerShell.PSResourceGet** module adds support for Azure
+Container registries as a PSResource repository. Credentials are required with container registries,
+as they're private galleries. When you register your ACR as a PSResource repository, the command
+prompts you to login to your Azure subscription. You Azure identity is for the lifetime of your
+session.
+
+```powershell
+Register-PSResourceRepository -Name YOURRepo -Uri $repositoryUrl`
+```
+
+After you register the repository, the first time you perform an operation on the registered
+repository in a new session you are prompted to login.
+
+### ACR limitations
+
+The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
+ACR repositories:
+
+- Find by wildcard, for example:
+  - `Find-PSResource -Name "*" -Repository ACRDemoRepo`
+  - `Find-PSResource -Name "test*" -Repository ACRDemoRepo`
+- Find by tag:
+  - `Find-PSResource -Tag "windows" -Repository ACRDemoRepo`
+- Find by command:
+  - `Find-PSResource -Command "command1" -Repository ACRDemoRepo`
+- Find by DSC resource:
+  - `Find-PSResource -DSCResource "dsc1" -Repository ACRDemoRepo`
+
+For more detailed examples using ACR, see [Working with Azure Container Registry repositories][17].
+
+## Publish packages to an ACR repository
 
 ## GitHub Packages
 
@@ -186,7 +224,7 @@ GitHub Packages repositories:
   - The package is published as a private package. After publishing, you can use the GitHub
     interface to link it to the desired repository and change the visibility.
 
-### Publishing to GitHub Packages
+### Publish to GitHub Packages
 
 You can use either the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to
 publish packages to a GitHub Package feed. You must create a personal access token (PAT) with the
@@ -256,7 +294,7 @@ Artifactory repositories:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
-### Publishing to JFrog Artifactory
+### Publish to JFrog Artifactory
 
 You must use the **Credential** parameter of the `Publish-PSResource` cmdlet to publish packages to
 a JFrog Artifactory feed. The value of the **Credential** parameter must be a **PSCredential**
@@ -319,7 +357,7 @@ repositories:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
-### Publishing to a MyGet feed
+### Publish to a MyGet feed
 
 You must use the **ApiKey** parameter of the `Publish-PSResource` cmdlet with personal access token
 (PAT) to publish packages to a MyGet feed. The value of the **ApiKey** parameter must be a plaintext
@@ -397,7 +435,7 @@ self-hosted NuGet servers:
   - `Find-PSResource -Command commandname`
   - `Find-PSResource -DSCResource dscresourcename`
 
-### Publishing to a NuGet.Server instance
+### Publish to a NuGet.Server instance
 
 When you first setup a NuGet.Server instance, there is no API key defined and pushing packages to
 the feed is disabled. To configure an API key, see the _Adding packages to the feed_ section of
@@ -435,3 +473,4 @@ Publish-PSResource @publishPSResourceSplat
 [14]: https://jfrog.com/artifactory/
 [15]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
 [16]: https://www.myget.org/
+[17]: how-to/working-with-acr.md
