@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 02/07/2024
+ms.date: 03/26/2024
 ms.topic: overview
 title: Package management for PowerShell
 ---
@@ -17,7 +17,8 @@ This documentation covers the **PowerShellGet**, **PackageManagement**, and
 **Microsoft.PowerShell.PSResourceGet** modules. These modules contain cmdlets for discovering,
 installing, updating, and publishing PowerShell packages from the [PowerShell Gallery][04]. These
 packages can contain artifacts such as Modules, DSC Resources, and Scripts. The
-**Microsoft.PowerShell.PSResourceGet** module replaces **PowerShellGet** and **PackageManagement**.
+**Microsoft.PowerShell.PSResourceGet** module replaces the **PowerShellGet** and
+**PackageManagement** modules.
 
 > [!NOTE]
 > The **NuGet** module contains cmdlets for discovering and installing packages from the NuGet
