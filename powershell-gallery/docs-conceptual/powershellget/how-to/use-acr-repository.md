@@ -38,13 +38,23 @@ If you have a previous version of **Microsoft.PowerShell.PSResourceGet** install
 following command to install the preview release.
 
 ```powershell
-Install-PSResource -Repository PSGallery -Name Microsoft.PowerShell.PSResourceGet -Prerelease -Force
+$installPSResourceSplat = @{
+    Repository = 'PSGallery'
+    Name = 'Microsoft.PowerShell.PSResourceGet'
+    Prerelease = $true
+}
+Install-PSResource @installPSResourceSplat
 ```
 
 Using the following command, you can also install the module using **PowerShellGet**.
 
 ```powershell
-Install-Module -Repository PSGallery -Name Microsoft.PowerShell.PSResourceGet -AllowPrerelease
+$installModuleSplat = @{
+    Repository = 'PSGallery'
+    Name = 'Microsoft.PowerShell.PSResourceGet'
+    AllowPrerelease = $true
+}
+Install-Module @installModuleSplat
 ```
 
 ## Create an Azure Container Registry

@@ -175,7 +175,7 @@ repository in a new session you are prompted to login.
 Using the ACR-based repository is similar to using other repositories. You can search for resources,
 install resources, and publish resources. The first time you perform an operation on the registered
 repository in a new session, you are prompted to login. For more detailed examples using ACR, see
-[Working with Azure Container Registry repositories][11].
+[Use ACR repositories with PSResourceGet][11].
 
 ### ACR limitations
 
