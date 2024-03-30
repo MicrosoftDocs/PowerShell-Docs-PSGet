@@ -11,11 +11,15 @@ PowerShell scripts, modules containing PowerShell cmdlets and Desired State Conf
 resources. Some of these packages are authored by Microsoft, and others are authored by the
 PowerShell community.
 
-
 The [PowerShellGet][07] module contains cmdlets for discovering, installing, updating, and publishing
 PowerShell packages from the PowerShell Gallery. These packages can contain artifacts such as
 Modules, DSC Resources, Role Capabilities, and Scripts. Make sure you have the latest version of
-**PowerShellGet** installed.
+**PowerShellGet** and **PackageManagement** installed.
+
+The [Microsoft.PowerShell.PSResourceGet][08] module replaces the **PowerShellGet** and
+**PackageManagement** modules. **Microsoft.PowerShell.PSResourceGet** version 1.0.1 ships in
+PowerShell 7.4.0. The latest version is available in the PowerShell Gallery and can be installed on
+any supported version of PowerShell.
 
 For more information see:
 
@@ -41,3 +45,5 @@ PowerShell Gallery services, see the [PowerShell Gallery Status][05] page on Git
 [05]: https://aka.ms/psgallery-status
 [06]: https://www.powershellgallery.com
 [07]: /powershell/module/powershellget
+[08]: /powershell/module/microsoft.powershell.psresourceget
+
