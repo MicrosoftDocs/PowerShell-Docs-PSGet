@@ -2,7 +2,7 @@
 external help file: PSModule-help.xml
 Locale: en-US
 Module Name: PowerShellGet
-ms.custom: 3.0.22-beta22
+ms.custom: 2.9.0-preview
 ms.date: 09/19/2023
 online version: https://learn.microsoft.com/powershell/module/powershellget/publish-module?view=powershellget-2.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -50,11 +50,11 @@ This is a proxy cmdlet for the `Publish-PSResource` cmdlet in the
 ### Example 1: Publish a module
 
 In this example, **MyDscModule** is published to the online gallery by using the API key to indicate
-the module owner's online gallery account. If MyDscModule is not a valid manifest module that
+the module owner's online gallery account. If **MyDscModule** is not a valid manifest module that
 specifies a name, version, description, and author, an error occurs.
 
 ```powershell
-Publish-Module -Name "MyDscModule" -NuGetApiKey "11e4b435-6cb4-4bf7-8611-5162ed75eb73"
+Publish-Module -Path c:\projects\MyDscModule\1.0.0 -NuGetApiKey "11e4b435-6cb4-4bf7-8611-5162ed75eb73"
 ```
 
 ### Example 2: Publish a module with gallery metadata
@@ -62,16 +62,16 @@ Publish-Module -Name "MyDscModule" -NuGetApiKey "11e4b435-6cb4-4bf7-8611-5162ed7
 In this example, **MyDscModule** is published to the online gallery by using the API key to indicate
 the module owner's gallery account. The additional metadata provided is displayed on the webpage for
 the module in the gallery. The owner adds two search tags for the module, relating it to Active
-Directory; a brief release note is added. If MyDscModule is not a valid manifest module that
+Directory; a brief release note is added. If **MyDscModule** is not a valid manifest module that
 specifies a name, version, description, and author, an error occurs.
 
 ```powershell
 $parameters = @{
-    Name        = "MyDscModule"
-    NuGetApiKey = "11e4b435-6cb4-4bf7-8611-5162ed75eb73"
-    LicenseUri  = "http://contoso.com/license"
-    Tag         = "Active Directory","DSC"
-    ReleaseNote = "Updated the ActiveDirectory DSC Resources to support adding users."
+    Path        = 'c:\projects\MyDscModule\1.0.0'
+    NuGetApiKey = '11e4b435-6cb4-4bf7-8611-5162ed75eb73'
+    LicenseUri  = 'http://contoso.com/license'
+    Tag         = 'Active Directory','DSC'
+    ReleaseNote = 'Updated the ActiveDirectory DSC Resources to support adding users.'
 }
 Publish-Module @parameters
 ```
