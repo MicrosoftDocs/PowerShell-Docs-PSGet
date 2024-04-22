@@ -47,7 +47,7 @@ $registerPSResourceRepositorySplat = @{
   Name = 'artifactory'
   Uri = 'https://myaccount.jfrog.io/artifactory/api/nuget/v3/myrepository'
   Trusted = $true
-  CredentialInfo = [Microsoft.PowerShell.PowerShellGet.UtilClasses.PSCredentialInfo]::new(
+  CredentialInfo = [Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo]::new(
     'SecretStore', 'JFrogCred')
 }
 Register-PSResourceRepository @registerPSResourceRepositorySplat
