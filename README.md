@@ -8,15 +8,14 @@ documentation for PowerShellGet and the PowerShell Gallery.
 
 ## Microsoft Open Source Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct][05]. For more information see
-the [Code of Conduct FAQ][06] or contact [opencode@microsoft.com][07] with any additional questions
-or comments.
+This project has adopted the [Microsoft Open Source Code of Conduct][coc].
 
-<!--
 ## PowerShell Updatable Help (CabGen) CI Build Status
 
-[![Build Status](https://apidrop.visualstudio.com/Content%20CI/_apis/build/status/PROD/CabGen(PowerShell_Updatable_Help)/GitHub_MicrosoftDocs_PowerShell-Docs/6ff7e8c3-dfc6-3ebd-da5a-d5e2ff43de8f_cabgen_Publish-Updatable-Help?repoName=MicrosoftDocs%2FPowerShell-Docs&branchName=live)](https://apidrop.visualstudio.com/Content%20CI/_build/latest?definitionId=5076&repoName=MicrosoftDocs%2FPowerShell-Docs&branchName=live)
- -->
+[![Build Status][cabgen-status]][cabgen-log]
+
+[cabgen-status]: https://apidrop.visualstudio.com/Content%20CI/_apis/build/status/PROD/CabGen(PowerShell_Updatable_Help)/GitHub_MicrosoftDocs_PowerShell-Docs-PSGet/8f69f151-baa4-9541-9991-266b76474533_cabgen_Publish-Updatable-Help?repoName=MicrosoftDocs%2FPowerShell-Docs-PSGet&branchName=live
+[cabgen-log]: https://apidrop.visualstudio.com/Content%20CI/_build/latest?definitionId=5501&repoName=MicrosoftDocs%2FPowerShell-Docs-PSGet&branchName=live
 
 ## Repository Structure
 
@@ -63,6 +62,4 @@ repo. The Creative Commons license applies to the documentation.
 [01]: https://aka.ms/PSDocsContributor
 [03]: https://cla.microsoft.com/
 [04]: https://learn.microsoft.com/powershell/gallery/
-[05]: https://opensource.microsoft.com/codeofconduct/
-[06]: https://opensource.microsoft.com/codeofconduct/faq/
-[07]: mailto:opencode@microsoft.com
+[coc]: CODE_OF_CONDUCT.md
