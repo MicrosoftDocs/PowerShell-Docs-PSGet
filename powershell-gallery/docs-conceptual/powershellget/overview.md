@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 03/26/2024
+ms.date: 05/17/2024
 ms.topic: overview
 title: Package management for PowerShell
 ---
@@ -8,9 +8,9 @@ title: Package management for PowerShell
 
 Microsoft provides three package management tools for PowerShell:
 
+- The **Microsoft.PowerShell.PSResourceGet** module - shipped originally in PowerShell 7.4.0
 - The **PowerShellGet** and **PackageManagement** modules - shipped originally in Windows PowerShell
   5.0
-- The **Microsoft.PowerShell.PSResourceGet** module - shipped originally in PowerShell 7.4.0
 - The **NuGet** module used by the Package Manager Console of Visual Studio
 
 This documentation covers the **PowerShellGet**, **PackageManagement**, and
@@ -28,7 +28,7 @@ packages can contain artifacts such as Modules, DSC Resources, and Scripts. The
 Supported versions:
 
 - Current release
-  - **Microsoft.PowerShell.PSResourceGet** 1.0.2 - a standalone module that doesn't depend on the
+  - **Microsoft.PowerShell.PSResourceGet** 1.0.5 - a standalone module that doesn't depend on the
     **PowerShellGet** or **PackageManagement** modules
   - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
 - Preview release
@@ -40,6 +40,8 @@ Supported versions:
 
 For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
+- **Microsoft.PowerShell.PSResourceGet** 1.0.5 - shipped in **PowerShell 7.5-preview.3**
+- **Microsoft.PowerShell.PSResourceGet** 1.0.4.1 - shipped in **PowerShell 7.4.2**
 - **Microsoft.PowerShell.PSResourceGet** 1.0.2 - released to the PowerShell Gallery on 06-Feb-2024
 - **PowerShell 7.4.0** ships with **Microsoft.PowerShell.PSResourceGet** 1.0.1, **PowerShellGet**
   2.2.5, and **PackageManagement** 1.4.8.1
