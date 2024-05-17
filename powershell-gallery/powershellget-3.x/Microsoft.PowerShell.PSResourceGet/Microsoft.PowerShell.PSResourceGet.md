@@ -4,9 +4,8 @@ Help Version: 3.0.16
 Locale: en-US
 Module Guid: e4e0bda1-0703-44a5-b70d-8fe704cd0643
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.0.2
-ms.date: 03/28/2024
-online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/powershellget?view=powershellget-3.x&WT.mc_id=ps-gethelp
+ms.custom: 1.0.5
+ms.date: 05/17/2024
 schema: 2.0.0
 title: Microsoft.PowerShell.PSResourceGet
 ---
