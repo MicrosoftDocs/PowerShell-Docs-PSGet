@@ -128,7 +128,7 @@ The next example shows the same specification in JSON format.
 ```json
 {
   "TestModule": {
-    "version": "[0.0.1,1.3.0)",
+    "version": "[0.0.1,1.3.0]",
     "repository": "PSGallery"
   },
   "TestModulePrerelease": {
