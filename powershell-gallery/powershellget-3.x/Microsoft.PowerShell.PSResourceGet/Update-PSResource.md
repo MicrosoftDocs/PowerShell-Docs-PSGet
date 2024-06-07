@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.date: 06/07/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -30,7 +30,12 @@ local machine. This cmdlet replaces the `Update-Module` and `Update-Script` cmdl
 versions in a new versioned folder.
 
 By default, `Update-PSResource` installs the latest version of the package and any of its
-dependencies without deleting the older versions installed.
+dependencies without deleting the older versions installed. There is no command to uninstall older
+versions of a package. You must manually delete the files and folders of the older versions.
+
+`Update-PSResource` doesn't load the updated module into the current session. You must import the
+new version or start a new session to use the updated module. For more information, see
+[Import-Module](xref:Microsoft.PowerShell.Core.Import-Module).
 
 ## EXAMPLES
 
