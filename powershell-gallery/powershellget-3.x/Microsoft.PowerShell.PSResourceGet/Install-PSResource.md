@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.date: 06/07/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -59,6 +59,10 @@ scope, and version for a resource, and suppress license prompts.
 
 This cmdlet combines the functions of the `Install-Module` and `Install-Script` cmdlets from
 **PowerShellGet** v2.
+
+`Install-PSResource` doesn't load the newly installed module into the current session. You must
+import the new version or start a new session to use the updated module. For more information, see
+[Import-Module](xref:Microsoft.PowerShell.Core.Import-Module).
 
 ## EXAMPLES
 
