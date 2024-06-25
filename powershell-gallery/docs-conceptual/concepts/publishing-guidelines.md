@@ -85,7 +85,7 @@ to provide documentation with PowerShell packages, including:
   [About Comment Based Help](/powershell/module/microsoft.powershell.core/about/about_comment_based_help).
 - Many modules also include documentation in text format, such as MarkDown files. This can be
   particularly helpful when there's a project site in GitHub, where Markdown is a heavily used
-  format. The best practice is to use [GitHub-flavored Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
+  format. The best practice is to use [GitHub-flavored Markdown](https://docs.github.com/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
 Examples show users how the package is intended to be used. Many developers will say that they look
 at examples before documentation to understand how to use something. The best types of examples show
