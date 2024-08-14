@@ -3,7 +3,7 @@ external help file: PSModule-help.xml
 Locale: en-US
 Module Name: PowerShellGet
 ms.custom: 3.0.22-beta22
-ms.date: 09/19/2023
+ms.date: 08/14/2024
 online version: https://learn.microsoft.com/powershell/module/powershellget/install-module?view=powershellget-2.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Install-Module
@@ -431,7 +431,7 @@ Accept wildcard characters: False
 
 ### -SkipPublisherCheck
 
-The proxy cmdlet transforms this parameter to **AthenticodeCheck** before calling
+The proxy cmdlet transforms this parameter to **AuthenticodeCheck** before calling
 `Install-PSResource`.
 
 ```yaml
