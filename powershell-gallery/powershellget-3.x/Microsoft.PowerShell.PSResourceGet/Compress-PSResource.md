@@ -23,8 +23,8 @@ Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-W
 ## DESCRIPTION
 
 This cmdlet isolates the pack feature in the Publish-PSResource cmdlet. This cmdlet takes the path
-to a PowerShell Module and packs it into a nupkg file saved at the DestinationPath.
-This allows users to sign the nupkg file. To publish the nupkg use the -NupkgPath parameter with
+to a PowerShell Module and packs it into a nupkg file saved at the DestinationPath. This allows
+users to sign the nupkg file. To publish the nupkg use the -NupkgPath parameter with
 Publish-PSResource.
 
 ## EXAMPLES
@@ -35,6 +35,105 @@ This example compresses the module **TestModule** and saves te nupkg to the Dest
 
 ```powershell
 Compress-PSResource -Path C:\TestModule -DestinationPath C:\NupkgDestination
+```
+
+## PARAMETERS
+
+### -DestinationPath
+
+Path to save the compressed resource.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -PassThru
+
+Pass the full path of the nupkg through the pipeline
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Path
+
+Path to the resource to be compressed.
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: True
+Position: 0
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -SkipModuleManifestValidate
+
+Skips validating the module manifest before publishing.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Confirm
+
+Prompts you for confirmation before running the cmdlet.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases: cf
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -WhatIf
+
+Shows what would happen if the cmdlet runs.
+The cmdlet is not run.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases: wi
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
 ```
 
 ### CommonParameters
