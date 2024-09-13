@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0 Preview 2
-ms.date: 05/17/2024
+ms.custom: 1.1.0-preview.2
+ms.date: 09/13/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -19,28 +19,25 @@ Publishes a specified module from the local computer to PSResource repository.
 
 ```
 Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
- [-DestinationPath <String>] [-Credential <PSCredential>]
- [-SkipDependenciesCheck] [-SkipModuleManifestValidate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-ProgressAction <ActionPreference>]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-DestinationPath <String>] [-Credential <PSCredential>] [-SkipDependenciesCheck]
+ [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ### NupkgPathParameterSet
 
 ```
-Publish-PSResource [-ApiKey <String>] [-Repository <String>]
- [-DestinationPath <String>] [-Credential <PSCredential>]
- [-SkipDependenciesCheck] [-SkipModuleManifestValidate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] -NupkgPath <String>
- [-ProgressAction <ActionPreference>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-DestinationPath <String>]
+ [-Credential <PSCredential>] [-SkipDependenciesCheck] [-SkipModuleManifestValidate] [-Proxy <Uri>]
+ [-ProxyCredential <PSCredential>] -NupkgPath <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 
 This cmdlet combines the functions of the `Publish-Module` and `Publish-Script` cmdlets from
 **PowerShellGet** v2. `Publish-PSResource` publishes a resource from the local computer to an online
-NuGet-based repository. You can specify the resource by the resource's name or by the path
-containing the module or script resource.
+NuGet-based repository. You can specify the resource by a path containing the module or script
+resource files or by pointing a prepackaged `.nupkg` file.
 
 ## EXAMPLES
 
@@ -123,7 +120,11 @@ Accept wildcard characters: False
 
 ### -NupkgPath
 
-Path to the resource to be published.
+Path to the `.nupkg` file to be published. The `.nupkg` file could have been created by a previous
+run of `Publish-PSResource` with the **DestinationPath** parameter. Or, you can create the `.nupkg`
+file using the `Compress-PSResource` command.
+
+This parameter was added in v1.1.0-preview.2 of **Microsoft.PowerShell.PSResourceGet**.
 
 ```yaml
 Type: System.String
@@ -140,7 +141,8 @@ Accept wildcard characters: False
 ### -Path
 
 The path to the module or script file or the path to a folder containing the module or script file
-to be published.
+to be published. The cmdlet packages all files in the folder into a `.nupkg` file before publishing
+to the repository.
 
 ```yaml
 Type: System.String
@@ -289,3 +291,5 @@ Fileshare-based repository have no metadata about the resources. Therefore, ther
 for dependencies.
 
 ## RELATED LINKS
+
+[Compress-PSResource](Compress-PSResource.md)

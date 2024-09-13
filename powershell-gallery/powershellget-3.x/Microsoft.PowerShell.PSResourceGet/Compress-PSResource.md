@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.custom: 1.1.0-preview.2
+ms.date: 09/13/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/compress-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -11,21 +11,23 @@ schema: 2.0.0
 
 ## SYNOPSIS
 
-Compresses a specified module from the local computer to a Nupkg ready to be signed and published.
+Compresses a specified folder containing module or script resources into a `.nupkg` file.
 
 ## SYNTAX
 
 ```
-Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-WhatIf]
- [-Confirm] [<CommonsParameters>]
+Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonsParameters>]
 ```
 
 ## DESCRIPTION
 
-This cmdlet isolates the pack feature in the Publish-PSResource cmdlet. This cmdlet takes the path
-to a PowerShell Module and packs it into a nupkg file saved at the DestinationPath. This allows
-users to sign the nupkg file. To publish the nupkg use the -NupkgPath parameter with
-Publish-PSResource.
+This cmdlet compresses a specified folder containing module or script resources into a `.nupkg`
+file. isolates the pack feature in the `Publish-PSResource` cmdlet. This allows you to sign the
+`.nupkg` file before publishing it to a repository. You can publish the final `.nupkg` file using
+the **NupkgPath** parameter of `Publish-PSResource`.
+
+This command was added in v1.1.0-preview.2 of **Microsoft.PowerShell.PSResourceGet**.
 
 ## EXAMPLES
 
@@ -57,7 +59,7 @@ Accept wildcard characters: False
 
 ### -PassThru
 
-Pass the full path of the nupkg through the pipeline
+Pass the full path of the nupkg through the pipeline.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -121,8 +123,7 @@ Accept wildcard characters: False
 
 ### -WhatIf
 
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Shows what would happen if the cmdlet runs. The cmdlet isn't run.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -149,12 +150,17 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
+### System.String
+
+By default, this command doesn't write any output to the pipeline. When you use the **PassThru**
+parameter, it returns full path of the `.nupkg` that was created.
 
 ## NOTES
 
 The module defines `cmres` as an alias for `Compress-PSResource`.
 
-This cmdlet allows for publishing nuspec dependencies into ACR
+This cmdlet allows for publishing nuspec dependencies into ACR.
 
 ## RELATED LINKS
+
+[Publish-PSResource](Publish-PSResource.md)
