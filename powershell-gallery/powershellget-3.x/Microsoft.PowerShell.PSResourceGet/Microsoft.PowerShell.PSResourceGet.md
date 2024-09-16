@@ -1,11 +1,11 @@
 ---
 Download Help Link: https://go.microsoft.com/fwlink/?linkid=2238183
-Help Version: 3.0.16
+Help Version: 3.0.24260
 Locale: en-US
 Module Guid: e4e0bda1-0703-44a5-b70d-8fe704cd0643
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.custom: 1.1.0-preview2
+ms.date: 09/16/2024
 schema: 2.0.0
 title: Microsoft.PowerShell.PSResourceGet
 ---
@@ -16,7 +16,9 @@ title: Microsoft.PowerShell.PSResourceGet
 PSResourceGet is a module with commands for discovering, installing, updating and publishing
 PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
 
-This documentation covers the latest version **Microsoft.PowerShell.PSResourceGet** v1.0.3.
+This documentation covers the latest version **Microsoft.PowerShell.PSResourceGet** v1.1.0-preview2.
+For a list of differences between versions, see the
+[What's new in PSResourceGet?](/powershell/gallery/powershellget/psresourceget-release-notes).
 
 > [!IMPORTANT]
 > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
@@ -26,6 +28,9 @@ This documentation covers the latest version **Microsoft.PowerShell.PSResourceGe
 > [Update PowerShellGet for Windows PowerShell 5.1](/powershell/gallery/powershellget/update-powershell-51).
 
 ## Microsoft.PowerShell.PSResourceGet Cmdlets
+
+### [Compress-PSResource](Compress-PSResource.md)
+Compresses a specified folder containing module or script resources into a `.nupkg` file.
 
 ### [Find-PSResource](Find-PSResource.md)
 Searches for packages from a repository (local or remote), based on a name or other package

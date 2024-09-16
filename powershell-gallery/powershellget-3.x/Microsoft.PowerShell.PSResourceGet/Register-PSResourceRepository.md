@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.custom: 1.1.0-preview2
+ms.date: 09/16/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -161,7 +161,7 @@ parameter allows you to change the API version after you have registered a repos
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion
 Parameter Sets: NameParameterSet
 Aliases:
-Accepted values: unknown, v2, v3, local, nugetServer
+Accepted values: Unknown, V2, V3, Local, NugetServer, ContainerRegistry
 
 Required: False
 Position: Named

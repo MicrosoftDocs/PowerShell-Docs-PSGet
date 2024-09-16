@@ -10,7 +10,7 @@ title: about PSResourceGet
 # about_PSResourceGet
 
 ## Short description
-Describes how to use version 1.0.5 of the **Microsoft.PowerShell.PSResourceGet**
+Describes how to use version 1.1.0-preview2 of the **Microsoft.PowerShell.PSResourceGet**
 module.
 
 ## Long description
@@ -40,6 +40,7 @@ v3 and their v2 equivalents.
 
 | Microsoft.PowerShell.PSResourceGet |     PowerShellGet v2      |
 | ---------------------------------- | ------------------------- |
+| `Compress-PSResource`              | n/a                       |
 | `Find-PSResource`                  | `Find-Command`            |
 | `Find-PSResource`                  | `Find-DscResource`        |
 | `Find-PSResource`                  | `Find-Module`             |
