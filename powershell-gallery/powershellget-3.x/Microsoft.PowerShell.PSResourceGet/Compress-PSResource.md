@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0-preview.2
-ms.date: 09/13/2024
+ms.custom: 1.1.0-preview2
+ms.date: 09/16/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/compress-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -16,8 +16,8 @@ Compresses a specified folder containing module or script resources into a `.nup
 ## SYNTAX
 
 ```
-Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-WhatIf] [-Confirm]
- [<CommonsParameters>]
+Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-SkipModuleManifestValidate]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -27,7 +27,7 @@ file. isolates the pack feature in the `Publish-PSResource` cmdlet. This allows 
 `.nupkg` file before publishing it to a repository. You can publish the final `.nupkg` file using
 the **NupkgPath** parameter of `Publish-PSResource`.
 
-This command was added in v1.1.0-preview.2 of **Microsoft.PowerShell.PSResourceGet**.
+This command was added in v1.1.0-preview2 of **Microsoft.PowerShell.PSResourceGet**.
 
 ## EXAMPLES
 
@@ -91,7 +91,7 @@ Accept wildcard characters: False
 
 ### -SkipModuleManifestValidate
 
-Skips validating the module manifest before publishing.
+Skips validating the module manifest before creating the `.nupkg` file.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter

@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0-preview.2
-ms.date: 09/13/2024
+ms.custom: 1.1.0-preview2
+ms.date: 09/16/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -118,13 +118,37 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -ModulePrefix
+
+This is a dynamic parameter that is only available on the command line when you have supplied the
+**Path** or **Nupkg** parameters and the **Repository** parameter for a `ContainerRegistry`
+repository.
+
+The value of the parameter is pre-pended to the package name. This information is only used for
+publishing and isn't included in the package metadata. The module prefix controls the visibility of
+the module, for example: `internal`, `public`, `staging`.
+
+This parameter is only used when publishing to the Microsoft Artifact Registry (MAR).
+
+```yaml
+Type: System.String
+Parameter Sets: All
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -NupkgPath
 
 Path to the `.nupkg` file to be published. The `.nupkg` file could have been created by a previous
 run of `Publish-PSResource` with the **DestinationPath** parameter. Or, you can create the `.nupkg`
 file using the `Compress-PSResource` command.
 
-This parameter was added in v1.1.0-preview.2 of **Microsoft.PowerShell.PSResourceGet**.
+This parameter was added in v1.1.0-preview2 of **Microsoft.PowerShell.PSResourceGet**.
 
 ```yaml
 Type: System.String
