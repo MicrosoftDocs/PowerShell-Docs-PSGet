@@ -15,3 +15,5 @@ items:
         href: how-to/use-acr-repository.md
   - name: PSResourceGet supported repositories
     href: supported-repositories.md
+  - name: PSResourceGet release notes
+    href: psresourceget-release-notes.md
