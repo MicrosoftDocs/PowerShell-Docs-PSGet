@@ -20,7 +20,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.4.1 - first shipped in PowerShell 7.4.2
 - v1.0.4 - released to the PowerShell Gallery only
 - v1.0.3 - released to the PowerShell Gallery only
-- v1.0.2 - irst shipped in PowerShell 7.5.0-preview.2
+- v1.0.2 - first shipped in PowerShell 7.5.0-preview.2
 - v1.0.1 - first shipped in PowerShell 7.4.0 GA release and PowerShell 7.5.0-preview.1
 - v1.0.0 - first shipped in PowerShell 7.4.0-preview.5
 
