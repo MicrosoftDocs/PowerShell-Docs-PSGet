@@ -2,7 +2,7 @@
 description: Describes the Group Policy settings for PowerShell
 Locale: en-US
 ms.custom: 1.1.0-rc1
-ms.date: 10/22/2024
+10/22/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_psresourceget_group_policy?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about_PSResourceGet_Group_Policy
@@ -75,8 +75,9 @@ Policy.
 1. Add repository in the format:
    `Name=PSGallery;Uri=https://www.powershellgallery.com/api/v2`
 
-   > [!NOTE] Don't use quote characters around the values. Separate the
-   > key-value pairs with a semicolon (`;`) only.
+   > [!NOTE]
+   > Don't use quote characters around the values. Separate the key-value pairs
+   > with a semicolon (`;`) only.
 
 You may add as may repositories as you like, each on their own line.
 

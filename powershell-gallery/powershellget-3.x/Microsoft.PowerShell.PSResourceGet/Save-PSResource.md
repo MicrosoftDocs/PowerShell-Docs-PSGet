@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.1.0-rc1
-ms.date: 09/16/2024
+10/22/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -108,6 +108,42 @@ Accept wildcard characters: False
 ### -AuthenticodeCheck
 
 Validates the resource's signed files and catalog files on Windows.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Quiet
+
+Suppresses the progress bar output.
+
+This parameter was added in PSResourceGet 1.1.0-rc1.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -AcceptLicense
+
+For modules that require a license, automatically accepts the license agreement during installation.
+
+This parameter was added in PSResourceGet 1.1.0-rc1.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter

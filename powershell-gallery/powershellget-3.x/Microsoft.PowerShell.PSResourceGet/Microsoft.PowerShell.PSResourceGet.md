@@ -5,7 +5,7 @@ Locale: en-US
 Module Guid: e4e0bda1-0703-44a5-b70d-8fe704cd0643
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.1.0-rc1
-ms.date: 09/16/2024
+10/22/2024
 schema: 2.0.0
 title: Microsoft.PowerShell.PSResourceGet
 ---
