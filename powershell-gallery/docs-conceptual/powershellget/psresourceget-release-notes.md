@@ -29,7 +29,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ### v1.1.0-rc1 - 2024-10-24
 
-- Added Group Policy support for `PSResourceGet`
+- Added Group Policy support
 - Fix package name matching in local repositories
 - `Compress-PSResource -PassThru` now return **FileInfo** instead of string
 - Add `AcceptLicense` to `Save-PSResource`
