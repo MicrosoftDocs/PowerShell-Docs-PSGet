@@ -31,7 +31,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 - Added Group Policy support for `PSResourceGet`
 - Fix package name matching in local repositories
-- `Compress-PSResource` `-PassThru` now passes `FileInfo` instead of string
+- `Compress-PSResource -PassThru` now return **FileInfo** instead of string
 - Add `AcceptLicense` to `Save-PSResource`
 - Other minor bug fixes and improvements
 
