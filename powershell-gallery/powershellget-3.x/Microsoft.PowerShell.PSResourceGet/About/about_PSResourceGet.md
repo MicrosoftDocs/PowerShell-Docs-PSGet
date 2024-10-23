@@ -1,8 +1,8 @@
 ---
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
-ms.custom: 1.0.5
-ms.date: 05/17/2024
+ms.custom: 1.1.0-rc1
+ms.date: 10/22/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_PSResourceGet?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PSResourceGet
@@ -10,8 +10,9 @@ title: about PSResourceGet
 # about_PSResourceGet
 
 ## Short description
-Describes how to use version 1.1.0-preview2 of the **Microsoft.PowerShell.PSResourceGet**
-module.
+
+Describes how to use version 1.1.0-rc1 of the
+**Microsoft.PowerShell.PSResourceGet** module.
 
 ## Long description
 
@@ -32,8 +33,7 @@ This version of PowerShellGet focuses on a few key areas:
 
 Previous versions of **PowerShellGet** had separate commands to work with
 modules and scripts. In **Microsoft.PowerShell.PSResourceGet**, all packages in
-the PowerShell Gallery are defined as **PSResource** objects. This reduces the
-number of cmdlets from 26 in version 2.x to 18 in version 0.9.
+the PowerShell Gallery are defined as **PSResource** objects.
 
 The following table shows the cmdlets that are available in **PowerShellGet**
 v3 and their v2 equivalents.

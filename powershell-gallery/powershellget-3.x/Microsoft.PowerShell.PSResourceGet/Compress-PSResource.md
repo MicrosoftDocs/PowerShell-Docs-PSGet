@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0-preview2
-ms.date: 09/16/2024
+ms.custom: 1.1.0-rc1
+ms.date: 10/22/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/compress-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -16,8 +16,8 @@ Compresses a specified folder containing module or script resources into a `.nup
 ## SYNTAX
 
 ```
-Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru] [-SkipModuleManifestValidate]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+Compress-PSResource [-Path] <String> [-DestinationPath] <String> [-PassThru]
+ [-SkipModuleManifestValidate] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -150,10 +150,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.String
+### System.IO.FileSystemInfo
 
 By default, this command doesn't write any output to the pipeline. When you use the **PassThru**
-parameter, it returns full path of the `.nupkg` that was created.
+parameter, it returns a **FileSystemInfo** object for the new `.nupkg` file.
 
 ## NOTES
 
