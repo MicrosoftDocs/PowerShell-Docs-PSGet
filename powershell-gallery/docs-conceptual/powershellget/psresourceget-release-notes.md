@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 10/22/2024
+ms.date: 10/31/2024
 ms.topic: release-notes
 title: What's new in PSResourceGet?
 ---
@@ -9,14 +9,16 @@ title: What's new in PSResourceGet?
 This is a summary of changes to the **Microsoft.PowerShell.PSResourceGet** module. For a more
 complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
-- Current preview: **Microsoft.PowerShell.PSResourceGet** v1.1.0-rc1
-- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.0.5
+- Current preview: **Microsoft.PowerShell.PSResourceGet** v1.1.0-rc2
+- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.0.6
 
 ## Release history
 
+- v1.1.0-rc2 - Current preview release - released to the PowerShell Gallery only
 - v1.1.0-rc1 - Current preview release - first shipped in PowerShell 7.5.0-rc1
 - v1.1.0-preview2 - released to the PowerShell Gallery only
 - v1.1.0-preview.1 - Preview release - first shipped in PowerShell 7.5.0-preview.4
+- v1.0.6 - released to the PowerShell Gallery only
 - v1.0.5 - first shipped in PowerShell 7.5.0-preview.3
 - v1.0.4.1 - first shipped in PowerShell 7.4.2
 - v1.0.4 - released to the PowerShell Gallery only
@@ -26,6 +28,13 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.0 - first shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
+
+### v1.1.0-rc2 - 2024-10-30
+
+- Implemented full Microsoft Artifact Registry integration
+- Update to use OCI v2 APIs for Container Registry
+- Fixes finding and installing from local repositories on Linux
+- Fixes finding package names with 4 part version from local repositories
 
 ### v1.1.0-rc1 - 2024-10-24
 
@@ -51,6 +60,10 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - Added support for Azure Container Registries as a repository type
 - Allowed PSResourceGet to run Constrained Languange Mode
 - Fixed incorrect request URL when installing resources from ADO
+
+### v1.0.6 - 2024-10-10
+
+- Bump System.Text.Json to 8.0.5
 
 ### v1.0.5 - 2024-05-13
 
