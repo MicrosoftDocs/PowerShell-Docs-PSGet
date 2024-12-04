@@ -1,6 +1,6 @@
 ---
 description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
-ms.date: 05/07/2024
+ms.date: 12/04/2024
 ms.topic: get-started
 title: Get Started with the PowerShell Gallery
 ---
@@ -132,14 +132,14 @@ These hostnames should be added to the allow lists that control access from your
 
 Hosts required for package discovery and download:
 
-- `onegetcdn.azureedge.net` - CDN hostname used by the PowerShellGet module
-- `powershellgallery.azureedge.net` - CDN hostname used by the PowerShellGet and
-  Microsoft.PowerShell.PSResourceGet modules
+- `onegetcdn.azureedge.net`
+- `powershellgallery.azureedge.net`
+- `psg-prod-eastus.azureedge.net`
 
 Hosts required when using the PowerShell Gallery website:
 
 - `*.powershellgallery.com` - website
-- `go.microsoft.com` - redirection service
+- `go.microsoft.com` and `aka.ms` - redirection services
 
 [!INCLUDE [TLS 1.2 Requirement](../includes/tls-gallery.md)]
 
