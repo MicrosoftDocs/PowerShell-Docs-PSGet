@@ -1,5 +1,5 @@
 ---
-ms.date: 04/05/2023
+ms.date: 01/03/2025
 ---
 # PowerShellGet & PSGallery documentation
 
@@ -38,9 +38,10 @@ The following list describes the main folders in this repository.
     `docs-conceptual` content. See the Contributor Guide for information on using images in
     documentation.
 
-> NOTE: The reference content (in the numbered folders) is used to create the webpages on the Docs
-> site as well as the updateable help used by PowerShell. The articles in the `docs-conceptual`
-> folder are only published to the Docs website.
+> [!NOTE]
+> The reference content (in the numbered folders) is used to create the webpages on the Docs site as
+> well as the updateable help used by PowerShell. The articles in the `docs-conceptual` folder are
+> only published to the Docs website.
 
 ## Contributing
 
