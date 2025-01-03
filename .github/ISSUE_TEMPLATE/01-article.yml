@@ -32,9 +32,10 @@ body:
         Select the version or versions of DSC this documentation is for.
       multiple: true
       options:
-        - v1
-        - v2
-        - v3
+        - PowerShellGet v1
+        - PowerShellGet v2
+        - PowerShellGet v3/PSResourceGet
+        - PowerShell Gallery
   - type: textarea
     id: summary
     validations:
