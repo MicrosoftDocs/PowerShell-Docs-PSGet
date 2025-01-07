@@ -1,6 +1,6 @@
 ---
 description: Describes how to manually download a package from the PowerShell Gallery.
-ms.date: 11/16/2022
+ms.date: 01/07/2025
 title: Manual Package Download
 ---
 
@@ -19,7 +19,7 @@ can then copy to an internal repository.
 
 Each page has a link for Manual Download, as shown here:
 
-![Package display page with install options](media/manual-download/packagedisplaypagewithpseditions.png)
+![Package display page with install options][02]
 
 To download manually, click on **Download the raw nupkg file**. A copy of the package is copied to
 the download folder for your browser with the name `<name>.<version>.nupkg`.
@@ -27,7 +27,7 @@ the download folder for your browser with the name `<name>.<version>.nupkg`.
 A NuGet package is a ZIP archive with extra files containing information about the contents of the
 package. Some browsers, like Internet Explorer, automatically replace the `.nupkg` file extension
 with `.zip`. To expand the package, rename the `.nupkg` file to `.zip`, if needed, then extract the
-contents to a local folder.
+contents to a local folder using `Expand-Archive` or some other ZIP file tool.
 
 A NuGet package file includes the following **NuGet-specific elements** that aren't part of the
 original packaged code:
@@ -45,8 +45,8 @@ original packaged code:
 > Some steps performed by `Install-Module` aren't included.
 
 The easiest approach is to remove the NuGet-specific elements from the folder. Removing the elements
-leaves the PowerShell code created by the package author.
-For the list of NuGet-specific elements, see [Using manual download to acquire a package](#using-manual-download-to-acquire-a-package).
+leaves the PowerShell code created by the package author. For the list of NuGet-specific elements,
+see [Using manual download to acquire a package][01].
 
 The steps are as follows:
 
@@ -81,9 +81,13 @@ The steps are as follows:
 1. The `.PS1` file in the folder can be used directly from this location.
 1. You may delete the NuGet-specific elements in the folder.
 
-For the list of NuGet-specific elements, see [Using manual download to acquire a package](#using-manual-download-to-acquire-a-package).
+For the list of NuGet-specific elements, see [Using manual download to acquire a package][01].
 
 > [!IMPORTANT]
 > The manual download doesn't include any dependencies required by the module. If the package has
 > dependencies, they must be installed on the system for this module to work correctly. The
 > PowerShell Gallery shows all dependencies required by the package.
+
+<!-- link references -->
+[01]: #using-manual-download-to-acquire-a-package
+[02]: media/manual-download/packagedisplaypagewithpseditions.png
