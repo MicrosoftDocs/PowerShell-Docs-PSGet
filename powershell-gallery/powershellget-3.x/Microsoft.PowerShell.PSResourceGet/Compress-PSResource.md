@@ -150,10 +150,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.IO.FileSystemInfo
+### System.IO.FileInfo
 
 By default, this command doesn't write any output to the pipeline. When you use the **PassThru**
-parameter, it returns a **FileSystemInfo** object for the new `.nupkg` file.
+parameter, it returns a **FileInfo** object for the new `.nupkg` file.
 
 ## NOTES
 

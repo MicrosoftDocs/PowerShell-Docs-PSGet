@@ -20,8 +20,8 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
  [-Credential <PSCredential>] [-IncludeXml] [-Path <String>] [-TemporaryPath <String>]
- [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-AcceptLicense]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
+ [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### AsNupkgParameterSet
@@ -29,8 +29,8 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 ```
 Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
  [-Credential <PSCredential>] [-AsNupkg] [-Path <String>] [-TemporaryPath <String>]
- [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-AcceptLicense]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
+ [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
@@ -38,8 +38,8 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 ```
 Save-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-AsNupkg] [-IncludeXml]
  [-Path <String>] [-TemporaryPath <String>] [-TrustRepository] [-PassThru]
- [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-AcceptLicense]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
+ [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
