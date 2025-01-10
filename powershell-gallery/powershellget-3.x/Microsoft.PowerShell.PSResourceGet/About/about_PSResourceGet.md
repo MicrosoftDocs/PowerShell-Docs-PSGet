@@ -1,8 +1,8 @@
 ---
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
-ms.custom: 1.1.0-rc2
-ms.date: 12/04/2024
+ms.custom: 1.1.0
+ms.date: 01/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_PSResourceGet?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PSResourceGet
@@ -11,7 +11,7 @@ title: about PSResourceGet
 
 ## Short description
 
-Describes how to use version 1.1.0-rc2 of the
+Describes how to use version 1.1.0 of the
 **Microsoft.PowerShell.PSResourceGet** module.
 
 ## Long description
