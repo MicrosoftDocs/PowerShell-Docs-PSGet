@@ -152,7 +152,7 @@ Specifies the API version used by the repository. Valid values are:
 - `V2` - uses the NuGet V2 API
 - `V3` - uses the NuGet V3 API
 - `ContainerRegistry` - use this for
-  [Azure Container Registry](/powershell-gallery/docs-conceptual/powershellget/supported-repositories.md#azure-container-registry)
+  [Azure Container Registry](../../docs-conceptual/powershellget/supported-repositories.md#azure-container-registry)
 - `Local` - use this for file system based repositories
 - `NugetServer` - use this for NuGet.Server based repositories
 
