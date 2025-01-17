@@ -156,6 +156,7 @@ Specifies the API version used by the repository. Valid values are:
 
 - `v2` - uses the NuGet V2 API
 - `v3` - uses the NuGet V3 API
+- `ContainerRegistry` - used for Azure Container Registry
 - `local` - use this for file system based repositories
 - `nugetServer` - use this for NuGet.Server based repositories
 
@@ -166,7 +167,7 @@ parameter allows you to change the API version after you have registered a repos
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion
 Parameter Sets: NameParameterSet
 Aliases:
-Accepted values: Unknown, V2, V3, Local, NugetServer, ContainerRegistry
+Accepted values:  V2, V3, Local, NugetServer, ContainerRegistry
 
 Required: False
 Position: Named
