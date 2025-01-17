@@ -149,10 +149,11 @@ Credential     :
 
 Specifies the API version used by the repository. Valid values are:
 
-- `v2` - uses the NuGet V2 API
-- `v3` - uses the NuGet V3 API
-- `local` - use this for file system based repositories
-- `nugetServer` - use this for NuGet.Server based repositories
+- `V2` - uses the NuGet V2 API
+- `V3` - uses the NuGet V3 API
+- `ContainerRegistry` - used for Azure Container Registry
+- `Local` - use this for file system based repositories
+- `NugetServer` - use this for NuGet.Server based repositories
 
 The `Register-PSResourceRepository` cmdlet should automatically detect the API version. This
 parameter allows you to change the API version after you have registered a repository.
