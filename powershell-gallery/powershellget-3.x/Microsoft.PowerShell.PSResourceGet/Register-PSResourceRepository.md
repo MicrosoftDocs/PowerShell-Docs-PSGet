@@ -155,7 +155,6 @@ Specifies the API version used by the repository. Valid values are:
   [Azure Container Registry](/powershell-gallery/docs-conceptual/powershellget/supported-repositories.md#azure-container-registry)
 - `Local` - use this for file system based repositories
 - `NugetServer` - use this for NuGet.Server based repositories
-- `Unknown` - use if you're not yet certain
 
 The `Register-PSResourceRepository` cmdlet should automatically detect the API version. This
 parameter allows you to change the API version after you have registered a repository.
