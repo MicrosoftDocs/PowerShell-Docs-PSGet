@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 01/10/2025
+ms.date: 01/23/2025
 ms.topic: release-notes
 title: What's new in PSResourceGet?
 ---
@@ -9,30 +9,40 @@ title: What's new in PSResourceGet?
 This is a summary of changes to the **Microsoft.PowerShell.PSResourceGet** module. For a more
 complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
-- Current preview: **Microsoft.PowerShell.PSResourceGet** v1.1.0-rc2
-- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.0.6
+- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.1.0
 
 ## Release history
 
-- v1.1.0 - Current release - released to the PowerShell Gallery
-- v1.1.0-rc2 - Preview release - first shipped in PowerShell 7.5.0-rc1
-- v1.1.0-rc1 - Preview release - first shipped in PowerShell 7.5.0-preview.5
+- v1.1.0 - Current release - shipped in PowerShell 7.5.0 and PowerShell 7.6.0-preview.1
+- v1.1.0-rc3 - Preview release - released to the PowerShell Gallery only
+- v1.1.0-rc2 - Preview release - shipped in PowerShell 7.5.0-rc1
+- v1.1.0-rc1 - Preview release - shipped in PowerShell 7.5.0-preview.5
 - v1.1.0-preview2 - released to the PowerShell Gallery only
-- v1.1.0-preview.1 - Preview release - first shipped in PowerShell 7.5.0-preview.4
+- v1.1.0-preview.1 - Preview release - shipped in PowerShell 7.5.0-preview.4
 - v1.0.6 - released to the PowerShell Gallery only
-- v1.0.5 - first shipped in PowerShell 7.5.0-preview.3
-- v1.0.4.1 - first shipped in PowerShell 7.4.2
+- v1.0.5 - shipped in PowerShell 7.5.0-preview.3
+- v1.0.4.1 - shipped in PowerShell 7.4.2
 - v1.0.4 - released to the PowerShell Gallery only
 - v1.0.3 - released to the PowerShell Gallery only
-- v1.0.2 - first shipped in PowerShell 7.5.0-preview.2
-- v1.0.1 - first shipped in PowerShell 7.4.0 GA release and PowerShell 7.5.0-preview.1
-- v1.0.0 - first shipped in PowerShell 7.4.0-preview.5
+- v1.0.2 - shipped in PowerShell 7.5.0-preview.2
+- v1.0.1 - shipped in PowerShell 7.4.0 GA release and PowerShell 7.5.0-preview.1
+- v1.0.0 - shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
 
 ### v1.1.0 - 2025-01-09
 
-- Official release of PSResourceGet v1.1.0
+- Fixed publishing .nupkg file to ContainerRegistry repository
+- Fixed PMPs like Artifactory needing modified filter query parameter to proxy upstream
+- Fixed ContainerRegistry repository to parse out dependencies from metadata
+- Fixed Install-PSResource Null pointer occurring when package is present only in upstream feed in ADO
+- Fixed local repository casing issue on Linux
+- Fixed case sensitive License.txt when RequireLicense is specified
+- Fixed broken -Quiet parameter for Save-PSResource
+
+### v1.1.0-rc3 - 2024-11-15
+
+- Included missing commits
 
 ### v1.1.0-rc2 - 2024-10-30
 
