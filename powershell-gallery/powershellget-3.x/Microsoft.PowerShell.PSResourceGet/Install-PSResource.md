@@ -1,8 +1,8 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0-rc2
-ms.date: 10/31/2024
+ms.custom: 1.1.0
+ms.date: 03/17/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -64,15 +64,24 @@ This cmdlet combines the functions of the `Install-Module` and `Install-Script` 
 import the new version or start a new session to use the updated module. For more information, see
 [Import-Module](xref:Microsoft.PowerShell.Core.Import-Module).
 
+> [!NOTE]
+> `Install-PSResource` doesn't install dependent resources from repositories that use the NuGet v3
+> protocol. You must install the dependent resources individually. We intend to add this feature in
+> a future release.
+
 ## EXAMPLES
 
 ### Example 1
 
-Installs the latest stable (non-prerelease) version of the **Az** module.
+Installs the latest stable (non-prerelease) version of the **Az** module from the PowerShell
+Gallery.
 
 ```powershell
-Install-PSResource Az
+Install-PSResource Az -Repository PSGallery
 ```
+
+The Az module is a meta-module that includes all the Az PowerShell modules as dependencies. This
+command installs the Az module and all its dependencies.
 
 ### Example 2
 
