@@ -1,7 +1,7 @@
 ---
 description: Describes the Group Policy settings for PowerShell
 Locale: en-US
-ms.custom: 1.1.0
+ms.custom: 1.1.1
 ms.date: 01/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.core/about/about_psresourceget_group_policy?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0

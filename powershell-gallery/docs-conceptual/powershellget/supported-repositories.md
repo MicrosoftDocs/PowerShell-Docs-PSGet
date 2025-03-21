@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 03/26/2024
+ms.date: 03/21/2025
 ms.topic: reference
 title: Supported repository configurations
 ---
@@ -182,9 +182,6 @@ repository in a new session, you are prompted to login. For more detailed exampl
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 ACR repositories:
 
-- Wildcard search by name
-  - `Find-PSResource -Name * -Repository ACRDemoRepo`
-  - `Find-PSResource -Name PartialName* -Repository ACRDemoRepo`
 - Find by tag value
   - `Find-PSResource -Tag TagValue -Repository ACRDemoRepo`
 - Find by command

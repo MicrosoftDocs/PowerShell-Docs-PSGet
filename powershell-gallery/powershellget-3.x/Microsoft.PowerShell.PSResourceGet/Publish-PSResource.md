@@ -1,7 +1,7 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.0
+ms.custom: 1.1.1
 ms.date: 10/31/2024
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -170,7 +170,7 @@ to the repository.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: PathParameterSet
 Aliases:
 
 Required: True
