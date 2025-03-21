@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 01/23/2025
+ms.date: 03/21/2025
 ms.topic: release-notes
 title: What's new in PSResourceGet?
 ---
@@ -13,7 +13,8 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
-- v1.1.0 - Current release - shipped in PowerShell 7.5.0 and PowerShell 7.6.0-preview.1
+- v1.1.0 - Current release - released to the PowerShell Gallery
+- v1.1.0 - shipped in PowerShell 7.5.0 and PowerShell 7.6.0-preview.1
 - v1.1.0-rc3 - Preview release - released to the PowerShell Gallery only
 - v1.1.0-rc2 - Preview release - shipped in PowerShell 7.5.0-rc1
 - v1.1.0-rc1 - Preview release - shipped in PowerShell 7.5.0-preview.5
@@ -30,15 +31,25 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release notes
 
+### v1.1.1 - 2025-03-06
+
+- Retrieve all metadata properties when finding a **PSResource** from a **ContainerRegistry**
+  repository
+- Use authentication challenge for unauthenticated **ContainerRegistry** repository
+- Fix `Install-PSResource` to allow varying digit version against **ContainerRegistry** repository
+- Update **ContainerRegistry** dependency parsing logic to account for **AzPreview** package
+- Add wildcard support for MAR repository for `FindAll()` and `FindByName()`
+- Fix nuspec dependency version range calculation for **RequiredModules**
+
 ### v1.1.0 - 2025-01-09
 
-- Fixed publishing .nupkg file to ContainerRegistry repository
+- Fixed publishing .nupkg file to **ContainerRegistry** repository
 - Fixed PMPs like Artifactory needing modified filter query parameter to proxy upstream
-- Fixed ContainerRegistry repository to parse out dependencies from metadata
-- Fixed Install-PSResource Null pointer occurring when package is present only in upstream feed in ADO
+- Fixed **ContainerRegistry** repository to parse out dependencies from metadata
+- Fixed `Install-PSResource` Null pointer when package is present only in upstream feed in ADO
 - Fixed local repository casing issue on Linux
-- Fixed case sensitive License.txt when RequireLicense is specified
-- Fixed broken -Quiet parameter for Save-PSResource
+- Fixed case sensitive License.txt when **RequireLicense** is specified
+- Fixed `-Quiet` parameter for `Save-PSResource`
 
 ### v1.1.0-rc3 - 2024-11-15
 
@@ -61,8 +72,8 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ### v1.1.0-preview2 - 2024-09-13
 
-- New cmdlet `Compress-PSResource` to create a `.nupkg` package without publishing it to a repository
-  system.
+- New cmdlet `Compress-PSResource` to create a `.nupkg` package without publishing it to a
+  repository system.
 - Added `-Nupkg` parameter to `Publish-PSResource` to publish a `.nupkg` file to a repository.
 - Added `-ModulePrefix` parameter for `Publish-PSResource`, which adds a prefix to a module name for
   container registry repositories. This is only used for publishing and is not part of metadata.
@@ -74,7 +85,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 - Added support for Azure Container Registries as a repository type
 - Allowed PSResourceGet to run Constrained Languange Mode
-- Fixed incorrect request URL when installing resources from ADO
+- Fixed request URL when installing resources from ADO
 
 ### v1.0.6 - 2024-10-10
 
@@ -83,11 +94,11 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 ### v1.0.5 - 2024-05-13
 
 - Added 10 minute timeout to HTTPClient
-- Refactor V2ServerAPICalls and NuGetServerAPICalls to use object-oriented query/filter builder
-- Removed unnecessary `and` for version globbing in V2ServerAPICalls
+- Refactor `V2ServerAPICalls` and NuGetServerAPICalls to use object-oriented query/filter builder
+- Removed unnecessary `and` for version globbing in `V2ServerAPICalls`
 - Fixed requiring `tags` in server response
 - Fixed save script without `-IncludeXml`
-- Fixed incorrect request URL when installing from ADO
+- Fixed request URL when installing from ADO
 - Improved exception handling
 - Allowed PSResourceGet to run Constrained Languange Mode
 
@@ -109,7 +120,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - Fixed `InstalledScriptInfos` directory is now if it doesn't exist
 - Fixed `Update-ModuleManifest` throwing null pointer exception
 - Fixed `name` property in `PSResourceInfo` when using `Find-PSResource` with JFrog Artifactory
-- Fixed incorrect configuration of requests to JFrog Artifactory v2 endpoints
+- Fixed configuration of requests to JFrog Artifactory v2 endpoints
 - Fixed determining JFrog Artifactory repositories (#1532 Thanks @sean-r-williams!)
 - Fixed for v2 server repositories incorrectly adding script endpoint (1526)
 - Fixed typos in message prompts in `Install-PSResource`
