@@ -79,6 +79,7 @@
       }
     },
     "globalMetadata": {
+      "ms.topic": "generated-reference",
       "breadcrumb_path": "/powershell/gallery/breadcrumb/toc.json",
       "feedback_system": "OpenSource",
       "feedback_help_link_url": "https://learn.microsoft.com/powershell/scripting/community/community-support",
