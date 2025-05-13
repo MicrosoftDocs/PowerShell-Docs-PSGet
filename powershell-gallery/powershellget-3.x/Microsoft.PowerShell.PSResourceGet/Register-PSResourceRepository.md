@@ -115,12 +115,16 @@ PSGv3     https://www.powershellgallery.com/api/v3 True    50
 ### Example 4
 
 This example registers a repository with credential information to be retrieved from a registered
-**SecretManagement** vault, where **SecretStore** is the name of the vault and **TestSecret** is the name of the stored secret.
+**SecretManagement** vault, where **SecretStore** is the name of the vault and **TestSecret** is the
+name of the stored secret.
 
-You must have the **Microsoft.PowerShell.SecretManagement** module installed, have a registered vault, and stored a secret within it.
-If setup correctly, the command `Get-SecretInfo -Name 'TestSecret'` would return the secret.
+You must have the **Microsoft.PowerShell.SecretManagement** module installed, have a registered
+vault, and stored a secret within it. If setup correctly, the command
+`Get-SecretInfo -Name 'TestSecret'` would return the secret.
 
-Note: The format of the secret must match the requirements of the repository. In some instances, `TestSecret` might need storing as a **PSCredential** object with a username and password/token. In others it may need storing as a **SecureString** representing just the token.
+The format of the secret must match the requirements of the repository. In some instances,
+`TestSecret` might need storing as a **PSCredential** object with a username and password or token.
+In others it may need storing as a **SecureString** representing just the token.
 
 ```powershell
 $parameters = @{
