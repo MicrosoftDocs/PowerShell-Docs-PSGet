@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.1.1
-ms.date: 10/31/2024
+ms.date: 05/14/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -60,7 +60,7 @@ Publish-PSResource -Path c:\TestModule -Repository PSGallery -APIKey '1234567'
 
 ### Example 3
 
-This example publishes the module Nupkg **TestModule.nupkg** to a repositroy named TestRepository.
+This example publishes the module Nupkg **TestModule.nupkg** to a repository named TestRepository.
 
 ```powershell
 Publish-PSResource -NupkgPath c:\TestModule.nupkg -Repository TestRepository
@@ -120,7 +120,7 @@ Accept wildcard characters: False
 
 ### -ModulePrefix
 
-This is a dynamic parameter that is only available on the command line when you have supplied the
+This is a dynamic parameter that's only available on the command line when you have supplied the
 **Path** or **Nupkg** parameters and the **Repository** parameter for a `ContainerRegistry`
 repository.
 
