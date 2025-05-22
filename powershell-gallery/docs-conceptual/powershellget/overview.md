@@ -1,6 +1,6 @@
 ---
 description: This article explains the purpose and history of PowerShellGet
-ms.date: 10/31/2024
+ms.date: 05/22/2025
 ms.topic: overview
 title: Package management for PowerShell
 ---
@@ -27,11 +27,11 @@ packages can contain artifacts such as Modules, DSC Resources, and Scripts. The
 
 Supported versions:
 
-- Current release
-  - **Microsoft.PowerShell.PSResourceGet** 1.0.6 - a standalone module that doesn't depend on the
+- Current releases
+  - **Microsoft.PowerShell.PSResourceGet** 1.1.1 - a standalone module that doesn't depend on the
     **PowerShellGet** or **PackageManagement** modules
   - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
-- Preview release
+- Preview releases
   - **Microsoft.PowerShell.PSResourceGet** 1.1.0-rc2 - adds `Compress-PSResource` to create `.nupkg`
     files, the ability to publish `.nupkg` files, and support configuration Group Policy.
   - **PowerShellGet** 3.0.23-beta23 - a compatibility module that contains proxy cmdlets that call
@@ -42,6 +42,8 @@ Supported versions:
 
 For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
+- **Microsoft.PowerShell.PSResourceGet** v1.1.1 - shipped in **PowerShell 7.6-preview.4**
+- **Microsoft.PowerShell.PSResourceGet** v1.1.0 - shipped in **PowerShell 7.5.0**
 - **Microsoft.PowerShell.PSResourceGet** 1.0.6 - released to the PowerShell Gallery on 10-Oct-2024
 - **Microsoft.PowerShell.PSResourceGet** 1.0.5 - shipped in **PowerShell 7.5-preview.3**
 - **Microsoft.PowerShell.PSResourceGet** 1.0.4.1 - shipped in **PowerShell 7.4.2**

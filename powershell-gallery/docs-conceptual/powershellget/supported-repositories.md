@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 03/21/2025
+ms.date: 05/22/2025
 ms.topic: reference
 title: Supported repository configurations
 ---
@@ -124,7 +124,7 @@ You must use the **Credential** and **ApiKey** parameters of the `Publish-PSReso
 publish packages to an Azure Artifacts feed. The credential must be a personal access token (PAT)
 that has the **Packaging (read, write, and manage)** scope. For more information, see
 [Use Azure Artifacts feeds as a private PowerShell repository][04]. The value of the **ApiKey**
-parameter is not important. It can be any arbitrary string, but it must be included. For example:
+parameter isn't important. It can be any arbitrary string, but it must be included. For example:
 
 ```powershell
 $patToken = ConvertTo-SecureString -String '<personal-access-token>' -AsPlainText -Force
@@ -188,6 +188,29 @@ ACR repositories:
   - `Find-PSResource -Command CommandName -Repository ACRDemoRepo`
 - Find by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName -Repository ACRDemoRepo`
+
+## Microsoft Artifact Registry (MAR)
+
+MAR is a public registry for housing Microsoft's official artifacts, such as container images. MAR
+enhances security by ensuring only Microsoft can publish official packages, eliminating risks like
+name squatting. It also improves software supply chain integrity by offering greater transparency
+and control over artifact provenance.
+
+Use the following commands to register MAR repository as a PSResource repository.
+
+```powershell
+$mcrUrl = 'https://mcr.microsoft.com'
+Register-PSResourceRepository -Name MAR -Uri $mcrUrl -ApiVersion ContainerRegistry
+```
+
+After you register the repository, you can use it like any other ACR-based repository.
+
+Support for MAR was added in **Microsoft.PowerShell.PSResourceGet** v1.1.1.
+
+### MAR limitations
+
+The MAR repository has the same limitations as ACR repositories. The MAR is read-only and doesn't
+support publishing packages.
 
 ## GitHub Packages
 
