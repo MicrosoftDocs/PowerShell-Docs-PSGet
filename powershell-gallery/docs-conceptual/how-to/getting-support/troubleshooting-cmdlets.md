@@ -1,6 +1,6 @@
 ---
 description: This article provide information and steps for troubleshooting errors using the PowerShell Gallery
-ms.date: 04/29/2025
+ms.date: 06/12/2025
 title: Troubleshooting cmdlets
 ---
 # Troubleshooting cmdlets
@@ -27,16 +27,8 @@ the PowerShell Gallery. Ensure that your network access policies allow you to co
 
 Hosts required for package discovery and download:
 
-- `onegetcdn.azureedge.net` - CDN hostname
-- `psg-prod-centralus.azureedge.net` - CDN hostname
-- `psg-prod-eastus.azureedge.net` - CDN hostname
-- `az818661.vo.msecnd.net` - CDN hostname
-
-> [!NOTE]
-> The CDN for the PowerShell gallery is active for one name, `psg-prod-eastus.azureedge.net` or
-> `psg-prod-centralus.azureedge.net`, at any given time. The inactive name becomes the valid, active
-> name if there is a need to failover the service. Therefore, both names should be included in your
-> allow lists.
+- `cdn.oneget.org` - CDN hostname
+- `cdn.powershellgallery.com` - CDN hostname
 
 Hosts required when using the PowerShell Gallery website:
 
