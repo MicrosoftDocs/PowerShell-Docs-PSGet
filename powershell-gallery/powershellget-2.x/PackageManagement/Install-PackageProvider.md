@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
 Locale: en-US
 Module Name: PackageManagement
-ms.date: 04/26/2021
+ms.date: 06/16/2025
 online version: https://learn.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershellget-2.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Install-PackageProvider
@@ -18,9 +18,9 @@ Installs one or more Package Management package providers.
 
 ```
 Install-PackageProvider [-Name] <String[]> [-RequiredVersion <String>] [-MinimumVersion <String>]
- [-MaximumVersion <String>] [-Credential <PSCredential>] [-Scope <String>] [-Source <String[]>] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] [-AllVersions] [-Force] [-ForceBootstrap] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+ [-MaximumVersion <String>] [-Credential <PSCredential>] [-Scope <String>] [-Source <String[]>]
+ [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-AllVersions] [-Force] [-ForceBootstrap]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PackageByInputObject
@@ -40,27 +40,6 @@ available in the Windows PowerShell Gallery with the **PackageManagement** tag. 
 
 This cmdlet also installs matching Package Management providers that are available using the Package
 Management bootstrapping application.
-
-This cmdlet also installs matching Package Management providers that are available in the Package
-Management Azure Blob store. Use the bootstrapper provider to find and install them.
-
-In order to execute the first time, PackageManagement requires an internet connection to download
-the NuGet package provider. However, if your computer does not have an internet connection and you
-need to use the NuGet or PowerShellGet provider, you can download them on another computer and copy
-them to your target computer. Use the following steps to do this:
-
-1. Run `Install-PackageProvider -Name NuGet -RequiredVersion 2.8.5.201 -Force` to install the
-   provider from a computer with an internet connection.
-1. After the install, you can find the provider installed in
-   `$env:ProgramFiles\PackageManagement\ProviderAssemblies\<ProviderName>\<ProviderVersion>` or
-   `$env:LOCALAPPDATA\PackageManagement\ProviderAssemblies\<ProviderName>\<ProviderVersion>`.
-1. Place the `<ProviderName>` folder, which in this case is the NuGet folder, in the corresponding
-   location on your target computer. If your target computer is a Nano server, you need to run
-   `Install-PackageProvider` from Nano Server to download the correct NuGet binaries.
-1. Restart PowerShell to auto-load the package provider. Alternatively, run
-   `Get-PackageProvider -ListAvailable` to list all the package providers available on the computer.
-   Then use `Import-PackageProvider -Name NuGet -RequiredVersion 2.8.5.201` to import the provider
-   to the current Windows PowerShell session.
 
 ## EXAMPLES
 
@@ -83,6 +62,10 @@ The second command installs a specified version of the NuGet package provider.
 Find-PackageProvider -Name "NuGet" -AllVersions
 Install-PackageProvider -Name "NuGet" -RequiredVersion "2.8.5.216" -Force
 ```
+
+You only need to install the NuGet package provider if you are running PackageManagement v1.1.0.0 in
+Windows PowerShell. Newer versions of PowerShellGet and PackageManagement include the NuGet package
+provider by default.
 
 ### Example 3: Find a provider and install it
 
@@ -226,7 +209,7 @@ Accept wildcard characters: False
 ### -Name
 
 Specifies one or more package provider module names. Separate multiple package names with commas.
-Wildcard characters are not supported.
+Wildcard characters aren't supported.
 
 ```yaml
 Type: System.String[]
@@ -258,7 +241,7 @@ Accept wildcard characters: False
 
 ### -ProxyCredential
 
-Specifies a user account that has permission to use the proxy server that is specified by the
+Specifies a user account that has permission to use the proxy server that's specified by the
 **Proxy** parameter.
 
 ```yaml
@@ -275,7 +258,7 @@ Accept wildcard characters: False
 
 ### -RequiredVersion
 
-Specifies the exact allowed version of the package provider that you want to install. If you do not
+Specifies the exact allowed version of the package provider that you want to install. If you don't
 add this parameter, `Install-PackageProvider` installs the highest available version of the provider
 that also satisfies any maximum version specified by the **MaximumVersion** parameter.
 
@@ -296,10 +279,10 @@ Accept wildcard characters: False
 Specifies the installation scope of the provider. The acceptable values for this parameter
 are:
 
-- **AllUsers** - installs providers in a location that is accessible to all users of the computer.
+- **AllUsers** - installs providers in a location that's accessible to all users of the computer.
   By default, this is **$env:ProgramFiles\PackageManagement\ProviderAssemblies.**
 
-- **CurrentUser** - installs providers in a location where they are only accessible to the current
+- **CurrentUser** - installs providers in a location where they're only accessible to the current
   user. By default, this is **$env:LOCALAPPDATA\PackageManagement\ProviderAssemblies.**
 
 ```yaml
@@ -350,7 +333,7 @@ Accept wildcard characters: False
 
 ### -WhatIf
 
-Shows what would happen if the cmdlet runs. The cmdlet is not run.
+Shows what would happen if the cmdlet runs. The cmdlet isn't run.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -384,7 +367,7 @@ You can pipe a **SoftwareIdentity** object to this cmdlet. Use `Find-PackageProv
 
 > [!IMPORTANT]
 > As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
-> versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
+> versions 1.0 and 1.1. If you aren't using TLS 1.2 or higher, you will receive an error when
 > trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
 > 1.2:
 >

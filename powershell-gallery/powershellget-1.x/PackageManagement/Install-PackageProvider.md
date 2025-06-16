@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
 Locale: en-US
 Module Name: PackageManagement
-ms.date: 04/26/2021
+ms.date: 06/16/2025
 online version: https://learn.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershellget-1.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Install-PackageProvider
@@ -39,10 +39,7 @@ available in the Windows PowerShell Gallery with the **PackageManagement** tag. 
 **PowerShellGet** Package Management provider is used for finding providers in these repositories.
 
 This cmdlet also installs matching Package Management providers that are available using the Package
-Management bootstrapping application.
-
-This cmdlet also installs matching Package Management providers that are available in the Package
-Management Azure Blob store. Use the bootstrapper provider to find and install them.
+Management bootstrapping application. Use the bootstrapper provider to find and install them.
 
 In order to execute the first time, PackageManagement requires an internet connection to download
 the NuGet package provider. However, if your computer does not have an internet connection and you
