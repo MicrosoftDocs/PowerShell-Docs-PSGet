@@ -1,6 +1,6 @@
 ---
 description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
-ms.date: 12/04/2024
+ms.date: 06/19/2025
 ms.topic: get-started
 title: Get Started with the PowerShell Gallery
 ---
@@ -132,9 +132,9 @@ These hostnames should be added to the allow lists that control access from your
 
 Hosts required for package discovery and download:
 
-- `onegetcdn.azureedge.net`
-- `powershellgallery.azureedge.net`
-- `psg-prod-eastus.azureedge.net`
+- `cdn.oneget.org`
+- `cdn.powershellgallery.com`
+- `cdn.powershellgallery.com`
 
 Hosts required when using the PowerShell Gallery website:
 
