@@ -134,7 +134,6 @@ Hosts required for package discovery and download:
 
 - `cdn.oneget.org`
 - `cdn.powershellgallery.com`
-- `cdn.powershellgallery.com`
 
 Hosts required when using the PowerShell Gallery website:
 
