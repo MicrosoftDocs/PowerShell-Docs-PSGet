@@ -8,7 +8,7 @@ title: Use ACR repositories with PSResourceGet
 # Use ACR repositories with PSResourceGet
 
 Azure Container Registry (ACR) allows you to build, store, and manage container images and artifacts
-in a private registry for all types of container deployments. Version 1.1.0-preview.1 of the
+in a private registry for all types of container deployments. Version 1.1.1 of the
 **Microsoft.PowerShell.PSResourceGet** module adds support for Azure Container registries as a
 PSResource repository. For more information about Azure Container registries, see
 [Managed container registries][04].
@@ -22,7 +22,7 @@ To create an ACR repository, you must have:
 
 To use an ACR repository with PSResourceGet, you must have:
 
-- Version 1.1.0-preview.1 of the **Microsoft.PowerShell.PSResourceGet** module
+- Version 1.1.1 of the **Microsoft.PowerShell.PSResourceGet** module
 - An Azure account with the necessary permissions to access the ACR repository. ACR-based
   repositories are private repositories and require credentials for access. Users of the repository
   must have the necessary permissions to access the repository. The user needs to have `ACRPull`
@@ -31,17 +31,16 @@ To use an ACR repository with PSResourceGet, you must have:
 
 ## Install the PSResourceGet module
 
-To use an ACR repository you must install the latest preview release of the
+To use an ACR repository you must install the latest release of the
 **Microsoft.PowerShell.PSResourceGet** module from the PowerShell Gallery.
 
 If you have a previous version of **Microsoft.PowerShell.PSResourceGet** installed, use the
-following command to install the preview release.
+following command to install the latest release.
 
 ```powershell
 $installPSResourceSplat = @{
     Repository = 'PSGallery'
     Name = 'Microsoft.PowerShell.PSResourceGet'
-    Prerelease = $true
 }
 Install-PSResource @installPSResourceSplat
 ```
@@ -52,7 +51,6 @@ Using the following command, you can also install the module using **PowerShellG
 $installModuleSplat = @{
     Repository = 'PSGallery'
     Name = 'Microsoft.PowerShell.PSResourceGet'
-    AllowPrerelease = $true
 }
 Install-Module @installModuleSplat
 ```
