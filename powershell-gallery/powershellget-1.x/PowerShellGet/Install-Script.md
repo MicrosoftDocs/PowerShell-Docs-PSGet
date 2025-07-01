@@ -313,6 +313,10 @@ Accept wildcard characters: False
 
 ### -NoPathUpdate
 
+By default, this command adds the install location of the script to the `$env:PATH` environment
+variable. When you use the **NoPathUpdate** switch, the command doesn't update the `$env:PATH`
+variable.
+
 ```yaml
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)

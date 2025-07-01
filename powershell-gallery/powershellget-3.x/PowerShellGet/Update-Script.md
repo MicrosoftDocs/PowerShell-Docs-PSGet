@@ -157,6 +157,9 @@ Accept wildcard characters: False
 
 ### -PassThru
 
+When using the **PassThru** parameter, `Update-Script` outputs a **PSRepositoryItemInfo** object
+for the script.
+
 ```yaml
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
