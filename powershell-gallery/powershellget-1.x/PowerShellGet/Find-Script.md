@@ -199,6 +199,8 @@ Accept wildcard characters: False
 
 ### -Credential
 
+Specifies a user account that has permission to access the repository to search for scripts.
+
 ```yaml
 Type: System.Management.Automation.PSCredential
 Parameter Sets: (All)

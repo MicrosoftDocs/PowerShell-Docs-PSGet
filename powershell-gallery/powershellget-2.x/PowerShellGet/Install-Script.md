@@ -344,6 +344,10 @@ Accept wildcard characters: False
 
 ### -NoPathUpdate
 
+By default, this command adds the install location of the script to the `$env:PATH` environment
+variable. When you use the **NoPathUpdate** switch, the command doesn't update the `$env:PATH`
+variable.
+
 ```yaml
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)
@@ -357,6 +361,9 @@ Accept wildcard characters: False
 ```
 
 ### -PassThru
+
+When using the **PassThru** parameter, `Install-Script` outputs a **PSRepositoryItemInfo** object
+for the script.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
