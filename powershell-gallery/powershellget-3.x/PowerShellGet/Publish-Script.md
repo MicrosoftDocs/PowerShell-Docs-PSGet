@@ -129,6 +129,8 @@ the script to the **LocalRepo1** repository. Finally. `Find-Script` is used to s
 
 ### -Credential
 
+Specifies a user account that has rights to publish the script.
+
 ```yaml
 Type: System.Management.Automation.PSCredential
 Parameter Sets: (All)

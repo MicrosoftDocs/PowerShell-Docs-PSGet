@@ -323,6 +323,9 @@ Accept wildcard characters: False
 
 ### -PassThru
 
+When using the **PassThru** parameter, `Install-Module` outputs a **PSRepositoryItemInfo** object
+for the module.
+
 ```yaml
 Type: System.Management.Automation.SwitchParameter
 Parameter Sets: (All)

@@ -50,6 +50,8 @@ URIs.
 
 ### -Credential
 
+Specifies a user account that has rights to change the repository settings.
+
 ```yaml
 Type: System.Management.Automation.PSCredential
 Parameter Sets: (All)
