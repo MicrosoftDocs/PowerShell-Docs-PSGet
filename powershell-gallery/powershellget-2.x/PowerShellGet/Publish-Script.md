@@ -124,6 +124,8 @@ the script to the **LocalRepo1** repository. Finally. `Find-Script` is used to s
 
 ### -Credential
 
+Specifies a user account that has rights to publish the script.
+
 ```yaml
 Type: System.Management.Automation.PSCredential
 Parameter Sets: (All)
@@ -273,17 +275,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-> [!IMPORTANT]
-> As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
-> versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
-> trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
-> 1.2:
->
-> `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
->
-> For more information, see the
-> [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
-> PowerShell blog.
+The PowerShell Gallery no longer supports Transport Layer Security (TLS) versions 1.0 and 1.1. You
+must use TLS 1.2 or higher. Use the following command to ensure you are using TLS 1.2:
+
+`[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12`
 
 ## RELATED LINKS
 
