@@ -1,0 +1,156 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Test-ScriptFileInfo
+name: Test-ScriptFileInfo
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Validates a comment block for a script.
+description: |-
+  The `Test-ScriptFileInfo` cmdlet validates the comment block at the beginning of a script that will
+  be published with the Publish-Script cmdlet. If the comment block has an error, this cmdlet returns
+  information about where the error is located or how to correct it.
+
+  This is a proxy cmdlet for the `Test-PSScriptFileInfo` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Test-PSScriptFileInfo](../Microsoft.PowerShell.PSResourceGet/Test-PSScriptFileInfo.yml).
+parameters:
+  cmdletParameters:
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. Unlike the **Path** parameter, the value of the
+      **LiteralPath** parameter is used exactly as it is entered. No characters are interpreted as
+      wildcards. If the path includes escape characters, enclose them in single quotation marks. Single
+      quotation marks tell PowerShell not to interpret any characters as escape sequences.
+
+      The parameter is mapped to the **Path** parameter of `Test-PSScriptFileInfo`.
+    aliases:
+    - PSPath
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: LiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. Wildcards are permitted. The default location is the
+      current directory (`.`).
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Test-ScriptFileInfo
+        [-Path] <String>
+        [<CommonParameters>]
+    ```
+  parameterSetName: PathParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Test-ScriptFileInfo
+        -LiteralPath <String>
+        [<CommonParameters>]
+    ```
+  parameterSetName: LiteralPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Test a script file'
+  description: |-
+    ```powershell
+    Test-ScriptFileInfo -Path "C:\temp\temp_scripts\New-ScriptFile.ps1"
+    ```
+
+    This command tests the New-ScriptFile.ps1 script file and displays the results.
+    The script file includes valid metadata.
+- title: 'Example 2: Test a script file that has values for all metadata properties'
+  description: |-
+    ```powershell
+    Test-ScriptFileInfo -Path "D:\code\Test-Runbook.ps1" | Format-List *
+    ```
+
+    ```Output
+    Name                       : Test-Runbook
+    Path                       : D:\code\Test-Runbook.ps1
+    ScriptBase                 : D:\code
+    ReleaseNotes               : {contoso script now supports following features, Feature 1, Feature 2, Feature 3...}
+    Version                    : 1.0
+    Guid                       : eb246b19-17da-4392-8c89-7c280f69ad0e
+    Author                     : pattif
+    CompanyName                : Microsoft Corporation
+    Copyright                  : 2015 Microsoft Corporation. All rights reserved.
+    Tags                       : {Tag1, Tag2, Tag3}
+    LicenseUri                 : https://contoso.com/License
+    ProjectUri                 : https://contoso.com/
+    IconUri                    : https://contoso.com/MyScriptIcon
+    ExternalModuleDependencies : ExternalModule1
+    RequiredScripts            : {Start-WFContosoServer, Stop-ContosoServerScript}
+    ExternalScriptDependencies : Stop-ContosoServerScript
+    Description                : Contoso Script example
+    RequiredModules            : {RequiredModule1, @{ ModuleName = 'RequiredModule2'; ModuleVersion = '1.0' }, @{ ModuleName = 'RequiredModule3'; RequiredVersion = '2.0' }, ExternalModule1}
+    ExportedCommands           : {Test-WebUri, ValidateAndAdd-PSScriptInfoEntry, Get-PSScriptInfo, My-Workflow...}
+    ExportedFunctions          : {Test-WebUri, ValidateAndAdd-PSScriptInfoEntry, Get-PSScriptInfo, My-AdvPSCmdlet}
+    ExportedWorkflows          : My-Workflow
+    ```
+
+    This command tests the script file Test-Runbook.ps1 and uses the pipeline operator to pass the results to the Format-List cmdlet to format the results.
+- title: 'Example 3: Test a script file that has no metadata'
+  description: |-
+    ```powershell
+    Test-ScriptFileInfo -Path "D:\code\Hello-World.ps1"
+    ```
+
+    ```Output
+    Test-ScriptFileInfo : Script 'D:\code\Hello-World.ps1' is missing required metadata properties. Verify that the script file has Version, Description
+    and Author properties. You can use the Update-ScriptFileInfo or New-ScriptFileInfo cmdlet to add or update the PSScriptInfo to the script file.
+    At line:1 char:1
+    + Test-ScriptFileInfo D:\code\Hello-World.ps1
+    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\code\Hello-World.ps1:String) [Test-ScriptFileInfo], ArgumentException
+
+    + FullyQualifiedErrorId : MissingRequiredPSScriptInfoProperties,Test-ScriptFile
+    ```
+
+    This command tests the script file Hello-World.ps1, which has no metadata associated with it.
+links:
+- text: New-ScriptFileInfo
+  href: New-ScriptFileInfo.yml
+- text: Publish-Script
+  href: Publish-Script.yml
+- text: Update-ScriptFileInfo
+  href: Update-ScriptFileInfo.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/test-scriptfileinfo?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Test-ScriptFileInfo

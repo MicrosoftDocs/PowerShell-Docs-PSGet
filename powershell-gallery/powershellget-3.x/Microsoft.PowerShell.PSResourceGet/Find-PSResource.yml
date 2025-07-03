@@ -1,0 +1,398 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Find-PSResource
+name: Find-PSResource
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Searches for packages from a repository (local or remote), based on a name or other package
+  properties.
+description: |-
+  The `Find-PSResource` cmdlet searches for a package from a repository (local or remote) based on a
+  name or other package properties.
+notes: |-
+  The module defines `fdres` as an alias for `Find-PSResource`.
+parameters:
+  cmdletParameters:
+  - name: CommandName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      The name of the command to search for.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: CommandNameParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Optional credentials to be used when accessing a repository.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DscResourceName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      The name of the DSC Resource to search for.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: DscResourceNameParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: IncludeDependencies
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, search returns all matching resources their dependencies. Dependencies are
+      deduplicated.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Name of a resource to find. Wildcards are supported but NuGet only accepts the `*` character. NuGet
+      doesn't support wildcard searches of local (file-based) repositories.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: "0"
+      isRequired: false
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Prerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, includes prerelease versions in search results returned.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more repository names to search. If not specified, search includes all registered
+      repositories, in priority order (highest first), until a repository is found that contains the
+      package. Repositories are sorted by priority then by name. Lower **Priority** values have a higher
+      precedence.
+
+      When searching for resources across multiple repositories, the **PSResourceGet** cmdlets search the
+      repositories using this sort order. `Find-PSResource` returns all matching packages from the sorted
+      list of repositories.
+
+      The parameter supports the `*` wildcard character. If you specify multiple repositories, all names
+      must include or omit the wildcard character. You can't specify a mix of names with and without
+      wildcards.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Tag
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Filters search results for resources that include the specified tags. If multiple tags are
+      specified, the cmdlet only returns resources that include all the tags provided.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Type
+    type: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.ResourceType" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies one or more resource types to find. Resource types supported are:
+
+      - `None`
+      - `Module`
+      - `Script`
+    acceptedValues:
+    - None
+    - Module
+    - Script
+    - Nupkg
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Version
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the version of the resource to be returned. The value can be an exact version or a version
+      range using the NuGet versioning syntax.
+
+      Wildcards are supported but NuGet only accepts wildcard character `*`. For more information about
+      NuGet version ranges, see [Package versioning](/nuget/concepts/package-versioning#version-ranges).
+
+      PowerShellGet supports all but the _minimum inclusive version_ listed in the NuGet version range
+      documentation. Using `1.0.0.0` as the version doesn't yield versions 1.0.0.0 and higher (minimum
+      inclusive range). Instead, the value is considered to be the required version. To search for a
+      minimum inclusive range, use `[1.0.0.0, ]` as the version range.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Find-PSResource
+        [[-Name] <String[]>]
+        [-Type <ResourceType>]
+        [-Version <String>]
+        [-Prerelease]
+        [-Tag <String[]>]
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [-IncludeDependencies]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Find-PSResource
+        -CommandName <String[]>
+        [-Prerelease]
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: CommandNameParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Find-PSResource
+        -DscResourceName <String[]>
+        [-Prerelease]
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: DscResourceNameParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo" data-throw-if-not-resolved="False" />
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCommandResourceInfo" data-throw-if-not-resolved="False" />
+examples:
+- title: Example 1
+  description: |-
+    This examples searches PowerShell Gallery for the **PowerShellGet** package. The cmdlet returns the
+    highest non-prerelease version.
+
+    ```powershell
+    Find-PSResource -Name PowerShellGet -Repository PSGallery
+    ```
+
+    ```Output
+    Name          Version Prerelease Repository Description
+    ----          ------- ---------- ---------- -----------
+    PowerShellGet 2.2.5              PSGallery  PowerShell module with commands for discovering, installing, updating and p…
+    ```
+- title: Example 2
+  description: |-
+    This examples searches PowerShell Gallery for the **PowerShellGet** package, including prerelease
+    versions.
+
+    ```powershell
+    Find-PSResource -Name PowerShellGet -Repository PSGallery -Prerelease
+    ```
+
+    ```Output
+    Name          Version Prerelease Repository Description
+    ----          ------- ---------- ---------- -----------
+    PowerShellGet 3.0.21  beta21     PSGallery  PowerShell module with commands for discovering, installing, updating and p…
+    ```
+- title: Example 3
+  description: |-
+    This examples searches PowerShell Gallery for the **Microsoft.PowerShell.SecretManagement** package.
+    The cmdlet returns all versions that satisfy the specified **Version** range.
+
+    ```powershell
+    $parameters = @{
+        Name = 'Microsoft.PowerShell.SecretManagement'
+        Version = '(0.9.0.0, 1.2.0.0]'
+        Repository = 'PSGallery'
+        Prerelease = $true
+    }
+    Find-PSResource @parameters
+    ```
+
+    ```Output
+    Name                                  Version Prerelease Repository Description
+    ----                                  ------- ---------- ---------- -----------
+    Microsoft.PowerShell.SecretManagement 1.1.2              PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.1.1              PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.1.0   preview2   PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.1.0   preview    PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.1.0              PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.0.1              PSGallery  …
+    Microsoft.PowerShell.SecretManagement 1.0.0              PSGallery  …
+    Microsoft.PowerShell.SecretManagement 0.9.1              PSGallery  …
+    ```
+- title: Example 4
+  description: |-
+    This examples searches for all module resources containing the **CommandName** of
+    `Get-TargetResource`. The cmdlet returns all the module resources that include the command.
+
+    ```powershell
+    Find-PSResource -CommandName Get-TargetResource -Repository PSGallery
+    ```
+
+    ```Output
+    Name                 Package Name               Version
+    ----                 ------------               -------
+    {Get-TargetResource} cRegFile                   1.2
+    {Get-TargetResource} cVNIC                      1.0.0.0
+    {Get-TargetResource} cWindowsErrorReporting     1.1
+    {Get-TargetResource} OctopusDSC                 4.0.1131
+    {Get-TargetResource} supVsts                    1.1.17.0
+    {Get-TargetResource} SystemLocaleDsc            1.2.0.0
+    {Get-TargetResource} WindowsDefender            1.0.0.4
+    {Get-TargetResource} xInternetExplorerHomePage  1.0.0
+    {Get-TargetResource} xPowerShellExecutionPolicy 3.1.0.0
+    ```
+- title: Example 5
+  description: |-
+    This examples searches for all module resources containing the DSC Resource `SystemLocale`.
+
+    ```powershell
+    Find-PSResource -DscResourceName SystemLocale -Repository PSGallery
+    ```
+
+    ```Output
+    Name           Package Name          Version
+    ----           ------------          -------
+    {SystemLocale} ComputerManagementDsc 9.0.0
+    {SystemLocale} SystemLocaleDsc       1.2.0.0
+    ```
+- title: Example 6
+  description: |-
+    This example searches all registered PSResourceRepositories for resources with names starting with
+    `Computer`.
+
+    ```powershell
+    Find-PSResource -Name Computer*
+    ```
+
+    ```Output
+    Name                                              Version Prerelease Repository Description
+    ----                                              ------- ---------- ---------- -----------
+    ComputerManagementDsc                             9.0.0              PSGallery  DSC resources for configuration of a Wi…
+    ComputerManagement                                1.1.2.3            PSGallery  A PowerShell module for working with th…
+    ComputerCleanup                                   1.2.0              PSGallery  Module for freeing up disk space / remo…
+    Computer_UnjoinDomainAndJoinWorkgroup_Config      1.0.0              PSGallery  This example switches the computer 'Ser…
+    Computer_SetComputerDescriptionInWorkgroup_Config 1.0.0              PSGallery  This example will set the computer desc…
+    Computer_RenameComputerInWorkgroup_Config         1.0.0              PSGallery  This example will set the machine name …
+    Computer_RenameComputerInDomain_Config            1.0.0              PSGallery  This example will change the machines n…
+    Computer_RenameComputerAndSetWorkgroup_Config     1.0.0              PSGallery  This configuration will set the compute…
+    Computer_JoinDomainSpecifyingDC_Config            1.0.0              PSGallery  This configuration sets the machine nam…
+    Computer_JoinDomain_Config                        1.0.0              PSGallery  This configuration sets the machine nam…
+    ```
+- title: Example 7
+  description: |-
+    This example shows how to find modules by a tag. The `CrescendoBuilt` value is a tag that's
+    automatically added to modules created using the **Microsoft.PowerShell.Crescendo** module.
+
+    ```powershell
+    Find-PSResource -Tag CrescendoBuilt
+    ```
+
+    ```Output
+    Name            Version Prerelease Repository Description
+    ----            ------- ---------- ---------- -----------
+    AptPackage      0.0.2              PSGallery  PowerShell Crescendo-generated Module to query APT-Package Information
+    Cobalt          0.4.0              PSGallery  A PowerShell Crescendo wrapper for WinGet
+    Croze           0.0.5              PSGallery  A PowerShell Crescendo wrapper for Homebrew
+    Foil            0.3.0              PSGallery  A PowerShell Crescendo wrapper for Chocolatey
+    Image2Text      1.0.2              PSGallery  PowerShell Images into ASCII art
+    pastel          1.0.1              PSGallery  PowerShell commands for pastel
+    PSDupes         0.0.1              PSGallery  A crescendo module to locate duplicate files. Very fast and easy to use, …
+    psFilesCli      0.0.3              PSGallery  A PowerShell wrapper for files-cli.exe
+    PSLogParser     0.0.2              PSGallery  Crescendo Powershell module for Log Parser 2.2
+    Quser.Crescendo 0.1.3              PSGallery  This module displays session information of users logged onto a local or …
+    RoboCopy        1.0.1              PSGallery  PowerShell cmdlet for the official RoboCopy.exe
+    SpeedTest-CLI   1.0.1              PSGallery  PowerShell cmdlets for Internet Speed Test
+    SpeedTestCLI    1.0.0              PSGallery  PowerShell cmdlets speedtest-cli
+    SysInternals    1.1.0              PSGallery  PowerShell cmdlets for SysInternal tools
+    Takeown         1.0.2              PSGallery  Crescendo Powershell wrapper of takeown.exe
+    TShark          1.0.2              PSGallery  PowerShell cmdlet for tshark.exe
+    VssAdmin        0.8.0              PSGallery  This is a Crescendo module to wrap the Windows `vssadmin.exe` command-lin…
+    ```
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/find-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

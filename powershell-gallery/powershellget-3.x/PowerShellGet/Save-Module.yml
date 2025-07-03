@@ -1,0 +1,506 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Save-Module
+name: Save-Module
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Saves a module and its dependencies on the local computer but doesn't install the module.
+description: |-
+  The `Save-Module` cmdlet downloads a module and any dependencies from a registered repository.
+  `Save-Module` downloads and saves the most current version of a module. The files are saved to a
+  specified path on the local computer. The module isn't installed, but the contents are available for
+  inspection by an administrator. The saved module can then be copied into the appropriate
+  `$env:PSModulePath` location of the offline machine.
+
+  This is a proxy cmdlet for the `Save-PSResource` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Save-PSResource](../Microsoft.PowerShell.PSResourceGet/Save-PSResource.yml)
+notes: |-
+  The PowerShell Gallery no longer supports Transport Layer Security (TLS) versions 1.0 and 1.1. You
+  must use TLS 1.2 or higher. Use the following command to ensure you are using TLS 1.2:
+
+  `[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12`
+parameters:
+  cmdletParameters:
+  - name: AcceptLicense
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AllowPrerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Allows you to save a module marked as a prerelease.
+
+      The proxy cmdlet maps this parameter to the **Prerelease** parameter of `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the `Save-Module`.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has rights to save a module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: InputObject
+    type: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Accepts a **PSRepositoryItemInfo** object. For example, output `Find-Module` to a variable and use
+      that variable as the **InputObject** argument.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: InputObjectAndLiteralPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputObjectAndPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. The value of the **LiteralPath** parameter is used
+      exactly as entered. No characters are interpreted as wildcards. If the path includes escape
+      characters, enclose them in single quotation marks. PowerShell does not interpret any characters
+      enclosed in single quotation marks as escape sequences.
+
+      The proxy cmdlet maps this parameter to the **Path** parameter of `Save-PSResource`.
+    aliases:
+    - PSPath
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputObjectAndLiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of names of modules to save.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the location on the local computer to store a saved module. Accepts wildcard characters.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: "1"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputObjectAndPathParameterSet
+      position: "1"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the friendly name of a repository that has been registered by running
+      `Register-PSRepository`. Use `Get-PSRepository` to display registered repositories.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Save-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the `Save-Module` runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Save-Module
+        [-Name] <String[]>
+        [-Path] <String>
+        [-MinimumVersion <String>]
+        [-MaximumVersion <String>]
+        [-RequiredVersion <String>]
+        [-Repository <String[]>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-AllowPrerelease]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameAndPathParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Save-Module
+        [-Name] <String[]>
+        -LiteralPath <String>
+        [-MinimumVersion <String>]
+        [-MaximumVersion <String>]
+        [-RequiredVersion <String>]
+        [-Repository <String[]>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-AllowPrerelease]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameAndLiteralPathParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Module
+        [-InputObject] <PSObject[]>
+        -LiteralPath <String>
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputObjectAndLiteralPathParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Module
+        [-InputObject] <PSObject[]>
+        [-Path] <String>
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputObjectAndPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Save a module'
+  description: |-
+    In this example, a module and its dependencies are saved to the local computer.
+
+    ```powershell
+    Save-Module -Name PowerShellGet -Path C:\Test\Modules -Repository PSGallery
+    Get-ChildItem -Path C:\Test\Modules
+    ```
+
+    ```Output
+        Directory: C:\Test\Modules
+
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    d-----         7/1/2019     13:31                PackageManagement
+    d-----         7/1/2019     13:31                PowerShellGet
+    ```
+
+    `Save-Module` uses the **Name** parameter to specify the module, **PowerShellGet**. The **Path**
+    parameter specifies where to store the downloaded module. The **Repository** parameter specifies a
+    registered repository, **PSGallery**. After the download is finished, `Get-ChildItem` displays the
+    contents of **Path** where the files are stored.
+- title: 'Example 2: Save a specific version of a module'
+  description: |-
+    This example shows how to use a parameter such as **MaximumVersion**, or **RequiredVersion** to
+    specify a module version.
+
+    ```powershell
+    Save-Module -Name PowerShellGet -Path C:\Test\Modules -Repository PSGallery -MaximumVersion 2.1.0
+    Get-ChildItem -Path C:\Test\Modules\PowerShellGet\
+    ```
+
+    ```Output
+        Directory: C:\Test\Modules\PowerShellGet
+
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    d-----         7/1/2019     13:40                2.1.0
+    ```
+
+    `Save-Module` uses the **Name** parameter to specify the module, **PowerShellGet**. The **Path**
+    parameter specifies where to store the downloaded module. The **Repository** parameter specifies a
+    registered repository, **PSGallery**. **MaximumVersion** specifies that version **2.1.0** is
+    downloaded and saved. After the download is finished, `Get-ChildItem` displays the contents of
+    **Path** where the files are stored.
+- title: 'Example 3: Find and save a specific version of a module'
+  description: |-
+    In this example, a required module version is found in the repository and saved to the local
+    computer.
+
+    ```powershell
+    Find-Module -Name PowerShellGet -Repository PSGallery -RequiredVersion 1.6.5 |
+      Save-Module -Path C:\Test\Modules
+    Get-ChildItem -Path C:\Test\Modules\PowerShellGet
+    ```
+
+    ```Output
+        Directory: C:\Test\Modules\PowerShellGet
+
+    Mode                LastWriteTime         Length Name
+    ----                -------------         ------ ----
+    d-----         7/1/2019     14:04                1.6.5
+    ```
+
+    `Find-Module` uses the **Name** parameter to specify the module, **PowerShellGet**. The
+    **Repository** parameter specifies a registered repository, **PSGallery**. **RequiredVersion**
+    specifies version **1.6.5**.
+
+    The object is sent down the pipeline to `Save-Module`. The **Path** parameter specifies where to
+    store the downloaded module. After the download is finished, `Get-ChildItem` displays the contents
+    of **Path** where the files are stored.
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/save-module?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Save-Module

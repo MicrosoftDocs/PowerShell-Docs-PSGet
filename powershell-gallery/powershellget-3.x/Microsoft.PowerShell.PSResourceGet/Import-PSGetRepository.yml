@@ -1,0 +1,156 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Import-PSGetRepository
+name: Import-PSGetRepository
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Finds the repositories registered with PowerShellGet and registers them for PSResourceGet.
+description: |-
+  This cmdlet finds the NuGet repositories registered with PowerShellGet v2 and registers them for
+  PSResourceGet. PowerShellGet v2 has a provider model that allows you to register repositories that
+  use different provider protocols. PSResourceGet only supports NuGet repositories, so this cmdlet
+  only imports NuGet repositories.
+
+  The **PSGallery** repository is registered by default. This cmdlet doesn't import the **PSGallery**
+  repository from PowerShellGet v2. If you need to reregister the **PSGallery** repository, use the
+  `Register-PSResourceRepository` cmdlet with the **PSGallery** parameter.
+parameters:
+  cmdletParameters:
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Use the **Force** parameter to overwrite existing repositories.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Import-PSGetRepository
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo" data-throw-if-not-resolved="False" />
+  description: |-
+    The cmdlet returns a **PSRepositoryInfo** object for each NuGet repository registered with
+    PowerShellGet v2.
+examples:
+- title: Example 1 - Show the NuGet repositories registered with PowerShellGet v2
+  description: |-
+    This example uses the **Verbose** and **WhatIf** parameters to show the NuGet repositories
+    registered with PowerShell v2.
+
+    ```powershell
+    Import-PSGetRepository -Verbose -WhatIf
+    ```
+
+    ```Output
+    VERBOSE: Found 3 registered PowerShellGet repositories.
+    VERBOSE: Selected 2 NuGet repositories.
+    What if: Registering LocalGallery at E:\LocalGallery\ -Trusted:$True -Force:$False.
+    What if: Registering PrivateRepo at https://PrivateRepo:44370/nuget -Trusted:$True -Force:$False.
+    ```
+
+    The cmdlet found three repositories registered with PowerShellGet v2, but will only import two of
+    them. In this case, the third repository is the default **PSGallery** repository.
+- title: Example 2 - Register the NuGet repositories registered with PowerShellGet v2
+  description: |-
+    ```powershell
+    Import-PSGetRepository
+    ```
+
+    ```Output
+    Name         Uri                             Trusted Priority
+    ----         ---                             ------- --------
+    LocalGallery file:///E:/LocalGallery/        True    50
+    PrivateRepo  https://PrivateRepo:44370/nuget True    50
+    ```
+- title: Example 3 - Overwrite existing repositories
+  description: |-
+    By default, the cmdlet doesn't import PowerShellGet v2 repositories that have the same name as a
+    registered PSResourceGet repository. Use the **Force** parameter to overwrite existing repositories.
+
+    ```powershell
+    Import-PSGetRepository
+    ```
+
+    ```Output
+    WARNING: Adding to repository store failed: The PSResource Repository 'LocalGallery' already exists.
+    WARNING: Use the -Force switch to overwrite existing repositories.
+    WARNING: Adding to repository store failed: The PSResource Repository 'PrivateRepo' already exists.
+    WARNING: Use the -Force switch to overwrite existing repositories.
+    ```
+
+    ```powershell
+    Import-PSGetRepository -Force
+    ```
+
+    ```Output
+    Name         Uri                             Trusted Priority
+    ----         ---                             ------- --------
+    LocalGallery file:///E:/LocalGallery/        True    50
+    PrivateRepo  https://PrivateRepo:44370/nuget True    50
+    ```
+links:
+- text: Register-PSResourceRepository
+  href: Register-PSResourceRepository.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/import-psgetrepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

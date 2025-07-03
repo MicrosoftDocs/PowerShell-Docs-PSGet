@@ -1,0 +1,245 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Uninstall-Module
+name: Uninstall-Module
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Uninstalls a module.
+description: |-
+  The `Uninstall-Module` cmdlet uninstalls a specified module from the local computer. You can't
+  uninstall a module if other modules depend on it or the module wasn't installed with the
+  `Install-Module` cmdlet.
+
+  You can manually delete module files, but doing so may break any modules that depend on the deleted
+  module.
+
+  The parameters that take module version numbers expect strings formatted as version numbers.
+
+  - Standard version numbers have a format of `x.y.z` where x, y, and z are numbers
+  - Prerelease versions have a format of `x.y.z-<prerelease_label>` where the `<prerelease_label>` is
+    arbitrary string assigned to that release.
+parameters:
+  cmdletParameters:
+  - name: AllVersions
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies that you want to include all available versions of a module. You can't use the
+      **AllVersions** parameter with the **MinimumVersion**, **MaximumVersion**, or **RequiredVersion**
+      parameters.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the `Uninstall-Module`.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces `Uninstall-Module` to run without asking for user confirmation.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: InputObject
+    type: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Accepts a **PSRepositoryItemInfo** object. For example, output `Get-InstalledModule` to a variable
+      and use that variable as the **InputObject** argument.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: InputObject
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the maximum, or newest, version of the module to uninstall. The **MaximumVersion** and
+      **RequiredVersion** parameters can't be used in the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of the module to uninstall. The **MinimumVersion** and
+      **RequiredVersion** parameters can't be used in the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of module names to uninstall.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the exact version number of the module to uninstall.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if `Uninstall-Module` runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Uninstall-Module
+        [-Name] <String[]>
+        [-MinimumVersion <Version>]
+        [-RequiredVersion <Version>]
+        [-MaximumVersion <Version>]
+        [-AllVersions]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Uninstall-Module
+        [-InputObject] <PSObject[]>
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputObject
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Version" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Uninstall a module'
+  description: |-
+    This example uninstalls a module.
+
+    ```powershell
+    Uninstall-Module -Name SpeculationControl
+    ```
+
+    `Uninstall-Module` uses the **Name** parameter to specify the module to uninstall from the local
+    computer.
+- title: 'Example 2: Use the pipeline to uninstall a module'
+  description: |-
+    In this example, the pipeline is used to uninstall a module.
+
+    ```powershell
+    Get-InstalledModule -Name SpeculationControl | Uninstall-Module
+    ```
+
+    `Get-InstalledModule` uses the **Name** parameter to specify the module. The object is sent down the
+    pipeline to `Uninstall-Module` and is uninstalled.
+links:
+- text: Find-Module
+  href: Find-Module.yml
+- text: Get-InstalledModule
+  href: Get-InstalledModule.yml
+- text: Publish-Module
+  href: Publish-Module.yml
+- text: Save-Module
+  href: Save-Module.yml
+- text: Update-Module
+  href: Update-Module.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/uninstall-module?view=powershellget-1.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.date: 12/09/2022
+  PlatyPS schema version: 2024-05-01
+  title: Uninstall-Module

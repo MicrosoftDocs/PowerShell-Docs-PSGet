@@ -1,0 +1,940 @@
+### YamlMime:PowerShellCmdlet1
+uid: PackageManagement.Save-Package
+name: Save-Package
+module: PackageManagement
+isPreview: false
+summary: |-
+  Saves packages to the local computer without installing them.
+description: |-
+  The `Save-Package` cmdlet saves packages to the local computer but doesn't install the packages.
+  This cmdlet saves the newest version of a package unless you specify a **RequiredVerion**. The
+  **Path** and **LiteralPath** parameters are mutually exclusive, and cannot be added to the same
+  command.
+notes: |-
+  > [!IMPORTANT]
+  > As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
+  > versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
+  > trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
+  > 1.2:
+  >
+  > `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+  >
+  > For more information, see the
+  > [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
+  > PowerShell blog.
+parameters:
+  cmdletParameters:
+  - name: AcceptLicense
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Automatically accept the license agreement during installation if the package requires it.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AllowPrereleaseVersions
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Allows packages marked as Prerelease to be saved.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AllVersions
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that this cmdlet saves all available versions of the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Command
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more commands included in the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ConfigFile
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a configuration File.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Contains
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      `Save-Package` gets objects if any item in the object's property values are an exact match for the
+      specified value.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to save a package from a specified package provider or
+      source.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DscResource
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more Desired State Configuration (DSC) resources for the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Filter
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a filter for the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: FilterOnTag
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the tag that filters the results. Results that don't contain the specified tag are excluded.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces the command to run without asking for user confirmation.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ForceBootstrap
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that `Save-Package` forces **PackageManagement** to automatically install the package
+      provider for the specified package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Headers
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the headers for the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Includes
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Indicates the resources that the package includes.
+    acceptedValues:
+    - DscResource
+    - Cmdlet
+    - Function
+    - Workflow
+    - RoleCapability
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: InputObject
+    type: <xref href="Microsoft.PackageManagement.Packaging.SoftwareIdentity" data-throw-if-not-resolved="False" />
+    description: |-
+      A software ID object that represents the package that you want to save. Software IDs are part of the
+      results of the `Find-Package` cmdlet.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageByInputObject
+      position: Named
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the literal path to which you want to save the package. You cannot add both this parameter
+      and the **Path** parameter to the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the maximum version of the package that you want to save.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of the package that you want to find.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more package names.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PackageManagementProvider
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a package management provider.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the location on the local computer to store the package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProviderName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more provider names.
+    acceptedValues:
+    - Bootstrap
+    - NuGet
+    - PowerShellGet
+    aliases:
+    - Provider
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a proxy server for the request, rather than a direct connection to the internet resource.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to use the proxy server that is specified by the
+      **Proxy** parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PublishLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the publish location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the exact version of the package to save.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RoleCapability
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of role capabilities.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ScriptPublishLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script publish location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ScriptSourceLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script source location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: SkipValidate
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Switch that skips validating the credentials of a package.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Source
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more package sources.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PackageBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Tag
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies a tag to search for within the package metadata.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Type
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies whether to search for packages with a module, a script, or either.
+    acceptedValues:
+    - Module
+    - Script
+    - All
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet:PackageByInputObject
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet is not run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Save-Package
+        [-Name] <String[]>
+        [-RequiredVersion <String>]
+        [-MinimumVersion <String>]
+        [-MaximumVersion <String>]
+        [-Source <String[]>]
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-ProviderName <String[]>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PackageBySearch
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Package
+        -InputObject <SoftwareIdentity>
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PackageByInputObject
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Package
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-ConfigFile <String>]
+        [-SkipValidate]
+        [-Headers <String[]>]
+        [-FilterOnTag <String[]>]
+        [-Contains <String>]
+        [-AllowPrereleaseVersions]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NuGet:PackageByInputObject
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Package
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-ConfigFile <String>]
+        [-SkipValidate]
+        [-Headers <String[]>]
+        [-FilterOnTag <String[]>]
+        [-Contains <String>]
+        [-AllowPrereleaseVersions]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NuGet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Package
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-AllowPrereleaseVersions]
+        [-PackageManagementProvider <String>]
+        [-PublishLocation <String>]
+        [-ScriptSourceLocation <String>]
+        [-ScriptPublishLocation <String>]
+        [-Type <String>]
+        [-Filter <String>]
+        [-Tag <String[]>]
+        [-Includes <String[]>]
+        [-DscResource <String[]>]
+        [-RoleCapability <String[]>]
+        [-Command <String[]>]
+        [-AcceptLicense]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PowerShellGet:PackageByInputObject
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Package
+        [-Path <String>]
+        [-LiteralPath <String>]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-AllVersions]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-AllowPrereleaseVersions]
+        [-PackageManagementProvider <String>]
+        [-PublishLocation <String>]
+        [-ScriptSourceLocation <String>]
+        [-ScriptPublishLocation <String>]
+        [-Type <String>]
+        [-Filter <String>]
+        [-Tag <String[]>]
+        [-Includes <String[]>]
+        [-DscResource <String[]>]
+        [-RoleCapability <String[]>]
+        [-Command <String[]>]
+        [-AcceptLicense]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PowerShellGet
+  isDefault: false
+inputs:
+- name: <xref href="Microsoft.PackageManagement.Packaging.SoftwareIdentity" data-throw-if-not-resolved="False" />
+  description: |-
+    You can pipe a **SoftwareIdentity** object to this cmdlet.
+outputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+  description: |-
+    This cmdlet returns no output.
+examples:
+- title: 'Example 1: Save a package to the local computer'
+  description: |-
+    This example saves the newest version of the package to a directory on the local computer. The
+    package's dependencies are download with the package.
+
+    ```
+    PS> Save-Package -Name NuGet.Core -ProviderName NuGet -Path C:\LocalPkg
+    ```
+
+    ```Output
+    Name                    Version    Source    Summary
+    ----                    -------    ------    -------
+    Microsoft.Web.Xdt       3.0.0      Nuget     Microsoft Xml Document Transformation (XDT) enables...
+    NuGet.Core              2.14.0     Nuget     NuGet.Core is the core framework assembly for NuGet...
+    ```
+
+    `Save-Package` uses the **Name** parameter to specify the package. The package is downloaded from
+    the repository specified by the **ProviderName** parameter. The **Path** parameter determines where
+    the package is saved.
+- title: 'Example 2: Save a specific package version'
+  description: |-
+    This example specifies the package version and saves it to a directory on the local computer.
+
+    ```
+    PS> Save-Package -Name NuGet.Core -RequiredVersion 2.9.0 -ProviderName NuGet -Path C:\LocalPkg
+    ```
+
+    ```Output
+    Name                    Version    Source    Summary
+    ----                    -------    ------    -------
+    Microsoft.Web.Xdt       3.0.0      Nuget     Microsoft Xml Document Transformation (XDT) enables...
+    NuGet.Core              2.9.0      Nuget     NuGet.Core is the core framework assembly for NuGet...
+    ```
+
+    `Save-Package` uses the **Name** parameter to specify the package. **RequiredVersion** indicates a
+    specific package version. The package is downloaded from the repository specified by the
+    **ProviderName** parameter. The **Path** parameter determines where the package is saved.
+- title: 'Example 3: Use Find-Package to save a package'
+  description: |-
+    This command uses `Find-Package` to locate the newest version of the package and sends the object to
+    `Save-Package`.
+
+    ```
+    PS> Find-Package -Name NuGet.Core -ProviderName NuGet | Save-Package -Path C:\LocalPkg
+    ```
+
+    `Find-Package` uses the **Name** parameter to specify the package. The package is downloaded from
+    the repository specified by the **ProviderName** parameter. The object is sent down the pipeline to
+    `Save-Package`. The **Path** parameter determines where the package is saved.
+- title: 'Example 4: Save and install the package'
+  description: |-
+    The newest version of the package and its dependencies are downloaded and installed on the local
+    computer.
+
+    ```
+    PS> Save-Package -Name NuGet.Core -ProviderName NuGet -Path C:\LocalPkg
+    PS> Install-Package C:\LocalPkg\NuGet.Core.2.14.0.nupkg
+    ```
+
+    `Save-Package` downloads the package file and its dependencies to the local computer.
+    `Install-Package` installs the package and dependencies from the specified directory.
+links:
+- text: about_PackageManagement
+  href: /powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement
+- text: Get-Package
+  href: Get-Package.yml
+- text: Install-Package
+  href: Install-Package.yml
+- text: Save-Package
+  href: Save-Package.yml
+- text: Uninstall-Package
+  href: Uninstall-Package.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/packagemanagement/save-package?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PackageManagement
+  ms.date: 12/12/2022
+  PlatyPS schema version: 2024-05-01
+  title: Save-Package

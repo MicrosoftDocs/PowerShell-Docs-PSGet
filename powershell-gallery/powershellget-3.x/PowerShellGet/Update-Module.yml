@@ -1,0 +1,388 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Update-Module
+name: Update-Module
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Downloads and installs the newest version of specified modules from an online gallery to the local
+  computer.
+description: |-
+  The `Update-Module` cmdlet installs a module's newest version from an online gallery. You're
+  prompted to confirm the update before it's installed. Updates are installed only for modules that
+  were installed on the local computer with `Install-Module`. `Update-Module` searches
+  `$env:PSModulePath` for installed modules.
+
+  This is a proxy cmdlet for the `Update-PSResource` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Update-PSResource](../Microsoft.PowerShell.PSResourceGet/Update-PSResource.yml).
+notes: |-
+  PowerShell includes the following aliases for `Update-Module`:
+
+  - All platforms:
+    - `upmo`
+
+  For PowerShell version 6.0 and above, the default installation scope is always **CurrentUser**.
+  Module updates for **CurrentUser**, `$HOME\Documents\PowerShell\Modules`, don't need elevated
+  permissions. Module updates for **AllUsers**, `$env:ProgramFiles\PowerShell\Modules`, need elevated
+  permissions.
+
+  The PowerShell Gallery no longer supports Transport Layer Security (TLS) versions 1.0 and 1.1. You
+  must use TLS 1.2 or higher. Use the following command to ensure you are using TLS 1.2:
+
+  `[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12`
+
+  `Update-Module` runs on PowerShell 3.0 or later releases of PowerShell, on Windows 7 or Windows 2008
+  R2 and later releases of Windows.
+
+  If the module that you specify with the **Name** parameter wasn't installed using `Install-Module`,
+  an error occurs.
+
+  You can only run `Update-Module` on modules that you installed from the online gallery by running
+  `Install-Module`.
+
+  If `Update-Module` attempts to update binaries that are in use, `Update-Module` returns an error
+  that identifies the problem processes. The user is informed to retry `Update-Module` after the
+  processes are stopped.
+parameters:
+  cmdletParameters:
+  - name: AcceptLicense
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Automatically accept the license agreement during installation if the package requires it.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AllowPrerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Allows you to update a module with the newer module marked as a prerelease.
+
+      The proxy cmdlet maps this parameter to the **Prerelease** parameter of `Update-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running `Update-Module`.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to update a module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces an update of each specified module without a prompt to request confirmation. If the module is
+      already installed, **Force** reinstalls the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Update-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the names of one or more modules to update. `Update-Module` searches `$env:PSModulePath`
+      for the modules to update. If no matches are found in `$env:PSModulePath` for the specified module
+      name, an error occurs.
+
+      Wildcards are accepted in module names. If you add wildcard characters to the specified name and no
+      matches are found, no error occurs.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: PassThru
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Returns an object representing the item with which you are working. By default, this cmdlet does not
+      generate any output.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Update-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Update-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Update-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Scope
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the installation scope of the module. The acceptable values for this parameter are
+      **AllUsers** and **CurrentUser**. If **Scope** isn't specified, the update is installed in the
+      **CurrentUser** scope.
+
+      The **AllUsers** scope requires elevated permissions and installs modules in a location that is
+      accessible to all users of the computer:
+
+      `$env:ProgramFiles\PowerShell\Modules`
+
+      The **CurrentUser** doesn't require elevated permissions and installs modules in a location that is
+      accessible only to the current user of the computer:
+
+      `$HOME\Documents\PowerShell\Modules`
+
+      When no **Scope** is defined, the default is set based on the PowerShellGet version.
+
+      - In PowerShellGet versions 2.0.0 and above, the default is **CurrentUser**, which does not require
+        elevation for install.
+      - In PowerShellGet 1.x versions, the default is **AllUsers**, which requires elevation for install.
+    acceptedValues:
+    - CurrentUser
+    - AllUsers
+    defaultValue: CurrentUser
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if `Update-Module` runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Update-Module
+        [[-Name] <String[]>]
+        [-RequiredVersion <String>]
+        [-MaximumVersion <String>]
+        [-Credential <PSCredential>]
+        [-Scope <String>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Force]
+        [-AllowPrerelease]
+        [-AcceptLicense]
+        [-PassThru]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: All
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Update all modules'
+  description: |-
+    This example updates all installed modules to the newest version in an online gallery.
+
+    ```powershell
+    Update-Module
+    ```
+- title: 'Example 2: Update a module by name'
+  description: |-
+    This example updates a specific module to the newest version in an online gallery.
+
+    ```powershell
+    Update-Module -Name SpeculationControl
+    ```
+
+    `Update-Module` uses the **Name** parameter to update a specific module, **SpeculationControl**.
+- title: 'Example 3: View what-if Update-Module runs'
+  description: |-
+    This example does a what-if scenario to show what happens if `Update-Module` is run. The command
+    isn't run.
+
+    ```powershell
+    Update-Module -WhatIf
+    ```
+
+    ```Output
+    What if: Performing the operation "Update-Module" on target "Version '2.8.0' of module
+      'Carbon', updating to version '2.8.1'".
+    What if: Performing the operation "Update-Module" on target "Version '1.0.10' of module
+      'SpeculationControl', updating to version '1.0.14'".
+    ```
+
+    `Update-Module` uses the **WhatIf** parameter display what would happen if `Update-Module` were run.
+- title: 'Example 4: Update a module to a specified version'
+  description: |-
+    In this example, a module is updated to a specific version. The version must exist in the online
+    gallery or an error is displayed.
+
+    ```powershell
+    Update-Module -Name SpeculationControl -RequiredVersion 1.0.14
+    ```
+
+    `Update-Module` uses the **Name** parameter to specify the module, **SpeculationControl**. The
+    **RequiredVersion** parameter specifies the version, **1.0.14**.
+- title: 'Example 5: Update a module without confirmation'
+  description: |-
+    This example doesn't request confirmation to update the module to the newest version from an online
+    gallery. If the module is already installed, the **Force** parameter reinstalls the module.
+
+    ```powershell
+    Update-Module -Name SpeculationControl -Force
+    ```
+
+    `Update-Module` uses the **Name** parameter to specify the module, **SpeculationControl**. The
+    **Force** parameter updates the module without requesting user confirmation.
+links:
+- text: Find-Module
+  href: Find-Module.yml
+- text: Get-InstalledModule
+  href: Get-InstalledModule.yml
+- text: Install-Module
+  href: Install-Module.yml
+- text: Publish-Module
+  href: Publish-Module.yml
+- text: Uninstall-Module
+  href: Uninstall-Module.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/update-module?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Update-Module

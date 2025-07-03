@@ -1,0 +1,149 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Get-InstalledScript
+name: Get-InstalledScript
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Gets an installed script.
+description: |-
+  The `Get-InstalledScript` cmdlet gets installed scripts for **CurrentUser** and **AllUsers** scopes.
+parameters:
+  cmdletParameters:
+  - name: AllowPrerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Includes in the results scripts marked as a prerelease.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the maximum, or latest, version of a script to get. The **MaximumVersion** and
+      **RequiredVersion** parameters are mutually exclusive; you cannot use both parameters in the same
+      command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of a script to get. The **MinimumVersion** and **RequiredVersion**
+      parameters are mutually exclusive; you cannot use both parameters in the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of names of scripts to get. Wildcards are accepted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the exact version of a script to get.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Get-InstalledScript
+        [[-Name] <String[]>]
+        [-MinimumVersion <String>]
+        [-RequiredVersion <String>]
+        [-MaximumVersion <String>]
+        [-AllowPrerelease]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Get all installed scripts'
+  description: |-
+    ```powershell
+    Get-InstalledScript
+    ```
+
+    This command gets all installed scripts.
+- title: 'Example 2: Get installed scripts by name'
+  description: |-
+    ```powershell
+    Get-InstalledScript -Name "Required-Scri*"
+    ```
+
+    ```Output
+    Version    Name                                Type       Repository           Description
+    -------    ----                                ----       ----------           -----------
+    2.5        Required-Script1                    Script     local1               Description for the Required-Script1 script
+    2.5        Required-Script2                    Script     local1               Description for the Required-Script2 script
+    2.5        Required-Script3                    Script     local1               Description for the Required-Script3 script
+    ```
+
+    This command gets scripts where the name begins with **Required-Scri**.
+links:
+- text: Install-Script
+  href: Install-Script.yml
+- text: Uninstall-Script
+  href: Uninstall-Script.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/get-installedscript?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.date: 10/04/2021
+  PlatyPS schema version: 2024-05-01
+  title: Get-InstalledScript

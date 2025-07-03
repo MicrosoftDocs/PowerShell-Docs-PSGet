@@ -1,0 +1,411 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Register-PSResourceRepository
+name: Register-PSResourceRepository
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Registers a repository for PowerShell resources.
+description: |-
+  The cmdlet registers a NuGet repository containing PowerShell resources.
+notes: |-
+  Repositories are unique by **Name**. Attempting to register a repository with same name results in
+  an error.
+parameters:
+  cmdletParameters:
+  - name: ApiVersion
+    type: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the API version used by the repository. Valid values are:
+
+      - `V2` - uses the NuGet V2 API
+      - `V3` - uses the NuGet V3 API
+      - `ContainerRegistry` - used for Azure Container Registry
+      - `Local` - use this for file system based repositories
+      - `NugetServer` - use this for NuGet.Server based repositories
+
+      The `Register-PSResourceRepository` cmdlet should automatically detect the API version. This
+      parameter allows you to change the API version after you have registered a repository.
+    acceptedValues:
+    - Unknown
+    - V2
+    - V3
+    - Local
+    - NugetServer
+    - ContainerRegistry
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: CredentialInfo
+    type: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo" data-throw-if-not-resolved="False" />
+    description: |-
+      A **PSCredentialInfo** object that includes the name of a vault and a secret that's stored in a
+      **Microsoft.PowerShell.SecretManagement** store.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Overwrites a repository if it already exists.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Name of the repository to be registered. Can't be `PSGallery`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PassThru
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, displays the successfully registered repository and its information.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Priority
+    type: <xref href="System.Int32" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the priority ranking of the repository. Valid priority values range from 0 to 100. Lower
+      values have a higher priority ranking. The default value is `50`.
+
+      Repositories are sorted by priority then by name. When searching for resources across multiple
+      repositories, the **PSResourceGet** cmdlets search the repositories using this sort order and
+      return the first match found.
+    defaultValue: "50"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PSGalleryParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PSGallery
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, registers **PSGallery** repository.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PSGalleryParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.Collections.Hashtable" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of hashtables that contain repository information. Use this parameter to register
+      multiple repositories at once. Each hashtable can only have keys associated with parameters for
+      the **NameParameterSet** or the **PSGalleryParameterSet**.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: RepositoriesParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Trusted
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies whether the repository should be trusted.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: PSGalleryParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Uri
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the location of the repository to be registered. The value must use one of the following
+      URI schemas:
+
+      - `https://`
+      - `http://`
+      - `ftp://`
+      - `file://`
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameParameterSet
+      position: "1"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Register-PSResourceRepository
+        [-Name] <String>
+        [-Uri] <String>
+        [-Trusted]
+        [-Priority <Int32>]
+        [-ApiVersion <APIVersion>]
+        [-CredentialInfo <PSCredentialInfo>]
+        [-PassThru]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Register-PSResourceRepository
+        [-PSGallery]
+        [-Trusted]
+        [-Priority <Int32>]
+        [-PassThru]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PSGalleryParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Register-PSResourceRepository
+        -Repository <Hashtable[]>
+        [-PassThru]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: RepositoriesParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo" data-throw-if-not-resolved="False" />
+  description: |-
+    By default, the cmdlet produces no output. When you use the **PassThru** parameter, the cmdlet
+    returns a **PSRepositoryInfo** object.
+examples:
+- title: Example 1
+  description: |-
+    This example registers the repository with the **Name** of `PoshTestGallery`.
+
+    ```powershell
+    Register-PSResourceRepository -Name PoshTestGallery -Uri 'https://www.poshtestgallery.com/api/v2'
+    Get-PSResourceRepository -Name PoshTestGallery
+    ```
+
+    ```Output
+    Name             Uri                                          Trusted   Priority
+    ----             ---                                          -------   --------
+    PoshTestGallery  https://www.poshtestgallery.com/api/v2         False         50
+    ```
+- title: Example 2
+  description: |-
+    This example registers the default `PSGallery` repository. Unlike the previous example, we can't use
+    the **Name** and **Uri** parameters to register the `PSGallery` repository. The `PSGallery`
+    repository is registered by default but can be removed. Use this command to restore the default
+    registration.
+
+    ```powershell
+    Register-PSResourceRepository -PSGallery
+    Get-PSResourceRepository -Name 'PSGallery'
+    ```
+
+    ```Output
+    Name             Uri                                          Trusted   Priority
+    ----             ---                                          -------   --------
+    PSGallery        https://www.powershellgallery.com/api/v2       False         50
+    ```
+- title: Example 3
+  description: |-
+    This example registers multiple repositories at once. To do so, we use the **Repository** parameter
+    and provide an array of hashtables. Each hashtable can only have keys associated with parameters for
+    the **NameParameterSet** or the **PSGalleryParameterSet**.
+
+    ```powershell
+    $arrayOfHashtables = @{
+            Name = 'Local'
+            Uri = 'D:/PSRepoLocal/'
+            Trusted = $true
+            Priority = 20
+        },
+        @{
+            Name = 'PSGv3'
+            Uri = 'https://www.powershellgallery.com/api/v3'
+            Trusted = $true
+            Priority = 50
+        },
+        @{
+            PSGallery = $true
+            Trusted = $true
+            Priority = 10
+        }
+    Register-PSResourceRepository -Repository $arrayOfHashtables
+    Get-PSResourceRepository
+    ```
+
+    ```Output
+    Name      Uri                                      Trusted Priority
+    ----      ---                                      ------- --------
+    PSGallery https://www.powershellgallery.com/api/v2 True    10
+    Local     file:///D:/PSRepoLocal/                  True    20
+    PSGv3     https://www.powershellgallery.com/api/v3 True    50
+    ```
+- title: Example 4
+  description: |-
+    This example registers a repository with credential information to be retrieved from a registered
+    **SecretManagement** vault, where **SecretStore** is the name of the vault and **TestSecret** is the
+    name of the stored secret.
+
+    You must have the **Microsoft.PowerShell.SecretManagement** module installed, have a registered
+    vault, and stored a secret within it. If setup correctly, the command
+    `Get-SecretInfo -Name 'TestSecret'` would return the secret.
+
+    The format of the secret must match the requirements of the repository. In some instances,
+    `TestSecret` might need storing as a **PSCredential** object with a username and password or token.
+    In others it may need storing as a **SecureString** representing just the token.
+
+    ```powershell
+    $parameters = @{
+      Name = 'PSGv3'
+      Uri = 'https://www.powershellgallery.com/api/v3'
+      Trusted = $true
+      Priority = 50
+      CredentialInfo = [Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo]::new(
+        'SecretStore', 'TestSecret')
+    }
+    Register-PSResourceRepository @parameters
+    Get-PSResourceRepository | Select-Object * -ExpandProperty CredentialInfo
+    ```
+
+    ```Output
+    Name           : PSGv3
+    Uri            : https://www.powershellgallery.com/api/v3
+    Trusted        : True
+    Priority       : 50
+    CredentialInfo : Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo
+    VaultName      : SecretStore
+    SecretName     : TestSecret
+    Credential     :
+    ```
+links:
+- text: Microsoft.PowerShell.SecretManagement
+  href: /powershell/utility-modules/secretmanagement/overview
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

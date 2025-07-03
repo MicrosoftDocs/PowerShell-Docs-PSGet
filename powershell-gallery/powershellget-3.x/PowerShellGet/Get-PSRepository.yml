@@ -1,0 +1,102 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Get-PSRepository
+name: Get-PSRepository
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Gets PowerShell repositories.
+description: |-
+  The `Get-PSRepository` cmdlet gets PowerShell module repositories that are registered for the
+  current user.
+
+  This is a proxy cmdlet for the `Get-PSResourceRepository` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Get-PSResourceRepository](../Microsoft.PowerShell.PSResourceGet/Get-PSResourceRepository.yml).
+parameters:
+  cmdletParameters:
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the names of the repositories to get.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Get-PSRepository
+        [[-Name] <String[]>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Get all module repositories'
+  description: |-
+    ```powershell
+    Get-PSRepository
+    ```
+
+    This command gets all module repositories registered for the current user.
+- title: 'Example 2: Get module repositories by name'
+  description: |-
+    ```powershell
+    Get-PSRepository -Name "*NuGet*"
+    ```
+
+    This command gets all module repositories that include NuGet in their names.
+- title: 'Example 3: Get a module repository and format the output'
+  description: |-
+    ```powershell
+    Get-PSRepository -Name "Local01" | Format-List * -Force
+    ```
+
+    ```Output
+    Name                      : local01
+    SourceLocation            : http://manikb-dev:8765/api/v2/
+    Trusted                   : True
+    Registered                : True
+    InstallationPolicy        : Trusted
+    PackageManagementProvider : NuGet
+    PublishLocation           : http://pattif-dev:8765/api/v2/package/
+    ScriptSourceLocation      : http://pattif-dev:8765/api/v2/artifacts/psscript
+    ScriptPublishLocation     : http://pattif-dev:8765/api/v2/package/
+    ProviderOptions           : {}
+    ```
+
+    This command gets the repository named Local01 and uses the pipeline operator to pass that object to
+    the Format-List cmdlet.
+links:
+- text: Register-PSRepository
+  href: Register-PSRepository.yml
+- text: Set-PSRepository
+  href: Set-PSRepository.yml
+- text: Unregister-PSRepository
+  href: Unregister-PSRepository.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/get-psrepository?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Get-PSRepository

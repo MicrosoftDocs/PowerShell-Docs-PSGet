@@ -1,0 +1,46 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Find-RoleCapability
+name: Find-RoleCapability
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Finds role capabilities in modules.
+description: |-
+  The `Find-RoleCapability` cmdlet isn't supported by the **Microsoft.PowerShell.PSResourceGet**
+  module. The proxy cmdlet returns a warning message that the cmdlet is not supported.
+
+  All parameters are ignored.
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Find-RoleCapability
+    ```
+  parameterSetName: All
+  isDefault: false
+inputs:
+- name: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="PSGetRoleCapabilityInfo" data-throw-if-not-resolved="False" />
+  description: |-
+    The `Find-RoleCapability` cmdlet returns a **PSGetRoleCapabilityInfo** object.
+examples:
+- title: 'Example 1: Find role capabilities'
+  description: |-
+    ```powershell
+    Find-RoleCapability
+    ```
+
+    ```Output
+    WARNING: The cmdlet 'Find-RoleCapability' is deprecated.
+    ```
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/find-rolecapability?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Find-RoleCapability

@@ -1,0 +1,502 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Update-ScriptFileInfo
+name: Update-ScriptFileInfo
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Updates information for a script.
+description: |-
+  The `Update-ScriptFileInfo` cmdlet updates a script's property values. For example, the values for
+  version, author, or description.
+notes: |-
+  Use the `Test-ScriptFileInfo` cmdlet to validate a script's metadata. Scripts must include values
+  for version, GUID, description, and author.
+parameters:
+  cmdletParameters:
+  - name: Author
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script author.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: CompanyName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the company or vendor who created the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running `Update-ScriptFileInfo`.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Copyright
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a copyright statement for the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Description
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a description for the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ExternalModuleDependencies
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of external module dependencies.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ExternalScriptDependencies
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of external script dependencies.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces `Update-ScriptFileInfo` to run without asking for user confirmation.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Guid
+    type: <xref href="System.Guid" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a unique ID for a script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: IconUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URL of an icon for the script. The specified icon is displayed on the gallery web page
+      for the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LicenseUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URL of licensing terms.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. The **LiteralPath** parameter's value is used exactly as
+      it's entered. No characters are interpreted as wildcards. If the path includes escape characters,
+      enclose them in single quotation marks. Single quotation marks tell PowerShell not to interpret any
+      characters as escape sequences.
+    aliases:
+    - PSPath
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: LiteralPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PassThru
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Returns an object that represents the item with which you're working. By default,
+      `Update-ScriptFileInfo` doesn't generate any output.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script file's location. Wildcards are permitted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: PrivateData
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the private data for the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProjectUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URL of a web page about this project.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ReleaseNotes
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies a string array that contains release notes or comments that you want available for this
+      version of the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredModules
+    type: <xref href="System.Object" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies modules that must be in the global session state. If the required modules aren't in the
+      global session state, PowerShell imports them.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredScripts
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of required scripts.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Tags
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of tags.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Version
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script's version.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if `Update-ScriptFileInfo` runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Update-ScriptFileInfo
+        [-Path] <String>
+        [-Version <String>]
+        [-Author <String>]
+        [-Guid <Guid>]
+        [-Description <String>]
+        [-CompanyName <String>]
+        [-Copyright <String>]
+        [-RequiredModules <Object[]>]
+        [-ExternalModuleDependencies <String[]>]
+        [-RequiredScripts <String[]>]
+        [-ExternalScriptDependencies <String[]>]
+        [-Tags <String[]>]
+        [-ProjectUri <Uri>]
+        [-LicenseUri <Uri>]
+        [-IconUri <Uri>]
+        [-ReleaseNotes <String[]>]
+        [-PrivateData <String>]
+        [-PassThru]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PathParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Update-ScriptFileInfo
+        [-LiteralPath] <String>
+        [-Version <String>]
+        [-Author <String>]
+        [-Guid <Guid>]
+        [-Description <String>]
+        [-CompanyName <String>]
+        [-Copyright <String>]
+        [-RequiredModules <Object[]>]
+        [-ExternalModuleDependencies <String[]>]
+        [-RequiredScripts <String[]>]
+        [-ExternalScriptDependencies <String[]>]
+        [-Tags <String[]>]
+        [-ProjectUri <Uri>]
+        [-LicenseUri <Uri>]
+        [-IconUri <Uri>]
+        [-ReleaseNotes <String[]>]
+        [-PrivateData <String>]
+        [-PassThru]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: LiteralPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Update the version of a script file'
+  description: |-
+    In this example, an existing script file is updated with new property values.
+
+    Splatting is used to pass parameters to the `Update-ScriptFileInfo` cmdlet. For more information,
+    see [about_Splatting](/powershell/module/Microsoft.PowerShell.Core/About/about_splatting).
+
+    ```powershell
+    $Parms = @{
+      Path = "C:\Test\Temp-Scriptfile.ps1"
+      Version = "2.0"
+      Author = "bob@contoso.com"
+      CompanyName = "Contoso"
+      Description = "This is the updated description"
+      }
+    Update-ScriptFileInfo @Parms -PassThru
+    ```
+
+    ```Output
+    <#PSScriptInfo
+
+    .VERSION 2.0
+
+    .GUID 4609f00c-e850-4d3f-9c69-3741e56e4133
+
+    .AUTHOR bob@contoso.com
+
+    .COMPANYNAME Contoso
+
+    .COPYRIGHT
+
+    .TAGS
+
+    .LICENSEURI
+
+    .PROJECTURI
+
+    .ICONURI
+
+    .EXTERNALMODULEDEPENDENCIES
+
+    .REQUIREDSCRIPTS
+
+    .EXTERNALSCRIPTDEPENDENCIES
+
+    .RELEASENOTES
+
+    .PRIVATEDATA
+
+    #>
+
+    <#
+
+    .DESCRIPTION
+    This is the updated description
+
+    #>
+    Param()
+    ```
+
+    `$Parms` stores the parameter values for **Path**, **Version**, **Author**, **CompanyName**, and
+    **Description**. `Update-ScriptFileInfo` gets the parameter values from `@Parms` and updates the
+    script. The **PassThru** parameter displays the script's contents in the PowerShell console.
+links:
+- text: New-ScriptFileInfo
+  href: New-ScriptFileInfo.yml
+- text: Test-ScriptFileInfo
+  href: Test-ScriptFileInfo.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/update-scriptfileinfo?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.date: 07/09/2019
+  PlatyPS schema version: 2024-05-01
+  title: Update-ScriptFileInfo

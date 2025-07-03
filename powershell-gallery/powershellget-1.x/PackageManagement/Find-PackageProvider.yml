@@ -1,0 +1,293 @@
+### YamlMime:PowerShellCmdlet1
+uid: PackageManagement.Find-PackageProvider
+name: Find-PackageProvider
+module: PackageManagement
+isPreview: false
+summary: |-
+  Returns a list of Package Management package providers available for installation.
+description: |-
+  The `Find-PackageProvider` cmdlet finds matching PackageManagement providers that are available in
+  package sources registered with PowerShellGet. These are package providers available for
+  installation with the Install-PackageProvider cmdlet. By default, this includes modules available in
+  the PowerShell Gallery with the **PackageManagement** and **Provider** tags.
+
+  `Find-PackageProvider` also finds matching Package Management providers that are available in the
+  Package Management Azure Blob store. Use the bootstrapper provider to find and install them.
+notes: |-
+  > [!IMPORTANT]
+  > As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
+  > versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
+  > trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
+  > 1.2:
+  >
+  > `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+  >
+  > For more information, see the
+  > [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
+  > PowerShell blog.
+parameters:
+  cmdletParameters:
+  - name: AllVersions
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that this cmdlet returns all available versions of the package provider. By default,
+      `Find-PackageProvider` only returns the newest available version.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to search for package providers.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces the command to run without asking for user confirmation. Currently, this is equivalent to the
+      **ForceBootstrap** parameter.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ForceBootstrap
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that this cmdlet forces Package Management to automatically install the package provider.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: IncludeDependencies
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that this cmdlet includes dependencies.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the maximum allowed version of the package provider that you want to find. If you do not
+      add this parameter, `Find-PackageProvider` finds the highest available version of the provider.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum allowed version of the package provider that you want to find. If you do not
+      add this parameter, `Find-PackageProvider` finds the highest available version of the package that
+      also satisfies any maximum specified version specified by the **MaximumVersion** parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more package provider module names, or provider names with wildcard characters.
+      Separate multiple package names with commas.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a proxy server for the request, rather than connecting directly to the Internet resource.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to use the proxy server that is specified by the
+      **Proxy** parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the exact allowed version of the package provider that you want to find. If you do not add
+      this parameter, `Find-PackageProvider` finds the highest available version of the provider that also
+      satisfies any maximum version specified by the **MaximumVersion** parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Source
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more package sources. You can get a list of available package sources by using the
+      `Get-PackageSource` cmdlet.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Find-PackageProvider
+        [[-Name] <String[]>]
+        [-AllVersions]
+        [-Source <String[]>]
+        [-IncludeDependencies]
+        [-Credential <PSCredential>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-RequiredVersion <String>]
+        [-MinimumVersion <String>]
+        [-MaximumVersion <String>]
+        [-Force]
+        [-ForceBootstrap]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+outputs:
+- name: <xref href="Microsoft.PackageManagement.Packaging.SoftwareIdentity" data-throw-if-not-resolved="False" />
+  description: |-
+    This cmdlet returns a **SoftwareIdentity** object. A **SoftwareIdentity** object can be piped into
+    `Install-PackageProvider` to install the results of `Find-PackageProvider`.
+examples:
+- title: 'Example 1: Find all available package providers'
+  description: |-
+    ```powershell
+    Find-PackageProvider
+    ```
+
+    This command gets a list of all package providers that are available on the repositories supported
+    by Package Management. By default, those package providers are available on the PowerShell Gallery
+    and by using the Package Management bootstrapping application.
+- title: 'Example 2: Find all versions of a provider'
+  description: |-
+    ```powershell
+    Find-PackageProvider -Name "Nuget" -AllVersions
+    ```
+
+    This command finds all versions of the package provider named Nuget.
+- title: 'Example 3: Find a provider from a specified source'
+  description: |-
+    ```powershell
+    Find-PackageProvider -Name "Gistprovider" -Source "PSGallery"
+    ```
+
+    This command finds a package provider available by using a specified package source.
+links:
+- text: about_PackageManagement
+  href: /powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement
+- text: Unregister-PackageSource
+  href: Unregister-PackageSource.yml
+- text: Get-PackageSource
+  href: Get-PackageSource.yml
+- text: Register-PackageSource
+  href: Register-PackageSource.yml
+- text: Install-PackageProvider
+  href: Install-PackageProvider.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/packagemanagement/find-packageprovider?view=powershellget-1.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PackageManagement
+  ms.date: 10/04/2021
+  PlatyPS schema version: 2024-05-01
+  title: Find-PackageProvider

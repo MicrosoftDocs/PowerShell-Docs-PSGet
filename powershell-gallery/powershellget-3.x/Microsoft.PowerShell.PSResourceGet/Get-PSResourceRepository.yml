@@ -1,0 +1,111 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Get-PSResourceRepository
+name: Get-PSResourceRepository
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Finds and returns registered repository information.
+description: |-
+  This cmdlet searches for PowerShell resource repositories that are registered on the machine. By
+  default, it returns all registered repositories.
+parameters:
+  cmdletParameters:
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      The name of the repository to search for. Wildcards are supported. Tab completion for this parameter
+      cycles through the registered repository names.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Get-PSResourceRepository
+        [[-Name] <String[]>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo" data-throw-if-not-resolved="False" />
+examples:
+- title: Example 1
+  description: |-
+    This example returns all the repositories registered on the machine.
+
+    ```powershell
+    Get-PSResourceRepository
+    ```
+
+    ```Output
+    Name             Uri                                          Trusted   Priority
+    ----             ---                                          -------   --------
+    PoshTestGallery  https://www.poshtestgallery.com/api/v2          True         40
+    PSGallery        https://www.powershellgallery.com/api/v2       False         50
+    psgettestlocal   file:///c:/code/testdir                         True         50
+    ```
+- title: Example 2
+  description: |-
+    This example uses the **Name** parameter to get a specific repository.
+
+    ```powershell
+    Get-PSResourceRepository -Name PSGallery
+    ```
+
+    ```Output
+    Name         Uri                                        Trusted   Priority
+    ----         ---                                        -------   --------
+    PSGallery    https://www.powershellgallery.com/api/v2     False         50
+    ```
+- title: Example 3
+  description: |-
+    This example uses the **Name** parameter to get all repositories that end with `Gallery`.
+
+    ```powershell
+    Get-PSResourceRepository -Name "*Gallery"
+    ```
+
+    ```Output
+    Name             Uri                                          Trusted   Priority
+    ----             ---                                          -------   --------
+    PoshTestGallery  https://www.poshtestgallery.com/api/v2          True         40
+    PSGallery        https://www.powershellgallery.com/api/v2       False         50
+    ```
+- title: Example 4
+  description: |-
+    This example uses the **Name** parameter to get a list of named respositories.
+
+    ```powershell
+    Get-PSResourceRepository -Name "PSGallery","PoshTestGallery"
+    ```
+
+    ```Output
+    Name             Uri                                          Trusted   Priority
+    ----             ---                                          -------   --------
+    PoshTestGallery  https://www.poshtestgallery.com/api/v2          True         40
+    PSGallery        https://www.powershellgallery.com/api/v2       False         50
+    ```
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/get-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

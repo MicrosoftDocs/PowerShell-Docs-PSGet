@@ -1,0 +1,63 @@
+### YamlMime:PowerShellModule1
+uid: PowerShellGet
+name: PowerShellGet v3 Module
+isPreview: false
+cmdletGroups:
+- title: PowerShellGet Cmdlets
+  cmdlets:
+  - PowerShellGet.Find-Command
+  - PowerShellGet.Find-DscResource
+  - PowerShellGet.Find-Module
+  - PowerShellGet.Find-RoleCapability
+  - PowerShellGet.Find-Script
+  - PowerShellGet.Get-InstalledModule
+  - PowerShellGet.Get-InstalledScript
+  - PowerShellGet.Get-PSRepository
+  - PowerShellGet.Install-Module
+  - PowerShellGet.Install-Script
+  - PowerShellGet.New-ScriptFileInfo
+  - PowerShellGet.Publish-Module
+  - PowerShellGet.Publish-Script
+  - PowerShellGet.Register-PSRepository
+  - PowerShellGet.Save-Module
+  - PowerShellGet.Save-Script
+  - PowerShellGet.Set-PSRepository
+  - PowerShellGet.Test-ScriptFileInfo
+  - PowerShellGet.Uninstall-Module
+  - PowerShellGet.Uninstall-Script
+  - PowerShellGet.Unregister-PSRepository
+  - PowerShellGet.Update-Module
+  - PowerShellGet.Update-ModuleManifest
+  - PowerShellGet.Update-Script
+  - PowerShellGet.Update-ScriptFileInfo
+description: |-
+  This documentation covers version 3.0.22-beta22 of the **PowerShellGet** module. This module is
+  provided for compatibility with **PowerShellGet** v2.2.x. The cmdlets in this version of the module
+  are proxy cmdlets that call the equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet**
+  module.
+
+  The proxy cmdlets provide a compatibility layer for scripts that use the version 2.x cmdlets. In
+  most cases, the scripts continue to work without modification. However, there are some differences
+  in behavior between the modules. Some parameters for the **PowerShellGet** cmdlets aren't supported
+  by the **Microsoft.PowerShell.PSResourceGet** cmdlets. The proxy cmdlets silently discard
+  unsupported parameters, transform some parameters, and pass other parameters through to the
+  equivalent cmdlets in the **Microsoft.PowerShell.PSResourceGet** module.
+
+  For more information about the **Microsoft.PowerShell.PSResourceGet** module, see
+  [about_PSResourceGet](../microsoft.powershell.psresourceget/about/about_psresourceget.md).
+
+  > [!IMPORTANT]
+  > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
+  > of PowerShellGet has a limited features and doesn't support the updated capabilities of the
+  > PowerShell Gallery. To be supported, you must update to the latest version.
+metadata:
+  HelpInfoUri: https://aka.ms/powershell74-help
+  Help Version: 7.3.0.0
+  Locale: en-US
+  Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: PowerShellGet v3 (preview)
+  document type: module

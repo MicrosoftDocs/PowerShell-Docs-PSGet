@@ -1,0 +1,475 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Save-PSResource
+name: Save-PSResource
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Saves resources (modules and scripts) from a registered repository onto the machine.
+description: |-
+  This cmdlet combines the functionality of the `Save-Module` and `Save-Script` cmdlets from
+  **PowerShellGet** v2. `Save-PSResource` downloads a resource from a registered repository to a
+  specific path on the local machine. By default, the resource is saved in the unpacked or installed
+  format. The scripts or modules could be run from the saved location. There is also an option to
+  download the resource in `.nupkg` format.
+parameters:
+  cmdletParameters:
+  - name: AcceptLicense
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      For modules that require a license, automatically accepts the license agreement during installation.
+
+      This parameter was added in PSResourceGet 1.1.0-rc1.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AsNupkg
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Saves the resource as a `.nupkg` file.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: AsNupkgParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: InputObjectParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AuthenticodeCheck
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Validates the resource's signed files and catalog files on Windows.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Optional credentials used when accessing a repository.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: IncludeXml
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Includes the PowerShellGet metadata XML used to verify that PowerShellGet has installed a module.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: IncludeXmlParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    - name: InputObjectParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: InputObject
+    type: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Used for pipeline input.
+    aliases:
+    - ParentResource
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: InputObjectParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      The name of one or more resources to install.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: IncludeXmlParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: AsNupkgParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PassThru
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, outputs a **PSResourceInfo** object for the saved resource.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the path to save the resource to. If no path is provided, the resource is saved in the
+      current directory.
+    defaultValue: current directory
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Prerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, includes prerelease versions in search results returned.
+    aliases:
+    - IsPrerelease
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: IncludeXmlParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: AsNupkgParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Quiet
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Suppresses the progress bar output.
+
+      This parameter was added in PSResourceGet 1.1.0-rc1.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more repository names to search. If not specified, search includes all registered
+      repositories, in priority order (highest first), until a repository is found that contains the
+      package. Repositories are sorted by priority then by name. Lower **Priority** values have a higher
+      precedence.
+
+      When searching for resources across multiple repositories, the **PSResourceGet** cmdlets search the
+      repositories using this sort order. `Save-PSResource` saves the first matching package from the
+      sorted list of repositories.
+
+      The parameter supports the `*` wildcard character. If you specify multiple repositories, all names
+      must include or omit the wildcard character. You can't specify a mix of names with and without
+      wildcards.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: SkipDependencyCheck
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Skips the check for resource dependencies. Only found resources are installed. No resources of the
+      found resource are installed.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: TemporaryPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the path to temporarily install the resource before saving. If no temporary path is
+      provided, the resource is temporarily installed in the current user's temporary folder.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: TrustRepository
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Suppress prompts to trust repository. The prompt to trust repository only occurs if the repository
+      isn't configured as trusted.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Version
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the version of the resource to be returned. The value can be an exact version or a version
+      range using the NuGet versioning syntax.
+
+      For more information about NuGet version ranges, see
+      [Package versioning](/nuget/concepts/package-versioning#version-ranges).
+
+      PowerShellGet supports all but the _minimum inclusive version_ listed in the NuGet version range
+      documentation. Using `1.0.0.0` as the version doesn't yield versions 1.0.0.0 and higher (minimum
+      inclusive range). Instead, the value is considered to be the required version. To search for a
+      minimum inclusive range, use `[1.0.0.0, ]` as the version range.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: IncludeXmlParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: AsNupkgParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Save-PSResource
+        [-Name] <String[]>
+        [-Version <String>]
+        [-Prerelease]
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [-IncludeXml]
+        [-Path <String>]
+        [-TemporaryPath <String>]
+        [-TrustRepository]
+        [-PassThru]
+        [-SkipDependencyCheck]
+        [-AuthenticodeCheck]
+        [-Quiet]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: IncludeXmlParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Save-PSResource
+        [-Name] <String[]>
+        [-Version <String>]
+        [-Prerelease]
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [-AsNupkg]
+        [-Path <String>]
+        [-TemporaryPath <String>]
+        [-TrustRepository]
+        [-PassThru]
+        [-SkipDependencyCheck]
+        [-AuthenticodeCheck]
+        [-Quiet]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: AsNupkgParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-PSResource
+        [-InputObject] <PSResourceInfo[]>
+        [-Repository <String[]>]
+        [-Credential <PSCredential>]
+        [-AsNupkg]
+        [-IncludeXml]
+        [-Path <String>]
+        [-TemporaryPath <String>]
+        [-TrustRepository]
+        [-PassThru]
+        [-SkipDependencyCheck]
+        [-AuthenticodeCheck]
+        [-Quiet]
+        [-AcceptLicense]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputObjectParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo" data-throw-if-not-resolved="False" />
+  description: |-
+    By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
+    cmdlet outputs a **PSResourceInfo** object for the saved resource.
+examples:
+- title: Example 1
+  description: |-
+    Downloads the **Az** module from the highest priority repository and saves it to the current
+    location.
+
+    ```powershell
+    Save-PSResource -Name Az
+    ```
+- title: Example 2
+  description: |-
+    Downloads the **Az** module from the PowerShell Gallery and saves it to the current location.
+
+    ```powershell
+    Save-PSResource -Name Az -Repository PSGallery
+    ```
+- title: Example 3
+  description: |-
+    Downloads the **Az** module from the highest priority repository and saves it in `.nupkg` format to
+    the current location.
+
+    ```powershell
+    Save-PSResource Az -AsNupkg
+    ```
+- title: Example 4
+  description: |-
+    Downloads the **Az** module from the highest priority repository and includes the **PowerShellGet**
+    XML metadata file.
+
+    ```powershell
+    Save-PSResource Az -IncludeXML
+    ```
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

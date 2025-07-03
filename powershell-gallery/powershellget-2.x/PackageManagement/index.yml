@@ -1,0 +1,42 @@
+### YamlMime:PowerShellModule1
+uid: PackageManagement
+name: PackageManagement Module
+isPreview: false
+cmdletGroups:
+- title: PackageManagement Cmdlets
+  cmdlets:
+  - PackageManagement.Find-Package
+  - PackageManagement.Find-PackageProvider
+  - PackageManagement.Get-Package
+  - PackageManagement.Get-PackageProvider
+  - PackageManagement.Get-PackageSource
+  - PackageManagement.Import-PackageProvider
+  - PackageManagement.Install-Package
+  - PackageManagement.Install-PackageProvider
+  - PackageManagement.Register-PackageSource
+  - PackageManagement.Save-Package
+  - PackageManagement.Set-PackageSource
+  - PackageManagement.Uninstall-Package
+  - PackageManagement.Unregister-PackageSource
+description: |-
+  This topic displays help topics for the Package Management Cmdlets. The cmdlet reference
+  documentation on this site documents the latest version of the module.
+
+  This documentation cover version 1.4.8.1 of the **PackageManagement** module.
+
+  > [!IMPORTANT]
+  > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PackageManagement** preinstalled. This
+  > version of PowerShellGet has a limited features and doesn't support the updated capabilities of
+  > the PowerShell Gallery. To be supported, you must update to the latest version.
+
+  [!INCLUDE [nuget-module](../../includes/nuget-module.md)]
+metadata:
+  HelpInfoUri: https://aka.ms/powershell74-help
+  Help Version: 7.2.0.0
+  Locale: en-US
+  Module Guid: 4ae9fd46-338a-459c-8186-07f910774cb8
+  Module Name: PackageManagement
+  ms.date: 04/13/2023
+  PlatyPS schema version: 2024-05-01
+  title: PackageManagement
+  document type: module

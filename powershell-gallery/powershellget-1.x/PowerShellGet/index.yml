@@ -1,0 +1,52 @@
+### YamlMime:PowerShellModule1
+uid: PowerShellGet
+name: PowerShellGet Module
+isPreview: false
+cmdletGroups:
+- title: PowerShellGet Cmdlets
+  cmdlets:
+  - PowerShellGet.Find-Command
+  - PowerShellGet.Find-DscResource
+  - PowerShellGet.Find-Module
+  - PowerShellGet.Find-RoleCapability
+  - PowerShellGet.Find-Script
+  - PowerShellGet.Get-InstalledModule
+  - PowerShellGet.Get-InstalledScript
+  - PowerShellGet.Get-PSRepository
+  - PowerShellGet.Install-Module
+  - PowerShellGet.Install-Script
+  - PowerShellGet.New-ScriptFileInfo
+  - PowerShellGet.Publish-Module
+  - PowerShellGet.Publish-Script
+  - PowerShellGet.Register-PSRepository
+  - PowerShellGet.Save-Module
+  - PowerShellGet.Save-Script
+  - PowerShellGet.Set-PSRepository
+  - PowerShellGet.Test-ScriptFileInfo
+  - PowerShellGet.Uninstall-Module
+  - PowerShellGet.Uninstall-Script
+  - PowerShellGet.Unregister-PSRepository
+  - PowerShellGet.Update-Module
+  - PowerShellGet.Update-ModuleManifest
+  - PowerShellGet.Update-Script
+  - PowerShellGet.Update-ScriptFileInfo
+description: |-
+  PowerShellGet is a module with commands for discovering, installing, updating and publishing
+  PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
+
+  This documentation covers version 1.0.0.1 of the **PowerShellGet** module.
+
+  > [!IMPORTANT]
+  > Windows PowerShell 5.1 comes with version 1.0.0.1 of **PowerShellGet** preinstalled. This version
+  > of PowerShellGet has a limited features and doesn't support the updated capabilities of the
+  > PowerShell Gallery. To be supported, you must update to the latest version.
+metadata:
+  HelpInfoUri: https://aka.ms/powershell51-help
+  Help Version: 5.2.0.0
+  Locale: en-US
+  Module Guid: 1d73a601-4a6c-43c5-ba3f-619b18bbb404
+  Module Name: PowerShellGet
+  ms.date: 04/10/2023
+  PlatyPS schema version: 2024-05-01
+  title: PowerShellGet
+  document type: module

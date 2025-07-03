@@ -1,0 +1,201 @@
+items:
+- name: Cmdlet reference
+  items:
+  - name: Microsoft.PowerShell.PSResourceGet
+    items:
+    - name: Commands
+      uid: Microsoft.PowerShell.PSResourceGet
+    - name: About
+      items:
+      - name: about_PSResourceGet
+        href: Microsoft.PowerShell.PSResourceGet/About/about_PSResourceGet.md
+        no-loc:
+        - about_PSResourceGet
+      - name: about_PSResourceGet_Group_Policy
+        href: Microsoft.PowerShell.PSResourceGet/About/about_PSResourceGet_Group_Policy.md
+        no-loc:
+        - about_PSResourceGet_Group_Policy
+      no-loc:
+      - About
+    - name: Compress-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Compress-PSResource
+      no-loc:
+      - Compress-PSResource
+    - name: Find-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Find-PSResource
+      no-loc:
+      - Find-PSResource
+    - name: Get-InstalledPSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Get-InstalledPSResource
+      no-loc:
+      - Get-InstalledPSResource
+    - name: Get-PSResourceRepository
+      uid: Microsoft.PowerShell.PSResourceGet.Get-PSResourceRepository
+      no-loc:
+      - Get-PSResourceRepository
+    - name: Get-PSScriptFileInfo
+      uid: Microsoft.PowerShell.PSResourceGet.Get-PSScriptFileInfo
+      no-loc:
+      - Get-PSScriptFileInfo
+    - name: Import-PSGetRepository
+      uid: Microsoft.PowerShell.PSResourceGet.Import-PSGetRepository
+      no-loc:
+      - Import-PSGetRepository
+    - name: Install-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Install-PSResource
+      no-loc:
+      - Install-PSResource
+    - name: New-PSScriptFileInfo
+      uid: Microsoft.PowerShell.PSResourceGet.New-PSScriptFileInfo
+      no-loc:
+      - New-PSScriptFileInfo
+    - name: Publish-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Publish-PSResource
+      no-loc:
+      - Publish-PSResource
+    - name: Register-PSResourceRepository
+      uid: Microsoft.PowerShell.PSResourceGet.Register-PSResourceRepository
+      no-loc:
+      - Register-PSResourceRepository
+    - name: Save-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Save-PSResource
+      no-loc:
+      - Save-PSResource
+    - name: Set-PSResourceRepository
+      uid: Microsoft.PowerShell.PSResourceGet.Set-PSResourceRepository
+      no-loc:
+      - Set-PSResourceRepository
+    - name: Test-PSScriptFileInfo
+      uid: Microsoft.PowerShell.PSResourceGet.Test-PSScriptFileInfo
+      no-loc:
+      - Test-PSScriptFileInfo
+    - name: Uninstall-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Uninstall-PSResource
+      no-loc:
+      - Uninstall-PSResource
+    - name: Unregister-PSResourceRepository
+      uid: Microsoft.PowerShell.PSResourceGet.Unregister-PSResourceRepository
+      no-loc:
+      - Unregister-PSResourceRepository
+    - name: Update-PSModuleManifest
+      uid: Microsoft.PowerShell.PSResourceGet.Update-PSModuleManifest
+      no-loc:
+      - Update-PSModuleManifest
+    - name: Update-PSResource
+      uid: Microsoft.PowerShell.PSResourceGet.Update-PSResource
+      no-loc:
+      - Update-PSResource
+    - name: Update-PSScriptFileInfo
+      uid: Microsoft.PowerShell.PSResourceGet.Update-PSScriptFileInfo
+      no-loc:
+      - Update-PSScriptFileInfo
+    no-loc:
+    - Microsoft.PowerShell.PSResourceGet
+  - name: PowerShellGet
+    items:
+    - name: Commands
+      uid: PowerShellGet
+    - name: Find-Command
+      uid: PowerShellGet.Find-Command
+      no-loc:
+      - Find-Command
+    - name: Find-DscResource
+      uid: PowerShellGet.Find-DscResource
+      no-loc:
+      - Find-DscResource
+    - name: Find-Module
+      uid: PowerShellGet.Find-Module
+      no-loc:
+      - Find-Module
+    - name: Find-RoleCapability
+      uid: PowerShellGet.Find-RoleCapability
+      no-loc:
+      - Find-RoleCapability
+    - name: Find-Script
+      uid: PowerShellGet.Find-Script
+      no-loc:
+      - Find-Script
+    - name: Get-InstalledModule
+      uid: PowerShellGet.Get-InstalledModule
+      no-loc:
+      - Get-InstalledModule
+    - name: Get-InstalledScript
+      uid: PowerShellGet.Get-InstalledScript
+      no-loc:
+      - Get-InstalledScript
+    - name: Get-PSRepository
+      uid: PowerShellGet.Get-PSRepository
+      no-loc:
+      - Get-PSRepository
+    - name: Install-Module
+      uid: PowerShellGet.Install-Module
+      no-loc:
+      - Install-Module
+    - name: Install-Script
+      uid: PowerShellGet.Install-Script
+      no-loc:
+      - Install-Script
+    - name: New-ScriptFileInfo
+      uid: PowerShellGet.New-ScriptFileInfo
+      no-loc:
+      - New-ScriptFileInfo
+    - name: Publish-Module
+      uid: PowerShellGet.Publish-Module
+      no-loc:
+      - Publish-Module
+    - name: Publish-Script
+      uid: PowerShellGet.Publish-Script
+      no-loc:
+      - Publish-Script
+    - name: Register-PSRepository
+      uid: PowerShellGet.Register-PSRepository
+      no-loc:
+      - Register-PSRepository
+    - name: Save-Module
+      uid: PowerShellGet.Save-Module
+      no-loc:
+      - Save-Module
+    - name: Save-Script
+      uid: PowerShellGet.Save-Script
+      no-loc:
+      - Save-Script
+    - name: Set-PSRepository
+      uid: PowerShellGet.Set-PSRepository
+      no-loc:
+      - Set-PSRepository
+    - name: Test-ScriptFileInfo
+      uid: PowerShellGet.Test-ScriptFileInfo
+      no-loc:
+      - Test-ScriptFileInfo
+    - name: Uninstall-Module
+      uid: PowerShellGet.Uninstall-Module
+      no-loc:
+      - Uninstall-Module
+    - name: Uninstall-Script
+      uid: PowerShellGet.Uninstall-Script
+      no-loc:
+      - Uninstall-Script
+    - name: Unregister-PSRepository
+      uid: PowerShellGet.Unregister-PSRepository
+      no-loc:
+      - Unregister-PSRepository
+    - name: Update-Module
+      uid: PowerShellGet.Update-Module
+      no-loc:
+      - Update-Module
+    - name: Update-ModuleManifest
+      uid: PowerShellGet.Update-ModuleManifest
+      no-loc:
+      - Update-ModuleManifest
+    - name: Update-Script
+      uid: PowerShellGet.Update-Script
+      no-loc:
+      - Update-Script
+    - name: Update-ScriptFileInfo
+      uid: PowerShellGet.Update-ScriptFileInfo
+      no-loc:
+      - Update-ScriptFileInfo
+    no-loc:
+    - PowerShellGet
+metadata:
+  universal_conceptual_toc: /powershell/gallery/toc.json

@@ -1,0 +1,780 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Update-PSModuleManifest
+name: Update-PSModuleManifest
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Updates a module manifest file.
+description: |-
+  This cmdlet updates the data stored in a module manifest file. The parameters allow you to specify
+  which properties get updated. `Update-PSModuleManifest` overwrites any existing values in the module
+  manifest.
+
+  The cmdlet doesn't return an object.
+notes: |-
+  For a full description of the module manifest file, see
+  [about_Module_Manifests](/powershell/module/microsoft.powershell.core/about/about_module_manifests).
+parameters:
+  cmdletParameters:
+  - name: AliasesToExport
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the aliases that the module exports. Wildcards are permitted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Author
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the module author.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ClrVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of the Common Language Runtime (CLR) of the Microsoft .NET Framework
+      required by the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: CmdletsToExport
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the cmdlets that the module exports. Wildcards are permitted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: CompanyName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the company or vendor who created the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: CompatiblePSEditions
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the compatible **PSEditions** of the module. For information about **PSEdition**, see
+      [Modules with compatible PowerShell Editions](/powershell/scripting/gallery/concepts/module-psedition-support).
+    acceptedValues:
+    - Desktop
+    - Core
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Copyright
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a copyright statement for the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DefaultCommandPrefix
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the default command prefix.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Description
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a description of the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DotNetFrameworkVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of the Microsoft .NET Framework required by the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DscResourcesToExport
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the Desired State Configuration (DSC) resources that the module exports. Wildcards are
+      permitted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: ExternalModuleDependencies
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of external module dependencies.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: FileList
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies all items that are included in the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: FormatsToProcess
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the formatting files (`.ps1xml`) that are processed when the module is imported.
+
+      When you import a module, PowerShell runs the `Update-FormatData` cmdlet with the specified files.
+      Because formatting files aren't scoped, they affect all session states in the session.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: FunctionsToExport
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the functions that the module exports. Wildcards are permitted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Guid
+    type: <xref href="System.Guid" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a unique identifier for the module. The **GUID** is used to distinguish between modules
+      with the same name.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: HelpInfoUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the internet address of the module's HelpInfo XML file. Enter a Uniform Resource
+      Identifier (URI) that begins with `http:` or `https:`.
+
+      For more information, see
+      [Updatable Help](/powershell/module/microsoft.powershell.core/about/about_updatable_help).
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: IconUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URI of an icon for the module. The specified icon is displayed on the gallery web page
+      for the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LicenseUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URL of licensing terms for the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ModuleList
+    type: <xref href="System.Object" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of modules that are included in the module.
+
+      Enter each module name as a string or as a hashtable with **ModuleName** and **ModuleVersion** keys.
+      The hashtable can also have an optional **GUID** key. You can combine strings and hashtables in the
+      parameter value.
+
+      This key is designed to act as a module inventory.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ModuleVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the version of the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: NestedModules
+    type: <xref href="System.Object" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies script modules (`.psm1`) and binary modules (`.dll`) that are imported into the module's
+      session state. The files in the **NestedModules** key run in the order in which they're listed.
+
+      Enter each module name as a string or as a hashtable with **ModuleName** and **ModuleVersion** keys.
+      The hashtable can also have an optional **GUID** key. You can combine strings and hashtables in the
+      parameter value.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the path and filename of the module manifest. Enter filename with a `.psd1` file
+      extension.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PowerShellHostName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the name of the PowerShell host program that the module requires. Enter the name of the
+      host program, such as PowerShell ISE Host or ConsoleHost. Wildcards aren't permitted.
+
+      The name of a host program is stored in `$Host.Name`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PowerShellHostVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of the PowerShell host program that works with the module. Enter a
+      version number, such as 1.1.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PowerShellVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of PowerShell that works with this module. For example, you can
+      specify versions such as `5.1` or `7.2`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Prerelease
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the prerelease value that's appended to the module version. For example, if
+      **Prerelease** is `preview` and the **ModuleVersion** is `1.0.0`, the version of the module is
+      `1.0.0-preview`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PrivateData
+    type: <xref href="System.Collections.Hashtable" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies data that's passed to the module when it's imported. This can be any arbitrary values
+      stored in a hashtable.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProcessorArchitecture
+    type: <xref href="System.Reflection.ProcessorArchitecture" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the processor architecture that the module requires.
+
+      The acceptable values for this parameter are:
+
+      - `Amd64`
+      - `Arm`
+      - `IA64`
+      - `MSIL`
+      - `None` (unknown or unspecified)
+      - `X86`
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProjectUri
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the URI of a web page about this project.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ReleaseNotes
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a string that contains release notes or comments for the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredAssemblies
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the assembly (`.dll`) files required by the module. PowerShell loads the specified
+      assemblies before updating types or formats, importing nested modules, or importing the module file
+      specified in the **RootModule** key.
+
+      Use **RequiredAssemblies** for assemblies that must be loaded to update any formatting or type files
+      that are listed in the **FormatsToProcess** or **TypesToProcess** keys, even if those assemblies are
+      also listed in the **NestedModules** key.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredModules
+    type: <xref href="System.Object" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies modules that must be in the global session state. If the required modules aren't in the
+      global session state, PowerShell imports them. If the required modules aren't available, the
+      `Import-Module` command fails.
+
+      The value can be an array containing module names or module specifications. A module specification
+      is a hashtable that has the following keys.
+
+      - `ModuleName` - **Required** Specifies the module name.
+      - `GUID` - **Optional** Specifies the GUID of the module.
+      - It's also **Required** to specify at least one of the three below keys.
+        - `ModuleVersion` - Specifies a minimum acceptable version of the module.
+        - `MaximumVersion` - Specifies the maximum acceptable version of the module.
+        - `RequiredVersion` - Specifies an exact, required version of the module. This can't be used with
+          the other Version keys.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequireLicenseAcceptance
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies that a license acceptance is required for the module.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RootModule
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the primary or root file of the module. Enter the filename of a script (`.ps1`), a script
+      module (`.psm1`), a module manifest (`.psd1`), an assembly (`.dll`), or a cmdlet definition XML file
+      (`.cdxml`). When the module is imported, the members exported from the root module are imported into
+      the caller's session state.
+
+      If a module has a manifest file and no file is specified in the **RootModule** key, the manifest
+      becomes the primary file for the module. The module is known as a manifest module (**ModuleType** =
+      `Manifest`).
+
+      To export members from `.psm1` or `.dll` files, the names of those files must be specified in the
+      values of the **RootModule** or **NestedModules** keys in the manifest.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ScriptsToProcess
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies script (`.ps1`) files that run in the caller's session state when the module is imported.
+      You can use these scripts to prepare an environment, just as you might use a login script.
+
+      To specify scripts that run in the module's session state, use the **NestedModules** key.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Tags
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of tags.
+    aliases:
+    - Tag
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: TypesToProcess
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the type files (`.ps1xml`) that run when the module is imported.
+
+      When you import the module, PowerShell runs the `Update-TypeData` cmdlet with the specified files.
+      Because type files aren't scoped, they affect all session states in the session.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: VariablesToExport
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the variables that the module exports. Wildcards are permitted.
+
+      Use this parameter to restrict which variables that are exported by the module.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Update-PSModuleManifest
+        [-Path] <String>
+        [-NestedModules <Object[]>]
+        [-Guid <Guid>]
+        [-Author <String>]
+        [-CompanyName <String>]
+        [-Copyright <String>]
+        [-RootModule <String>]
+        [-ModuleVersion <Version>]
+        [-Description <String>]
+        [-ProcessorArchitecture <ProcessorArchitecture>]
+        [-CompatiblePSEditions <String[]>]
+        [-PowerShellVersion <Version>]
+        [-ClrVersion <Version>]
+        [-DotNetFrameworkVersion <Version>]
+        [-PowerShellHostName <String>]
+        [-PowerShellHostVersion <Version>]
+        [-RequiredModules <Object[]>]
+        [-TypesToProcess <String[]>]
+        [-FormatsToProcess <String[]>]
+        [-ScriptsToProcess <String[]>]
+        [-RequiredAssemblies <String[]>]
+        [-FileList <String[]>]
+        [-ModuleList <Object[]>]
+        [-FunctionsToExport <String[]>]
+        [-AliasesToExport <String[]>]
+        [-VariablesToExport <String[]>]
+        [-CmdletsToExport <String[]>]
+        [-DscResourcesToExport <String[]>]
+        [-Tags <String[]>]
+        [-ProjectUri <Uri>]
+        [-LicenseUri <Uri>]
+        [-IconUri <Uri>]
+        [-ReleaseNotes <String>]
+        [-Prerelease <String>]
+        [-HelpInfoUri <Uri>]
+        [-DefaultCommandPrefix <String>]
+        [-ExternalModuleDependencies <String[]>]
+        [-RequireLicenseAcceptance]
+        [-PrivateData <Hashtable>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: Example 1
+  description: |-
+    This example changes the **Author** property in the module manifest to `New Author`.
+
+    ```powershell
+    Update-PSModuleManifest -Path 'C:\MyModules\TestModule' -Author 'New Author'
+    ```
+- title: Example 2
+  description: |-
+    This example changes the **Prerelease** property to `beta2`.
+
+    ```powershell
+    Update-PSModuleManifest -Path 'C:\MyModules\TestModule' -Prerelease 'beta2'
+    ```
+- title: Example 3
+  description: |-
+    This example updates multiple properties.
+
+    ```powershell
+    $parameters = @{
+        Path = 'C:\MyModules\TestModule'
+        Tags = 'Windows', 'Linux'
+        Description = 'A module for managing packages.'
+    }
+    Update-PSModuleManifest
+    ```
+links:
+- text: New-ModuleManifest
+  href: /powershell/module/microsoft.powershell.core/new-modulemanifest
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psmodulemanifest?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

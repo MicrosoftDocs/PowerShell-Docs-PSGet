@@ -1,0 +1,375 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Update-PSResource
+name: Update-PSResource
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Downloads and installs the newest version of a package already installed on the local machine.
+description: |-
+  `Update-PSResource` downloads and installs the newest version of a package already installed on the
+  local machine. This cmdlet replaces the `Update-Module` and `Update-Script` cmdlets from
+  **PowerShellGet** v2. The new version of the resource is installed side-by-side with previous
+  versions in a new versioned folder.
+
+  By default, `Update-PSResource` installs the latest version of the package and any of its
+  dependencies without deleting the older versions installed. There is no command to uninstall older
+  versions of a package. You must manually delete the files and folders of the older versions.
+
+  `Update-PSResource` doesn't load the updated module into the current session. You must import the
+  new version or start a new session to use the updated module. For more information, see
+  [Import-Module](xref:Microsoft.PowerShell.Core.Import-Module).
+notes: |-
+  The module defines `udres` as an alias for `Update-PSResource`.
+parameters:
+  cmdletParameters:
+  - name: AcceptLicense
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      For resources that require a license, **AcceptLicense** automatically accepts the license agreement
+      during the update.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: AuthenticodeCheck
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Validates signed files and catalog files on Windows.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies optional credentials used when accessing a private repository.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, bypasses checks for **TrustRepository** and **AcceptLicense** and updates the
+      package.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the name of one or more resources to update. Wildcards are supported but NuGet only
+      accepts the `*` character. NuGet doesn't support wildcard searches of local (file-based)
+      repositories.
+    defaultValue: '*'
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: PassThru
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, outputs a **PSResourceInfo** object for the saved resource.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Prerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      When specified, allows updating to a prerelease version.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Quiet
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Suppresses progress information.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies one or more repository names to search. If not specified, search includes all registered
+      repositories, in priority order (highest first), until a repository is found that contains the
+      package. Repositories are sorted by priority then by name. Lower **Priority** values have a higher
+      precedence.
+
+      When searching for resources across multiple repositories, the **PSResourceGet** cmdlets search the
+      repositories using this sort order. `Update-PSResource` updates the first matching package from the
+      sorted list of repositories.
+
+      The parameter supports the `*` wildcard character. If you specify multiple repositories, all names
+      must include or omit the wildcard character. You can't specify a mix of names with and without
+      wildcards.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Scope
+    type: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.ScopeType" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the installation scope. Accepted values are:
+
+      - `CurrentUser`
+      - `AllUsers`
+
+      The default scope is `CurrentUser`, which doesn't require elevation.
+    acceptedValues:
+    - CurrentUser
+    - AllUsers
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: SkipDependencyCheck
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Skips the check for resource dependencies. This means that only named resources are updated.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: TemporaryPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the path to temporarily install the resource before actual installatoin. If no temporary
+      path is provided, the resource is temporarily installed in the current user's temporary folder.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: TrustRepository
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Suppress prompts to trust repository. The prompt to trust repository only occurs if the repository
+      isn't configured as trusted.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Version
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the version of the resource to be returned. The value can be an exact version or a version
+      range using the NuGet versioning syntax.
+
+      For more information about NuGet version ranges, see
+      [Package versioning](/nuget/concepts/package-versioning#version-ranges).
+
+      PowerShellGet supports all but the _minimum inclusive version_ listed in the NuGet version range
+      documentation. Using `1.0.0.0` as the version doesn't yield versions 1.0.0.0 and higher (minimum
+      inclusive range). Instead, the value is considered to be the required version. To search for a
+      minimum inclusive range, use `[1.0.0.0, ]` as the version range.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Update-PSResource
+        [[-Name] <String[]>]
+        [-Version <String>]
+        [-Prerelease]
+        [-Repository <String[]>]
+        [-Scope <ScopeType>]
+        [-TemporaryPath <String>]
+        [-TrustRepository]
+        [-Credential <PSCredential>]
+        [-Quiet]
+        [-AcceptLicense]
+        [-Force]
+        [-PassThru]
+        [-SkipDependencyCheck]
+        [-AuthenticodeCheck]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo" data-throw-if-not-resolved="False" />
+  description: |-
+    By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
+    cmdlet outputs a **PSResourceInfo** object for the saved resource.
+examples:
+- title: Example 1
+  description: |-
+    In this example, the user already has the **TestModule** package installed and they update the
+    package.
+
+    ```powershell
+    Get-PSResource -Name "TestModule"
+    ```
+
+    ```Output
+    Name                                    Version                         Prerelease   Description
+    ----                                    -------                         ----------   -----------
+    TestModule                              1.2.0                                        test
+    ```
+
+    ```powershell
+    Update-PSResource -Name "TestModule"
+    ```
+
+    ```Output
+    Name                                    Version                         Prerelease   Description
+    ----                                    -------                         ----------   -----------
+    TestModule                              1.3.0                                        test
+    TestModule                              1.2.0                                        test
+    ```
+links:
+- text: Install-PSResource
+  href: Install-PSResource.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 10/31/2024
+  PlatyPS schema version: 2024-05-01

@@ -1,0 +1,314 @@
+### YamlMime:PowerShellCmdlet1
+uid: Microsoft.PowerShell.PSResourceGet.Publish-PSResource
+name: Publish-PSResource
+module: Microsoft.PowerShell.PSResourceGet
+isPreview: false
+summary: |-
+  Publishes a specified module from the local computer to PSResource repository.
+description: |-
+  This cmdlet combines the functions of the `Publish-Module` and `Publish-Script` cmdlets from
+  **PowerShellGet** v2. `Publish-PSResource` publishes a resource from the local computer to an online
+  NuGet-based repository. You can specify the resource by a path containing the module or script
+  resource files or by pointing a prepackaged `.nupkg` file.
+notes: |-
+  The module defines `pbres` as an alias for `Publish-PSResource`.
+
+  Fileshare-based repository have no metadata about the resources. Therefore, there is no way to check
+  for dependencies.
+parameters:
+  cmdletParameters:
+  - name: ApiKey
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the API key that you want to use to publish a resource to the online gallery.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has rights to a specific repository.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: DestinationPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the path where the NuGet package `.nupkg` file should be saved. This parameter can be used
+      in conjunction with the **Repository** parameter to publish to a repository and also save the exact
+      same package to the local file system.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ModulePrefix
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      This is a dynamic parameter that's only available on the command line when you have supplied the
+      **Path** or **Nupkg** parameters and the **Repository** parameter for a `ContainerRegistry`
+      repository.
+
+      The value of the parameter is pre-pended to the package name. This information is only used for
+      publishing and isn't included in the package metadata. The module prefix controls the visibility of
+      the module, for example: `internal`, `public`, `staging`.
+
+      This parameter is only used when publishing to the Microsoft Artifact Registry (MAR).
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: All
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: NupkgPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Path to the `.nupkg` file to be published. The `.nupkg` file could have been created by a previous
+      run of `Publish-PSResource` with the **DestinationPath** parameter. Or, you can create the `.nupkg`
+      file using the `Compress-PSResource` command.
+
+      This parameter was added in v1.1.0-preview2 of **Microsoft.PowerShell.PSResourceGet**.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NupkgPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The path to the module or script file or the path to a folder containing the module or script file
+      to be published. The cmdlet packages all files in the folder into a `.nupkg` file before publishing
+      to the repository.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      The URL to a proxy server used to access repositories outside of your network.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      The credentials required to use the proxy server.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the repository to publish to.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: SkipDependenciesCheck
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Bypasses the default check that all dependencies are present in the target repository.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: SkipModuleManifestValidate
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Skips validating the module manifest before publishing.
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Publish-PSResource
+        [-Path] <String>
+        [-ApiKey <String>]
+        [-Repository <String>]
+        [-DestinationPath <String>]
+        [-Credential <PSCredential>]
+        [-SkipDependenciesCheck]
+        [-SkipModuleManifestValidate]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PathParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Publish-PSResource
+        -NupkgPath <String>
+        [-ApiKey <String>]
+        [-Repository <String>]
+        [-DestinationPath <String>]
+        [-Credential <PSCredential>]
+        [-SkipDependenciesCheck]
+        [-SkipModuleManifestValidate]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NupkgPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="None" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: Example 1
+  description: |-
+    This example publishes the module **TestModule** to the repository registered with highest priority.
+
+    ```powershell
+    Publish-PSResource -Path c:\TestModule
+    ```
+- title: Example 2
+  description: |-
+    This example publishes the module **TestModule** to the PowerShell Gallery. The API key is a secret
+    that's generated by the PowerShell Gallery for a user account.
+
+    ```powershell
+    Publish-PSResource -Path c:\TestModule -Repository PSGallery -APIKey '1234567'
+    ```
+- title: Example 3
+  description: |-
+    This example publishes the module Nupkg **TestModule.nupkg** to a repository named TestRepository.
+
+    ```powershell
+    Publish-PSResource -NupkgPath c:\TestModule.nupkg -Repository TestRepository
+    ```
+links:
+- text: Compress-PSResource
+  href: Compress-PSResource.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
+  Module Name: Microsoft.PowerShell.PSResourceGet
+  ms.custom: 1.1.1
+  ms.date: 05/14/2025
+  PlatyPS schema version: 2024-05-01

@@ -1,0 +1,418 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Save-Script
+name: Save-Script
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Saves a script.
+description: |-
+  The `Save-Script` cmdlet saves the specified script.
+notes: |-
+  > [!IMPORTANT]
+  > As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
+  > versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
+  > trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
+  > 1.2:
+  >
+  > `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+  >
+  > For more information, see the
+  > [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
+  > PowerShell blog.
+parameters:
+  cmdletParameters:
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running `Save-Script`.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to save a script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces `Save-Script` to run without asking for user confirmation.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: InputObject
+    type: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Accepts a **PSRepositoryItemInfo** object. For example, output `Find-Script` to a variable and use
+      that variable as the **InputObject** argument.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: InputOjectAndLiteralPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputOjectAndPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: true
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. The value of the **LiteralPath** parameter is used
+      exactly as entered. No characters are interpreted as wildcards. If the path includes escape
+      characters, enclose the path within single quotation marks. PowerShell doesn't interpret any
+      characters enclosed in single quotation marks as escape sequences.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputOjectAndLiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the maximum, or newest version of the script to save. The **MaximumVersion** and
+      **RequiredVersion** parameters can't be used in the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the minimum version of a script to save. The **MinimumVersion** and **RequiredVersion**
+      parameters can't be used in the same command.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of script names to save.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: "0"
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the location on the local computer to store a saved module. Accepts wildcard characters.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: InputOjectAndPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a proxy server for the request, rather than connecting directly to an internet resource.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to use the proxy server specified by the **Proxy**
+      parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies the friendly name of a repository that has been registered by running
+      `Register-PSRepository`. Use `Get-PSRepository` to display registered repositories.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: RequiredVersion
+    type: <xref href="System.Version" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the exact version number of the script to save.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NameAndPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    - name: NameAndLiteralPathParameterSet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if `Save-Script` runs. The cmdlet isn't run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Save-Script
+        [-Name] <String[]>
+        -Path <String>
+        [-MinimumVersion <Version>]
+        [-MaximumVersion <Version>]
+        [-RequiredVersion <Version>]
+        [-Repository <String[]>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameAndPathParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Save-Script
+        [-Name] <String[]>
+        -LiteralPath <String>
+        [-MinimumVersion <Version>]
+        [-MaximumVersion <Version>]
+        [-RequiredVersion <Version>]
+        [-Repository <String[]>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NameAndLiteralPathParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Script
+        [-InputObject] <PSObject[]>
+        -LiteralPath <String>
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputOjectAndLiteralPathParameterSet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Save-Script
+        [-InputObject] <PSObject[]>
+        -Path <String>
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: InputOjectAndPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSObject" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Version" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: "Example 1: Save a script and validate the script's metadata"
+  description: |-
+    In this example, a script from a repository is saved to the local computer and the script's metadata
+    is validated.
+
+    ```powershell
+    Save-Script -Name Install-VSCode -Repository PSGallery -Path C:\Test\Scripts
+    Test-ScriptFileInfo -Path C:\Test\Scripts\Install-VSCode.ps1
+    ```
+
+    ```Output
+    Version   Name              Author      Description
+    -------   ----              ------      -----------
+    1.3       Install-VSCode    Microsoft   This script can be used to easily install Visual Studio Code
+    ```
+
+    `Save-Script` uses the **Name** parameter to specify the script's name. The **Repository** parameter
+    specifies where to find the script. The script is saved in the location specified by the **Path**
+    parameter. `Test-ScriptFileInfo` specifies the **Path** and validates the script's metadata.
+links:
+- text: Find-Script
+  href: Find-Script.yml
+- text: Install-Script
+  href: Install-Script.yml
+- text: Publish-Script
+  href: Publish-Script.yml
+- text: Test-ScriptFileInfo
+  href: Test-ScriptFileInfo.yml
+- text: Uninstall-Script
+  href: Uninstall-Script.yml
+- text: Update-Script
+  href: Update-Script.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/save-script?view=powershellget-1.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.date: 07/02/2019
+  PlatyPS schema version: 2024-05-01
+  title: Save-Script

@@ -1,0 +1,302 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Publish-Script
+name: Publish-Script
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Publishes a script.
+description: |-
+  The `Publish-Script` cmdlet publishes the specified script to the online gallery.
+
+  This is a proxy cmdlet for the `Publish-PSResource` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Publish-PSResource](../Microsoft.PowerShell.PSResourceGet/Publish-PSResource.yml).
+notes: |-
+  The PowerShell Gallery no longer supports Transport Layer Security (TLS) versions 1.0 and 1.1. You
+  must use TLS 1.2 or higher. Use the following command to ensure you are using TLS 1.2:
+
+  `[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12`
+parameters:
+  cmdletParameters:
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has rights to publish the script.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet ignores this parameter since it's not supported by `Publish-PSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: LiteralPath
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. Unlike the **Path** parameter, the value of the
+      **LiteralPath** parameter is used exactly as entered. No characters are interpreted as wildcards. If
+      the path includes escape characters, enclose them in single quotation marks. Single quotation marks
+      tell Windows PowerShell not to interpret any characters as escape sequences.
+
+      The parameter is mapped to the **Path** parameter of the `Publish-PSResource` cmdlet.
+    aliases:
+    - PSPath
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: LiteralPathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: NuGetApiKey
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the API key that you want to use to publish a script to the online gallery. The API key is
+      part of your profile in the online gallery. For more information see [Managing API keys](/powershell/scripting/gallery/how-to/managing-profile/creating-apikeys).
+
+      The parameter is mapped to the **ApiKey** parameter of the `Publish-PSResource` cmdlet.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Path
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a path to one or more locations. Wildcards are permitted. The default location is the
+      current directory.
+    defaultValue: <Current location>
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PathParameterSet
+      position: Named
+      isRequired: true
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: Repository
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the friendly name of a repository that has been registered by running
+      `Register-PSRepository`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet is not run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Publish-Script
+        -Path <String>
+        [-NuGetApiKey <String>]
+        [-Repository <String>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PathParameterSet
+  isDefault: true
+- syntax: |-
+    ```Syntax
+    Publish-Script
+        -LiteralPath <String>
+        [-NuGetApiKey <String>]
+        [-Repository <String>]
+        [-Credential <PSCredential>]
+        [-Force]
+        [-WhatIf]
+        [-Confirm]
+        [<CommonParameters>]
+    ```
+  parameterSetName: LiteralPathParameterSet
+  isDefault: false
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Create a script file, add content to it, and publish it'
+  description: |-
+    The `New-ScriptFileInfo` cmdlet creates a script file named `Demo-Script.ps1`. `Get-Content`
+    displays the content of `Demo-Script.ps1`. The `Add-Content` cmdlet adds a function and a workflow
+    to `Demo-Script.ps1`.
+
+    ```powershell
+    $newScriptInfo = @{
+      Path = 'D:\ScriptSharingDemo\Demo-Script.ps1'
+      Version = '1.0'
+      Author = 'author@contoso.com'
+      Description = "my test script file description goes here"
+    }
+    New-ScriptFileInfo @newScriptInfo
+    Get-Content -Path $newScriptInfo.Path
+    ```
+
+    ```Output
+    <#PSScriptInfo
+
+    .VERSION 1.0
+
+    .AUTHOR pattif@microsoft.com
+
+    .COMPANYNAME
+
+    .COPYRIGHT
+
+    .TAGS
+
+    .LICENSEURI
+
+    .PROJECTURI
+
+    .ICONURI
+
+    .EXTERNALMODULEDEPENDENCIES
+
+    .REQUIREDSCRIPTS
+
+    .EXTERNALSCRIPTDEPENDENCIES
+
+    .RELEASENOTES
+    #>
+
+    <#
+    .DESCRIPTION
+     my test script file description goes here
+    #>
+    Param()
+    ```
+
+    ```powershell
+    Add-Content -Path D:\ScriptSharingDemo\Demo-Script.ps1 -Value @"
+
+    Function Demo-ScriptFunction { 'Demo-ScriptFunction' }
+
+    Workflow Demo-ScriptWorkflow { 'Demo-ScriptWorkflow' }
+
+    Demo-ScriptFunction
+    Demo-ScriptWorkflow
+    "@
+    Test-ScriptFileInfo -Path D:\ScriptSharingDemo\Demo-Script.ps1
+    ```
+
+    ```Output
+    Version    Name                 Author                   Description
+    -------    ----                 ------                   -----------
+    1.0        Demo-Script          author@contoso.com       my test script file description goes here
+    ```
+
+    ```powershell
+    Publish-Script -Path D:\ScriptSharingDemo\Demo-Script.ps1 -Repository LocalRepo1
+    Find-Script -Repository LocalRepo1 -Name "Demo-Script"
+    ```
+
+    ```Output
+    Version    Name                 Type       Repository    Description
+    -------    ----                 ----       ----------    -----------
+    1.0        Demo-Script          Script     LocalRepo1    my test script file description goes here
+    ```
+
+    The `Test-ScriptFileInfo` cmdlet validates `Demo-Script.ps1`. The `Publish-Script` cmdlet publishes
+    the script to the **LocalRepo1** repository. Finally. `Find-Script` is used to search for
+    `Demo-Script.ps1` in the **LocalRepo1** repository.
+links:
+- text: Find-Script
+  href: Find-Script.yml
+- text: Install-Script
+  href: Install-Script.yml
+- text: Publish-Script
+  href: Publish-Script.yml
+- text: Save-Script
+  href: Save-Script.yml
+- text: Update-Script
+  href: Update-Script.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/publish-script?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Publish-Script

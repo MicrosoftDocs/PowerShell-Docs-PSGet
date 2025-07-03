@@ -1,0 +1,389 @@
+### YamlMime:PowerShellCmdlet1
+uid: PackageManagement.Register-PackageSource
+name: Register-PackageSource
+module: PackageManagement
+isPreview: false
+summary: |-
+  Adds a package source for a specified package provider.
+description: |-
+  The `Register-PackageSource` cmdlet adds a package source for a specified package provider. Package
+  sources are always managed by a package provider. If the package provider cannot add or replace a
+  package source, the provider generates an error message.
+notes: |-
+  > [!IMPORTANT]
+  > As of April 2020, the PowerShell Gallery no longer supports Transport Layer Security (TLS)
+  > versions 1.0 and 1.1. If you are not using TLS 1.2 or higher, you will receive an error when
+  > trying to access the PowerShell Gallery. Use the following command to ensure you are using TLS
+  > 1.2:
+  >
+  > `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12`
+  >
+  > For more information, see the
+  > [announcement](https://devblogs.microsoft.com/powershell/powershell-gallery-tls-support/) in the
+  > PowerShell blog.
+parameters:
+  cmdletParameters:
+  - name: ConfigFile
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a configuration file.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Confirm
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Prompts you for confirmation before running the cmdlet.
+    aliases:
+    - cf
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Credential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to access the authenticated location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Force
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Forces the command to run without asking for user confirmation.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ForceBootstrap
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that this cmdlet automatically installs the package provider.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Location
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the package source location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "1"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the name of the package source to register.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PackageManagementProvider
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the Package Management provider.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProviderName
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the package provider's name.
+    acceptedValues:
+    - Bootstrap
+    - NuGet
+    - PowerShellGet
+    aliases:
+    - Provider
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: SourceBySearch
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Proxy
+    type: <xref href="System.Uri" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a proxy server for the request, rather than a direct connection to the internet resource.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ProxyCredential
+    type: <xref href="System.Management.Automation.PSCredential" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies a user account that has permission to use the proxy server that is specified by the
+      **Proxy** parameter.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: PublishLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the publish location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ScriptPublishLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script publish location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: ScriptSourceLocation
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      Specifies the script source location.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: PowerShellGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: SkipValidate
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Switch that skips validating the credentials of a package source.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: NuGet
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Trusted
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Indicates that the package source is trusted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: WhatIf
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Shows what would happen if the cmdlet runs. The cmdlet is not run.
+    aliases:
+    - wi
+    defaultValue: "False"
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Register-PackageSource
+        [[-Name] <String>]
+        [[-Location] <String>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Trusted]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-ProviderName <String>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: SourceBySearch
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Register-PackageSource
+        [[-Name] <String>]
+        [[-Location] <String>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Trusted]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-ConfigFile <String>]
+        [-SkipValidate]
+        [<CommonParameters>]
+    ```
+  parameterSetName: NuGet
+  isDefault: false
+- syntax: |-
+    ```Syntax
+    Register-PackageSource
+        [[-Name] <String>]
+        [[-Location] <String>]
+        [-Proxy <Uri>]
+        [-ProxyCredential <PSCredential>]
+        [-Credential <PSCredential>]
+        [-Trusted]
+        [-Force]
+        [-ForceBootstrap]
+        [-WhatIf]
+        [-Confirm]
+        [-PackageManagementProvider <String>]
+        [-PublishLocation <String>]
+        [-ScriptSourceLocation <String>]
+        [-ScriptPublishLocation <String>]
+        [<CommonParameters>]
+    ```
+  parameterSetName: PowerShellGet
+  isDefault: false
+examples:
+- title: 'Example 1: Register a package source for the NuGet provider'
+  description: |-
+    This command registers a package source, a web-based location for the **NuGet** provider. By
+    default, sources aren't trusted. You are prompted to confirm the source is trusted before packages
+    are installed. To override the default, use the `-Trusted` parameter.
+
+    ```powershell
+    Register-PackageSource -Name MyNuGet -Location https://www.nuget.org/api/v2 -ProviderName NuGet
+    ```
+
+    ```Output
+    Name          ProviderName     IsTrusted  Location
+    ----          ------------     ---------  --------
+    MyNuGet       NuGet            False      https://www.nuget.org/api/v2
+    ```
+links:
+- text: about_PackageManagement
+  href: /powershell/module/Microsoft.PowerShell.Core/About/about_PackageManagement
+- text: Get-PackageSource
+  href: Get-PackageSource.yml
+- text: Set-PackageSource
+  href: Set-PackageSource.yml
+- text: Unregister-PackageSource
+  href: Unregister-PackageSource.yml
+metadata:
+  document type: cmdlet
+  external help file: Microsoft.PowerShell.PackageManagement.dll-Help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/packagemanagement/register-packagesource?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PackageManagement
+  ms.date: 04/01/2019
+  PlatyPS schema version: 2024-05-01
+  title: Register-PackageSource

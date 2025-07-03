@@ -1,0 +1,156 @@
+### YamlMime:PowerShellCmdlet1
+uid: PowerShellGet.Get-InstalledScript
+name: Get-InstalledScript
+module: PowerShellGet
+isPreview: false
+summary: |-
+  Gets an installed script.
+description: |-
+  The `Get-InstalledScript` cmdlet gets installed scripts for **CurrentUser** and **AllUsers** scopes.
+
+  This is a proxy cmdlet for the `Get-InstalledPSResource` cmdlet in the
+  **Microsoft.PowerShell.PSResourceGet**. For more information, see
+  [Get-InstalledPSResource](../Microsoft.PowerShell.PSResourceGet/Get-InstalledPSResource.yml).
+parameters:
+  cmdletParameters:
+  - name: AllowPrerelease
+    type: <xref href="System.Management.Automation.SwitchParameter" data-throw-if-not-resolved="False" />
+    description: |-
+      Includes in the results scripts marked as a prerelease.
+
+      The proxy cmdlet maps this parameter to the **Prerelease** parameter of `Get-InstalledPSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: false
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MaximumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Get-InstalledPSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: MinimumVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Get-InstalledPSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  - name: Name
+    type: <xref href="System.String" data-throw-if-not-resolved="False" /><span>[</span><span>]</span>
+    description: |-
+      Specifies an array of names of scripts to get. Wildcards are accepted.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: "0"
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: true
+  - name: RequiredVersion
+    type: <xref href="System.String" data-throw-if-not-resolved="False" />
+    description: |-
+      The proxy cmdlet uses the value of this parameter to create a NuGet version search string for use
+      with the **Version** parameter of `Get-InstalledPSResource`.
+    defaultValue: None
+    dontShow: false
+    isDynamic: false
+    parameterSets:
+    - name: (All)
+      position: Named
+      isRequired: false
+      valueFromPipeline: false
+      valueFromPipelineByPropertyName: true
+      valueFromRemainingArguments: false
+    supportsWildcards: false
+  commonParameters: |-
+    This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
+    -InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+    -ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+    [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+syntaxes:
+- syntax: |-
+    ```Syntax
+    Get-InstalledScript
+        [[-Name] <String[]>]
+        [-MinimumVersion <String>]
+        [-RequiredVersion <String>]
+        [-MaximumVersion <String>]
+        [-AllowPrerelease]
+        [<CommonParameters>]
+    ```
+  parameterSetName: Default
+  isDefault: true
+inputs:
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+- name: <xref href="System.String" data-throw-if-not-resolved="False" />
+outputs:
+- name: <xref href="System.Object" data-throw-if-not-resolved="False" />
+examples:
+- title: 'Example 1: Get all installed scripts'
+  description: |-
+    ```powershell
+    Get-InstalledScript
+    ```
+
+    This command gets all installed scripts.
+- title: 'Example 2: Get installed scripts by name'
+  description: |-
+    ```powershell
+    Get-InstalledScript -Name "Required-Scri*"
+    ```
+
+    ```Output
+    Version    Name                                Type       Repository           Description
+    -------    ----                                ----       ----------           -----------
+    2.5        Required-Script1                    Script     local1               Description for the Required-Script1 script
+    2.5        Required-Script2                    Script     local1               Description for the Required-Script2 script
+    2.5        Required-Script3                    Script     local1               Description for the Required-Script3 script
+    ```
+
+    This command gets scripts where the name begins with `Required-Scri`.
+links:
+- text: Install-Script
+  href: Install-Script.yml
+- text: Uninstall-Script
+  href: Uninstall-Script.yml
+metadata:
+  document type: cmdlet
+  external help file: PSModule-help.xml
+  HelpUri: https://learn.microsoft.com/powershell/module/powershellget/get-installedscript?view=powershellget-2.x&WT.mc_id=ps-gethelp
+  Locale: en-US
+  Module Name: PowerShellGet
+  ms.custom: 3.0.22-beta22
+  ms.date: 09/19/2023
+  PlatyPS schema version: 2024-05-01
+  title: Get-InstalledScript
