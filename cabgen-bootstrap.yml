@@ -1,15 +1,15 @@
 trigger:
-  - live
+- danni-test
 
 pr:
-  - live
+- live
 
 resources:
   repositories:
     - repository: ReferenceAutomation
       type: git
       name: Content CI/ReferenceAutomation
-      ref: refs/heads/master
+      ref: refs/heads/xdanni/cabgen-test
 
 extends:
   template: PowerShell/cabgen.yml@ReferenceAutomation
