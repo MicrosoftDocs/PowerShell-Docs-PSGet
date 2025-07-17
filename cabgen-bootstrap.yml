@@ -1,8 +1,7 @@
 trigger:
 - danni-test
 
-pr:
-- live
+pr: none
 
 resources:
   repositories:
