@@ -12,10 +12,10 @@ disputes with other PowerShell Gallery publishers.
 
 1. Contact the owners of the package you have the dispute with using the **Contact Owners** link on
    the package details page. Explain your issue in a kind and direct manner.
-1. Send a copy of your message to [cgadmin@microsoft.com](mailto:cgadmin@microsoft.com) so that
+1. Send a copy of your message to [psgadmin@microsoft.com](mailto:psgadmin@microsoft.com) so that
    PowerShell Gallery Administrators are aware of your dispute.
 1. Wait a maximum of 30 days and if you don't have resolution notify
-   [cgadmin@microsoft.com](mailto:cgadmin@microsoft.com) again.
+   [psgadmin@microsoft.com](mailto:psgadmin@microsoft.com) again.
 
 The PowerShellGallery.com support team will get involved and try to work this out.
 

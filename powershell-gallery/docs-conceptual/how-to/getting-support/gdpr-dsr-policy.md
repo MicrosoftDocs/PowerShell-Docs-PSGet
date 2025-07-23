@@ -50,7 +50,7 @@ Email correspondence may include any of the following:
 - Email sent to the owners of PowerShell Gallery packages if the code analysis scans detected an
   issue with any package they have published to the PowerShell Gallery
 - Email sent by anyone to the PowerShell Gallery team using the email address in the "Contact Us"
-  page [cgadmin@microsoft.com](mailto:cgadmin@microsoft.com)
+  page [psgadmin@microsoft.com](mailto:psgadmin@microsoft.com)
 - Registered users who use the "Contact Owner" feature in the PowerShell Gallery to send email to
   the owner of a package in the PowerShell Gallery
 
@@ -60,7 +60,7 @@ deleted by policy after 90 days.
 
 You may request copies of all emails sent to or from your email address and the PowerShell Gallery
 within the previous 90 days. To request this correspondence, send an email to
-[cgadmin@microsoft.com](mailto:cgadmin@microsoft.com), with the title: "DSR Request for emails
+[psgadmin@microsoft.com](mailto:psgadmin@microsoft.com), with the title: "DSR Request for emails
 relating to this account". In the body of the message, state what information you are requesting
 (for example: Please send all emails sent to or received from this email address.) All emails
 involving your email address within 90 days of the request will be sent within 7 business days.
@@ -108,7 +108,7 @@ be saved.
 ## Deleting Personal Data From The PowerShell Gallery
 
 To delete your PowerShell Gallery account or any package you own in the PowerShell Gallery, send
-email to cgadmin@microsoft.com with the title: "GDPR Request for items relating to this account". In
+email to psgadmin@microsoft.com with the title: "GDPR Request for items relating to this account". In
 the body of the message state what information you want deleted. For example:
 
 - Please delete version x.y.z of my package "package name"
