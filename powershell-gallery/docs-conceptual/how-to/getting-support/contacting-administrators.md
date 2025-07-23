@@ -19,7 +19,7 @@ You should contact gallery administrators when:
 
 ## How to Contact Gallery Administrators
 
-1. Send us an email: cgadmin@microsoft.com.
+1. Send us an email: psgadmin@microsoft.com.
 1. If you are reporting abuse of a package, you can find Report Abuse link below the package
    information on the left panel.
 1. For any other general questions regarding the Gallery, please submit your question to the
