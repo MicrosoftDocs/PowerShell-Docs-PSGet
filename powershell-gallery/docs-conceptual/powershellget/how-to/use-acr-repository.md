@@ -134,6 +134,13 @@ information, see [Find-PSResource][10].
   Find-PSResource -Name MyModule -Repository ACRDemoRepo
   ```
 
+- Find by name wildcard
+
+  ```powershell
+  Find-PSResource -Name * -Repository ACRDemoRepo
+  Find-PSResource -Name PartialName* -Repository ACRDemoRepo
+  ```
+
 - Find by version
 
   ```powershell
@@ -184,9 +191,6 @@ information, see [Install-PSResource][11].
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 ACR repositories:
 
-- Find by name using wildcards
-  - `Find-PSResource -Name * -Repository ACRDemoRepo`
-  - `Find-PSResource -Name PartialName* -Repository ACRDemoRepo`
 - Find by tag value
   - `Find-PSResource -Tag TagValue -Repository ACRDemoRepo`
 - Find by command
