@@ -1,6 +1,6 @@
 ---
 description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
-ms.date: 06/19/2025
+ms.date: 09/09/2025
 ms.topic: get-started
 title: Get Started with the PowerShell Gallery
 ---
@@ -128,6 +128,8 @@ installed directly from the PowerShell Gallery.
 
 ## Network access to the PowerShell Gallery
 
+[!INCLUDE [TLS 1.2 Requirement](../includes/tls-gallery.md)]
+
 These hostnames should be added to the allow lists that control access from your network.
 
 Hosts required for package discovery and download:
@@ -140,7 +142,9 @@ Hosts required when using the PowerShell Gallery website:
 - `*.powershellgallery.com` - website
 - `go.microsoft.com` and `aka.ms` - redirection services
 
-[!INCLUDE [TLS 1.2 Requirement](../includes/tls-gallery.md)]
+> [!NOTE]
+> These endpoints have changed. The old endpoints that ended with `azureedge.net` are no longer
+> supported.
 
 ## Related links
 
