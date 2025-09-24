@@ -9,11 +9,11 @@ title: about_PSResourceGet_Group_Policy
 ---
 # about_PSResourceGet_Group_Policy
 
-## Short description
+## SHORT DESCRIPTION
 
 Describes the Group Policy settings for the PSResourceGet module.
 
-## Long description
+## LONG DESCRIPTION
 
 **Microsoft.PowerShell.PSResourceGet** includes a Group Policy to specify a
 list of repositories that can be accessed by the module. All other repositories
@@ -60,7 +60,7 @@ Mode            LastWriteTime     Length Name
 After installing the templates, you can edit these settings in the Group Policy
 Editor (`gpedit.msc`).
 
-## Configure a list of allowed repositories
+## CONFIGURE A LIST OF ALLOWED REPOSITORIES
 
 There is only one setting for the **PSResourceGet Repository Policies** Group
 Policy.
@@ -86,7 +86,7 @@ You may add as may repositories as you like, each on their own line.
 > repositories are allowed, effectively disabling
 > **Microsoft.PowerShell.PSResourceGet** module.
 
-## Determine the affect of Group Policy
+## DETERMINE THE AFFECT OF GROUP POLICY
 
 Once you have applied the Group Policy setting, the PSResourceGet commands that
 communicate with repositories check the policy before attempting to access the
