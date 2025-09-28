@@ -9,12 +9,12 @@ title: about PSResourceGet
 ---
 # about_PSResourceGet
 
-## SHORT DESCRIPTION
+## Short description
 
 Describes how to use version 1.1.1 of the
 **Microsoft.PowerShell.PSResourceGet** module.
 
-## LONG DESCRIPTION
+## Long description
 
 **Microsoft.PowerShell.PSResourceGet** is an updated version of the
 **PowerShellGet** module completely written in C#.
@@ -29,7 +29,7 @@ This version of PowerShellGet focuses on a few key areas:
   separate compatibility module
 - Improve search and installation performance
 
-## DESIGN CHANGES
+## Design changes
 
 Previous versions of **PowerShellGet** had separate commands to work with
 modules and scripts. In **Microsoft.PowerShell.PSResourceGet**, all packages in
@@ -69,7 +69,7 @@ v3 and their v2 equivalents.
 | `Update-PSResource`                | `Update-Script`           |
 | `Update-PSScriptFileInfo`          | `Update-ScriptFileInfo`   |
 
-## SEARCHING BY NUGET VERSION RANGES
+## Searching by NuGet version ranges
 
 Several **Microsoft.PowerShell.PSResourceGet** cmdlets provide a **Version**
 parameter that allows you to specify a range of versions to search for. The
@@ -82,7 +82,7 @@ versions 1.0.0.0 and higher (minimum inclusive range). Instead, the value is
 considered to be the required version. To search for a minimum inclusive range,
 use `[1.0.0.0, ]` as the version range.
 
-## SEARCHING BY REQUIRED RESOURCES
+## Searching by required resources
 
 The [`Install-PSResource`][04] cmdlet has **RequiredResource** and
 **RequiredResourceFile** parameters that are used to find **PSResource**
@@ -141,7 +141,7 @@ The next example shows the same specification in JSON format.
 }
 ```
 
-## SEE ALSO
+## See also
 
 - [Install-PSResource][04]
 - [Find-PSResource][02]
