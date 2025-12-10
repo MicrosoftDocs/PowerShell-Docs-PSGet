@@ -11,7 +11,7 @@ title: about PSResourceGet
 
 ## Short description
 
-Describes how to use version 1.1.1 of the
+Describes how to use version 1.2.0-preview5 of the
 **Microsoft.PowerShell.PSResourceGet** module.
 
 ## Long description
@@ -57,6 +57,7 @@ v3 and their v2 equivalents.
 | `Publish-PSResource`               | `Publish-Module`          |
 | `Publish-PSResource`               | `Publish-Script`          |
 | `Register-PSResourceRepository`    | `Register-PSRepository`   |
+| `Reset-PSResourceRepository`       | n/a                       |
 | `Save-PSResource`                  | `Save-Module`             |
 | `Save-PSResource`                  | `Save-Script`             |
 | `Set-PSResourceRepository`         | `Set-PSRepository`        |

@@ -1,12 +1,11 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.1
-ms.date: 05/14/2025
+ms.custom: 1.2.0-p5
+ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
-
 # Publish-PSResource
 
 ## SYNOPSIS
@@ -20,8 +19,8 @@ Publishes a specified module from the local computer to PSResource repository.
 ```
 Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
  [-DestinationPath <String>] [-Credential <PSCredential>] [-SkipDependenciesCheck]
- [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-WhatIf]
- [-Confirm] [<CommonParameters>]
+ [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
+ [-ModulePrefix <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### NupkgPathParameterSet
@@ -29,7 +28,8 @@ Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
 ```
 Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-DestinationPath <String>]
  [-Credential <PSCredential>] [-SkipDependenciesCheck] [-SkipModuleManifestValidate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] -NupkgPath <String> [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-ProxyCredential <PSCredential>] -NupkgPath <String> [-ModulePrefix <String>] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -120,15 +120,11 @@ Accept wildcard characters: False
 
 ### -ModulePrefix
 
-This is a dynamic parameter that's only available on the command line when you have supplied the
-**Path** or **Nupkg** parameters and the **Repository** parameter for a `ContainerRegistry`
-repository.
-
 The value of the parameter is pre-pended to the package name. This information is only used for
 publishing and isn't included in the package metadata. The module prefix controls the visibility of
 the module, for example: `internal`, `public`, `staging`.
 
-This parameter is only used when publishing to the Microsoft Artifact Registry (MAR).
+This parameter is only intended to be used when publishing to the Microsoft Artifact Registry (MAR).
 
 ```yaml
 Type: System.String
@@ -317,3 +313,5 @@ for dependencies.
 ## RELATED LINKS
 
 [Compress-PSResource](Compress-PSResource.md)
+
+

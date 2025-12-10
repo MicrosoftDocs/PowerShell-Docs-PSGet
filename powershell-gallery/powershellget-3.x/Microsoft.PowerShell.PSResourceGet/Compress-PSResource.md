@@ -1,12 +1,11 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.1
-ms.date: 10/31/2024
+ms.custom: 1.2.0-p5
+ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/compress-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
-
 # Compress-PSResource
 
 ## SYNOPSIS
@@ -27,7 +26,7 @@ file. isolates the pack feature in the `Publish-PSResource` cmdlet. This allows 
 `.nupkg` file before publishing it to a repository. You can publish the final `.nupkg` file using
 the **NupkgPath** parameter of `Publish-PSResource`.
 
-This command was added in v1.1.0-preview2 of **Microsoft.PowerShell.PSResourceGet**.
+This command was added in v1.1.0 of **Microsoft.PowerShell.PSResourceGet**.
 
 ## EXAMPLES
 

@@ -1,12 +1,11 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.1
-ms.date: 10/31/2024
+ms.custom: 1.2.0-p5
+ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/uninstall-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
-
 # Uninstall-PSResource
 
 ## SYNOPSIS
@@ -259,8 +258,12 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
+The module defines `usres` as an alias for `Uninstall-PSResource`.
+
 ## RELATED LINKS
 
 [Package versioning](/nuget/concepts/package-versioning#version-ranges)
 
 [Install-PSResource](Install-PSResource.md)
+
+

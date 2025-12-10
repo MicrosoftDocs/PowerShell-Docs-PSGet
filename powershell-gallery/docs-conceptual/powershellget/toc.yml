@@ -13,6 +13,8 @@ items:
         href: how-to/credential-persistence.md
       - name: Use ACR repositories with PSResourceGet
         href: how-to/use-acr-repository.md
+      - name: Use the Azure Artifacts Credential Provider with Azure Artifacts feeds
+        href: how-to/use-credential-provider-with-azure-artifacts.md
   - name: PSResourceGet supported repositories
     href: supported-repositories.md
   - name: PSResourceGet release notes
