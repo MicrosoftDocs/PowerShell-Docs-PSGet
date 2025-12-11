@@ -48,7 +48,7 @@ provider:
 - `dotnet CredentialProvider.Microsoft.dll -Uri <uri> -NonInteractive -IsRetry -F Json`
 
 `CredentialProvider.Microsoft.exe` is used on Windows machines, while `dotnet` works on all supported
-platforms
+platforms.
 
 ## Dependencies
 
