@@ -32,16 +32,14 @@ Supported versions:
     **PowerShellGet** or **PackageManagement** modules
   - **PowerShellGet** 2.2.5 with **PackageManagement** 1.4.8.1
 - Preview releases
-  - **Microsoft.PowerShell.PSResourceGet** 1.1.0-rc2 - adds `Compress-PSResource` to create `.nupkg`
-    files, the ability to publish `.nupkg` files, and support configuration Group Policy.
-  - **PowerShellGet** 3.0.23-beta23 - a compatibility module that contains proxy cmdlets that call
-    the new cmdlets in **Microsoft.PowerShell.PSResourceGet**. The proxy cmdlets allow you to
-    continue to use the old cmdlet names in your scripts while you transition to the new cmdlets.
+  - **Microsoft.PowerShell.PSResourceGet** 1.2.0-preview5 - adds many new features. For more
+    information, see [What's new in PSResourceGet][06] in the GitHub repository.
 
 ## Version history
 
 For best results, use the latest version of the **Microsoft.PowerShell.PSResourceGet** module.
 
+- **Microsoft.PowerShell.PSResourceGet** v1.2.0-preview5 - shipped in **PowerShell 7.6-preview.6**
 - **Microsoft.PowerShell.PSResourceGet** v1.1.1 - shipped in **PowerShell 7.6-preview.4**
 - **Microsoft.PowerShell.PSResourceGet** v1.1.0 - shipped in **PowerShell 7.5.0**
 - **Microsoft.PowerShell.PSResourceGet** 1.0.6 - released to the PowerShell Gallery on 10-Oct-2024
@@ -60,7 +58,7 @@ For best results, use the latest version of the **Microsoft.PowerShell.PSResourc
   > [!IMPORTANT]
   > The 1.0.0.1 version of PowerShellGet has limited features and must be updated to work properly
   > with the PowerShell Gallery. To be supported, you must update to the latest version. For upgrade
-  > instructions, see [Update PowerShellGet for Windows PowerShell 5.1][06].
+  > instructions, see [Update PowerShellGet for Windows PowerShell 5.1][07].
 
 ## See also
 
@@ -74,4 +72,5 @@ For best results, use the latest version of the **Microsoft.PowerShell.PSResourc
 [03]: /powershell/module/powershellget
 [04]: https://www.powershellgallery.com
 [05]: install-powershellget.md
-[06]: update-powershell-51.md
+[06]: psresourceget-release-notes.md
+[07]: update-powershell-51.md

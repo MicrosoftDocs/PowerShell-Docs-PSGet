@@ -1,12 +1,11 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.1
-ms.date: 10/31/2024
+ms.custom: 1.2.0-p5
+ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
-
 # Register-PSResourceRepository
 
 ## SYNOPSIS
@@ -20,7 +19,7 @@ Registers a repository for PowerShell resources.
 ```
 Register-PSResourceRepository [-Name] <String> [-Uri] <String> [-Trusted] [-Priority <Int32>]
  [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-CredentialProvider <CredentialProvider>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet
@@ -169,7 +168,7 @@ parameter allows you to change the API version after you have registered a repos
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion
 Parameter Sets: NameParameterSet
 Aliases:
-Accepted values: Unknown, V2, V3, Local, NugetServer, ContainerRegistry
+Accepted values: V2, V3, Local, NugetServer, ContainerRegistry
 
 Required: False
 Position: Named
@@ -186,6 +185,32 @@ A **PSCredentialInfo** object that includes the name of a vault and a secret tha
 ```yaml
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo
 Parameter Sets: NameParameterSet
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -CredentialProvider
+
+This is a dynamic parameter that specifies the credential provider to use for the repository. This
+parameter is only available when the repository being registered is an Azure Artifacts feed. Valid
+values are:
+
+- `None` - No credential provider defined
+- `AzArtifacts` - Use the Azure Artifacts Credential Provider
+
+If you don't use this parameter, the default value is `None`. If the repository URL contains
+`pkgs.dev.azure.com` or `pkgs.visualstudio.com`, the command automatically registers the repository
+with the **CredentialProvider** property set to `AzArtifacts`.
+
+```yaml
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.CredentialProviderType
+Parameter Sets: NameParameterSet
+Accepted values: None, AzArtifacts
 Aliases:
 
 Required: False

@@ -1,12 +1,11 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.1.1
-ms.date: 10/31/2024
+ms.custom: 1.2.0-p5
+ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
-
 # Set-PSResourceRepository
 
 ## SYNOPSIS
@@ -19,8 +18,8 @@ Sets information for a registered repository.
 
 ```
 Set-PSResourceRepository [-Name] <String> [-Uri <String>] [-Trusted] [-Priority <Int32>]
- [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+ [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru]
+ [-CredentialProvider <CredentialProvider>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
@@ -167,7 +166,7 @@ parameter allows you to change the API version after you have registered a repos
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSRepositoryInfo+APIVersion
 Parameter Sets: NameParameterSet
 Aliases:
-Accepted values:  V2, V3, Local, NugetServer, ContainerRegistry
+Accepted values: V2, V3, Local, NugetServer, ContainerRegistry
 
 Required: False
 Position: Named
@@ -184,6 +183,27 @@ A **PSCredentialInfo** object that includes the name of a vault and a secret tha
 ```yaml
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.PSCredentialInfo
 Parameter Sets: NameParameterSet
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -CredentialProvider
+
+This is a dynamic parameter that specifies the credential provider to use for the repository. This
+parameter is only available when the named repository is an Azure Artifacts feed. Valid values are:
+
+- `None` - No credential provider defined
+- `AzArtifacts` - Use the Azure Artifacts Credential Provider
+
+```yaml
+Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.CredentialProviderType
+Parameter Sets: NameParameterSet
+Accepted values: None, AzArtifacts
 Aliases:
 
 Required: False
