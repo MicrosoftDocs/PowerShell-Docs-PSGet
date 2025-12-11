@@ -5,6 +5,7 @@ online version: https://learn.microsoft.com/powershell/module/microsoft.powershe
 ms.date: 12/10/2025
 schema: 2.0.0
 ms.custom: 1.2.0-p5
+title: Reset-PSResourceRepository
 ---
 # Reset-PSResourceRepository
 

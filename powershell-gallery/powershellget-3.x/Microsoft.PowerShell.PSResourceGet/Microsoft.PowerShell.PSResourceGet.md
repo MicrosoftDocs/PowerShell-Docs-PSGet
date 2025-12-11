@@ -69,7 +69,7 @@ Publishes a specified module from the local computer to PSResource repository.
 
 Registers a repository for PowerShell resources.
 
-### Reset-PSResourceRepository
+### [Reset-PSResourceRepository](Reset-PSResourceRepository.md)
 
 Creates a new default `PSRepositories.xml` file with PSGallery registered.
 
