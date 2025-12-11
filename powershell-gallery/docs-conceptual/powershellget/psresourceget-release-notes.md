@@ -1,10 +1,10 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 03/21/2025
+ms.date: 12/10/2025
 ms.topic: release-notes
-title: What's new in PSResourceGet?
+title: What's new in PSResourceGet
 ---
-# What's new in PSResourceGet?
+# What's new in PSResourceGet
 
 This is a summary of changes to the **Microsoft.PowerShell.PSResourceGet** module. For a more
 complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
@@ -13,6 +13,11 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
+- v1.2.0-preview5 - Preview release - shipped in PowerShell 7.6.0-preview.6
+- v1.2.0-preview4 - Preview release - released to the PowerShell Gallery only
+- v1.2.0-preview3 - Preview release - released to the PowerShell Gallery only
+- v1.2.0-preview2 - Preview release - released to the PowerShell Gallery only
+- v1.2.0-preview1 - Preview release - released to the PowerShell Gallery only
 - v1.1.0 - Current release - released to the PowerShell Gallery
 - v1.1.0 - shipped in PowerShell 7.5.0 and PowerShell 7.6.0-preview.1
 - v1.1.0-rc3 - Preview release - released to the PowerShell Gallery only
@@ -30,6 +35,54 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.0 - shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
+
+### 1.2.0-preview5 - 2025-12-05
+
+- Add `Reset-PSResourceRepository` cmdlet to recover from corrupted repository store
+- Improve performance of `ContainerRegistry` repositories by caching token
+- Fix to ensure `Update-PSResource` doesn't reinstall dependency packages that are already installed
+- Fix to retrieve non-anonymous access token when publishing to ACR
+- Fix to filter out path separators when passing in package names as a parameter for any cmdlet
+- Fix to respect `TrustRepository` parameter when using `-RequiredResource` with
+  `Install-PSResource`
+- Fix bug with 'PSModuleInfo' property deserialization when validating module manifest
+- Fix to prevent users from setting ApiVersion to 'Unknown' in `Set-PSResourceRepository` and
+  `Register-PSResourceRepository`
+
+### 1.2.0-preview4 - 2025-11-04
+
+- Add cmdlet aliases: `gres`, `usres`, and `svres`
+- Add warning when AuthenticodeCheck is used on non-Windows platforms
+- Fix typos in several files
+- Fix MAR fails to parse RequiredVersion for dependencies
+- Fix `Get-InstalledPSResource -Path` don't throw if no subdirectories were found
+- Fix to handle boolean correctly in RequiredResourceFile for prerelease key
+- Fix `Compress-PSResource` to stop ignoring `.gitkeep` and other (hidden) dotfiles
+- Fix broken Install-PSResource test with warning condition incorrect
+- Fix `Uninstall-PSResource` shouldn't fail silently when resource wasn't found or prerelease
+  criteria not met
+- Fix `Uninstall-PSResource` should delete subdirectories without Access Denied error on OneDrive
+
+### 1.2.0-preview3 - 2025-09-12
+
+- Improve user agent string and PowerShell version discovery
+- Update `-ModulePrefix` to be a static parameter
+- Fix MCR catalog truncation
+- Fix population of `#Requires` fields in `Update-PSScriptFileInfo`
+- Fix population of `Includes` metadata for packages from container registry repositories
+- Fix for `Find-PSResource` and `Install-PSResource` to allow finding of unlisted packages
+
+### 1.2.0-preview2 - 2025-07-21
+
+- Add integration of the Azure Artifacts Credential Provider for ADO feeds
+- Fix for NuGet v3 dependencies
+- Fix for temporary installation path failure when installing PSResources on Linux machines
+
+### 1.2.0-preview1 - 2025-06-26
+
+- Add dependency support for PSResources in v3 repositories
+- Wildcard attribute added to `-Repository` parameter of `Install-PSResource`
+- Improvements in `ContainerRegistry` repositories in listing repository catalog
 
 ### v1.1.1 - 2025-03-06
 
@@ -76,7 +129,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
   repository system.
 - Added `-Nupkg` parameter to `Publish-PSResource` to publish a `.nupkg` file to a repository.
 - Added `-ModulePrefix` parameter for `Publish-PSResource`, which adds a prefix to a module name for
-  container registry repositories. This is only used for publishing and is not part of metadata.
+  container registry repositories. This is only used for publishing and isn't part of metadata.
 - Improved error messages for Authenticode failures.
 - Construct Prerelease string for repositories that don't return the prerelease information.
 - Added retry logic when deleting files.
