@@ -533,5 +533,3 @@ the JSON object is stored in a `.json` file. For more information, see
 [Package versioning](/nuget/concepts/package-versioning#version-ranges)
 
 [Uninstall-PSResource](Uninstall-PSResource.md)
-
-

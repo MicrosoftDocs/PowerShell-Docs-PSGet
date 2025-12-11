@@ -265,5 +265,3 @@ The module defines `usres` as an alias for `Uninstall-PSResource`.
 [Package versioning](/nuget/concepts/package-versioning#version-ranges)
 
 [Install-PSResource](Install-PSResource.md)
-
-

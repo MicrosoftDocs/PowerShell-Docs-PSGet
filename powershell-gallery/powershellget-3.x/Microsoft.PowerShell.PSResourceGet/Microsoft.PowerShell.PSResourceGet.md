@@ -104,6 +104,3 @@ Downloads and installs the newest version of a package already installed on the 
 ### [Update-PSScriptFileInfo](Update-PSScriptFileInfo.md)
 
 This cmdlet updates the comment-based metadata in an existing script `.ps1` file.
-
-
-

@@ -379,5 +379,3 @@ The module defines `udres` as an alias for `Update-PSResource`.
 ## RELATED LINKS
 
 [Install-PSResource](Install-PSResource.md)
-
-

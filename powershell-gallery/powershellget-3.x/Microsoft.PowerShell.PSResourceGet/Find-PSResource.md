@@ -407,5 +407,3 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 The module defines `fdres` as an alias for `Find-PSResource`.
 
 ## RELATED LINKS
-
-

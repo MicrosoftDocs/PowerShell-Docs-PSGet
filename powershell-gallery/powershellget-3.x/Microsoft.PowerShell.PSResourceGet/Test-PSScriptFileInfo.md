@@ -139,5 +139,3 @@ ignored by `Get-PSScriptFileInfo` and `Publish-PSResource`.
 [New-PSScriptFileInfo](New-PSScriptFileInfo.md)
 
 [Update-PSScriptFileInfo](Update-PSScriptFileInfo.md)
-
-

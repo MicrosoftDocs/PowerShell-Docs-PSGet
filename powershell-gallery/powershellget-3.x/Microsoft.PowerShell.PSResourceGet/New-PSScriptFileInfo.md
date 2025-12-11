@@ -482,5 +482,3 @@ ignored by `Get-PSScriptFileInfo` and `Publish-PSResource`.
 [PowerShellGallery Publishing Guidelines and Best Practices](/powershell/scripting/gallery/concepts/publishing-guidelines)
 
 [Package manifest values that impact the PowerShell Gallery UI](/powershell/scripting/gallery/concepts/package-manifest-affecting-ui)
-
-

@@ -170,5 +170,3 @@ cmdlet outputs a **PSRepositoryInfo** object for each repository that's removed.
 ## RELATED LINKS
 
 [Register-PSResourceRepository](Register-PSResourceRepository.md)
-
-

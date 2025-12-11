@@ -160,5 +160,3 @@ PowerShellGet v2.
 ## RELATED LINKS
 
 [Register-PSResourceRepository](Register-PSResourceRepository.md)
-
-

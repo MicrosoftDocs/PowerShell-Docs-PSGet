@@ -313,5 +313,3 @@ for dependencies.
 ## RELATED LINKS
 
 [Compress-PSResource](Compress-PSResource.md)
-
-

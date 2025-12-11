@@ -87,5 +87,3 @@ ignored by `Get-PSScriptFileInfo` and `Publish-PSResource`.
 [Update-PSScriptFileInfo](Update-PSScriptFileInfo.md)
 
 [Test-PSScriptFileInfo](Test-PSScriptFileInfo.md)
-
-
