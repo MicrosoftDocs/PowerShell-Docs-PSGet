@@ -791,7 +791,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## NOTES
 
-The module defines `udres` as an alias for `Update-PSResource`.
 
 For a full description of the module manifest file, see
 [about_Module_Manifests](/powershell/module/microsoft.powershell.core/about/about_module_manifests).

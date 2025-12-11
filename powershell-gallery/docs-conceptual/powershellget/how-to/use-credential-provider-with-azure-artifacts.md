@@ -15,7 +15,7 @@ parameter `-CredentialProvider` that allows you to configure the **CredentialPro
 a **PSResourceRepository**. This dynamic parameter only works with repositories that aren't
 **ContainerRegistry** repositories or the **PSGallery** repository.
 
-The PSResourceGet automatically sets the value **CredentialProvider** to `AzArtifacts` when the URI
+PSResourceGet automatically sets the value **CredentialProvider** to `AzArtifacts` when the URI
 contains `pkgs.dev.azure.com` or `pkgs.visualstudio.com`. This check is done when registering a new
 repository or when PSResourceGet reads the registered repositories.
 
@@ -39,7 +39,7 @@ attempts to find the Credential Provider file on the machine in the following or
    `common7\IDE\CommonExtensions\Microsoft\NuGet`
 
 For more information about the discovery process, see _Convention-based discovery_ section of
-[NuGet cross platfor plugins][01].
+[NuGet cross platform plugins][01].
 
 After locating the Credential Provider, PSResourceGet uses one of the following commands to call the
 provider:
@@ -47,7 +47,7 @@ provider:
 - `CredentialProvider.Microsoft.exe -Uri <uri> -NonInteractive -IsRetry -F Json`
 - `dotnet CredentialProvider.Microsoft.dll -Uri <uri> -NonInteractive -IsRetry -F Json`
 
-`CredentialProvider.Microsoft.exe` is used on Windows machines, while `dotnet` work on all supported
+`CredentialProvider.Microsoft.exe` is used on Windows machines, while `dotnet` works on all supported
 platforms
 
 ## Dependencies

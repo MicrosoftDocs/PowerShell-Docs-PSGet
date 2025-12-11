@@ -17,7 +17,7 @@ PSResourceGet is a module with commands for discovering, installing, updating an
 PowerShell artifacts like Modules, DSC Resources, Role Capabilities, and Scripts.
 
 This documentation covers the latest version **Microsoft.PowerShell.PSResourceGet** v1.2.0-preview5
-For a list of differences between versions, see the
+For a list of differences between versions, see
 [What's new in PSResourceGet?](/powershell/gallery/powershellget/psresourceget-release-notes).
 
 > [!IMPORTANT]
