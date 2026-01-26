@@ -1,9 +1,14 @@
 {
     "redirections": [
         {
-            "redirect_document_id": true,
-            "redirect_url": "/powershell/gallery/powershellget/update-powershell-51",
+            "redirect_document_id": false,
+            "redirect_url": "/powershell/gallery/powershellget/install-powershellget",
             "source_path": "powershell-gallery/docs-conceptual/powershellget/install-on-older-systems.md"
+        },
+        {
+            "redirect_document_id": false,
+            "redirect_url": "/powershell/gallery/powershellget/install-powershellget",
+            "source_path": "powershell-gallery/docs-conceptual/powershellget/update-powershell-51.md"
         }
     ]
 }

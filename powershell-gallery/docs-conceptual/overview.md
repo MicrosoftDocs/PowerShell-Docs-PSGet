@@ -1,6 +1,6 @@
 ---
 description: The PowerShellGet module provides commands to interact with the PowerShell Gallery, the central repository for PowerShell modules, scripts, and DSC resources.
-ms.date: 11/16/2022
+ms.date: 01/26/2026
 ms.topic: overview
 title: PowerShellGet and the PowerShell Gallery
 ---
@@ -11,20 +11,19 @@ PowerShell scripts, modules containing PowerShell cmdlets and Desired State Conf
 resources. Some of these packages are authored by Microsoft, and others are authored by the
 PowerShell community.
 
-The [PowerShellGet][07] module contains cmdlets for discovering, installing, updating, and
+The [PowerShellGet][02] module contains cmdlets for discovering, installing, updating, and
 publishing PowerShell packages from the PowerShell Gallery. These packages can contain artifacts
 such as Modules, DSC Resources, Role Capabilities, and Scripts. Make sure you have the latest
 version of **PowerShellGet** and **PackageManagement** installed.
 
-The [Microsoft.PowerShell.PSResourceGet][08] module replaces the **PowerShellGet** and
+The [Microsoft.PowerShell.PSResourceGet][01] module replaces the **PowerShellGet** and
 **PackageManagement** modules. **Microsoft.PowerShell.PSResourceGet** version 1.0.1 ships in
 PowerShell 7.4.0. The latest version is available in the PowerShell Gallery and can be installed on
 any supported version of PowerShell.
 
 For more information see:
 
-- [Install PowerShellGet][01]
-- [Update PowerShellGet for Windows PowerShell][02]
+- [Install a package manager for PowerShell][07]
 
 ## Getting Started with the PowerShell Gallery
 
@@ -38,12 +37,10 @@ Provide feedback and report issues in the [GitHub repository][04]. To see the cu
 PowerShell Gallery services, see the [PowerShell Gallery Status][05] page on GitHub.
 
 <!-- link references -->
-[01]: powershellget/install-powershellget.md
-[02]: powershellget/update-powershell-51.md
+[01]: /powershell/module/microsoft.powershell.psresourceget
+[02]: /powershell/module/powershellget
 [03]: getting-started.md
 [04]: https://aka.ms/psgallery-issues
 [05]: https://aka.ms/psgallery-status
 [06]: https://www.powershellgallery.com
-[07]: /powershell/module/powershellget
-[08]: /powershell/module/microsoft.powershell.psresourceget
-
+[07]: powershellget/install-powershellget.md
