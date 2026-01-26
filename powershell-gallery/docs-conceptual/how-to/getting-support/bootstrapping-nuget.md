@@ -49,7 +49,7 @@ After installing the updates on the internet-connected machine, manually copy th
 isolated node through a trusted offline process.
 
 1. Copy the PowerShellGet and PackageManagement modules to the offline machine. Use the following
-   command to location the modules on the source machine:
+   command to locate the modules on the source machine:
 
    ```powershell
    Get-Module PowerShellGet, PackageManagement -ListAvailable |
@@ -68,12 +68,15 @@ isolated node through a trusted offline process.
 
    Copy the entire module folders to the same location on the isolated machine. For example, if the
    modules are located in `PowerShellGet\2.2.5` and `PackageManagement\1.4.8.1` folders to the
-   `$env:PROGRAMFILES\WindowsPowerShell\Modules` folder on the target machine.
+   same folder names under `$env:PROGRAMFILES\WindowsPowerShell\Modules` on the target machine.
+
+   > [!NOTE]
+   > You need administrative privileges to copy files to `$env:PROGRAMFILES`.
 
 1. Copy `nuget.exe` to the isolated machine. PowerShellGet installs `nuget.exe` in the following
    location: `$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\nuget.exe`
 
-   If that file isn't present at that location it's either installed somewhere else or PowerShellGet
+   If the file isn't present at that location it's either installed somewhere else or PowerShellGet
    found the .NET CLI (`dotnet.exe`). You can download the latest version of `nuget.exe` from
    [https://aka.ms/psget-nugetexe][01].
 
