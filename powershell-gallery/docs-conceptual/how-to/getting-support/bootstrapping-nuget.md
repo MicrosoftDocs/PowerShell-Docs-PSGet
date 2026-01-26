@@ -11,7 +11,7 @@ components to interact with the PowerShell Gallery. PowerShellGet includes logic
 components as long as you can connect to the PowerShell Gallery. If the machine isn't connected to
 the internet, you must copy required files from a trusted source to the disconnected machine.
 
-The updated NuGet provider is required by the commands work with the PowerShell Gallery. The
+The updated NuGet provider is required by the commands to work with the PowerShell Gallery. The
 `Publish-*` commands use `nuget.exe` to publish resources.
 
 ## Install the latest version of PowerShellGet on an internet-connected machine

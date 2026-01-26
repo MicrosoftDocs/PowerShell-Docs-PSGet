@@ -56,10 +56,10 @@ Binary     1.0.0.1  PackageManagement  {Find-Package, Get-Package, ...
 Script     1.0.0.1  PowerShellGet      {Install-Module, Find-Module, ...
 ```
 
-If you the version of **PowerShellGet** is newer than `1.0.0.1` then you can
+If the version of **PowerShellGet** is newer than `1.0.0.1` then you can
 [check for updates][02] and [install the latest release][03].
 
-If you are still running version `1.0.0.1`, you must follow the steps let **PowerShellGet** install
+If you are still running version `1.0.0.1`, you must follow the steps to let **PowerShellGet** install
 an updated NuGet provider and the `nuget.exe` command-line tool. Continue to the next step.
 
 ## Step 3: Check for updates
