@@ -1,6 +1,6 @@
 ---
-description: This article explains the purpose and history of PowerShellGet
-ms.date: 05/22/2025
+description: This article explains the purpose and history of PowerShellGet.
+ms.date: 01/26/2026
 ms.topic: overview
 title: Package management for PowerShell
 ---
@@ -57,12 +57,12 @@ For best results, use the latest version of the **Microsoft.PowerShell.PSResourc
 
   > [!IMPORTANT]
   > The 1.0.0.1 version of PowerShellGet has limited features and must be updated to work properly
-  > with the PowerShell Gallery. To be supported, you must update to the latest version. For upgrade
-  > instructions, see [Update PowerShellGet for Windows PowerShell 5.1][07].
+  > with the PowerShell Gallery. To be supported, you must update to the latest version. For more
+  > information, see [Install a package manager for PowerShell][05].
 
 ## See also
 
-- [Install PowerShellGet][05]
+- [Install a package manager for PowerShell][05]
 - [PowerShellGet][03] cmdlet reference
 - [Microsoft.PowerShell.PSResourceGet][02] cmdlet reference
 
@@ -73,4 +73,3 @@ For best results, use the latest version of the **Microsoft.PowerShell.PSResourc
 [04]: https://www.powershellgallery.com
 [05]: install-powershellget.md
 [06]: psresourceget-release-notes.md
-[07]: update-powershell-51.md

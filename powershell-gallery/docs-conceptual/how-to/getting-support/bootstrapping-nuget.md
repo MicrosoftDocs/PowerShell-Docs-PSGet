@@ -1,6 +1,7 @@
 ---
-description: This article explains how to install the required NuGet components for Windows PowerShell 5.1.
-ms.date: 01/27/2025
+description: >-
+  This article explains how to manually install the required NuGet components for Windows PowerShell 5.1.
+ms.date: 01/26/2026
 title: Bootstrapping NuGet
 ---
 # Bootstrap the NuGet components for Windows PowerShell 5.1
@@ -10,28 +11,18 @@ components to interact with the PowerShell Gallery. PowerShellGet includes logic
 components as long as you can connect to the PowerShell Gallery. If the machine isn't connected to
 the internet, you must copy required files from a trusted source to the disconnected machine.
 
-The required NuGet components are included in PowerShellGet v2+ and PackageManagement v1.1+. Newer
-versions of these modules are available from the PowerShell Gallery and included in PowerShell 6 and
-higher. These instructions are for Windows PowerShell 5.1.
+The updated NuGet provider is required by the commands to work with the PowerShell Gallery. The
+`Publish-*` commands use `nuget.exe` to publish resources.
 
-> [!IMPORTANT]
-> After bootstrapping the NuGet components, you must install latest versions of the PowerShellGet
-> and PackageManagement modules to be supported.
+## Install the latest version of PowerShellGet on an internet-connected machine
 
-## Bootstrap on an internet-connected machine
-
-The following processes assume the machine is connected to the internet and can download files from
-a public location.
-
-### ERROR: NuGet provider is required to continue
-
-You receive this error when the NuGet provider isn't available on the machine.
+To install the latest version of PowerShellGet, run the following command:
 
 ```powershell
-Find-Module -Repository PSGallery -Verbose -Name Contoso
+Install-Module -Name PowerShellGet -Repository PSGallery
 ```
 
-Answer the prompt with `Y` to install the NuGet provider.
+Answer the prompt with <kbd>Y</kbd> to install the NuGet provider.
 
 ```Output
 NuGet provider is required to continue
@@ -43,72 +34,71 @@ ame NuGet -MinimumVersion 2.8.5.201 -Force'. Do you want PowerShellGet to instal
 ort the NuGet provider now?
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 VERBOSE: Installing NuGet provider.
-
-Version    Name                                Type       Repository           Description
--------    ----                                ----       ----------           -----------
-2.5        Contoso                             Module     PSGallery        Contoso module
 ```
 
-### ERROR: NuGet.exe is required to continue
+When you answer <kbd>Y</kbd>, PowerShellGet installs the NuGet provider and the `nuget.exe`
+command-line tool (if necessary).
 
-You receive this error when the NuGet provider is available, but the `nuget.exe` binary isn't.
+> [!NOTE]
+> When you install PowerShellGet, it automatically installs the latest version of
+> PackageManagement.
+
+## Copy the required files to the isolated computer
+
+After installing the updates on the internet-connected machine, manually copy the components to the
+isolated node through a trusted offline process.
+
+1. Copy the PowerShellGet and PackageManagement modules to the offline machine. Use the following
+   command to locate the modules on the source machine:
+
+   ```powershell
+   Get-Module PowerShellGet, PackageManagement -ListAvailable |
+       Sort-Object Version -Descending |
+       Select-Object Path -First 2
+   ```
+
+   The result should look similar to the following output:
+
+   ```Output
+   Path
+   ----
+   C:\Program Files\WindowsPowerShell\Modules\PowerShellGet\2.2.5\PowerShellGet.psd1
+   C:\Program Files\WindowsPowerShell\Modules\PackageManagement\1.4.8.1\PackageManagement.psd1
+   ```
+
+   Copy the entire module folders to the same location on the isolated machine. For example, if the
+   modules are located in `PowerShellGet\2.2.5` and `PackageManagement\1.4.8.1` folders to the
+   same folder names under `$env:PROGRAMFILES\WindowsPowerShell\Modules` on the target machine.
+
+   > [!NOTE]
+   > You need administrative privileges to copy files to `$env:PROGRAMFILES`.
+
+1. Copy `nuget.exe` to the isolated machine. PowerShellGet installs `nuget.exe` in the following
+   location: `$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\nuget.exe`
+
+   If the file isn't present at that location it's either installed somewhere else or PowerShellGet
+   found the .NET CLI (`dotnet.exe`). You can download the latest version of `nuget.exe` from
+   [https://aka.ms/psget-nugetexe][01].
+
+    Copy `nuget.exe` to `$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\nuget.exe` on
+    the target computer.
+
+## Unblock the copied files
+
+When you copy files from another computer, Windows may block the files. To unblock the copied files,
+run the following commands on the target machine:
 
 ```powershell
-Publish-Module -Name Contoso -Repository PSGallery -Verbose
+$getChildItemSplat = @{
+    Path = @(
+      "$env:PROGRAMFILES\WindowsPowerShell\Modules\PowerShellGet"
+      "$env:PROGRAMFILES\WindowsPowerShell\Modules\PackageManagement"
+      "$env:LOCALAPPDATA\Microsoft\Windows\PowerShell\PowerShellGet\nuget.exe"
+    )
+    Recurse = $true
+}
+Get-ChildItem @getChildItemSplat | Unblock-File
 ```
 
-Answer the prompt with `Y` to install `nuget.exe`.
-
-```Output
-NuGet.exe is required to continue
-PowerShellGet requires NuGet.exe to publish an item to the NuGet-based repositories. NuGe
-t.exe must be available under one of the paths specified in PATH environment variable val
-ue. Do you want PowerShellGet to install NuGet.exe now?
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-VERBOSE: Installing NuGet.exe.
-VERBOSE: Successfully published module 'Contoso' to the module publish location 'https://
-www.powershellgallery.com/api/v2/'.
-Please allow few minutes for 'Contoso' to show up in the search results.
-```
-
-### ERROR: NuGet.exe and NuGet provider are required to continue
-
-You receive this error when both the NuGet provider and `nuget.exe` aren't installed.
-
-```powershell
-Publish-Module -Name Contoso -Repository PSGallery -Verbose
-```
-
-Answer the prompt with `Y` to install both the NuGet provider and `nuget.exe`.
-
-```Output
-NuGet.exe and NuGet provider are required to continue
-PowerShellGet requires NuGet.exe and NuGet provider version '2.8.5.201' or newer to inter
-act with the NuGet-based repositories. Do you want PowerShellGet to install both NuGet.ex
-e and NuGet provider now?
-[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
-VERBOSE: Installing NuGet provider.
-VERBOSE: Installing NuGet.exe.
-VERBOSE: Successfully published module 'Contoso' to the module publish location 'https://
-www.powershellgallery.com/api/v2/'.
- Please allow few minutes for 'Contoso' to show up in the search results.
-```
-
-## Bootstrap on a machine not connected to the internet
-
-The following processes assume the machine isn't connected to the internet. To install the necessary
-components, follow the bootstrap process on an internet-connected machine then manually copy the
-provider to the isolated node through an offline trusted process.
-
-1. Copy the NuGet provider files to the offline machine.
-
-   Copy the `C:\Program Files\PackageManagement\ProviderAssemblies\NuGet` folder from the connected
-   machine to the same location on the offline machine.
-
-1. Copy the PowerShellGet and PackageManagement modules to the offline machine.
-
-   Copy the following module folders from the connected machine to same location on the offline
-   machine.
-
-   - `C:\Program Files\WindowsPowerShell\Modules\PowerShellGet`
-   - `C:\Program Files\WindowsPowerShell\Modules\PackageManagement`
+<!-- link references -->
+[01]: https://aka.ms/psget-nugetexe
