@@ -19,7 +19,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct][coc].
 The following list describes the main folders in this repository.
 
 - `.devcontainer` - contains devcontainer settings used by GitHub Codespaces and Visual Studio Code
-  (VS Code) Remote - Containers extension
+  (VS Code) Dev Containers extension
 - `.github` - contains configuration settings used by GitHub for this repository
 - `.vscode` - contains configuration settings and recommended extensions for VS Code
 - `powershell-gallery` - contains the documentation published to
