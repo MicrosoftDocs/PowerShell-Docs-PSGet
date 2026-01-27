@@ -103,12 +103,12 @@ MD051: true  # link-fragments
 MD052: true  # reference-links-images
 MD053: true  # link-image-reference-definitions
 MD054:       # link-image-style
-  autolink: false  # Allow autolinks
-  collapsed: false # Allow collapsed reference links and images
-  full: true       # Allow full reference links and images
-  inline: true     # Allow inline links and images
-  shortcut: false  # Allow shortcut reference links and images
-  url_inline: true # Allow URLs as inline links
+  autolink:   false  # Allow autolinks (default true)
+  collapsed:  false  # Allow collapsed reference links and images (default true)
+  full:       true   # Allow full reference links and images (default true)
+  inline:     true   # Allow inline links and images (default true)
+  shortcut:   false  # Allow shortcut reference links and images (default true)
+  url_inline: true   # Allow URLs as inline links (default true)
 MD055:       # table-pipe-style
   style: leading_and_trailing
 MD056: true  # table-column-count
