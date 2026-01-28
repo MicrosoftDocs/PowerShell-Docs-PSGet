@@ -10,9 +10,6 @@
       { "dest": "gallery", "files": [ "breadcrumb/toc.yml" ] },
       { "dest": "gallery", "files": [ "**/*.md", "**/*.yml" ], "group": "conceptual", "src": "docs-conceptual" },
 
-      { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
-      { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-1.x", "src": "powershellget-1.x" },
-
       { "dest": "module/powershellget", "files": [ "toc.yml" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
       { "dest": "module", "exclude": [ "docs-conceptual/**" ], "files": [ "**/*.yml", "**/About/*.md" ], "group": "powershellget-2.x", "src": "powershellget-2.x" },
 
@@ -31,7 +28,6 @@
         "docs-conceptual/concepts/**/*": "https://github.com/powershell/powershellgallery/issues/new",
         "docs-conceptual/how-to/**/*": "https://github.com/powershell/powershellgallery/issues/new",
         "docs-conceptual/powershellget/**/*": "https://github.com/powershell/psresourceget/issues/new",
-        "powershellget-1.x/**/*": "https://github.com/powershell/powershellget/issues/new",
         "powershellget-2.x/**/*": "https://github.com/powershell/powershellget/issues/new",
         "powershellget-3.x/**/*": "https://github.com/powershell/psresourceget/issues/new"
       },
@@ -40,13 +36,10 @@
         "docs-conceptual/concepts/**/*": "PowerShell Gallery",
         "docs-conceptual/how-to/**/*": "PowerShell Gallery",
         "docs-conceptual/powershellget/**/*": "PowerShellGet",
-        "powershellget-1.x/**/*": "PowerShellGet",
         "powershellget-2.x/**/*": "PowerShellGet",
         "powershellget-3.x/**/*": "PSResourceGet"
       },
       "ms.subservice": {
-        "powershellget-1.x/**/*.md": "conceptual",
-        "powershellget-1.x/**/*.yml": "cmdlets",
         "powershellget-2.x/**/*.md": "conceptual",
         "powershellget-2.x/**/*.yml": "cmdlets",
         "powershellget-3.x/**/*.md": "conceptual",
@@ -55,12 +48,10 @@
       "ms.topic": {
         "docs-conceptual/**/*": "concept-article",
         "docs-conceptual/**/how-to/**": "how-to",
-        "powershellget-1.x/**/*": "reference",
         "powershellget-2.x/**/*": "reference",
         "powershellget-3.x/**/*": "reference"
       },
       "ms.update-cycle": {
-        "powershellget-1.x/**/*": "3650-days",
         "powershellget-2.x/**/*": "3650-days",
         "docs-conceptual/faqs.yml": "3650-days",
         "docs-conceptual/concepts/**/*": "3650-days",
@@ -69,10 +60,6 @@
       "products": {
         "docs-conceptual/**/*": [
           "https://authoring-docs-microsoft.poolparty.biz/devrel/2bdae855-045f-4535-b365-7b2e23824328",
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
-        ],
-        "powershellget-1.x/**/*": [
-          "https://authoring-docs-microsoft.poolparty.biz/devrel/56936876-97d9-45cc-ad1b-9d63320447c8",
           "https://authoring-docs-microsoft.poolparty.biz/devrel/8bce367e-2e90-4b56-9ed5-5e4e9f3a2dc3"
         ],
         "powershellget-2.x/**/*": [
@@ -111,8 +98,7 @@
       "uhfHeaderId": "MSDocsHeader-Powershell"
     },
     "groups": {
-      "conceptual": { "moniker_range": ">=powershellget-1.x" },
-      "powershellget-1.x": { "moniker_range": "powershellget-1.x" },
+      "conceptual": { "moniker_range": ">=powershellget-2.x" },
       "powershellget-2.x": { "moniker_range": "powershellget-2.x" },
       "powershellget-3.x": { "moniker_range": "powershellget-3.x" }
     },
