@@ -69,15 +69,15 @@ PSGallery   https://www.powershellgallery.com/api/v2                            
 ## Publishing resources to the repository
 
 To publish resources to a secured repository, you must provide the credential you configured. This
-example show how to publish a resource to the `artifactory` repository using your stored credential.
+example shows how to publish a resource to the `artifactory` repository using your stored credential.
 
 ```powershell
 Publish-PSResource -Path .\Get-Hello\ -Repository artifactory -ApiKey (Get-Secret JFrogPublish)
 ```
 
-Once you have provided the credential, **PowerShellGet** reuses the credential for subsequent
-commands that target the same repository. The following examples show how to find and install a
-resource. Notice that the credential isn't required.
+**PowerShellGet** reuses the credential for subsequent commands that target the same repository. The
+following examples show how to find and install a resource. Notice that the credential isn't
+required.
 
 ```powershell
 Find-PSResource -Name Get-Hello -Repository artifactory

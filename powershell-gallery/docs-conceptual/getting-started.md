@@ -1,19 +1,15 @@
 ---
 description: This article explains how to get started using the PowerShell Gallery and the PowerShellGet cmdlets
-ms.date: 09/09/2025
+ms.date: 01/28/2026
 ms.topic: get-started
 title: Get Started with the PowerShell Gallery
 ---
 # Getting Started with the PowerShell Gallery
 
 The PowerShell Gallery is a package repository containing scripts, modules, and DSC resources you
-can download and leverage. You use the cmdlets in the [PowerShellGet][03] module to install packages
+can download and use. You use the cmdlets in the [PowerShellGet][03] module to install packages
 from the PowerShell Gallery. You don't need to sign in to download items from the PowerShell
 Gallery.
-
-> [!NOTE]
-> It's possible to download a package from the PowerShell Gallery directly, but this isn't a
-> recommended approach. For more details, see [Manual Package Download][18].
 
 ## Discovering packages from the PowerShell Gallery
 
@@ -43,13 +39,13 @@ Because DSC resources are always delivered as part of a module, you still need t
 
 ## Learning about packages in the PowerShell Gallery
 
-Once you've identified a package that you're interested in, you may want to learn more about it. You
-can do this by examining that package's specific page on the Gallery. On that page, you'll be able
-to see all the metadata uploaded with the package. This metadata is provided by the package's
-author, and is not verified by Microsoft. The Owner of the package is strongly tied to the Gallery
-account used to publish the package, and is more trustworthy than the Author field.
+After you select a package, you may want to learn more about it. Examine the package page on the
+Gallery. The package page includes the metadata uploaded with the package. The metadata is provided
+by the author of the package. Microsoft doesn't verify this information. The Owner of the package is
+associated with the Gallery account used to publish the package. The Owner account is more
+authoritative than the Author field.
 
-If you discover a package that you feel isn't published in good faith, click **Report Abuse** on
+If you discover a package that you feel isn't published in good faith, select **Report Abuse** on
 that package's page.
 
 If you're running `Find-Module` or `Find-Script`, you can view this data in the returned
@@ -66,15 +62,15 @@ We encourage the following process when downloading packages from the PowerShell
 
 ### Inspect
 
-To download a package from the Gallery for inspection, run either the `Save-Module` or `Save-Script`
-cmdlet, depending on the package type. This lets you save the package locally without installing it,
-and inspect the package contents. Remember to delete the saved package manually.
+To download a package from the Gallery for inspection, use the `Save-Module` or `Save-Script`
+cmdlets on the package. These commands save the package locally without installing it. Inspect the
+package contents. Remember to delete the saved package manually.
 
-Some of these packages are authored by Microsoft, and others are authored by the PowerShell
-community. Microsoft recommends that you review the contents and code of packages on this gallery
-before installation.
+Some packages are authored by Microsoft, and others are authored by the PowerShell community.
+Microsoft recommends that you review the contents and code of packages on this gallery before
+installation.
 
-If you discover a package that you feel isn't published in good faith, click **Report Abuse** on
+If you discover a package that you feel isn't published in good faith, select **Report Abuse** on
 that package's page.
 
 ### Install
@@ -82,47 +78,46 @@ that package's page.
 To install a package from the Gallery for use, run either the `Install-Module` or `Install-Script`
 cmdlet, depending on the package type.
 
-`Install-Module` installs the module to `$env:ProgramFiles\WindowsPowerShell\Modules` by default.
-This requires an administrator account. If you add the `-Scope CurrentUser` parameter, the module is
-installed to `$HOME\Documents\WindowsPowerShell\Modules` .
+By default, `Install-Module` installs the module to `$env:ProgramFiles\WindowsPowerShell\Modules`
+location by default, which requires an administrator account. If you add the `-Scope CurrentUser`
+parameter, the command installs the module in `$HOME\Documents\WindowsPowerShell\Modules` .
 
-`Install-Script` installs the script to `$env:ProgramFiles\WindowsPowerShell\Scripts` by default.
-This requires an administrator account. If you add the `-Scope CurrentUser` parameter, the script is
-installed to `$HOME\Documents\WindowsPowerShell\Scripts` .
+By default, `Install-Script` installs the script to `$env:ProgramFiles\WindowsPowerShell\Scripts`
+location, which requires an administrator account. If you add the `-Scope CurrentUser` parameter,
+the command installs the script in `$HOME\Documents\WindowsPowerShell\Scripts`.
 
-By default, `Install-Module` and `Install-Script` installs the most
-current version of a package. To install an older version of the package, add the `-RequiredVersion`
-parameter.
+`Install-Module` and `Install-Script` installs the most current version of a package. To install an
+older version of the package, add the `-RequiredVersion` parameter.
 
 ### Deploy
 
-To deploy a package from the PowerShell Gallery to Azure Automation, click **Azure Automation**,
-then click **Deploy to Azure Automation** on the package details page. You are redirected to the
-Azure Management Portal where you sign in using your Azure account credentials. Note that
-deploying packages with dependencies deploys all the dependencies to Azure Automation. The 'Deploy
-to Azure Automation' button can be disabled by adding the **AzureAutomationNotSupported** tag to
-your package metadata.
+To deploy a package from the PowerShell Gallery to Azure Automation, select **Azure Automation**,
+then select **Deploy to Azure Automation** on the package details page. You're redirected to the
+Azure Management Portal where you sign in using your Azure account credentials. Deploying packages
+with dependencies deploys all the dependencies to Azure Automation. The **Deploy to Azure
+Automation** button can be disabled by adding the **AzureAutomationNotSupported** tag to your
+package metadata.
 
 To learn more about Azure Automation, see the [Azure Automation][02] documentation.
 
 ## Updating packages from the PowerShell Gallery
 
 To update packages installed from the PowerShell Gallery, run either the `Update-Module` or
-`Update-Script` cmdlet. When run without any additional parameters, `Update-Module` attempts to
+`Update-Script` cmdlet. When run without any other parameters, `Update-Module` attempts to
 update all modules installed by running `Install-Module`. To selectively update modules, add the
 `-Name` parameter.
 
-Similarly, when run without any additional parameters, `Update-Script` also attempts to update all
+Similarly, when run without any other parameters, `Update-Script` also attempts to update all
 scripts installed by running `Install-Script`. To selectively update scripts, add the `-Name`
 parameter.
 
-## List packages that you have installed from the PowerShell Gallery
+## List packages that you installed from the PowerShell Gallery
 
-To find out which modules you have installed from the PowerShell Gallery, run the
-`Get-InstalledModule` cmdlet. This command lists all the modules you have on your system that were
-installed directly from the PowerShell Gallery.
+To find out which modules you installed from the PowerShell Gallery, run the `Get-InstalledModule`
+cmdlet. This command lists all the modules you have on your system that were installed directly from
+the PowerShell Gallery.
 
-Similarly, to find out which scripts you have installed from the PowerShell Gallery, run the
+Similarly, to find out which scripts you installed from the PowerShell Gallery, run the
 `Get-InstalledScript` cmdlet. This command lists all the scripts you have on your system that were
 installed directly from the PowerShell Gallery.
 
@@ -143,8 +138,7 @@ Hosts required when using the PowerShell Gallery website:
 - `go.microsoft.com` and `aka.ms` - redirection services
 
 > [!NOTE]
-> These endpoints have changed. The old endpoints that ended with `azureedge.net` are no longer
-> supported.
+> The old endpoints that ended with `azureedge.net` are no longer supported.
 
 ## Related links
 
