@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 12/10/2025
+ms.date: 02/02/2026
 ms.topic: release-notes
 title: What's new in PSResourceGet
 ---
@@ -9,16 +9,18 @@ title: What's new in PSResourceGet
 This is a summary of changes to the **Microsoft.PowerShell.PSResourceGet** module. For a more
 complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
-- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.1.0
+- Current stable release: **Microsoft.PowerShell.PSResourceGet** v1.1.1
 
 ## Release history
 
+- v1.2.0-rc1 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-preview5 - Preview release - shipped in PowerShell 7.6.0-preview.6
 - v1.2.0-preview4 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-preview3 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-preview2 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-preview1 - Preview release - released to the PowerShell Gallery only
-- v1.1.0 - Current release - released to the PowerShell Gallery
+- v1.1.1 - Current release - released to the PowerShell Gallery
+- v1.1.0 - released to the PowerShell Gallery
 - v1.1.0 - shipped in PowerShell 7.5.0 and PowerShell 7.6.0-preview.1
 - v1.1.0-rc3 - Preview release - released to the PowerShell Gallery only
 - v1.1.0-rc2 - Preview release - shipped in PowerShell 7.5.0-rc1
@@ -35,6 +37,10 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.0 - shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
+
+### 1.2.0-rc1 - 2026-01-14
+
+- Fix `-WhatIf` parameter to respect provided value instead of simply checking presence
 
 ### 1.2.0-preview5 - 2025-12-05
 
