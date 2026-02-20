@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 02/02/2026
+ms.date: 02/20/2026
 ms.topic: release-notes
 title: What's new in PSResourceGet
 ---
@@ -13,6 +13,8 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
+- v1.2.0-rc3 - Preview release - shipped in PowerShell 7.6.0-rc1
+- v1.2.0-rc2 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-rc1 - Preview release - released to the PowerShell Gallery only
 - v1.2.0-preview5 - Preview release - shipped in PowerShell 7.6.0-preview.6
 - v1.2.0-preview4 - Preview release - released to the PowerShell Gallery only
@@ -37,6 +39,14 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.0 - shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
+
+### 1.2.0-rc3 - 2026-02-06
+
+- Packages that depend on a specific versions should search for dependenies using NormalizedVersion
+
+### 1.2.0-rc2 - 2026-02-05
+
+- For packages that depend on a specific version, use an exact version instead of a version range.
 
 ### 1.2.0-rc1 - 2026-01-14
 
