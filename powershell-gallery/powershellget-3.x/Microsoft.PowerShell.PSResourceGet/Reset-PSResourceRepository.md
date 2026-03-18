@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/reset-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
-ms.date: 12/10/2025
+ms.date: 03/18/2026
 schema: 2.0.0
 ms.custom: 1.2.0-p5
 title: Reset-PSResourceRepository
@@ -41,7 +41,7 @@ Reset-PSResourceRepository -PassThru
 ```Output
 Name            Uri                                      Trusted Priority IsAllowedByPolicy
 ----            ---                                      ------- -------- -----------------
-PSGallery       https://www.powershellgallery.com/api/v2 True    50       True
+PSGallery       https://www.powershellgallery.com/api/v2 False   50       True
 ```
 
 ## PARAMETERS
@@ -113,3 +113,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## NOTES
 
 ## RELATED LINKS
+
+[Get-PSResourceRepository](Get-PSResourceRepository.md)
+
+[Set-PSResourceRepository](Set-PSResourceRepository.md)
+
+[Register-PSResourceRepository](Register-PSResourceRepository.md)
+
+[Unregister-PSResourceRepository](Unregister-PSResourceRepository.md)
