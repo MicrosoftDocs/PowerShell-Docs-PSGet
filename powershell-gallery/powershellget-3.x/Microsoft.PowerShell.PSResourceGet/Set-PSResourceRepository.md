@@ -2,7 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.custom: 1.2.0-p5
-ms.date: 12/10/2025
+ms.date: 03/18/2026
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -380,3 +380,11 @@ returns a **PSRepositoryInfo** object.
 ## RELATED LINKS
 
 [Microsoft.PowerShell.SecretManagement](/powershell/utility-modules/secretmanagement/overview)
+
+[Get-PSResourceRepository](Get-PSResourceRepository.md)
+
+[Reset-PSResourceRepository](Reset-PSResourceRepository.md)
+
+[Register-PSResourceRepository](Register-PSResourceRepository.md)
+
+[Unregister-PSResourceRepository](Unregister-PSResourceRepository.md)

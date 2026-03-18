@@ -2,7 +2,7 @@
 description: Describes how to use version 3.x of the PowerShellGet module.
 Locale: en-US
 ms.custom: 1.1.1
-ms.date: 03/12/2026
+ms.date: 03/18/2026
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/about_PSResourceGet?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: about PSResourceGet
@@ -17,17 +17,24 @@ Describes how to use version 1.2.0 of the
 ## Long description
 
 **Microsoft.PowerShell.PSResourceGet** is an updated version of the
-**PowerShellGet** module completely written in C#.
+**PowerShellGet** module completely written in C# and provides the following
+benefits over previous versions of PowerShellGet:
 
-This version of PowerShellGet focuses on a few key areas:
+- Simplifies the code base making it easier to enhance and fix bugs
+- Removes the dependency on the **PackageManagement** module and uses the
+  **NuGet** APIs directly
+- Addresses long-standing usability issues that would be breaking changes if
+  made in **PowerShellGet** v2
+- Improves search and installation performance
 
-- Simplify the code base making it easier to enhance and fix bugs
-- Remove the dependency on the **PackageManagement** module and use the
-  **NuGet** library directly
-- Address long-standing usability issues that would be breaking changes from v2
-- Maintain compatibility for existing scripts written expecting v2 through a
-  separate compatibility module
-- Improve search and installation performance
+The first time you use **Microsoft.PowerShell.PSResourceGet**, the module
+registers the PowerShell Gallery as a PSResource repository. By default, the
+PSGallery repository is registered with a priority of 50 and is marked as
+untrusted. Use the following command to trust the PSGallery repository:
+
+```powershell
+Set-PSResourceRepository -Name PSGallery -Trusted -PassThru
+```
 
 ## Design changes
 
@@ -35,8 +42,9 @@ Previous versions of **PowerShellGet** had separate commands to work with
 modules and scripts. In **Microsoft.PowerShell.PSResourceGet**, all packages in
 the PowerShell Gallery are defined as **PSResource** objects.
 
-The following table shows the cmdlets that are available in **PowerShellGet**
-v3 and their v2 equivalents.
+The following table shows the cmdlets that are available in
+**Microsoft.PowerShell.PSResourceGet** and their **PowerShellGet** v2
+equivalents.
 
 | Microsoft.PowerShell.PSResourceGet |     PowerShellGet v2      |
 | ---------------------------------- | ------------------------- |
