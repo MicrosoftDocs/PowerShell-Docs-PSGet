@@ -41,7 +41,7 @@ Reset-PSResourceRepository -PassThru
 ```Output
 Name            Uri                                      Trusted Priority IsAllowedByPolicy
 ----            ---                                      ------- -------- -----------------
-PSGallery       https://www.powershellgallery.com/api/v2 True    50       True
+PSGallery       https://www.powershellgallery.com/api/v2 False   50       True
 ```
 
 ## PARAMETERS
