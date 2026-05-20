@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 03/12/2026
+ms.date: 05/20/2026
 ms.topic: release-notes
 title: What's new in PSResourceGet
 ---
@@ -13,6 +13,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
+- v1.3.0-preview1 - Preview release - released the PowerShell Gallery only
 - v1.2.0 - Current release - released to the PowerShell Gallery only
 - v1.2.0-rc3 - Preview release - shipped in PowerShell 7.6.0-rc1
 - v1.2.0-rc2 - Preview release - released to the PowerShell Gallery only
@@ -40,6 +41,22 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 - v1.0.0 - shipped in PowerShell 7.4.0-preview.5
 
 ## Release notes
+
+### 1.3.0-preview1 - 2026-05-19
+
+New Features
+
+- Add `MAR` as default registered repository
+- Add concurrent (parallel) execution for `Install-PSResource` workflows
+- Add DSC V3 resource for PSResourceGet
+
+Bug fixes and improvements
+
+- Bump `Azure.Identity` from `1.17.1` to `1.17.2`
+- Bump `Azure.Identity` from `1.14.2` to `1.17.1` and remove deprecated
+  **DefaultAzureCredentialOptions** from constructor
+- Fixed the logic to differentiate between Windows PowerShell and PowerShell
+- Improved `Update-PSResource` to include local-copy prerelease string when deciding what to update
 
 ### 1.2.0 - 2026-03-11
 

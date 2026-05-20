@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -15,12 +14,12 @@ This cmdlet updates the comment-based metadata in an existing script `.ps1` file
 ## SYNTAX
 
 ```
-Update-PSScriptFileInfo [-Author <String>] [-CompanyName <String>] [-Copyright <String>]
- [-Description <String>] [-ExternalModuleDependencies <String[]>]
- [-ExternalScriptDependencies <String[]>] [-Guid <Guid>] [-IconUri <String>] [-LicenseUri <String>]
- [-Path] <String> [-PrivateData <String>] [-ProjectUri <String>] [-ReleaseNotes <String>]
- [-RemoveSignature] [-RequiredModules <Hashtable[]>] [-RequiredScripts <String[]>]
- [-Tags <String[]>] [-Version <String>] [<CommonParameters>]
+Update-PSScriptFileInfo [-Path] <string> [-Author <string>] [-CompanyName <string>]
+ [-Copyright <string>] [-Description <string>] [-ExternalModuleDependencies <string[]>]
+ [-ExternalScriptDependencies <string[]>] [-Guid <guid>] [-IconUri <string>] [-LicenseUri <string>]
+ [-PrivateData <string>] [-ProjectUri <string>] [-ReleaseNotes <string>] [-RemoveSignature]
+ [-RequiredModules <hashtable[]>] [-RequiredScripts <string[]>] [-Tags <string[]>]
+ [-Version <string>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

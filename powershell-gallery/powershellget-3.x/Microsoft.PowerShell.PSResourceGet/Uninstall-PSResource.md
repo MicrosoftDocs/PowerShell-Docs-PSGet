@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/uninstall-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -17,14 +16,14 @@ Uninstalls a resource that was installed using **PowerShellGet**.
 ### NameParameterSet (Default)
 
 ```
-Uninstall-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-SkipDependencyCheck]
+Uninstall-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-SkipDependencyCheck]
  [-Scope <ScopeType>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
 
 ```
-Uninstall-PSResource [-Prerelease] [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck]
+Uninstall-PSResource [-InputObject] <PSResourceInfo[]> [-Prerelease] [-SkipDependencyCheck]
  [-Scope <ScopeType>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 

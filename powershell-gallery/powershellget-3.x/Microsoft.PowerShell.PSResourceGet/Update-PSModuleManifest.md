@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psmodulemanifest?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -15,19 +14,19 @@ Updates a module manifest file.
 ## SYNTAX
 
 ```
-Update-PSModuleManifest [-Path] <String> [-NestedModules <Object[]>] [-Guid <Guid>]
- [-Author <String>] [-CompanyName <String>] [-Copyright <String>] [-RootModule <String>]
- [-ModuleVersion <Version>] [-Description <String>] [-ProcessorArchitecture <ProcessorArchitecture>]
- [-CompatiblePSEditions <String[]>] [-PowerShellVersion <Version>] [-ClrVersion <Version>]
- [-DotNetFrameworkVersion <Version>] [-PowerShellHostName <String>]
- [-PowerShellHostVersion <Version>] [-RequiredModules <Object[]>] [-TypesToProcess <String[]>]
- [-FormatsToProcess <String[]>] [-ScriptsToProcess <String[]>] [-RequiredAssemblies <String[]>]
- [-FileList <String[]>] [-ModuleList <Object[]>] [-FunctionsToExport <String[]>]
- [-AliasesToExport <String[]>] [-VariablesToExport <String[]>] [-CmdletsToExport <String[]>]
- [-DscResourcesToExport <String[]>] [-Tags <String[]>] [-ProjectUri <Uri>] [-LicenseUri <Uri>]
- [-IconUri <Uri>] [-ReleaseNotes <String>] [-Prerelease <String>] [-HelpInfoUri <Uri>]
- [-DefaultCommandPrefix <String>] [-ExternalModuleDependencies <String[]>]
- [-RequireLicenseAcceptance] [-PrivateData <Hashtable>] [<CommonParameters>]
+Update-PSModuleManifest [-Path] <string> [-NestedModules <Object[]>] [-Guid <guid>]
+ [-Author <string>] [-CompanyName <string>] [-Copyright <string>] [-RootModule <string>]
+ [-ModuleVersion <version>] [-Description <string>] [-ProcessorArchitecture <ProcessorArchitecture>]
+ [-CompatiblePSEditions <string[]>] [-PowerShellVersion <version>] [-ClrVersion <version>]
+ [-DotNetFrameworkVersion <version>] [-PowerShellHostName <string>]
+ [-PowerShellHostVersion <version>] [-RequiredModules <Object[]>] [-TypesToProcess <string[]>]
+ [-FormatsToProcess <string[]>] [-ScriptsToProcess <string[]>] [-RequiredAssemblies <string[]>]
+ [-FileList <string[]>] [-ModuleList <Object[]>] [-FunctionsToExport <string[]>]
+ [-AliasesToExport <string[]>] [-VariablesToExport <string[]>] [-CmdletsToExport <string[]>]
+ [-DscResourcesToExport <string[]>] [-Tags <string[]>] [-ProjectUri <uri>] [-LicenseUri <uri>]
+ [-IconUri <uri>] [-ReleaseNotes <string>] [-Prerelease <string>] [-HelpInfoUri <uri>]
+ [-DefaultCommandPrefix <string>] [-ExternalModuleDependencies <string[]>]
+ [-RequireLicenseAcceptance] [-PrivateData <hashtable>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
