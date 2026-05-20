@@ -18,7 +18,8 @@ Registers a repository for PowerShell resources.
 ```
 Register-PSResourceRepository [-Name] <string> [-Uri] <string> [-Trusted] [-Priority <int>]
  [-ApiVersion <PSRepositoryInfo+APIVersion>] [-CredentialInfo <PSCredentialInfo>]
- [-PassThru] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-CredentialProvider <CredentialProvider>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet

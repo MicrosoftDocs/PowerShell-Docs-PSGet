@@ -13,7 +13,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
-- v1.3.0-preview1 - Preview release - released the PowerShell Gallery only
+- v1.3.0-preview1 - Preview release - released to the PowerShell Gallery only
 - v1.2.0 - Current release - released to the PowerShell Gallery only
 - v1.2.0-rc3 - Preview release - shipped in PowerShell 7.6.0-rc1
 - v1.2.0-rc2 - Preview release - released to the PowerShell Gallery only

@@ -37,13 +37,13 @@ Supported versions:
 For best results, use the latest version of the Microsoft.PowerShell.PSResourceGet module.
 
 > [!IMPORTANT]
-> The 1.0.0.1 version of PowerShellGet has limited features and must be updated to work properly
-> with the PowerShell Gallery. To be supported, you must update to the latest version. For more
-> information, see [Install a package manager for PowerShell][05].
+> The 1.0.0.1 version of PowerShellGet that ships in Windows PowerShell 5.1 is no longer supported.
+> To be supported, you must update to the latest version. For more information, see
+> [Install a package manager for PowerShell][05].
 
 ## Enhanced support for the Microsoft Artifact Registry
 
-Support for the Microsoft Artifact Registry was added in Microsoft.PowerShell.PSResourceGet v1.1.1.
+Support for the Microsoft Artifact Registry was added in Microsoft.PowerShell.PSResourceGet v1.1.0.
 Beginning with Microsoft.PowerShell.PSResourceGet v1.3.0-preview1, the Microsoft Artifact Registry
 is a default repository alongside the PSGallery repository. Use the following command to register
 the Microsoft Artifact Registry repository with the default settings:

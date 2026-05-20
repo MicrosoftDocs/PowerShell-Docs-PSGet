@@ -18,7 +18,7 @@ Sets information for a registered repository.
 ```
 Set-PSResourceRepository [-Name] <string> [-Uri <string>] [-Trusted] [-Priority <int>]
  [-ApiVersion <PSRepositoryInfo+APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru]
- [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-CredentialProvider <CredentialProvider>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet

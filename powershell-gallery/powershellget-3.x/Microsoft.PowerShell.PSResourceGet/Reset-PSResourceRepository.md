@@ -2,6 +2,7 @@
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
 ms.date: 05/20/2026
+online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/reset-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 title: Reset-PSResourceRepository
 ---
