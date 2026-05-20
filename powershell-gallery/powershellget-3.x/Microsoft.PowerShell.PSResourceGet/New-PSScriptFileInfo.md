@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/new-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -15,11 +14,11 @@ The cmdlet creates a new script file, including metadata about the script.
 ## SYNTAX
 
 ```
-New-PSScriptFileInfo [-Path] <String> [-Version <String>] [-Author <String>] -Description <String>
- [-Guid <Guid>] [-CompanyName <String>] [-Copyright <String>] [-RequiredModules <Hashtable[]>]
- [-ExternalModuleDependencies <String[]>] [-RequiredScripts <String[]>]
- [-ExternalScriptDependencies <String[]>] [-Tags <String[]>] [-ProjectUri <String>]
- [-LicenseUri <String>] [-IconUri <String>] [-ReleaseNotes <String>] [-PrivateData <String>]
+New-PSScriptFileInfo [-Path] <string> -Description <string> [-Version <string>] [-Author <string>]
+ [-Guid <guid>] [-CompanyName <string>] [-Copyright <string>] [-RequiredModules <hashtable[]>]
+ [-ExternalModuleDependencies <string[]>] [-RequiredScripts <string[]>]
+ [-ExternalScriptDependencies <string[]>] [-Tags <string[]>] [-ProjectUri <string>]
+ [-LicenseUri <string>] [-IconUri <string>] [-ReleaseNotes <string>] [-PrivateData <string>]
  [-Force] [<CommonParameters>]
 ```
 

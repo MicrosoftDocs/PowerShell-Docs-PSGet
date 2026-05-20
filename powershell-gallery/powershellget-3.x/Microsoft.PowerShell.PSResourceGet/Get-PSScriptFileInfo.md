@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/get-psscriptfileinfo?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -15,7 +14,7 @@ Returns the metadata for a script.
 ## SYNTAX
 
 ```
-Get-PSScriptFileInfo [-Path] <String> [<CommonParameters>]
+Get-PSScriptFileInfo [-Path] <string> [<CommonParameters>]
 ```
 
 ## DESCRIPTION

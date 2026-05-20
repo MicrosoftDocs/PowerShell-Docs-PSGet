@@ -1,8 +1,7 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
-ms.date: 03/18/2026
+ms.date: 05/20/2026
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/register-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -17,22 +16,30 @@ Registers a repository for PowerShell resources.
 ### NameParameterSet (Default)
 
 ```
-Register-PSResourceRepository [-Name] <String> [-Uri] <String> [-Trusted] [-Priority <Int32>]
- [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru] [-Force]
- [-CredentialProvider <CredentialProvider>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Register-PSResourceRepository [-Name] <string> [-Uri] <string> [-Trusted] [-Priority <int>]
+ [-ApiVersion <PSRepositoryInfo+APIVersion>] [-CredentialInfo <PSCredentialInfo>]
+ [-CredentialProvider <CredentialProvider>] [-PassThru] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### PSGalleryParameterSet
 
 ```
-Register-PSResourceRepository [-PSGallery] [-Trusted] [-Priority <Int32>] [-PassThru] [-Force]
+Register-PSResourceRepository -PSGallery [-Trusted] [-Priority <int>] [-PassThru] [-Force]
  [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### MARParameterSet
+
+```
+Register-PSResourceRepository -MicrosoftArtifactRegistry [-Trusted] [-Priority <int>]
+ [-PassThru] [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
 
 ```
-Register-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-Force] [-WhatIf] [-Confirm]
+Register-PSResourceRepository -Repository <hashtable[]> [-PassThru] [-Force] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -236,9 +243,40 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -MicrosoftArtifactRegistry
+
+When specified, registers the default `MicrosoftArtifactRegistry` repository with the following
+settings:
+
+- `Name` - `MicrosoftArtifactRegistry`
+- `Uri` - `https://mcr.microsoft.com/`
+- `Trusted` - True
+- `Priority` - 40
+- `ApiVersion` - ContainerRegistry
+
+By default, the `MicrosoftArtifactRegistry` repository is registered as a Trusted repository with a
+higher priority than the `PSGallery` repository.
+
+You can't use this parameter to reset the existing repository. Use `Set-PSResourceRepository` to
+change the settings of the existing repository.
+
+This parameter was added in Microsoft.PowerShell.PSResourceGet v1.3.0-preview1.
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: MARParameterSet
+Aliases: MAR
+
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Name
 
-Name of the repository to be registered. Can't be `PSGallery`.
+Name of the repository to be registered. Can't be `PSGallery` or `MicrosoftArtifactRegistry`.
 
 ```yaml
 Type: System.String
@@ -291,7 +329,20 @@ Accept wildcard characters: False
 
 ### -PSGallery
 
-When specified, registers **PSGallery** repository.
+When specified, registers the default `PSGallery` repository with the following settings:
+
+- `Name` - `PSGallery`
+- `Uri` - `https://www.powershellgallery.com/api/v2`
+- `Trusted` - False
+- `Priority` - 50
+- `ApiVersion` - V2
+
+By default, the `PSGallery` repository is registered as an Untrusted repository with a lower
+priority than the `MicrosoftArtifactRegistry` repository.
+
+You can use this to restore the default registration of the `PSGallery` repository if it has been
+removed. You can't use this parameter to reset the existing repository. Use
+`Set-PSResourceRepository` to change the settings of the existing repository.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -396,9 +447,9 @@ Accept wildcard characters: False
 ### CommonParameters
 
 This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable,
--InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose,
--WarningAction, and -WarningVariable. For more information, see
-[about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
+-InformationAction, -InformationVariable, -OutBuffer, -OutVariable, -PipelineVariable,
+-ProgressAction, -Verbose, -WarningAction, and -WarningVariable. For more information, see
+[about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

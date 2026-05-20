@@ -1,15 +1,15 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 12/10/2025
+ms.date: 05/20/2026
 ms.topic: reference
 title: Supported repository configurations
 ---
 
 # PSResourceGet supported repositories
 
-The **Microsoft.PowerShell.PSResourceGet** module works with NuGet package repositories and local
-file stores. In general, the cmdlets should work with any artifact repository that supports the
-NuGet protocol. However, not all NuGet repositories support all the features of PSResourceGet.
+The Microsoft.PowerShell.PSResourceGet module works with NuGet package repositories and local file
+stores. In general, the cmdlets should work with any artifact repository that supports the NuGet
+protocol. However, not all NuGet repositories support all the features of PSResourceGet.
 
 The following repositories have been tested with PSResourceGet.
 
@@ -23,6 +23,31 @@ must create an account and API key to publish packages to the PowerShell Gallery
 information, see [Creating and publishing an item][01].
 
 The PowerShell Gallery supports all the features of PSResourceGet.
+
+## Microsoft Artifact Registry (MAR)
+
+MAR is a public registry for housing Microsoft's official artifacts, such as container images. MAR
+enhances security by ensuring only Microsoft can publish official packages, eliminating risks like
+name squatting. It also improves software supply chain integrity by offering greater transparency
+and control over artifact provenance.
+
+Support for the Microsoft Artifact Registry was added in Microsoft.PowerShell.PSResourceGet v1.1.0.
+Beginning with Microsoft.PowerShell.PSResourceGet v1.3.0-preview1, the Microsoft Artifact Registry
+is a default repository alongside the PSGallery repository. Use the following command to register
+the Microsoft Artifact Registry repository with the default settings:
+
+```powershell
+Register-PSResourceRepository -MicrosoftArtifactRegistry
+```
+
+By default, the Microsoft Artifact Registry repository is registered as a Trusted repository with a
+higher priority than the PSGallery repository. For more information, see
+[Register-PSResourceRepository][20].
+
+### MAR limitations
+
+The MAR repository has the same limitations as ACR repositories. The MAR is read-only and doesn't
+support publishing packages.
 
 ## NuGet.org
 
@@ -191,29 +216,6 @@ ACR repositories:
   - `Find-PSResource -Command CommandName -Repository ACRDemoRepo`
 - Find by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName -Repository ACRDemoRepo`
-
-## Microsoft Artifact Registry (MAR)
-
-MAR is a public registry for housing Microsoft's official artifacts, such as container images. MAR
-enhances security by ensuring only Microsoft can publish official packages, eliminating risks like
-name squatting. It also improves software supply chain integrity by offering greater transparency
-and control over artifact provenance.
-
-Use the following commands to register MAR repository as a PSResource repository.
-
-```powershell
-$mcrUrl = 'https://mcr.microsoft.com'
-Register-PSResourceRepository -Name MAR -Uri $mcrUrl -ApiVersion ContainerRegistry
-```
-
-After you register the repository, you can use it like any other ACR-based repository.
-
-Support for MAR was added in **Microsoft.PowerShell.PSResourceGet** v1.1.1.
-
-### MAR limitations
-
-The MAR repository has the same limitations as ACR repositories. The MAR is read-only and doesn't
-support publishing packages.
 
 ## GitHub Packages
 
@@ -515,3 +517,4 @@ Publish-PSResource @publishPSResourceSplat
 [17]: https://jfrog.com/artifactory/
 [18]: https://jfrog.com/help/r/how-to-generate-an-access-token-video/artifactory-creating-access-tokens-in-artifactory
 [19]: https://www.myget.org/
+[20]: xref:Microsoft.PowerShell.PSResourceGet.Register-PSResourceRepository
