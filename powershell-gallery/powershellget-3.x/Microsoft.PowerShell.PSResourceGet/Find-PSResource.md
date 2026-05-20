@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/find-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -18,23 +17,23 @@ properties.
 ### NameParameterSet (Default)
 
 ```
-Find-PSResource [[-Name] <String[]>] [-Type <ResourceType>] [-Version <String>] [-Prerelease]
- [-Tag <String[]>] [-Repository <String[]>] [-Credential <PSCredential>] [-IncludeDependencies]
+Find-PSResource [[-Name] <string[]>] [-Type <ResourceType>] [-Version <string>] [-Prerelease]
+ [-Tag <string[]>] [-Repository <string[]>] [-Credential <pscredential>] [-IncludeDependencies]
  [<CommonParameters>]
 ```
 
 ### CommandNameParameterSet
 
 ```
-Find-PSResource [-Prerelease] -CommandName <String[]> [-Repository <String[]>]
- [-Credential <PSCredential>] [<CommonParameters>]
+Find-PSResource -CommandName <string[]> [-Prerelease] [-Repository <string[]>]
+ [-Credential <pscredential>] [<CommonParameters>]
 ```
 
 ### DscResourceNameParameterSet
 
 ```
-Find-PSResource [-Prerelease] -DscResourceName <String[]> [-Repository <String[]>]
- [-Credential <PSCredential>] [<CommonParameters>]
+Find-PSResource -DscResourceName <string[]> [-Prerelease] [-Repository <string[]>]
+ [-Credential <pscredential>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

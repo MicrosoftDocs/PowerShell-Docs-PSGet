@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/install-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -17,8 +16,8 @@ Installs resources from a registered repository.
 ### NameParameterSet (Default)
 
 ```
-Install-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Credential <PSCredential>] [-Scope <ScopeType>] [-TemporaryPath <String>] [-TrustRepository]
+Install-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-Repository <string[]>]
+ [-Credential <pscredential>] [-Scope <ScopeType>] [-TemporaryPath <string>] [-TrustRepository]
  [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck] [-AuthenticodeCheck]
  [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
@@ -26,28 +25,26 @@ Install-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Reposi
 ### InputObjectParameterSet
 
 ```
-Install-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-Scope <ScopeType>]
- [-TemporaryPath <String>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
- [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-InputObject] <PSResourceInfo[]> [-WhatIf]
- [-Confirm] [<CommonParameters>]
+Install-PSResource [-InputObject] <PSResourceInfo[]> [-Repository <string[]>]
+ [-Credential <pscredential>] [-Scope <ScopeType>] [-TemporaryPath <string>] [-TrustRepository]
+ [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck] [-AuthenticodeCheck]
+ [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RequiredResourceFileParameterSet
 
 ```
-Install-PSResource [-Credential <PSCredential>] [-Scope <ScopeType>] [-TemporaryPath <String>]
- [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck]
- [-AuthenticodeCheck] [-PassThru] -RequiredResourceFile <String> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Install-PSResource -RequiredResourceFile <string> [-Credential <pscredential>] [-Scope <ScopeType>]
+ [-TemporaryPath <string>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
+ [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RequiredResourceParameterSet
 
 ```
-Install-PSResource [-Credential <PSCredential>] [-Scope <ScopeType>] [-TemporaryPath <String>]
- [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck]
- [-AuthenticodeCheck] [-PassThru] -RequiredResource <Object> [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Install-PSResource -RequiredResource <Object> [-Credential <pscredential>] [-Scope <ScopeType>]
+ [-TemporaryPath <string>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
+ [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

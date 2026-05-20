@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/update-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -15,8 +14,8 @@ Downloads and installs the newest version of a package already installed on the 
 ## SYNTAX
 
 ```
-Update-PSResource [[-Name] <String[]>] [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Scope <ScopeType>] [-TemporaryPath <String>] [-TrustRepository] [-Credential <PSCredential>]
+Update-PSResource [[-Name] <string[]>] [-Version <string>] [-Prerelease] [-Repository <string[]>]
+ [-Scope <ScopeType>] [-TemporaryPath <string>] [-TrustRepository] [-Credential <pscredential>]
  [-Quiet] [-AcceptLicense] [-Force] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck]
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```

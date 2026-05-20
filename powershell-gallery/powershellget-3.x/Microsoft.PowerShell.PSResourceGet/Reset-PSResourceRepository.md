@@ -1,17 +1,16 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
+ms.date: 05/20/2026
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/reset-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
-ms.date: 03/18/2026
 schema: 2.0.0
-ms.custom: 1.2.0-p5
 title: Reset-PSResourceRepository
 ---
 # Reset-PSResourceRepository
 
 ## SYNOPSIS
 
-Creates a new default `PSRepositories.xml` file with PSGallery registered.
+Creates a new default `PSRepositories.xml` file with preregistered repositories.
 
 ## SYNTAX
 
@@ -21,14 +20,21 @@ Reset-PSResourceRepository [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 ## DESCRIPTION
 
-This command resets the repository store by creating a store file with PSGallery registered. First
-it creates a new temporary file and only replaces the old file if creation succeeds. If creation
-fails, the old file is restored.
+This command resets the repository store by creating a store file with preregistered repositories.
+First it creates a new temporary file and only replaces the old file if creation succeeds. If
+creation fails, the old file is restored.
 
 Use this command to replace a corrupted repository store or to restore the default repository
-configuration.
+configuration. The default configuration includes the following repositories:
 
-This command was added in Microsoft.PowerShell.PSResourceGet v1.2.0-preview5.
+- **MicrosoftArtifactRegistry** (added in v1.3.0-preview1)
+  - Priority = 40
+  - Trusted = True
+- **PSGallery**
+  - Priority = 50
+  - Trusted = False
+
+This command was added in Microsoft.PowerShell.PSResourceGet v1.2.0.
 
 ## EXAMPLES
 
@@ -39,16 +45,17 @@ Reset-PSResourceRepository -PassThru
 ```
 
 ```Output
-Name            Uri                                      Trusted Priority IsAllowedByPolicy
-----            ---                                      ------- -------- -----------------
-PSGallery       https://www.powershellgallery.com/api/v2 False   50       True
+Name                      Uri                                      Trusted Priority IsAllowedByPolicy
+----                      ---                                      ------- -------- -----------------
+MicrosoftArtifactRegistry https://mcr.microsoft.com/               True    40       True
+PSGallery                 https://www.powershellgallery.com/api/v2 False   50       True
 ```
 
 ## PARAMETERS
 
 ### -PassThru
 
-By default, the command does not generate any output. When specified, the command displays the
+By default, the command doesn't generate any output. When specified, the command displays the
 results of the reset operation.
 
 ```yaml

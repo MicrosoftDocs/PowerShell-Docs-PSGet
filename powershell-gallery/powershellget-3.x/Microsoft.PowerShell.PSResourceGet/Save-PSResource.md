@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/save-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -17,8 +16,8 @@ Saves resources (modules and scripts) from a registered repository onto the mach
 ### IncludeXmlParameterSet (Default)
 
 ```
-Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Credential <PSCredential>] [-IncludeXml] [-Path <String>] [-TemporaryPath <String>]
+Save-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-Repository <string[]>]
+ [-Credential <pscredential>] [-IncludeXml] [-Path <string>] [-TemporaryPath <string>]
  [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
  [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
@@ -26,8 +25,8 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 ### AsNupkgParameterSet
 
 ```
-Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repository <String[]>]
- [-Credential <PSCredential>] [-AsNupkg] [-Path <String>] [-TemporaryPath <String>]
+Save-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-Repository <string[]>]
+ [-Credential <pscredential>] [-AsNupkg] [-Path <string>] [-TemporaryPath <string>]
  [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
  [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
@@ -35,9 +34,9 @@ Save-PSResource [-Name] <String[]> [-Version <String>] [-Prerelease] [-Repositor
 ### InputObjectParameterSet
 
 ```
-Save-PSResource [-Repository <String[]>] [-Credential <PSCredential>] [-AsNupkg] [-IncludeXml]
- [-Path <String>] [-TemporaryPath <String>] [-TrustRepository] [-PassThru]
- [-InputObject] <PSResourceInfo[]> [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
+Save-PSResource [-InputObject] <PSResourceInfo[]> [-Repository <string[]>]
+ [-Credential <pscredential>] [-AsNupkg] [-IncludeXml] [-Path <string>] [-TemporaryPath <string>]
+ [-TrustRepository] [-PassThru] [-SkipDependencyCheck] [-AuthenticodeCheck] [-Quiet]
  [-AcceptLicense] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 

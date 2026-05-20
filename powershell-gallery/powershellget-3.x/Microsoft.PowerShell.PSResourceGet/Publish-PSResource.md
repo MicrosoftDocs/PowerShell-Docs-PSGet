@@ -1,7 +1,6 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
 ms.date: 12/10/2025
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/publish-psresource?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
@@ -17,19 +16,19 @@ Publishes a specified module from the local computer to PSResource repository.
 ### PathParameterSet
 
 ```
-Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-Path] <String>
- [-DestinationPath <String>] [-Credential <PSCredential>] [-SkipDependenciesCheck]
- [-SkipModuleManifestValidate] [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
- [-ModulePrefix <String>] [-WhatIf] [-Confirm] [<CommonParameters>]
+Publish-PSResource [-Path] <string> [-ApiKey <string>] [-Repository <string>]
+ [-DestinationPath <string>] [-Credential <pscredential>] [-SkipDependenciesCheck]
+ [-SkipModuleManifestValidate] [-Proxy <uri>] [-ProxyCredential <pscredential>]
+ [-ModulePrefix <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### NupkgPathParameterSet
 
 ```
-Publish-PSResource [-ApiKey <String>] [-Repository <String>] [-DestinationPath <String>]
- [-Credential <PSCredential>] [-SkipDependenciesCheck] [-SkipModuleManifestValidate] [-Proxy <Uri>]
- [-ProxyCredential <PSCredential>] -NupkgPath <String> [-ModulePrefix <String>] [-WhatIf] [-Confirm]
- [<CommonParameters>]
+Publish-PSResource -NupkgPath <string> [-ApiKey <string>] [-Repository <string>]
+ [-DestinationPath <string>] [-Credential <pscredential>] [-SkipDependenciesCheck]
+ [-SkipModuleManifestValidate] [-Proxy <uri>] [-ProxyCredential <pscredential>]
+ [-ModulePrefix <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION

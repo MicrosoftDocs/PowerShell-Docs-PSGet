@@ -1,8 +1,7 @@
 ---
 external help file: Microsoft.PowerShell.PSResourceGet.dll-Help.xml
 Module Name: Microsoft.PowerShell.PSResourceGet
-ms.custom: 1.2.0-p5
-ms.date: 03/18/2026
+ms.date: 05/20/2026
 online version: https://learn.microsoft.com/powershell/module/microsoft.powershell.psresourceget/set-psresourcerepository?view=powershellget-3.x&WT.mc_id=ps-gethelp
 schema: 2.0.0
 ---
@@ -17,15 +16,15 @@ Sets information for a registered repository.
 ### NameParameterSet (Default)
 
 ```
-Set-PSResourceRepository [-Name] <String> [-Uri <String>] [-Trusted] [-Priority <Int32>]
- [-ApiVersion <APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru]
+Set-PSResourceRepository [-Name] <string> [-Uri <string>] [-Trusted] [-Priority <int>]
+ [-ApiVersion <PSRepositoryInfo+APIVersion>] [-CredentialInfo <PSCredentialInfo>] [-PassThru]
  [-CredentialProvider <CredentialProvider>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RepositoriesParameterSet
 
 ```
-Set-PSResourceRepository -Repository <Hashtable[]> [-PassThru] [-WhatIf] [-Confirm]
+Set-PSResourceRepository -Repository <hashtable[]> [-PassThru] [-WhatIf] [-Confirm]
  [<CommonParameters>]
 ```
 
@@ -199,6 +198,10 @@ parameter is only available when the named repository is an Azure Artifacts feed
 
 - `None` - No credential provider defined
 - `AzArtifacts` - Use the Azure Artifacts Credential Provider
+
+> [!NOTE]
+> This dynamic parameter isn't available for the default **MicrosoftArtifactRegistry** and
+> **PSGallery** repositories.
 
 ```yaml
 Type: Microsoft.PowerShell.PSResourceGet.UtilClasses.CredentialProviderType
