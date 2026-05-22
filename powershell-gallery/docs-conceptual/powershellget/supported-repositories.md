@@ -1,6 +1,6 @@
 ---
 description: This article lists the repositories that have been tested with PowerShellGet v3 and how to configure them.
-ms.date: 05/20/2026
+ms.date: 05/22/2026
 ms.topic: reference
 title: Supported repository configurations
 ---
@@ -11,20 +11,37 @@ The Microsoft.PowerShell.PSResourceGet module works with NuGet package repositor
 stores. In general, the cmdlets should work with any artifact repository that supports the NuGet
 protocol. However, not all NuGet repositories support all the features of PSResourceGet.
 
-The following repositories have been tested with PSResourceGet.
+## The default repositories
 
-## The PowerShell Gallery
+Beginning with PSResourceGet v1.3.0-preview1, there are two default repositories. PSResourceGet
+stores the registered repositories in `$env:LOCALAPPDATA\PSResourceGet\PSResourceRepository.xml`. If
+that file doesn't exist, then the first PSResourceGet command you run creates the default
+registrations. If you have existing registrations, PSResourceGet uses what you have defined. You
+can use the `Get-PSResourceRepository` cmdlet to see the registered repositories and their settings.
 
-The PowerShell Gallery is the default repository for PSResourceGet. The Gallery is a NuGet
-repository that uses the NuGet v2 protocol.
+```powershell
+Get-PSResourceRepository
+````
 
-You don't need credentials to search, download, or install packages from the PowerShell Gallery. You
-must create an account and API key to publish packages to the PowerShell Gallery. For more
-information, see [Creating and publishing an item][01].
+```Output
+Name                      Uri                                      Trusted Priority IsAllowedByPolicy
+----                      ---                                      ------- -------- -----------------
+MicrosoftArtifactRegistry https://mcr.microsoft.com/               True    40       True
+PSGallery                 https://www.powershellgallery.com/api/v2 False   50       True
+```
 
-The PowerShell Gallery supports all the features of PSResourceGet.
+Use the following commands to register the default default repositories:
 
-## Microsoft Artifact Registry (MAR)
+```powershell
+Register-PSResourceRepository -MicrosoftArtifactRegistry
+Register-PSResourceRepository -PSGallery
+```
+
+By default, the Microsoft Artifact Registry repository is registered as a Trusted repository with a
+higher priority than the PSGallery repository. For more information, see
+[Register-PSResourceRepository][20].
+
+### Microsoft Artifact Registry (MAR)
 
 MAR is a public registry for housing Microsoft's official artifacts, such as container images. MAR
 enhances security by ensuring only Microsoft can publish official packages, eliminating risks like
@@ -32,27 +49,44 @@ name squatting. It also improves software supply chain integrity by offering gre
 and control over artifact provenance.
 
 Support for the Microsoft Artifact Registry was added in Microsoft.PowerShell.PSResourceGet v1.1.0.
+You don't need credentials to search, download, or install packages from the PowerShell Gallery.
 Beginning with Microsoft.PowerShell.PSResourceGet v1.3.0-preview1, the Microsoft Artifact Registry
-is a default repository alongside the PSGallery repository. Use the following command to register
-the Microsoft Artifact Registry repository with the default settings:
+is a default repository alongside the PSGallery repository.
 
-```powershell
-Register-PSResourceRepository -MicrosoftArtifactRegistry
-```
+### The PowerShell Gallery
 
-By default, the Microsoft Artifact Registry repository is registered as a Trusted repository with a
-higher priority than the PSGallery repository. For more information, see
-[Register-PSResourceRepository][20].
+The PowerShell Gallery (PSGallery) is a community repository. This is the original repository created
+by Microsoft for sharing PowerShell modules and scripts. You don't need credentials to search,
+download, or install packages from the PowerShell Gallery.
 
-### MAR limitations
+However, anyone can create an account and API key to publish packages to the PowerShell Gallery.
+From a security perspective, you should treat the PowerShell Gallery as:
 
-The MAR repository has the same limitations as ACR repositories. The MAR is read-only and doesn't
-support publishing packages.
+- Untrusted by default
+- Community-owned
+- Unsuitable for direct production dependency
 
-## NuGet.org
+Because the Gallery doesn't promise a specific level of availability it shouldn't be treated as a
+guaranteed service for production workloads. Microsoft strives to make the Gallery a dependable
+platform and is investing in improvements to the reliability. But, for most environments, you
+shouldn't use the PowerShell Gallery directly from production systems.
 
-NuGet.org is a public host of NuGet packages used by millions of .NET and .NET Core developers every
-day. NuGet.org provides a NuGet repository that uses the NuGet v3 protocol.
+Instead, you should treat the Gallery as an intake and discovery source, with packages promoted into
+trusted enterprise repositories only after review and approval. At Microsoft we use Azure Artifacts
+feeds with a gated central feed system.
+
+## Other supported repositories
+
+The following repositories have been tested with PSResourceGet. Except for NuGet.org, these
+repositories are suitable for use as private repositories for sharing packages within an
+organization.
+
+### NuGet.org
+
+NuGet.org is a public host of NuGet packages used by millions of .NET developers every day.
+NuGet.org provides a NuGet repository that uses the NuGet v3 protocol. Like the PowerShell Gallery,
+NuGet.org is a community repository and should be treated as untrusted. For more information, see
+[Best practices for a secure software supply chain][05].
 
 Use the following command to register NuGet.org as a PSResource repository:
 
@@ -68,7 +102,7 @@ You don't need credentials to search, download, or install packages from NuGet.o
 an account and API key to publish packages to NuGet.org. For more information about getting a NuGet
 API key, see [Quickstart: Create and publish a NuGet package][08].
 
-### NuGet.org limitations
+#### NuGet.org limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 NuGet.org repositories:
@@ -81,7 +115,7 @@ NuGet.org repositories:
 - Search by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName`
 
-### Publish to NuGet.org
+#### Publish to NuGet.org
 
 You don't need to use the **Credential** parameter of the `Publish-PSResource` cmdlet, but you must
 use the **ApiKey** parameter. You can provide credentials, but NuGet.org doesn't use them. To create
@@ -101,7 +135,7 @@ Publish-PSResource @publishPSResourceSplat
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][09].
 
-## Azure Artifacts
+### Azure Artifacts
 
 Azure Artifacts is a feature of Azure DevOps. Azure Artifacts enables developers to share their code
 efficiently and manage all their packages from one place. With Azure Artifacts, developers can
@@ -126,12 +160,12 @@ Register-PSResourceRepository @params
 Azure DevOps allows you to create public or private feeds for your Azure Artifacts. You don't need
 credentials to search, download, or install packages from an Azure Artifacts public feed. To publish
 artifacts or access private feeds, you must have an account and an API key. For more information
-about getting an API key, see [Connect to feed as a PowerShell repository][05].
+about getting an API key, see [Connect to feed as a PowerShell repository][04].
 
 PSResourceGet v1.2.0-preview5 adds support for the Azure Artifacts Credential Provider. For more
 information, see [Use the Azure Artifacts Credential Provider with Azure Artifacts feeds][12].
 
-### Azure Artifacts limitations
+#### Azure Artifacts limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 Azure Artifacts repositories:
@@ -146,12 +180,12 @@ Azure Artifacts repositories:
 - Search by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName`
 
-### Publish to Azure Artifacts
+#### Publish to Azure Artifacts
 
 You must use the **Credential** and **ApiKey** parameters of the `Publish-PSResource` cmdlet to
 publish packages to an Azure Artifacts feed. The credential must be a personal access token (PAT)
 that has the **Packaging (read, write, and manage)** scope. For more information, see
-[Use Azure Artifacts feeds as a private PowerShell repository][04]. The value of the **ApiKey**
+[Use Azure Artifacts feeds as a private PowerShell repository][03]. The value of the **ApiKey**
 parameter isn't important. It can be any arbitrary string, but it must be included. For example:
 
 ```powershell
@@ -174,7 +208,7 @@ your Azure DevOps user name.
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][09].
 
-## Azure Container Registry
+### Azure Container Registry
 
 Azure Container Registry (ACR) allows you to build, store, and manage container images and artifacts
 in a private registry for all types of container deployments. Version 1.1.0-preview.1 of the
@@ -184,7 +218,7 @@ PSResource repository.
 ACR-based repositories are private repositories and require credentials for access. Users of the
 repository must have the necessary permissions to access the repository. The user needs to have
 `ACRPull` permissions to get resources and `ACRPush` permissions to publish resources. For more
-information, see [Registry roles and permissions][03].
+information, see [Registry roles and permissions][02].
 
 To register an ACR repository, you must know the **LoginServer** name of the ACR. Use the following
 commands to register an ACR repository as a PSResource repository.
@@ -198,14 +232,14 @@ Register-PSResourceRepository -Name ACRDemoRepo -Uri $acrUrl
 After you register the repository, the first time you perform an operation on the registered
 repository in a new session you are prompted to login.
 
-### Use the ACR repository
+#### Use the ACR repository
 
 Using the ACR-based repository is similar to using other repositories. You can search for resources,
 install resources, and publish resources. The first time you perform an operation on the registered
 repository in a new session, you are prompted to login. For more detailed examples using ACR, see
 [Use ACR repositories with PSResourceGet][11].
 
-### ACR limitations
+#### ACR limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 ACR repositories:
@@ -217,7 +251,7 @@ ACR repositories:
 - Find by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName -Repository ACRDemoRepo`
 
-## GitHub Packages
+### GitHub Packages
 
 GitHub Packages is a software package hosting service that allows you to host your software packages
 privately or publicly and use packages as dependencies in your projects. For more information, see
@@ -242,7 +276,7 @@ must be associated with a user account or organization.
 You must use credentials for all operations with a GitHub Packages feed. For more information, see
 the _Authenticating to GitHub Packages_ section of [Working with the NuGet registry][15].
 
-### GitHub Packages limitations
+#### GitHub Packages limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 GitHub Packages repositories:
@@ -260,7 +294,7 @@ GitHub Packages repositories:
   - The package is published as a private package. After publishing, you can use the GitHub
     interface to link it to the desired repository and change the visibility.
 
-### Publish to GitHub Packages
+#### Publish to GitHub Packages
 
 You can use either the **Credential** or **ApiKey** parameter of the `Publish-PSResource` cmdlet to
 publish packages to a GitHub Package feed. You must create a personal access token (PAT) with the
@@ -298,7 +332,7 @@ Publish-PSResource @publishPSResourceSplat
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][09].
 
-## JFrog Artifactory
+### JFrog Artifactory
 
 [JFrog Artifactory][17] is a hosting service for NuGet repositories. Artifactory feeds use the NuGet
 v3 protocol. The feed URI has the following format:
@@ -319,7 +353,7 @@ Register-PSResourceRepository @params
 You must use credentials for all operations with a JFrog Artifactory feed. For more information, see
 [Creating Access Tokens in Artifactory][18].
 
-### JFrog Artifactory limitations
+#### JFrog Artifactory limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for JFrog
 Artifactory repositories:
@@ -332,7 +366,7 @@ Artifactory repositories:
 - Search by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName`
 
-### Publish to JFrog Artifactory
+#### Publish to JFrog Artifactory
 
 You must use the **Credential** parameter of the `Publish-PSResource` cmdlet to publish packages to
 a JFrog Artifactory feed. The value of the **Credential** parameter must be a **PSCredential**
@@ -358,7 +392,7 @@ is your email address associated with your JFrog account.
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][09].
 
-## MyGet.org
+### MyGet.org
 
 [MyGet.org][19] is a hosting service for NuGet repositories.
 
@@ -382,7 +416,7 @@ MyGet allows you to create public or private feeds. You don't need credentials t
 or install packages from a public MyGet feed. To publish artifacts or access private feeds, you must
 have an account and an API key. For more information about, see [MyGet Security][16].
 
-### MyGet limitations
+#### MyGet limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for MyGet
 repositories:
@@ -397,7 +431,7 @@ repositories:
 - Search by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName`
 
-### Publish to a MyGet feed
+#### Publish to a MyGet feed
 
 You must use the **ApiKey** parameter of the `Publish-PSResource` cmdlet with personal access token
 (PAT) to publish packages to a MyGet feed. The value of the **ApiKey** parameter must be a plaintext
@@ -420,10 +454,10 @@ Publish-PSResource @publishPSResourceSplat
 > other methods to store and retrieve your credentials securely. For more information, see
 > [Overview of the SecretManagement and SecretStore modules][09].
 
-## File-share-based repositories
+### File-share-based repositories
 
 You can create your own package repository as a local file share. For more information, see
-[Working with local PSRepositories][02]. You access file-share-based repositories using local
+[Working with local PSRepositories][01]. You access file-share-based repositories using local
 filesystem APIs or remote filesystem protocols, such as SMB or NFS.
 
 The permissions set by the filesystem and the file sharing protocol control access to the files. You
@@ -435,12 +469,12 @@ about securing SMB on Windows, see [SMB security enhancements][10].
 The **Microsoft.PowerShell.PSResourceGet** module supports all search scenarios for file share
 repositories.
 
-## Self-hosted NuGet repositories
+### Self-hosted NuGet repositories
 
 You can create your own package repository by hosting your own NuGet server. **NuGet.Server** is a
 package provided by the .NET Foundation. You can use this package to create an ASP.NET application
 that hosts a package feed on any Windows server running IIS. This server uses the NuGet v2 protocol.
-For more information, see [Working with local PSRepositories][02].
+For more information, see [Working with local PSRepositories][01].
 
 The **Microsoft.PowerShell.PSResourceGet** module supports NuGet.Server feeds. The feed URI has the
 following format:
@@ -463,7 +497,7 @@ Register-PSResourceRepository @params
 
 You don't need credentials to search, download, or install packages from your self-hosted server.
 
-### Self-hosted NuGet server limitations
+#### Self-hosted NuGet server limitations
 
 The **Microsoft.PowerShell.PSResourceGet** module doesn't support the following scenarios for
 self-hosted NuGet servers:
@@ -476,7 +510,7 @@ self-hosted NuGet servers:
 - Search by DSC resource name
   - `Find-PSResource -DscResourceName ResourceName`
 
-### Publish to a NuGet.Server instance
+#### Publish to a NuGet.Server instance
 
 When you first setup a NuGet.Server instance, there is no API key defined and pushing packages to
 the feed is disabled. To configure an API key, see the _Adding packages to the feed_ section of
@@ -498,11 +532,11 @@ Publish-PSResource @publishPSResourceSplat
 > [Overview of the SecretManagement and SecretStore modules][09].
 
 <!-- link references -->
-[01]: ../how-to/publishing-packages/publishing-a-package.md
-[02]: ../how-to/working-with-local-psrepositories.md
-[03]: /azure/container-registry/container-registry-roles?tabs=azure-powershell
-[04]: /azure/devops/artifacts/tutorials/private-powershell-library?view=azure-devops&preserve-view=true#create-a-personal-access-token
-[05]: /azure/devops/artifacts/tutorials/private-powershell-library#connect-to-feed-as-a-powershell-repository
+[01]: ../how-to/working-with-local-psrepositories.md
+[02]: /azure/container-registry/container-registry-roles?tabs=azure-powershell
+[03]: /azure/devops/artifacts/tutorials/private-powershell-library?view=azure-devops&preserve-view=true#create-a-personal-access-token
+[04]: /azure/devops/artifacts/tutorials/private-powershell-library#connect-to-feed-as-a-powershell-repository
+[05]: /nuget/concepts/security-best-practices
 [06]: /nuget/hosting-packages/nuget-server#adding-packages-to-the-feed-externally
 [07]: /nuget/nuget-org/publish-a-package#create-an-api-key
 [08]: /nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli#get-your-api-key
