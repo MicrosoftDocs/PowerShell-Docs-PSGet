@@ -21,7 +21,7 @@ can use the `Get-PSResourceRepository` cmdlet to see the registered repositories
 
 ```powershell
 Get-PSResourceRepository
-````
+```
 
 ```Output
 Name                      Uri                                      Trusted Priority IsAllowedByPolicy
@@ -30,7 +30,7 @@ MicrosoftArtifactRegistry https://mcr.microsoft.com/               True    40   
 PSGallery                 https://www.powershellgallery.com/api/v2 False   50       True
 ```
 
-Use the following commands to register the default default repositories:
+Use the following commands to register the default repositories:
 
 ```powershell
 Register-PSResourceRepository -MicrosoftArtifactRegistry
@@ -49,7 +49,7 @@ name squatting. It also improves software supply chain integrity by offering gre
 and control over artifact provenance.
 
 Support for the Microsoft Artifact Registry was added in Microsoft.PowerShell.PSResourceGet v1.1.0.
-You don't need credentials to search, download, or install packages from the PowerShell Gallery.
+You don't need credentials to search, download, or install packages from the Microsoft Artifact Registry.
 Beginning with Microsoft.PowerShell.PSResourceGet v1.3.0-preview1, the Microsoft Artifact Registry
 is a default repository alongside the PSGallery repository.
 
