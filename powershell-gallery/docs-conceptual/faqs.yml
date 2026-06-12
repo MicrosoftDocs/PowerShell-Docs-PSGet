@@ -219,7 +219,7 @@ sections:
           PackageManagement actually relate to PowerShellGet?** section.
 
           For more information, please visit the
-          [PackageManagement project page](https://oneget.org/).
+          [PackageManagement project page](https://github.com/oneget).
 
       - question: How does NuGet relate to PowerShellGet?
         answer: |
