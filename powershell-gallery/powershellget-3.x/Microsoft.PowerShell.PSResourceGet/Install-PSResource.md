@@ -19,7 +19,8 @@ Installs resources from a registered repository.
 Install-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-Repository <string[]>]
  [-Credential <pscredential>] [-Scope <ScopeType>] [-TemporaryPath <string>] [-TrustRepository]
  [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck] [-AuthenticodeCheck]
- [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-RuntimeIdentifier <string>] [-TargetFramework <string>] [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### InputObjectParameterSet
@@ -28,7 +29,8 @@ Install-PSResource [-Name] <string[]> [-Version <string>] [-Prerelease] [-Reposi
 Install-PSResource [-InputObject] <PSResourceInfo[]> [-Repository <string[]>]
  [-Credential <pscredential>] [-Scope <ScopeType>] [-TemporaryPath <string>] [-TrustRepository]
  [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber] [-SkipDependencyCheck] [-AuthenticodeCheck]
- [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-RuntimeIdentifier <string>] [-TargetFramework <string>] [-PassThru] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### RequiredResourceFileParameterSet
@@ -36,7 +38,8 @@ Install-PSResource [-InputObject] <PSResourceInfo[]> [-Repository <string[]>]
 ```
 Install-PSResource -RequiredResourceFile <string> [-Credential <pscredential>] [-Scope <ScopeType>]
  [-TemporaryPath <string>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
- [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-SkipDependencyCheck] [-AuthenticodeCheck] [-RuntimeIdentifier <string>]
+ [-TargetFramework <string>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ### RequiredResourceParameterSet
@@ -64,6 +67,28 @@ import the new version or start a new session to use the updated module. For mor
 > `Install-PSResource` doesn't install dependent resources from repositories that use the NuGet v3
 > protocol. You must install the dependent resources individually. We intend to add this feature in
 > a future release.
+
+Beginning with PSResourceGet v1.3.0-preview2 adds two new features:
+
+- Platform and Target Framework Moniker awareness
+
+  By default, the `Install-PSResource` cmdlet now installs only the platform-specific and
+  target-framework-specific components of a resource. This new behavior reduces the size of the
+  installed resource, consuming less disk space. This release also add two new parameters,
+  **RuntimeIdentifier ** and **TargetFramework**, to allow you to specify the platform and target
+  framework for the installation when needed.
+
+- Support for `$PSUserContentPath`
+
+  PSResourceGet now respects PowerShell automatic variable, `$PSUserContentPath`. This automatic
+  variable will be added in a future release of PowerShell 7.7.0. PowerShell populates this variable
+  with the resolved path for CurrentUser content. When `$PSUserContentPath` contains a usable
+  string, PSResourceGet installs **CurrentUser** modules and scripts beneath that path. When the
+  variable is unavailable or empty, PSResourceGet preserves the existing platform-specific
+  **CurrentUser** path. The **AllUsers** module and script locations remain unchanged. PSResourceGet
+  doesn't parse environment variables or `powershell.config.json` directly. PowerShell owns
+  configuration precedence and environment-variable expansion, then exposes the resolved session
+  value through `$PSUserContentPath`.
 
 ## EXAMPLES
 
@@ -275,8 +300,8 @@ Accept wildcard characters: False
 Installs the latest version of a module even if the latest version is already installed. The
 installed version is overwritten. This allows you to repair a damaged installation of the module.
 
-If an older version of the module is installed, the new version is installed side-by-side in a new
-version-specific folder.
+If you have an older version of the module installed, the new version is installed side-by-side in a
+new version-specific folder.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -351,6 +376,36 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -RuntimeIdentifier
+
+Specifies the Runtime Identifier (RID) to filter platform-specific assets for. When specified, the
+command only installs the runtime assets matching this RID instead of the autodetected platform.
+You can use this for cross-platform deployment scenarios, for example, preparing a Linux package
+from Windows. The command support the following RID values from the .NET RID catalog:
+
+- `linux-arm`
+- `linux-arm64`
+- `linux-musl-arm64`
+- `linux-musl-x64`
+- `linux-x64`
+- `osx-arm64`
+- `osx-x64`
+- `win-arm64`
+- `win-x64`
+- `win-x86`
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -Scope
 
 Specifies the installation scope. Accepted values are:
@@ -396,6 +451,34 @@ Aliases:
 Required: False
 Position: Named
 Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -TargetFramework
+
+Specifies the Target Framework Moniker (TFM) to select for `lib/` folder filtering. When specified,
+the command only installs the `lib/` assets matching this TFM instead of the autodetected framework.
+You can use this for cross-platform deployment scenarios, for example, preparing a Linux package
+from Windows. The command supports the following TFM values:
+
+- `net48`
+- `net6.0`
+- `net7.0`
+- `net8.0`
+- `net9.0`
+- `net10.0`
+- `netstandard2.0`
+- `netstandard2.1`
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -512,7 +595,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### Microsoft.PowerShell.PSResourceGet.UtilClasses.PSResourceInfo
 
-By default, the cmdlet doesn't return any objects. When the **PassThru** parameter is used, the
+By default, the cmdlet doesn't return any objects. When you use the **PassThru** parameter, the
 cmdlet outputs a **PSResourceInfo** object for the saved resource.
 
 ## NOTES
@@ -530,3 +613,7 @@ the JSON object is stored in a `.json` file. For more information, see
 [Package versioning](/nuget/concepts/package-versioning#version-ranges)
 
 [Uninstall-PSResource](Uninstall-PSResource.md)
+
+[Target frameworks in SDK-style projects](/dotnet/standard/frameworks)
+
+[.NET Runtime Identifier (RID) catalog](/dotnet/core/rid-catalog)

@@ -1,6 +1,6 @@
 ---
 description: This article contains release notes for the PSResourceGet module.
-ms.date: 05/20/2026
+ms.date: 09/16/2026
 ms.topic: release-notes
 title: What's new in PSResourceGet
 ---
@@ -13,6 +13,7 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release history
 
+- v1.3.0-preview2 - Preview release - shipped in PowerShell 7.7.0-preview.5
 - v1.3.0-preview1 - Preview release - released to the PowerShell Gallery only
 - v1.2.0 - Current release - released to the PowerShell Gallery only
 - v1.2.0-rc3 - Preview release - shipped in PowerShell 7.6.0-rc1
@@ -43,6 +44,21 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 ## Release notes
 
 ### 1.3.0-preview1 - 2026-05-19
+
+New Features
+
+- Add `$PSContentPath` Standard Platform Paths
+- Add new parameters to `Install-PSResource` for Platform and Target Framework Moniker-aware
+  installations
+
+Bug fixes and improvements
+
+- Improved concurrency for PSResource download, search, and dependency resolution
+- Added input validation for `GetOperation()` used by DSCv3
+- Capture cmdlet warnings to prevent stdout contamination breaking DSC JSON parsing
+- Improved exception messages for PSGallery errors to enable better troubleshooting
+
+### 1.3.0-preview2 - 2026-09-16
 
 New Features
 
