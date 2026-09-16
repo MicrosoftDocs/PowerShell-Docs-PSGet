@@ -15,8 +15,9 @@ each operation the [Repository][01] and [PSResourceList][02] resources support.
 
 ## Prerequisites
 
-- Complete the steps in [Make the resources discoverable][03] so that `dsc resource list`
-  returns both resources.
+- Install **Microsoft.PowerShell.PSResourceGet** 1.3.0-preview1 or later and confirm that
+  `dsc resource list Microsoft.PowerShell.PSResourceGet/*` returns both resources. For more
+  information, see [How DSC discovers the resources][03].
 - Run the commands in PowerShell 7. The examples build the input JSON with hashtables and
   `ConvertTo-Json`, which keeps the quoting readable.
 
@@ -418,15 +419,16 @@ relax them to a range. For more information, see the [version][04] property.
 
 ## Troubleshoot
 
-- **DSC reports that the resource type isn't found.** The module folder isn't on `PATH` or
-  `DSC_RESOURCE_PATH` for the process that runs `dsc`. For more information, see
-  [Make the resources discoverable][03].
+- **DSC reports that the resource type isn't found.** DSC didn't discover the module. Confirm that
+  `pwsh` is in `PATH`, that the installed version is 1.3.0-preview1 or later, and that the module is
+  installed for PowerShell 7 rather than Windows PowerShell. For more information, see
+  [How DSC discovers the resources][03].
 - **The operation exits with code 2, 3, or 4.** The **PSResourceList** resource couldn't install
   packages. The exit code identifies the cause: the repository isn't registered, the repository
   isn't trusted, or `Install-PSResource` failed. For more information, see the
   [PSResourceList exit codes][05].
 - **You need more detail about what the resource did.** Add `--trace-level debug` to the `dsc`
-  command. The resource writes debug and trace messages for every step, including the cmdlets it
+  command. The resource writes debug and info messages for every step, including the cmdlets it
   calls and the version comparison it performs.
 
 ## See also
@@ -438,7 +440,7 @@ relax them to a range. For more information, see the [version][04] property.
 <!-- link references -->
 [01]: ../reference/repository.md
 [02]: ../reference/psresourcelist.md
-[03]: ../overview.md#make-the-resources-discoverable
+[03]: ../overview.md#how-dsc-discovers-the-resources
 [04]: ../reference/psresourcelist.md#version
 [05]: ../reference/psresourcelist.md#exit-codes
 [06]: configuration-documents.md

@@ -53,9 +53,9 @@ repository store those cmdlets use, so changes made with the resource are visibl
 sessions and the other way around.
 
 > [!NOTE]
-> This resource is installed with the **Microsoft.PowerShell.PSResourceGet** module. To use it, the
-> folder containing the module must be discoverable by DSC. For more information, see
-> [Make the resources discoverable][01].
+> This resource is installed with the **Microsoft.PowerShell.PSResourceGet** module. DSC discovers
+> it from `PSModulePath`, so you don't need to add the module folder to `PATH`. For more
+> information, see [How DSC discovers the resources][01].
 
 ## Requirements
 
@@ -186,13 +186,13 @@ property, **Microsoft.PowerShell.PSResourceGet** detects the API type from the U
 
 The following table describes the valid values.
 
-| Value               | Description                                                            |
-|:--------------------|:-----------------------------------------------------------------------|
-| `V2`                | A NuGet v2 API feed, like the PowerShell Gallery.                      |
-| `V3`                | A NuGet v3 API feed.                                                   |
-| `Local`             | A folder on the file system or a network share.                        |
-| `NugetServer`       | A NuGet.Server instance.                                               |
-| `ContainerRegistry` | An OCI container registry, like Azure Container Registry or the Microsoft Artifact Registry. |
+| Value               | Description                                                                                                        |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------|
+| `V2`                | A NuGet v2 API feed, like the PowerShell Gallery.                                                                  |
+| `V3`                | A NuGet v3 API feed.                                                                                               |
+| `Local`             | A folder on the file system or a network share.                                                                    |
+| `NugetServer`       | A NuGet.Server instance.                                                                                           |
+| `ContainerRegistry` | An OCI container registry, like Azure Container Registry or the Microsoft Artifact Registry.                       |
 | `Unknown`           | Returned by the **Get** operation when the repository isn't registered. Don't use this value in the desired state. |
 
 ### _exist
@@ -283,7 +283,7 @@ occur when you invoke the resource through DSC.
 - [PSResourceGet supported repositories][05]
 
 <!-- link references -->
-[01]: ../overview.md#make-the-resources-discoverable
+[01]: ../overview.md#how-dsc-discovers-the-resources
 [02]: /powershell/dsc/concepts/resources/capabilities?view=dsc-3.0&preserve-view=true
 [03]: ../how-to/invoke-resources.md
 [04]: ../how-to/configuration-documents.md
