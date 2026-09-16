@@ -16,8 +16,9 @@ and how to work with that document using the `dsc config` commands.
 
 ## Prerequisites
 
-- Complete the steps in [Make the resources discoverable][01] so that `dsc resource list`
-  returns both resources.
+- Install **Microsoft.PowerShell.PSResourceGet** 1.3.0-preview1 or later and confirm that
+  `dsc resource list Microsoft.PowerShell.PSResourceGet/*` returns both resources. For more
+  information, see [How DSC discovers the resources][01].
 - A text editor for YAML files. Visual Studio Code with the YAML extension validates the document
   against the DSC schema while you type.
 
@@ -502,7 +503,7 @@ For more information, see [DSC configuration document parameters][05].
 - [dsc config command reference][10]
 
 <!-- link references -->
-[01]: ../overview.md#make-the-resources-discoverable
+[01]: ../overview.md#how-dsc-discovers-the-resources
 [02]: /powershell/dsc/reference/schemas/config/resource?view=dsc-3.0&preserve-view=true#dependson
 [03]: ../reference/psresourcelist.md#version
 [04]: ../reference/psresourcelist.md#exit-codes

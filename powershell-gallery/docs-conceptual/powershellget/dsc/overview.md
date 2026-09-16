@@ -1,7 +1,7 @@
 ---
 description: >-
   Learn about the Microsoft Desired State Configuration (DSC) v3 resources that ship with
-  Microsoft.PowerShell.PSResourceGet, what they can manage, and how to make them available to DSC.
+  Microsoft.PowerShell.PSResourceGet, what they can manage, and how DSC discovers them.
 ms.date: 09/12/2026
 ms.topic: overview
 title: Manage PowerShell packages with Microsoft DSC
@@ -19,9 +19,9 @@ you use interactively, such as `Register-PSResourceRepository` and `Install-PSRe
 
 ## Available resources
 
-| Resource type                                    | Manages                                                       |
-|:-------------------------------------------------|:--------------------------------------------------------------|
-| [Microsoft.PowerShell.PSResourceGet/Repository][02]     | A registered package repository: name, URI, trust, priority, and API type |
+| Resource type                                           | Manages                                                                        |
+|:--------------------------------------------------------|:-------------------------------------------------------------------------------|
+| [Microsoft.PowerShell.PSResourceGet/Repository][02]     | A registered package repository: name, URI, trust, priority, and API type      |
 | [Microsoft.PowerShell.PSResourceGet/PSResourceList][03] | A list of packages that should, or shouldn't, be installed from one repository |
 
 The **Repository** resource supports the `get`, `set`, `delete`, and `export` operations. The
@@ -56,14 +56,18 @@ types from a [WinGet configuration file][07] that uses the `dscv3` processor.
   ```
 
   For more information, see [Install a package manager for PowerShell][08].
-- **Microsoft DSC 3.0 or later.** For installation instructions, see [Install DSC][09].
+- **Microsoft DSC 3.2 or later.** DSC 3.2 added the discovery extension that finds resources
+  packaged in PowerShell modules. For installation instructions, see [Install DSC][09].
 
-## Make the resources discoverable
+## How DSC discovers the resources
 
-DSC discovers command-based resources by searching the folders in the `PATH` environment variable,
-or in the `DSC_RESOURCE_PATH` environment variable when it's defined, for files with the
-`.dsc.resource.json` suffix. The resource manifests and the script that implements the resources
-are stored in the root of the module folder:
+You don't need to add the module folder to the `PATH` environment variable. DSC ships an extension,
+`Microsoft.PowerShell/Discover`, that searches the folders in the `PSModulePath` environment
+variable for DSC resource manifests. Because `Install-PSResource` installs the module to a folder in
+`PSModulePath`, DSC finds the resources as soon as you install the module.
+
+The resource manifests and the script that implements the resources are stored in the root of the
+module folder:
 
 ```Output
 Microsoft.PowerShell.PSResourceGet/
@@ -74,21 +78,6 @@ Microsoft.PowerShell.PSResourceGet/
     └── repository.dsc.resource.json
 ```
 
-Add the folder for the installed module version to `PATH` so that DSC can find the manifests. The
-following commands add the newest installed version for the current session:
-
-```powershell
-$module = Get-Module -Name Microsoft.PowerShell.PSResourceGet -ListAvailable |
-    Sort-Object -Property Version -Descending |
-    Select-Object -First 1
-$env:PATH += [System.IO.Path]::PathSeparator + $module.ModuleBase
-```
-
-To make the change permanent, add the folder to the `PATH` environment variable for your user or
-the machine. Alternatively, set the `DSC_RESOURCE_PATH` environment variable to the module folder.
-When `DSC_RESOURCE_PATH` is defined, DSC only searches the folders it lists. For more information,
-see [Environment variables][10] in the `dsc` command reference.
-
 Verify that DSC can find the resources:
 
 ```powershell
@@ -98,28 +87,43 @@ dsc resource list Microsoft.PowerShell.PSResourceGet/*
 ```Output
 Type                                               Kind      Version  Capabilities
 ----------------------------------------------------------------------------------
-Microsoft.PowerShell.PSResourceGet/PSResourceList  Resource  0.0.1    gs-wt-e-
-Microsoft.PowerShell.PSResourceGet/Repository      Resource  0.0.1    gs---de-
+Microsoft.PowerShell.PSResourceGet/PSResourceList  Resource  0.0.1    gsw-t--e-
+Microsoft.PowerShell.PSResourceGet/Repository      Resource  0.0.1    gs---d-e-
 ```
 
 The **Capabilities** column shows `g` for `get`, `s` for `set`, `w` for `whatIf`, `t` for `test`,
-`d` for `delete`, and `e` for `export`. The table view omits the description column for
-readability.
+`d` for `delete`, and `e` for `export`. The preceding output omits the **RequireAdapter** and
+**Description** columns for readability.
+
+If the command doesn't return the resources, check the following:
+
+- **`pwsh` is discoverable through `PATH`.** DSC only runs the discovery extension when it can find
+  PowerShell 7. It skips the extension without reporting an error.
+- **The module is installed for PowerShell 7.** The extension ignores the Windows PowerShell module
+  folders in `PSModulePath`. Run
+  `Get-InstalledPSResource -Name Microsoft.PowerShell.PSResourceGet` in `pwsh` to confirm where the
+  module is installed.
+- **The installed version is 1.3.0-preview1 or later.** Earlier versions don't include the resource
+  manifests.
+
+To confirm that the extension is available, run `dsc extension list`. For more information, see
+[dsc extension list][10].
 
 > [!NOTE]
-> The resources use the version of **Microsoft.PowerShell.PSResourceGet** stored in the same folder
-> as the resource manifests, even when a different version of the module is already imported in
-> your session. Keep the folder on `PATH` pointed at the version you want DSC to use.
+> DSC runs the resources from the module folder that contains the manifest it discovered, not from
+> the version of **Microsoft.PowerShell.PSResourceGet** imported in your session. When more than one
+> installed version ships the resources, DSC lists the resource type once and doesn't guarantee
+> which version it selects. Uninstall the versions you don't want DSC to use.
 
 ## How the resources map to cmdlets
 
-| Operation on the resource                  | Cmdlets the resource calls                                                     |
-|:-------------------------------------------|:-------------------------------------------------------------------------------|
-| **Repository** get and export              | `Get-PSResourceRepository`                                                     |
-| **Repository** set                         | `Register-PSResourceRepository`, `Set-PSResourceRepository`, `Unregister-PSResourceRepository` |
-| **Repository** delete                      | `Unregister-PSResourceRepository`                                              |
-| **PSResourceList** get, test, and export   | `Get-PSResourceRepository`, `Get-PSResource`                                   |
-| **PSResourceList** set                     | `Install-PSResource`, `Uninstall-PSResource`                                   |
+| Operation on the resource                | Cmdlets the resource calls                                                                     |
+|:-----------------------------------------|:-----------------------------------------------------------------------------------------------|
+| **Repository** get and export            | `Get-PSResourceRepository`                                                                     |
+| **Repository** set                       | `Register-PSResourceRepository`, `Set-PSResourceRepository`, `Unregister-PSResourceRepository` |
+| **Repository** delete                    | `Unregister-PSResourceRepository`                                                              |
+| **PSResourceList** get, test, and export | `Get-PSResourceRepository`, `Get-InstalledPSResource`                                          |
+| **PSResourceList** set                   | `Install-PSResource`, `Uninstall-PSResource`                                                   |
 
 Because the resources call the cmdlets directly, they honor the same settings as an interactive
 session. For example, a repository that requires credentials must have a persisted credential
@@ -144,6 +148,6 @@ configured before DSC can install from it. For more information, see
 [07]: /windows/package-manager/configuration/
 [08]: ../install-powershellget.md
 [09]: /powershell/dsc/install?view=dsc-3.0&preserve-view=true
-[10]: /powershell/dsc/reference/cli/index?view=dsc-3.0&preserve-view=true#environment-variables
+[10]: /powershell/dsc/reference/cli/extension/list?view=dsc-3.0&preserve-view=true
 [11]: ../how-to/credential-persistence.md
 [12]: ../psresourceget-release-notes.md

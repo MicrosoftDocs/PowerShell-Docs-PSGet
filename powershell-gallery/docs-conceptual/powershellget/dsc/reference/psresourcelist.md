@@ -53,14 +53,14 @@ can:
 - Report what it would install or uninstall without changing the machine.
 - Export the installed packages on the machine, grouped by repository.
 
-The resource wraps the `Get-PSResource`, `Install-PSResource`, and `Uninstall-PSResource` cmdlets.
-Packages are modules or scripts and are installed to the same locations the cmdlets use, so they
-are available to every PowerShell session for the selected scope.
+The resource wraps the `Get-InstalledPSResource`, `Install-PSResource`, and `Uninstall-PSResource`
+cmdlets. Packages are modules or scripts and are installed to the same locations the cmdlets use,
+so they are available to every PowerShell session for the selected scope.
 
 > [!NOTE]
-> This resource is installed with the **Microsoft.PowerShell.PSResourceGet** module. To use it, the
-> folder containing the module must be discoverable by DSC. For more information, see
-> [Make the resources discoverable][01].
+> This resource is installed with the **Microsoft.PowerShell.PSResourceGet** module. DSC discovers
+> it from `PSModulePath`, so you don't need to add the module folder to `PATH`. For more
+> information, see [How DSC discovers the resources][01].
 
 ## Requirements
 
@@ -214,13 +214,13 @@ The resource uses the value in two ways:
 To pin a package to an exact version for both comparison and installation, use the exact range
 syntax `[2.0.0]`. The following table shows common values.
 
-| Value            | Get and Test treat it as     | Set installs                   |
-|:-----------------|:-----------------------------|:-------------------------------|
-| _not defined_    | Any installed version        | The latest version             |
-| `2.0.0`          | `2.0.0` or newer             | Exactly `2.0.0`                |
-| `[2.0.0]`        | Exactly `2.0.0`              | Exactly `2.0.0`                |
+| Value            | Get and Test treat it as              | Set installs                    |
+|:-----------------|:--------------------------------------|:--------------------------------|
+| _not defined_    | Any installed version                 | The latest version              |
+| `2.0.0`          | `2.0.0` or newer                      | Exactly `2.0.0`                 |
+| `[2.0.0]`        | Exactly `2.0.0`                       | Exactly `2.0.0`                 |
 | `[2.0.0, 3.0.0)` | `2.0.0` up to, not including, `3.0.0` | The newest version in the range |
-| `[2.0.0, )`      | `2.0.0` or newer             | The newest version             |
+| `[2.0.0, )`      | `2.0.0` or newer                      | The newest version              |
 
 When more than one version of the package is installed, the **Get** operation returns the version
 that satisfies the range. When no installed version satisfies the range, the **Get** operation
@@ -246,7 +246,9 @@ user and requires an elevated process. The default value is `CurrentUser`.
 The **Get** operation searches both scopes and returns the scope where it found the package.
 Packages installed for the current user are found before packages installed for all users.
 
-#### resources.repositoryName
+<a id="resourcesrepositoryname"></a>
+
+#### repositoryName
 
 ```yaml
 Type       : [string, 'null']
@@ -436,10 +438,10 @@ occur when you invoke the resource through DSC.
 - [Manage PowerShell packages with Microsoft DSC][09]
 - [Install-PSResource][10]
 - [Uninstall-PSResource][11]
-- [Get-PSResource][12]
+- [Get-InstalledPSResource][12]
 
 <!-- link references -->
-[01]: ../overview.md#make-the-resources-discoverable
+[01]: ../overview.md#how-dsc-discovers-the-resources
 [02]: repository.md
 [03]: ../../how-to/credential-persistence.md
 [04]: /powershell/dsc/concepts/resources/capabilities?view=dsc-3.0&preserve-view=true
@@ -450,4 +452,4 @@ occur when you invoke the resource through DSC.
 [09]: ../overview.md
 [10]: xref:Microsoft.PowerShell.PSResourceGet.Install-PSResource
 [11]: xref:Microsoft.PowerShell.PSResourceGet.Uninstall-PSResource
-[12]: xref:Microsoft.PowerShell.PSResourceGet.Get-PSResource
+[12]: xref:Microsoft.PowerShell.PSResourceGet.Get-InstalledPSResource
