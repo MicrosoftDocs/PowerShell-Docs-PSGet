@@ -43,11 +43,11 @@ complete list of changes, see the [CHANGELOG][01] in the GitHub repository.
 
 ## Release notes
 
-### 1.3.0-preview1 - 2026-05-19
+### 1.3.0-preview2 - 2026-05-19
 
 New Features
 
-- Add `$PSContentPath` Standard Platform Paths
+- Add support for new automatic variable `$PSUserContentPath`
 - Add new parameters to `Install-PSResource` for Platform and Target Framework Moniker-aware
   installations
 
@@ -58,7 +58,7 @@ Bug fixes and improvements
 - Capture cmdlet warnings to prevent stdout contamination breaking DSC JSON parsing
 - Improved exception messages for PSGallery errors to enable better troubleshooting
 
-### 1.3.0-preview2 - 2026-09-16
+### 1.3.0-preview1 - 2026-09-16
 
 New Features
 

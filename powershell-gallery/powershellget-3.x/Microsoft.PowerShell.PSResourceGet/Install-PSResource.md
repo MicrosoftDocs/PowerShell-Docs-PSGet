@@ -47,7 +47,8 @@ Install-PSResource -RequiredResourceFile <string> [-Credential <pscredential>] [
 ```
 Install-PSResource -RequiredResource <Object> [-Credential <pscredential>] [-Scope <ScopeType>]
  [-TemporaryPath <string>] [-TrustRepository] [-Reinstall] [-Quiet] [-AcceptLicense] [-NoClobber]
- [-SkipDependencyCheck] [-AuthenticodeCheck] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
+ [-SkipDependencyCheck] [-AuthenticodeCheck] [-RuntimeIdentifier <string>]
+ [-TargetFramework <string>] [-PassThru] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -74,8 +75,8 @@ Beginning with PSResourceGet v1.3.0-preview2 adds two new features:
 
   By default, the `Install-PSResource` cmdlet now installs only the platform-specific and
   target-framework-specific components of a resource. This new behavior reduces the size of the
-  installed resource, consuming less disk space. This release also add two new parameters,
-  **RuntimeIdentifier ** and **TargetFramework**, to allow you to specify the platform and target
+  installed resource, consuming less disk space. This release also adds two new parameters,
+  **RuntimeIdentifier ** and **TargetFramework**, that allow you to specify the platform and target
   framework for the installation when needed.
 
 - Support for `$PSUserContentPath`
@@ -381,7 +382,7 @@ Accept wildcard characters: False
 Specifies the Runtime Identifier (RID) to filter platform-specific assets for. When specified, the
 command only installs the runtime assets matching this RID instead of the autodetected platform.
 You can use this for cross-platform deployment scenarios, for example, preparing a Linux package
-from Windows. The command support the following RID values from the .NET RID catalog:
+from Windows. The command supports the following RID values from the .NET RID catalog:
 
 - `linux-arm`
 - `linux-arm64`
