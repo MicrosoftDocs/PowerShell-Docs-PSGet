@@ -227,6 +227,7 @@ non-validating keywords are omitted.
   "allOf": [
     {
       "if": {
+        "required": ["_exist"],
         "properties": { "_exist": { "const": false } }
       },
       "then": { "required": ["name"] },
