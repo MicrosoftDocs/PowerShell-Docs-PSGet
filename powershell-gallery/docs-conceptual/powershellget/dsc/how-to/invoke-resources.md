@@ -2,7 +2,7 @@
 description: >-
   Learn how to invoke the Microsoft.PowerShell.PSResourceGet DSC resources one at a time with the
   dsc resource commands to inspect, test, change, and export repositories and packages.
-ms.date: 09/12/2026
+ms.date: 09/21/2026
 ms.topic: how-to
 title: Invoke the PSResourceGet DSC resources directly
 ---
@@ -10,14 +10,14 @@ title: Invoke the PSResourceGet DSC resources directly
 
 The `dsc resource` commands invoke a single DSC resource with the desired state you pass on the
 command line. Use them to inspect what's on a machine, to check whether a machine already matches
-what you want, or to make a change without writing a configuration document. This article shows
-each operation the [Repository][01] and [PSResourceList][02] resources support.
+what you want, or to make a change without writing a configuration document. This article shows each
+operation the [Repository][07] and [PSResourceList][03] resources support.
 
 ## Prerequisites
 
 - Install **Microsoft.PowerShell.PSResourceGet** 1.3.0-preview1 or later and confirm that
   `dsc resource list Microsoft.PowerShell.PSResourceGet/*` returns both resources. For more
-  information, see [How DSC discovers the resources][03].
+  information, see [How DSC discovers the resources][02].
 - Run the commands in PowerShell 7. The examples build the input JSON with hashtables and
   `ConvertTo-Json`, which keeps the quoting readable.
 
@@ -55,8 +55,8 @@ actualState:
 ```
 
 > [!NOTE]
-> The **Get** operation requires input. Running the command without `--input` or `--file` exits
-> with a non-zero code and an error that explains the `name` property is required.
+> The **Get** operation requires input. Running the command without `--input` or `--file` exits with
+> a non-zero code and an error that explains the `name` property is required.
 
 ### Register or update a repository
 
@@ -127,9 +127,8 @@ dsc resource delete --resource $type --input $instance
 
 ### Export the registered repositories
 
-The **Export** operation returns a configuration document that declares every registered
-repository. Save the output to capture the repository setup of a machine so you can apply it to
-another one.
+The **Export** operation returns a configuration document that declares every registered repository.
+Save the output to capture the repository setup of a machine so you can apply it to another one.
 
 ```powershell
 dsc resource export --resource Microsoft.PowerShell.PSResourceGet/Repository |
@@ -209,9 +208,9 @@ actualState:
 ```
 
 When a package is installed but no installed version satisfies the `version` you asked for, the
-resource returns the version it found and sets `_exist` to `false`. That tells you the package
-needs to be updated rather than installed. For more information about how the resource interprets
-`version`, see the [version][04] property.
+resource returns the version it found and sets `_exist` to `false`. That tells you the package needs
+to be updated rather than installed. For more information about how the resource interprets
+`version`, see the [version][06] property.
 
 ### Test whether packages are in the desired state
 
@@ -265,8 +264,8 @@ differingProperties: []
 Only the top-level `_inDesiredState` value is meaningful. The resource returns the property for
 every entry as well, but always as `false`. When the list isn't in the desired state, the
 `actualState` echoes the entries you defined rather than the installed packages. Use the **Get**
-operation when you need the installed versions. For more information, see the
-[_inDesiredState][08] property.
+operation when you need the installed versions. For more information, see the [_inDesiredState][04]
+property.
 
 ### Install packages
 
@@ -414,15 +413,15 @@ resources:
 ```
 
 The exported versions are bare versions. Before you apply an exported document to another machine,
-review the `version` values and decide whether to pin them with the `[<version>]` syntax or to
-relax them to a range. For more information, see the [version][04] property.
+review the `version` values and decide whether to pin them with the `[<version>]` syntax or to relax
+them to a range. For more information, see the [version][06] property.
 
 ## Troubleshoot
 
 - **DSC reports that the resource type isn't found.** DSC didn't discover the module. Confirm that
   `pwsh` is in `PATH`, that the installed version is 1.3.0-preview1 or later, and that the module is
   installed for PowerShell 7 rather than Windows PowerShell. For more information, see
-  [How DSC discovers the resources][03].
+  [How DSC discovers the resources][02].
 - **The operation exits with code 2, 3, or 4.** The **PSResourceList** resource couldn't install
   packages. The exit code identifies the cause: the repository isn't registered, the repository
   isn't trusted, or `Install-PSResource` failed. For more information, see the
@@ -433,17 +432,17 @@ relax them to a range. For more information, see the [version][04] property.
 
 ## See also
 
-- [Manage packages with a DSC configuration document][06]
-- [Manage PowerShell packages with Microsoft DSC][07]
-- [dsc resource command reference][09]
+- [Manage packages with a DSC configuration document][09]
+- [Manage PowerShell packages with Microsoft DSC][01]
+- [dsc resource command reference][08]
 
 <!-- link references -->
-[01]: ../reference/repository.md
-[02]: ../reference/psresourcelist.md
-[03]: ../overview.md#how-dsc-discovers-the-resources
-[04]: ../reference/psresourcelist.md#version
+[01]: ../overview.md
+[02]: ../overview.md#how-dsc-discovers-the-resources
+[03]: ../reference/psresourcelist.md
+[04]: ../reference/psresourcelist.md#_indesiredstate
 [05]: ../reference/psresourcelist.md#exit-codes
-[06]: configuration-documents.md
-[07]: ../overview.md
-[08]: ../reference/psresourcelist.md#_indesiredstate
-[09]: /powershell/dsc/reference/cli/resource/index?view=dsc-3.0&preserve-view=true
+[06]: ../reference/psresourcelist.md#version
+[07]: ../reference/repository.md
+[08]: /powershell/dsc/reference/cli/resource/index?view=dsc-3.0&preserve-view=true
+[09]: configuration-documents.md

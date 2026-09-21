@@ -1,6 +1,6 @@
 ---
 description: Microsoft.PowerShell.PSResourceGet/Repository DSC resource reference documentation
-ms.date: 09/12/2026
+ms.date: 09/21/2026
 ms.topic: reference
 title: Microsoft.PowerShell.PSResourceGet/Repository
 ---
@@ -42,26 +42,26 @@ The `Microsoft.PowerShell.PSResourceGet/Repository` resource enables you to idem
 the repositories that **Microsoft.PowerShell.PSResourceGet** installs packages from. The resource
 can:
 
-- Register a repository that doesn't exist.
-- Update the URI, trust setting, priority, or API type of an existing repository.
-- Unregister a repository.
-- Export every registered repository as a configuration document.
+- Register a repository that doesn't exist
+- Update the URI, trust setting, priority, or API type of an existing repository
+- Unregister a repository
+- Export every registered repository as a configuration document
 
 The resource wraps the `Get-PSResourceRepository`, `Register-PSResourceRepository`,
 `Set-PSResourceRepository`, and `Unregister-PSResourceRepository` cmdlets. It manages the same
-repository store those cmdlets use, so changes made with the resource are visible to interactive
-sessions and the other way around.
+repository store those cmdlets use, so changes made with the resource are visible to DSC and
+interactive sessions.
 
 > [!NOTE]
 > This resource is installed with the **Microsoft.PowerShell.PSResourceGet** module. DSC discovers
 > it from `PSModulePath`, so you don't need to add the module folder to `PATH`. For more
-> information, see [How DSC discovers the resources][01].
+> information, see [How DSC discovers the resources][05].
 
 ## Requirements
 
 - PowerShell 7.2 or later must be available as `pwsh` in the `PATH` environment variable.
 - **Microsoft.PowerShell.PSResourceGet** 1.3.0-preview1 or later must be installed.
-- The repository store is per user. The resource manages the repositories for the user account
+- Since repository stores are per user, the resource manages the repositories for the user account
   that runs `dsc`.
 
 ## Capabilities
@@ -76,7 +76,7 @@ The resource has the following capabilities:
 This resource uses the synthetic test functionality of DSC to determine whether an instance is in
 the desired state. DSC compares each property you define in the desired state with the value the
 resource returns from the **Get** operation. For more information about resource capabilities, see
-[DSC resource capabilities][02].
+[DSC resource capabilities][06].
 
 > [!TIP]
 > The resource returns the `uri` property in the normalized form that
@@ -88,7 +88,7 @@ resource returns from the **Get** operation. For more information about resource
 
 1. [Invoke the PSResourceGet DSC resources directly][03] - Shows how to get, set, delete, and
    export repositories with the `dsc resource` commands.
-1. [Manage packages with a DSC configuration document][04] - Shows how to register a repository
+1. [Manage packages with a DSC configuration document][02] - Shows how to register a repository
    and install packages from it in a single configuration document.
 
 ## Properties
@@ -98,16 +98,16 @@ The following list describes the properties for the resource.
 - **Required properties:** <a id="required-properties"></a> The following properties are always
   required when defining an instance of the resource.
 
-  - [name](#name) - The name of the repository.
-  - [uri](#uri) - The location of the repository. Required unless `_exist` is `false`.
+  - [name][11] - The name of the repository.
+  - [uri][15] - The location of the repository. Required unless `_exist` is `false`.
 
 - **Instance properties:** <a id="instance-properties"></a> The following properties are optional.
   They define the desired state for an instance of the resource.
 
-  - [trusted](#trusted) - Whether packages can be installed from the repository without a prompt.
-  - [priority](#priority) - The search order of the repository relative to other repositories.
-  - [repositoryType](#repositorytype) - The API type of the repository.
-  - [_exist](#_exist) - Whether the repository should be registered.
+  - [trusted][14] - Whether packages can be installed from the repository without a prompt.
+  - [priority][12] - The search order of the repository relative to other repositories.
+  - [repositoryType][13] - The API type of the repository.
+  - [_exist][07] - Whether the repository should be registered.
 
 ### name
 
@@ -134,7 +134,7 @@ Format     : uri
 
 Defines the location of the repository. The value can be an HTTPS URL, a file system path, or the
 URL of a container registry. For more information about the repository types that
-**Microsoft.PowerShell.PSResourceGet** supports, see [PSResourceGet supported repositories][05].
+**Microsoft.PowerShell.PSResourceGet** supports, see [PSResourceGet supported repositories][01].
 
 When `_exist` is `false`, this property is optional. The **Get** operation returns `null` for this
 property when the repository isn't registered.
@@ -152,7 +152,7 @@ Defines whether the repository is trusted. When a repository is trusted, `Instal
 installs packages from it without prompting for confirmation. When you register a repository with
 the resource and don't define this property, the repository is registered as untrusted.
 
-The [Microsoft.PowerShell.PSResourceGet/PSResourceList][06] resource can only install packages
+The [Microsoft.PowerShell.PSResourceGet/PSResourceList][16] resource can only install packages
 from an untrusted repository when its `trustedRepository` property is `true`.
 
 ### priority
@@ -184,16 +184,16 @@ Defines the API type of the repository. The value maps to the **ApiVersion** par
 `Register-PSResourceRepository` and `Set-PSResourceRepository`. When you don't define this
 property, **Microsoft.PowerShell.PSResourceGet** detects the API type from the URI.
 
-The following table describes the valid values.
+The **ApiVersion** property of a repository can have the following values.
 
-| Value               | Description                                                                                                        |
-|:--------------------|:-------------------------------------------------------------------------------------------------------------------|
-| `V2`                | A NuGet v2 API feed, like the PowerShell Gallery.                                                                  |
-| `V3`                | A NuGet v3 API feed.                                                                                               |
-| `Local`             | A folder on the file system or a network share.                                                                    |
-| `NugetServer`       | A NuGet.Server instance.                                                                                           |
-| `ContainerRegistry` | An OCI container registry, like Azure Container Registry or the Microsoft Artifact Registry.                       |
-| `Unknown`           | Returned by the **Get** operation when the repository isn't registered. Don't use this value in the desired state. |
+- `V2` - A NuGet v2 API feed, like the PowerShell Gallery.
+- `V3` - A NuGet v3 API feed.
+- `Local` - A folder on the file system or a network share.
+- `NugetServer` - A NuGet.Server instance.
+- `ContainerRegistry` - An OCI container registry, like Azure Container Registry or the Microsoft
+  Artifact Registry.
+- `Unknown` - Returned by the **Get** operation when the repository isn't registered. Don't use this
+  value in the desired state.
 
 ### _exist
 
@@ -251,9 +251,9 @@ non-validating keywords are omitted.
 
 The resource returns the following exit codes from operations:
 
-- [0](#exit-code-0) - Success
-- [1](#exit-code-1) - Error
-- [12](#exit-code-12) - Unknown operation
+- [0][08] - Success
+- [1][09] - Error
+- [12][10] - Unknown operation
 
 ### Exit code 0
 
@@ -276,19 +276,28 @@ occur when you invoke the resource through DSC.
 
 ## See also
 
-- [Microsoft.PowerShell.PSResourceGet/PSResourceList][06]
-- [Manage PowerShell packages with Microsoft DSC][07]
-- [Register-PSResourceRepository][08]
-- [Set-PSResourceRepository][09]
-- [PSResourceGet supported repositories][05]
+- [Microsoft.PowerShell.PSResourceGet/PSResourceList][16]
+- [Manage PowerShell packages with Microsoft DSC][04]
+- [Register-PSResourceRepository][17]
+- [Set-PSResourceRepository][18]
+- [PSResourceGet supported repositories][01]
 
 <!-- link references -->
-[01]: ../overview.md#how-dsc-discovers-the-resources
-[02]: /powershell/dsc/concepts/resources/capabilities?view=dsc-3.0&preserve-view=true
+[01]: ../../supported-repositories.md
+[02]: ../how-to/configuration-documents.md
 [03]: ../how-to/invoke-resources.md
-[04]: ../how-to/configuration-documents.md
-[05]: ../../supported-repositories.md
-[06]: psresourcelist.md
-[07]: ../overview.md
-[08]: xref:Microsoft.PowerShell.PSResourceGet.Register-PSResourceRepository
-[09]: xref:Microsoft.PowerShell.PSResourceGet.Set-PSResourceRepository
+[04]: ../overview.md
+[05]: ../overview.md#how-dsc-discovers-the-resources
+[06]: /powershell/dsc/concepts/resources/capabilities?view=dsc-3.0&preserve-view=true
+[07]: #_exist
+[08]: #exit-code-0
+[09]: #exit-code-1
+[10]: #exit-code-12
+[11]: #name
+[12]: #priority
+[13]: #repositorytype
+[14]: #trusted
+[15]: #uri
+[16]: psresourcelist.md
+[17]: xref:Microsoft.PowerShell.PSResourceGet.Register-PSResourceRepository
+[18]: xref:Microsoft.PowerShell.PSResourceGet.Set-PSResourceRepository

@@ -2,7 +2,7 @@
 description: >-
   Learn how to declare package repositories and PowerShell packages in a Microsoft DSC configuration
   document and apply, test, preview, and export it with the dsc config commands.
-ms.date: 09/12/2026
+ms.date: 09/21/2026
 ms.topic: how-to
 title: Manage packages with a DSC configuration document
 ---
@@ -11,14 +11,14 @@ title: Manage packages with a DSC configuration document
 A DSC configuration document describes the desired state of a machine as a list of resource
 instances. When you apply the document, the DSC engine invokes each resource in order, resolves
 dependencies between instances, and reports the result for the document as a whole. This article
-shows how to describe the repositories and packages a machine needs in a configuration document
-and how to work with that document using the `dsc config` commands.
+shows how to describe the repositories and packages a machine needs in a configuration document and
+how to work with that document using the `dsc config` commands.
 
 ## Prerequisites
 
 - Install **Microsoft.PowerShell.PSResourceGet** 1.3.0-preview1 or later and confirm that
   `dsc resource list Microsoft.PowerShell.PSResourceGet/*` returns both resources. For more
-  information, see [How DSC discovers the resources][01].
+  information, see [How DSC discovers the resources][02].
 - A text editor for YAML files. Visual Studio Code with the YAML extension validates the document
   against the DSC schema while you type.
 
@@ -70,20 +70,19 @@ resources:
 The document shows several patterns:
 
 - **Register before you install.** The `dependsOn` entry tells DSC to process the **Repository**
-  instance before the **PSResourceList** instance that installs from it. Without the dependency,
-  DSC processes instances in document order, which works here but isn't guaranteed if you
-  reorder the document. For more information, see
-  [Configuration document resource dependencies][02].
+  instance before the **PSResourceList** instance that installs from it. Without the dependency, DSC
+  processes instances in document order, which works here but isn't guaranteed if you reorder the
+  document. For more information, see [Configuration document resource dependencies][10].
 - **One list per repository.** Each **PSResourceList** instance manages the packages from a single
   repository. Use one instance for each repository you install from.
 - **Trust at the repository or at the list.** The Contoso repository is registered as trusted, so
   its list doesn't need `trustedRepository`. The PowerShell Gallery keeps its default untrusted
   setting, so the list that installs from it sets `trustedRepository` to `true`.
-- **Pin, range, or latest.** `PSScriptAnalyzer` is pinned to an exact version, `Pester` accepts
-  any version from 5.0.0 onward, and `Microsoft.WinGet.Client` takes the latest
-  version including prereleases. For more information, see the [version][03] property.
-- **Remove what shouldn't be there.** `Contoso.Legacy` has `_exist: false`, so DSC uninstalls it
-  if it's found.
+- **Pin, range, or latest.** `PSScriptAnalyzer` is pinned to an exact version, `Pester` accepts any
+  version from 5.0.0 onward, and `Microsoft.WinGet.Client` takes the latest version including
+  prereleases. For more information, see the [version][06] property.
+- **Remove what shouldn't be there.** `Contoso.Legacy` has `_exist: false`, so DSC uninstalls it if
+  it's found.
 
 > [!NOTE]
 > The `Pester` entry installs to the `AllUsers` scope, so `dsc` must run in an elevated process to
@@ -91,9 +90,8 @@ The document shows several patterns:
 
 ## Test the document
 
-Use `dsc config test` to compare the document with the machine without changing anything. The
-output reports the state of every instance and whether the document as a whole is in the desired
-state.
+Use `dsc config test` to compare the document with the machine without changing anything. The output
+reports the state of every instance and whether the document as a whole is in the desired state.
 
 ```powershell
 dsc config test --file ./packages.dsc.yaml
@@ -225,10 +223,10 @@ hadErrors: false
 > returns for the **Test** operation echoes the entries you defined, with default values filled in,
 > rather than the installed packages. The per-entry `_inDesiredState` value is always `false`. Use
 > `dsc config get` to see which versions are installed. For more information, see the
-> [_inDesiredState][11] property.
+> [_inDesiredState][04] property.
 
-The output is long. Convert the JSON output to objects to list only the instances that aren't in
-the desired state:
+The output is long. Convert the JSON output to objects to list only the instances that aren't in the
+desired state:
 
 ```powershell
 $result = dsc config test --file ./packages.dsc.yaml -o json | ConvertFrom-Json
@@ -412,15 +410,15 @@ that isn't in the desired state and reports the state before and after each chan
 dsc config set --file ./packages.dsc.yaml
 ```
 
-The command is idempotent. Run it again and the resources report no changes, because every
-instance is already in the desired state. Run `dsc config test` at any time to detect drift, for
-example after someone installs or removes a package interactively.
+The command is idempotent. Run it again and the resources report no changes, because every instance
+is already in the desired state. Run `dsc config test` at any time to detect drift, for example
+after someone installs or removes a package interactively.
 
 If a **PSResourceList** instance fails to install a package, DSC stops processing the document and
 reports the error. The `hadErrors` property in the output is `true`, and the `messages` property
 contains the error the resource wrote. Fix the cause and apply the document again. Packages that
 were installed before the failure stay installed and aren't reinstalled. For more information, see
-the [PSResourceList exit codes][04].
+the [PSResourceList exit codes][05].
 
 ## Capture the state of a machine
 
@@ -445,11 +443,11 @@ dsc config export --file ./export.dsc.yaml | Out-File -FilePath ./machine.dsc.ya
 Before you apply the exported document elsewhere, review it:
 
 - Remove packages that shouldn't be managed, such as modules that ship with PowerShell.
-- Decide how strict each `version` should be. The export records bare versions, which the
-  resource treats as minimum versions when it tests the machine and as exact versions when it
-  installs. Pin with `[<version>]` or widen to a range as needed.
-- Add `trustedRepository: true` to lists that install from untrusted repositories, or set
-  `trusted: true` on the corresponding **Repository** instance.
+- Decide how strict each `version` should be. The export records bare versions, which the resource
+  treats as minimum versions when it tests the machine and as exact versions when it installs. Pin
+  with `[<version>]` or widen to a range as needed.
+- Add `trustedRepository: true` to lists that install from untrusted repositories, or set `trusted:
+  true` on the corresponding **Repository** instance.
 
 ## Use parameters for values that change per machine
 
@@ -492,25 +490,25 @@ $parameters = @{
 dsc config --parameters $parameters set --file ./packages-parameterized.dsc.yaml
 ```
 
-For more information, see [DSC configuration document parameters][05].
+For more information, see [DSC configuration document parameters][09].
 
 ## See also
 
-- [Invoke the PSResourceGet DSC resources directly][06]
-- [Manage PowerShell packages with Microsoft DSC][07]
-- [Microsoft.PowerShell.PSResourceGet/Repository][08]
-- [Microsoft.PowerShell.PSResourceGet/PSResourceList][09]
-- [dsc config command reference][10]
+- [Invoke the PSResourceGet DSC resources directly][11]
+- [Manage PowerShell packages with Microsoft DSC][01]
+- [Microsoft.PowerShell.PSResourceGet/Repository][07]
+- [Microsoft.PowerShell.PSResourceGet/PSResourceList][03]
+- [dsc config command reference][08]
 
 <!-- link references -->
-[01]: ../overview.md#how-dsc-discovers-the-resources
-[02]: /powershell/dsc/reference/schemas/config/resource?view=dsc-3.0&preserve-view=true#dependson
-[03]: ../reference/psresourcelist.md#version
-[04]: ../reference/psresourcelist.md#exit-codes
-[05]: /powershell/dsc/reference/schemas/config/parameter?view=dsc-3.0&preserve-view=true
-[06]: invoke-resources.md
-[07]: ../overview.md
-[08]: ../reference/repository.md
-[09]: ../reference/psresourcelist.md
-[10]: /powershell/dsc/reference/cli/config/index?view=dsc-3.0&preserve-view=true
-[11]: ../reference/psresourcelist.md#_indesiredstate
+[01]: ../overview.md
+[02]: ../overview.md#how-dsc-discovers-the-resources
+[03]: ../reference/psresourcelist.md
+[04]: ../reference/psresourcelist.md#_indesiredstate
+[05]: ../reference/psresourcelist.md#exit-codes
+[06]: ../reference/psresourcelist.md#version
+[07]: ../reference/repository.md
+[08]: /powershell/dsc/reference/cli/config/index?view=dsc-3.0&preserve-view=true
+[09]: /powershell/dsc/reference/schemas/config/parameter?view=dsc-3.0&preserve-view=true
+[10]: /powershell/dsc/reference/schemas/config/resource?view=dsc-3.0&preserve-view=true#dependson
+[11]: invoke-resources.md
