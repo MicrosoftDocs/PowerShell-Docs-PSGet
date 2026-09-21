@@ -21,11 +21,11 @@ you use interactively, such as `Register-PSResourceRepository` and `Install-PSRe
 
 The [Microsoft.PowerShell.PSResourceGet/Repository][12] resource manages a registered package
 repository: name, URI, trust, priority, and API type. This resource supports the `get`, `set`,
-`delete`, and `export` operations. The
+`delete`, and `export` operations.
 
 The [Microsoft.PowerShell.PSResourceGet/PSResourceList][11] resource manages a list of packages that
-should, or shouldn't, be installed from one repository. This PSResourceList** resource supports the
-`get`, `set`, `test`, `export`, and `whatIf` operations.
+should, or shouldn't, be installed from one repository. This resource supports the `get`, `set`,
+`test`, `export`, and `whatIf` operations.
 
 For more information about what each operation does, see [DSC resource operations][04].
 
