@@ -21,10 +21,11 @@ can then copy to an internal repository.
 1. In the search box, search for the module or script name.
 1. Select the package you want from the results.
 1. On the package details page under **Installation Options**, select the **Manual Download** tab.
+
+   ![Screenshot of the package details page with install options.][03]
+
 1. Select **Download the raw nupkg file**. A copy of the package is copied to the download folder
    for your browser with the name `<name>.<version>.nupkg`.
-
-   ![Package display page with install options][03]
 
 A NuGet package is a ZIP archive containing information about the contents of the package. To expand
 the package, rename the `.nupkg` file to `.zip` and extract the contents to a local folder using
@@ -90,4 +91,4 @@ For the list of NuGet-specific elements, see [Using manual download to acquire a
 <!-- link references -->
 [01]: #using-manual-download-to-acquire-a-package
 [02]: https://www.powershellgallery.com
-[03]: media/manual-download/manual-download.png
+[03]: media/manual-download/manual-download.png#lightbox
