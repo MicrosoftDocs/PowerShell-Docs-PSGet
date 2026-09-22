@@ -22,7 +22,7 @@ can then copy to an internal repository.
 1. Select the package you want from the results.
 1. On the package details page under **Installation Options**, select the **Manual Download** tab.
 
-   ![[Screenshot of the package details page with install options.][04]][04]
+   ![[Screenshot of the package details page with install options.][03]][04]
 
 1. Select **Download the raw nupkg file**. A copy of the package is copied to the download folder
    for your browser with the name `<name>.<version>.nupkg`.
@@ -52,12 +52,13 @@ The steps are as follows:
 
 1. Unblock the Internet-downloaded NuGet package (`.nupkg`) file, for example using
    `Unblock-File -Path C:\Downloads\module.nupkg` cmdlet.
-1. Extract the contents of the NuGet package to a local folder.
+1. Extract the contents of the NuGet package to a local folder. The default folder name is usually
+   `<name>.<version>`.
 1. Delete the NuGet-specific elements from the folder.
-1. Rename the folder. The default folder name is usually `<name>.<version>`. The version can
-   include `-prerelease` if the module is tagged as a prerelease version. Rename the folder to just
-   the module name. For example, `azurerm.storage.5.0.4-preview` becomes `azurerm.storage`.
-1. Copy the folder to one of the folders in the `$env:PSModulePath value`. `$env:PSModulePath` is a
+1. Rename the folder to just the module name. Create a subfolder named based on the version of the
+   module.
+1. Move the contents of the extracted folder into the version-specific subfolder.
+1. Copy the folder to one of the folders in the `$env:PSModulePath` value. `$env:PSModulePath` is a
    semicolon-delimited set of paths in which PowerShell should look for modules.
 
 > [!IMPORTANT]
