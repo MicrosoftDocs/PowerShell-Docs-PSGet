@@ -22,7 +22,7 @@ can then copy to an internal repository.
 1. Select the package you want from the results.
 1. On the package details page under **Installation Options**, select the **Manual Download** tab.
 
-   ![[Screenshot of the package details page with install options.][03]][04]
+   ![Screenshot of the package details page with install options.][03]
 
 1. Select **Download the raw nupkg file**. A copy of the package is copied to the download folder
    for your browser with the name `<name>.<version>.nupkg`.
@@ -93,4 +93,3 @@ For the list of NuGet-specific elements, see [Using manual download to acquire a
 [01]: #using-manual-download-to-acquire-a-package
 [02]: https://www.powershellgallery.com
 [03]: media/manual-download/manual-download.png
-[04]: media/manual-download/manual-download.png#lightbox
