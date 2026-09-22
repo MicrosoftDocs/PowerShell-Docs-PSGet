@@ -11,6 +11,22 @@ items:
         href: how-to/use-acr-repository.md
       - name: Use the Azure Artifacts Credential Provider with Azure Artifacts feeds
         href: how-to/use-credential-provider-with-azure-artifacts.md
+  - name: Microsoft DSC resources
+    items:
+      - name: Overview
+        href: dsc/overview.md
+      - name: How to
+        items:
+          - name: Invoke the resources directly
+            href: dsc/how-to/invoke-resources.md
+          - name: Manage packages with a configuration document
+            href: dsc/how-to/configuration-documents.md
+      - name: Resource reference
+        items:
+          - name: Microsoft.PowerShell.PSResourceGet/Repository
+            href: dsc/reference/repository.md
+          - name: Microsoft.PowerShell.PSResourceGet/PSResourceList
+            href: dsc/reference/psresourcelist.md
   - name: PSResourceGet supported repositories
     href: supported-repositories.md
   - name: PSResourceGet release notes
