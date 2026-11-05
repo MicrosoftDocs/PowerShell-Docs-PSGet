@@ -16,7 +16,7 @@ Publishes a specified module from the local computer to PSResource repository.
 ### PathParameterSet
 
 ```
-Publish-PSResource [-Path] <string> [-ApiKey <string>] [-Repository <string>]
+Publish-PSResource [-Path] <string> [-ApiKey <string>] [-AllowInsecureConnection <bool>] [-Repository <string>]
  [-DestinationPath <string>] [-Credential <pscredential>] [-SkipDependenciesCheck]
  [-SkipModuleManifestValidate] [-Proxy <uri>] [-ProxyCredential <pscredential>]
  [-ModulePrefix <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -25,7 +25,7 @@ Publish-PSResource [-Path] <string> [-ApiKey <string>] [-Repository <string>]
 ### NupkgPathParameterSet
 
 ```
-Publish-PSResource -NupkgPath <string> [-ApiKey <string>] [-Repository <string>]
+Publish-PSResource -NupkgPath <string> [-ApiKey <string>] [-AllowInsecureConnection <bool>] [-Repository <string>]
  [-DestinationPath <string>] [-Credential <pscredential>] [-SkipDependenciesCheck]
  [-SkipModuleManifestValidate] [-Proxy <uri>] [-ProxyCredential <pscredential>]
  [-ModulePrefix <string>] [-WhatIf] [-Confirm] [<CommonParameters>]
@@ -82,6 +82,27 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### -AllowInsecureConnection
+ 
+Allows publishing to a NuGet repository that uses HTTP instead of HTTPS. By default, publishing
+requires an HTTPS repository URI. This parameter takes a Boolean value, so you must specify `$true`
+to enable it, for example `-AllowInsecureConnection $true`.
+ 
+Only use this parameter for repositories you trust, such as a local or internal test feed. Packages
+and credentials sent over HTTP aren't encrypted.
+ 
+```yaml
+Type: System.Boolean
+Parameter Sets: (All)
+Aliases:
+ 
+Required: False
+Position: Named
+Default value: False
+Accept pipeline input: False
+Accept wildcard characters: False
+``` 
 
 ### -Credential
 
